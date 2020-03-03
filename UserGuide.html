@@ -36,7 +36,30 @@
 <li><a href="#set-reminder">3.1.5. Set reminder</a></li>
 </ul>
 </li>
-<li><a href="#pre-trip-preparation">3.2. Pre-Trip Preparation</a></li>
+<li><a href="#pre-trip-preparation">3.2. Pre-Trip Preparation</a>
+<ul class="sectlevel3">
+<li><a href="#transportation-bookings">3.2.1. Transportation Bookings</a>
+<ul class="sectlevel4">
+<li><a href="#create-new-transportation-booking-code-addtransport-code">3.2.1.1. Create new transportation booking: <code>addtransport</code></a></li>
+<li><a href="#edit-transportation-booking-code-edittransport-code">3.2.1.2. Edit transportation booking: <code>edittransport</code></a></li>
+<li><a href="#delete-transportation-booking-code-deletetransport-code">3.2.1.3. Delete transportation booking: <code>deletetransport</code></a></li>
+</ul>
+</li>
+<li><a href="#accommodation-bookings">3.2.2. Accommodation Bookings</a>
+<ul class="sectlevel4">
+<li><a href="#create-new-accommodation-booking-code-addhotel-code">3.2.2.1. Create new accommodation booking: <code>addhotel</code></a></li>
+<li><a href="#edit-accommodation-booking-code-edithotel-code">3.2.2.2. Edit accommodation booking: <code>edithotel</code></a></li>
+<li><a href="#delete-accommodation-booking-code-deletehotel-code">3.2.2.3. Delete accommodation booking: <code>deletehotel</code></a></li>
+<li><a href="#ignore-accommodation-for-some-days-code-ignore-code">3.2.2.4. Ignore accommodation for some days: <code>ignore</code></a></li>
+</ul>
+</li>
+<li><a href="#insurance">3.2.3. Insurance</a>
+<ul class="sectlevel4">
+<li><a href="#change-insurance-status-code-insurance-code">3.2.3.1. Change insurance status: <code>insurance</code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="#strong-packing-list-strong">3.3. <strong>Packing List</strong></a>
 <ul class="sectlevel4">
 <li><a href="#add-a-preset-category-code-addpreset-code">3.3.1. Add a preset category: <code>addpreset</code></a></li>
@@ -366,20 +389,33 @@ Edits a previously existing activity to be named "Go to an aquarium"</span></p>
 <div class="sect2">
 <h3 id="pre-trip-preparation"><a class="link" href="#pre-trip-preparation">3.2. Pre-Trip Preparation</a></h3>
 <div class="paragraph">
-<p>Adds a person to the address book<br>
-Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
+<p>Allows the user to handle transportation, accommodation bookings as well as insurance when preparing for a trip.</p>
 </div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-A person can have any number of tags (including 0)
-</td>
-</tr>
-</table>
+<div class="sect3">
+<h4 id="transportation-bookings"><a class="link" href="#transportation-bookings">3.2.1. Transportation Bookings</a></h4>
+<div class="paragraph">
+<p>The following sections [3.2.1.1 to 3.2.1.3] allows the user to set and modify transportation bookings in the trip.</p>
+</div>
+<div class="sect4">
+<h5 id="create-new-transportation-booking-code-addtransport-code"><a class="link" href="#create-new-transportation-booking-code-addtransport-code">3.2.1.1. Create new transportation booking: <code>addtransport</code></a></h5>
+<div class="paragraph">
+<p>Creates a new transportation booking for the trip.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>addtransport type/TYPE departdatetime/DATE_TIME_OF_DEPARTURE arrivedatetime/DATE_TIME_OF_ARRIVAL
+         startlocation/START_LOCATION endlocation/END_LOCATION</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>DATE_TIME_OF_DEPARTURE</code> and <code>DATE_TIME_OF_ARRIVAL</code> needs to be in the format dd-MM-yyyy and the time seperated by a
+space and in 24hr format.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -387,12 +423,234 @@ A person can have any number of tags (including 0)
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code></p>
-</li>
-<li>
-<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal</code></p>
+<p><code>addtransport type/Airplane departdatetime/22-04-2021 0900 arrivedatetime/22-04-2021 1500
+   startlocation/Singapore endlocation/Japan</code><br>
+Creates an airplane booking that starts at 22 Apr 2021 0900hr and ends at 22 Apr 2021 1500hr.
+The location starting from Singapore and ending in Japan.</p>
 </li>
 </ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="edit-transportation-booking-code-edittransport-code"><a class="link" href="#edit-transportation-booking-code-edittransport-code">3.2.1.2. Edit transportation booking: <code>edittransport</code></a></h5>
+<div class="paragraph">
+<p>Edits a transportation booking for the trip.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>edittransport INDEX [type/TYPE] [departdatetime/DATE_TIME_OF_DEPARTURE] [arrivedatetime/DATE_TIME_OF_ARRIVAL]
+        [startlocation/START_LOCATION] [endlocation/END_LOCATION]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>TIME_OF_DEPARTURE</code> and <code>TIME_OF_ARRIVAL</code> needs to be in 24hr format.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edittransport 2 departtime/1200 arrivetime/1500</code><br>
+Changes the start time of the second transportation booking in the list to 1200hr and the end time to 1500hr.</p>
+</li>
+<li>
+<p><code>edittransport 4 startlocation/Malacca endlocation/KL</code><br>
+Changes the starting location of the fourth transportation booking in the list to Malacca and the ending location to KL.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="delete-transportation-booking-code-deletetransport-code"><a class="link" href="#delete-transportation-booking-code-deletetransport-code">3.2.1.3. Delete transportation booking: <code>deletetransport</code></a></h5>
+<div class="paragraph">
+<p>Deletes a transportation booking in the trip.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>deletetransport INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deletetransport 1</code><br>
+Deletes the first transport booking.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="accommodation-bookings"><a class="link" href="#accommodation-bookings">3.2.2. Accommodation Bookings</a></h4>
+<div class="paragraph">
+<p>The following sections [3.2.2.1 to 3.2.2.3] allows the user to set and modify accommodation bookings in the trip.</p>
+</div>
+<div class="sect4">
+<h5 id="create-new-accommodation-booking-code-addhotel-code"><a class="link" href="#create-new-accommodation-booking-code-addhotel-code">3.2.2.1. Create new accommodation booking: <code>addhotel</code></a></h5>
+<div class="paragraph">
+<p>Creates a new accommodation booking for the trip.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>addhotel address/ADDRESS [phone/PHONE] startday/START_DAY endday/END_DAY [remark/REMARK]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>START_DAY</code> and <code>END_DAY</code> needs to be <strong>positive integers</strong> within the number of days of the given trip.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addhotel address/JW Marriott Hotel startday/2 endday/7</code><br>
+Creates an accommodation booking on the 2nd to 7th day at JW Marriott Hotel.</p>
+</li>
+<li>
+<p><code>addhotel address/JW Marriott phone/+60 3-2715 9000 Hotel startday/2 endday/7</code><br>
+Creates an accommodation booking on the 2nd to 7th day at JW Marriott Hotel.
+Adds a phone number +60 3-2715 9000 for contact purposes.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="edit-accommodation-booking-code-edithotel-code"><a class="link" href="#edit-accommodation-booking-code-edithotel-code">3.2.2.2. Edit accommodation booking: <code>edithotel</code></a></h5>
+<div class="paragraph">
+<p>Edits an accommodation booking in the trip.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>edithotel INDEX [address/ADDRESS] [phone/PHONE] [startday/START_DAY] [endday/END_DAY] [remark/REMARK]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>START_DAY</code> and <code>END_DAY</code> needs to be <strong>positive integers</strong> within the number of days of the given trip.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edithotel 2 startday/4 endday/6</code><br>
+Changes the start day of the second accommodation booking in the list to 4th day and the end day to 6th day.</p>
+</li>
+<li>
+<p><code>edithotel 3 address/Hilton KL remark/Check-in at 2pm</code><br>
+Changes the address of the third accommodation booking in the list to Hilton KL and change the remark to Check-in at 2pm.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="delete-accommodation-booking-code-deletehotel-code"><a class="link" href="#delete-accommodation-booking-code-deletehotel-code">3.2.2.3. Delete accommodation booking: <code>deletehotel</code></a></h5>
+<div class="paragraph">
+<p>Deletes an accommodation booking in the trip.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>deletehotel INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deletehotel 2</code><br>
+Deletes the second accommodation booking.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="ignore-accommodation-for-some-days-code-ignore-code"><a class="link" href="#ignore-accommodation-for-some-days-code-ignore-code">3.2.2.4. Ignore accommodation for some days: <code>ignore</code></a></h5>
+<div class="paragraph">
+<p>Ignores the accommodation bookings for certain days in the trip.
+Would be useful if user does not want to list any accommodation booking in the given days.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>ignorehotel startday/START_DAY endday/END_DAY</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>START_DAY</code> and <code>END_DAY</code> needs to be <strong>positive integers</strong> within the number of days of the given trip.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ignorehotel startday/2 endday/3</code><br>
+Ignores any accommodation booking from day 2 to 3.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="insurance"><a class="link" href="#insurance">3.2.3. Insurance</a></h4>
+<div class="sect4">
+<h5 id="change-insurance-status-code-insurance-code"><a class="link" href="#change-insurance-status-code-insurance-code">3.2.3.1. Change insurance status: <code>insurance</code></a></h5>
+<div class="paragraph">
+<p>Changes the status of whether the insurance has been bought or not.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>insurance STATUS</code><br>
+<code>STATUS: yes, no</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>By default, insurance status will be set to no (not bought).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>insurance yes</code><br>
+Sets the insurance status to bought.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1274,4 +1532,4 @@ e.g. <code>find James Jake</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-03 06:26:48 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-03 07:25:58 UTC</div></div></div></body></html>
