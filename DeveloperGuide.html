@@ -655,12 +655,12 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="paragraph">
 <p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
 </div>
-<table class="tableblock frame-all grid-all" style="width: 59%;">
+<table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 22%;">
-<col style="width: 23%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
 <col style="width: 25%;">
-<col style="width: 30%;">
+<col style="width: 35%;">
 </colgroup>
 <thead>
 <tr>
@@ -673,39 +673,165 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">new user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">see usage instructions</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">refer to instructions when I forget how to use the App</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Forgetful user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Write down the day&#8217;s events</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Remember what happened in that day</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add a new person</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Have a diary</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Write my thoughts and feelings for that day</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete a person</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">remove entries that I no longer need</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Un-thrifty traveller</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notified if my spending goes beyond my planned levels</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adjust my budget</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">find a person by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate details of persons without having to go through the entire list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Traveller</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Get my expenses to automatically converted to SGD</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Avoid manual currency conversion</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Budget traveller</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set an individual budget for each day</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Minimise my spending</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Traveller</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See amount spent each day/trip and balance left for each day/trip</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Record my spending</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Forgetful user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Make a checklist for items to bring</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pack without forgetting anything</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Careless traveller</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set the quantity of items I need to pack</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pack without missing out anything</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lazy traveller</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add pre-set packing list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Avoid manual addition of many common items</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Traveller</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Maintain a list of accommodations</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Better plan my accommodations during the trips</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Forgetful traveller</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Keep track of my transportation booking information</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Avoid being late</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Organised traveller</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Plan my trip in terms of days</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Split my plan into suitable chunks</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Inexperienced planner</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Know what did I miss out from my travel plan</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Be reminded and plan for it</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Undisciplined individual</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Keep track of my expenses</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Avoid spending over my budget</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Organised traveller</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add activities to my daily itinerary</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Plan for my trip</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">hide <a href="#private-contact-detail">private contact details</a> by default</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">minimize chance of someone else seeing them by accident</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User concerned with privacy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Private my diary entry</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Minimize chance of someone else seeing them by accident</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User who likes pictures</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Have a photo diary</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Capture memories through pictures in a organised manner</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Careless Traveller</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Be notified if I have forgotten certain aspects of my trip</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Avoid being under prepared for my trip</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cautious Traveller</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Be notified if I miss out any dates i did not plan on accommodation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Have a place to sleep every night</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Traveller</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Be able to print itinerary</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bring it around in my travels if my battery dies</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Traveller</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Be able to undo my actions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Undo my mistakes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Traveller</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">View all the information easily</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">New User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Have a quick built-in help guide</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Get started on using the application quickly</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user with many persons in the address book</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sort persons by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate a person easily</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Non Math inclined traveller</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Get constant recommendations to my budget plan</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Avoid having to do any difficult calculations</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Command Line enthusiast</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tab autocomplete my commands</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Be more efficient</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User who likes customization</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Change my application into different colour themes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Make my application&#8217;s GUI looks better</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Have a calendar planner</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Have reference to the dates of the year</p></td>
 </tr>
 </tbody>
 </table>
@@ -958,4 +1084,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-02-27 04:37:26 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-03 03:43:51 UTC</div></div></div></body></html>

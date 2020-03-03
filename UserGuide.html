@@ -13,7 +13,29 @@
 <li><a href="#quick-start">2. Quick Start</a></li>
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
-<li><a href="#trip-planner">3.1. Trip Planner</a></li>
+<li><a href="#trip-planner">3.1. Trip Planner</a>
+<ul class="sectlevel3">
+<li><a href="#trip-list">3.1.1. Trip list</a>
+<ul class="sectlevel4">
+<li><a href="#create-new-trip">3.1.1.1. Create new trip</a></li>
+<li><a href="#edit-an-existing-trip">3.1.1.2. Edit an existing trip</a></li>
+<li><a href="#delete-and-existing-trip">3.1.1.3. Delete and existing trip</a></li>
+<li><a href="#opens-a-trip">3.1.1.4. Opens a trip</a></li>
+</ul>
+</li>
+<li><a href="#scheduler-after-opening-a-trip">3.1.2. Scheduler (after opening a trip)</a>
+<ul class="sectlevel4">
+<li><a href="#add-activity">3.1.2.1. Add activity</a></li>
+<li><a href="#edit-activity">3.1.2.2. Edit activity</a></li>
+<li><a href="#deleting-an-activity">3.1.2.3. Deleting an activity</a></li>
+<li><a href="#view-all-itinerary-code-view-code">3.1.2.4. View all itinerary: <code>view</code></a></li>
+</ul>
+</li>
+<li><a href="#navigate-to-other-tabs-within-a-trip">3.1.3. Navigate to other tabs within a trip</a></li>
+<li><a href="#check-preparation-status-code-checkstatus-code">3.1.4. Check preparation status: <code>checkstatus</code></a></li>
+<li><a href="#set-reminder">3.1.5. Set reminder</a></li>
+</ul>
+</li>
 <li><a href="#pre-trip-preparation">3.2. Pre-Trip Preparation</a></li>
 <li><a href="#packing-list">3.3. Packing List</a></li>
 <li><a href="#expense-manager">3.4. Expense Manager</a></li>
@@ -126,15 +148,186 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="sect2">
 <h3 id="trip-planner"><a class="link" href="#trip-planner">3.1. Trip Planner</a></h3>
 <div class="paragraph">
-<p>Handles the main interface</p>
+<p>The main feature of the app. Handles all trip and activity management.</p>
 </div>
 <div class="sect3">
 <h4 id="trip-list"><a class="link" href="#trip-list">3.1.1. Trip list</a></h4>
 <div class="sect4">
-<h5 id="create-new-trip-code-new-name-start-start_date-end-end_date-country-country-code"><a class="link" href="#create-new-trip-code-new-name-start-start_date-end-end_date-country-country-code">Create new trip: <code>new NAME start/START_DATE end/END_DATE country/COUNTRY</code></a></h5>
+<h5 id="create-new-trip"><a class="link" href="#create-new-trip">3.1.1.1. Create new trip</a></h5>
 <div class="paragraph">
-<p>Format: <code>help</code></p>
+<p>Format: <code>new NAME start/START_DATE end/END_DATE country/COUNTRY</code></p>
 </div>
+<div class="paragraph">
+<p><span class="small">Example:<br>
+ <code>new Graduation Trip start/28-09-2020 end/28-10-2020 country/Japan</code><br>
+ Creates a new graduation trip starting from 28 September 2020 to 28 October 2020 in the country Japn</span></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>start and end date must be a valid date</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="edit-an-existing-trip"><a class="link" href="#edit-an-existing-trip">3.1.1.2. Edit an existing trip</a></h5>
+<div class="paragraph">
+<p>Format: <code>edit INDEX [name/NAME] [start/START_DATE] [end/END_DATE][country/COUNTRY]</code></p>
+</div>
+<div class="paragraph">
+<p><span class="small">Example:<br>
+ <code>edit 1 name/not a graduation trip country/Singapore</code><br>
+ edits the trip 1, changing the name into "not a graduation trip" in the country singapore</span></p>
+</div>
+<div class="paragraph">
+<p><span class="small">Expected output:<br>
+<code>Trip 1 has been edited</code></span></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="delete-and-existing-trip"><a class="link" href="#delete-and-existing-trip">3.1.1.3. Delete and existing trip</a></h5>
+<div class="paragraph">
+<p>Format: <code>delete INDEX</code></p>
+</div>
+<div class="paragraph">
+<p><span class="small">Example:<br>
+<code>delete 1</code></span></p>
+</div>
+<div class="paragraph">
+<p><span class="small">Expected output:<br>
+<code>Trip 1 has been deleted</code></span></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="opens-a-trip"><a class="link" href="#opens-a-trip">3.1.1.4. Opens a trip</a></h5>
+<div class="paragraph">
+<p>Format: <code>open INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Open the trip fir editing and viewing</p>
+</div>
+<div class="paragraph">
+<p><span class="small">Example:<br>
+ <code>open 1</code><br>
+ Opens the trip 1</span></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Index must correspond to a existing trip</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="scheduler-after-opening-a-trip"><a class="link" href="#scheduler-after-opening-a-trip">3.1.2. Scheduler (after opening a trip)</a></h4>
+<div class="paragraph">
+<p>Allow users to manage the activities in the trip</p>
+</div>
+<div class="sect4">
+<h5 id="add-activity"><a class="link" href="#add-activity">3.1.2.1. Add activity</a></h5>
+<div class="paragraph">
+<p>Format: <code>addactivity DAY name/NAME starttime/START_TIME endtime/END_TIME location/LOCATION</code></p>
+</div>
+<div class="paragraph">
+<p>Adds an activity to the specific day indicated.</p>
+</div>
+<div class="paragraph">
+<p><span class="small">Example:<br>
+ <code>addactivity 1 name/Going to the beach starttime/4 endtime/5 location/Hakone</code><br>
+ Adds an activity to day 1 named "Going to the beach" which starts from 4 and ends at 5. Location of this activity is Hakone.</span></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Day cannot exceed the end date</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="edit-activity"><a class="link" href="#edit-activity">3.1.2.2. Edit activity</a></h5>
+<div class="paragraph">
+<p>Format: <code>editactivity DAY [name/NAME] [starttime/START_TIME] [endtime/END_TIME] [location/LOCATION]</code></p>
+</div>
+<div class="paragraph">
+<p>Edits the activity that is being set previously</p>
+</div>
+<div class="paragraph">
+<p><span class="small">Example:<br>
+<code>editactivity 1 name/Go to an aquarium</code><br>
+Edits a previously existing activity to be named "Go to an aquarium"</span></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The activity must exist to be edited</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="deleting-an-activity"><a class="link" href="#deleting-an-activity">3.1.2.3. Deleting an activity</a></h5>
+<div class="paragraph">
+<p>Format: <code>deleteactivity DAY</code></p>
+</div>
+<div class="paragraph">
+<p><span class="small">Example:<br>
+<code>deleteactivity 1</code></span></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="view-all-itinerary-code-view-code"><a class="link" href="#view-all-itinerary-code-view-code">3.1.2.4. View all itinerary: <code>view</code></a></h5>
+<div class="paragraph">
+<p>Shows the entire itinerary</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="navigate-to-other-tabs-within-a-trip"><a class="link" href="#navigate-to-other-tabs-within-a-trip">3.1.3. Navigate to other tabs within a trip</a></h4>
+<div class="paragraph">
+<p>Format: <code>goto TABNAME</code></p>
+</div>
+<div class="paragraph">
+<p><span class="small">TABNAME: <code>schedule</code> <code>pretrip</code> <code>packlist</code> <code>expense</code> <code>diary</code></span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="check-preparation-status-code-checkstatus-code"><a class="link" href="#check-preparation-status-code-checkstatus-code">3.1.4. Check preparation status: <code>checkstatus</code></a></h4>
+<div class="paragraph">
+<p>Shows how prepared the user is for the trip</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="set-reminder"><a class="link" href="#set-reminder">3.1.5. Set reminder</a></h4>
+<div class="paragraph">
+<p>Reminds the user to do something at the time</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>setreminder event/NAME at/time</code></p>
+</div>
+<div class="paragraph">
+<p><span class="small">Example:<br>
+ <code>setreminder event/Book tickets at/4</code><br>
+ Sets an reminder named "Book tickets" at 4pm.</span></p>
 </div>
 </div>
 </div>
@@ -372,4 +565,4 @@ e.g. <code>find James Jake</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-02-27 04:37:26 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-03 03:43:51 UTC</div></div></div></body></html>
