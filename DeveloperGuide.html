@@ -890,19 +890,18 @@ Guarantees:
     - A new trip will be added to the trip list upon successful command.
 
 MSS:
-    1. User request to create a new trip.
-    2. E.T. shows the list of trips.
-    3. User adds a trip to the list.
-    4. E.T. shows the updated list of trips.
+    1. User adds a new trip to the list.
+    2. System adds trip to the list of trips.
+    3. System shows the updated list of trips.
 Use case ends.
 
 Extensions:
     2a. The trip list is empty.
-        2a1. E.T shows an empty page.
+        2a1. System shows an empty page.
         Use case resumes at step 3.
 
     3a. Incomplete details are given.
-        3a1. E.T shows an error message.
+        3a1. System shows an error message.
         Use case resumes at step 3.
 
 UC02: Check trip readiness
@@ -916,7 +915,7 @@ Guarantees:
 
 MSS:
     1. User request for a preparation check
-    2. E.T. shows the list of things that needs to be completed
+    2. System shows the list of things that needs to be completed
 Use case ends.</pre>
 </div>
 </div>
@@ -935,19 +934,19 @@ Guarantees:
 MSS:
     1. User requests to create a new trip.
     2. User navigates to the packing list tab.
-    3. E.T. shows the packing list.
+    3. System shows the packing list.
     4. User adds an item to the packing list.
-    5. E.T. shows the updated packing list.
+    5. System shows the updated packing list.
 Use case ends.
 
 
 Extensions:
     3a. The packing list is empty.
-        3a1. E.T. shows an empty list.
+        3a1. System shows an empty list.
         Use case resumes at step 4.
 
     4a. Incomplete details are given.
-        4a1. E.T. shows an error message.
+        4a1. System shows an error message.
         Use case resumes at step 4.</pre>
 </div>
 </div>
@@ -997,21 +996,21 @@ Guarantees:
 MSS:
     1. User requests to create a new expense entry.
     2. User navigates to the expense manager tab.
-    3. E.T. shows existing expenses for the current trip.
+    3. System shows existing expenses for the current trip.
     4. User adds a new expense for the current trip.
-    5. E.T. shows the updated expenses for the trip.
+    5. System shows the updated expenses for the trip.
 Use case ends.
 
 Extensions:
     3a. The expense is empty
-        3a1. E.T. shows an empty page.
+        3a1. System shows an empty page.
         Use case resumes at step 4.
 
     4a. Incomplete details are given.
-        4a1. E.T. shows an error message.
+        4a1. System shows an error message.
         Use case resumes at step 4.
     4b. Expenses are entered by the user in the foreign country’s currency when the conversion rate is not set.
-        4b1. E.T. shows an error message.
+        4b1. System shows an error message.
         Use Case resumes at step 4.</pre>
 </div>
 </div>
@@ -1030,17 +1029,17 @@ Guarantees:
 MSS:
     1. User requests to create a new accommodation booking.
     2. User navigates to the pre-trip tab.
-    3. E.T. shows the existing list of accommodations for the current trip.
+    3. System shows the existing list of accommodations for the current trip.
     4. User adds a new accommodation booking for the current trip.
-    5. E.T. shows an updated list of accommodations.
+    5. System shows an updated list of accommodations.
 Use case ends
 
 Extensions:
     3a. The is no accommodation booking
-	    3a1. E.T show an empty list
+	    3a1. System show an empty list
 	    Use case resumes at step 4
     4a. Incomplete details are given.
-        4a1. E.T shows an error message.
+        4a1. System shows an error message.
         Use case resumes at step 4.</pre>
 </div>
 </div>
@@ -1271,4 +1270,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-03 13:37:52 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-06 09:34:40 UTC</div></div></div></body></html>
