@@ -24,10 +24,11 @@
 <ul class="sectlevel2">
 <li><a href="#check-status">3.1. Check Status</a></li>
 <li><a href="#schedule-feature">3.2. Schedule feature</a></li>
-<li><a href="#proposed-undo-redo-feature">3.3. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.5. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.6. Configuration</a></li>
+<li><a href="#transport-booking-feature">3.3. Transport Booking feature</a></li>
+<li><a href="#proposed-undo-redo-feature">3.4. [Proposed] Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">3.5. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.6. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.7. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -545,9 +546,60 @@ and be added into the schedule.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.3. [Proposed] Undo/Redo feature</a></h3>
+<h3 id="transport-booking-feature"><a class="link" href="#transport-booking-feature">3.3. Transport Booking feature</a></h3>
+<div class="paragraph">
+<p>E.T. allows the user to add a transport booking. This is done using the schedule command which requires the user to specify the mode, start location, end location, start time and end time.</p>
+</div>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.3.1. Proposed Implementation</a></h4>
+<h4 id="rationale-3"><a class="link" href="#rationale-3">3.3.1. Rationale</a></h4>
+<div class="paragraph">
+<p>The transport booking feature is an important feature that allows the user to track the list of bookings that they have done before going leaving.
+This feature also allows the user to schedule their activities while taking the scheduled transport bookings into consideration.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.3.2. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The keywords from the command given by the user is parsed using <code>AddTransportBookingCommandParser</code> which converts the string variable <code>mode</code> into a <code>Mode</code> object, <code>start location</code> and <code>end location</code> into a <code>Location</code> objects, as well as <code>start time</code> and <code>end time</code> into <code>Time</code> objects.
+These objects are used to create the <code>AddTransportBookingCommand</code> object that will execute to create a transport booking.</p>
+</div>
+<div class="paragraph">
+<p>The sequence diagram below shows the creation of the <code>ScheduleActivityCommand</code> object:</p>
+</div>
+<div class="paragraph">
+<p>After the creation of the <code>ScheduleActivityCommand</code> object, the <code>LogicManager</code> will proceed to call the <code>execute()</code> method of <code>ScheduleActivityCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following steps describes the execution of the <code>ScheduleActivityCommand</code>:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>Model</code> retrieves the list of activities from the <code>UniqueList</code> that stores <code>Activity</code> objects.</p>
+</li>
+<li>
+<p>The <code>activityIndex</code> is used to obtain the target <code>Activity</code> from the activity list.</p>
+</li>
+<li>
+<p>The <code>Activity</code> object, <code>dayIndex</code> and <code>startTime</code> is passed into the <code>scheduleActivity()</code> method of <code>Model</code>.</p>
+</li>
+<li>
+<p><code>Activity</code> is converted to a <code>Schedulee</code> object using the <code>startTime</code> from the <code>ScheduleActivityCommand</code>, the <code>title</code> and <code>duration</code> from the target <code>Activity</code>.</p>
+</li>
+<li>
+<p>The <code>Schedulee</code> object is added to the target day&#8217;s <code>DaySchedule</code>.</p>
+</li>
+<li>
+<p>The list of <code>Schedulee</code> is sorted according to the <code>startTime</code>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.4. [Proposed] Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.4.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
 It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
@@ -689,7 +741,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.4.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -759,20 +811,20 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.5. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.5. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.6. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.6, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.7, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -803,7 +855,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.6. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.7. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1485,4 +1537,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-22 11:46:32 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-22 12:00:37 UTC</div></div></div></body></html>
