@@ -75,33 +75,23 @@
 <li><a href="#export-the-packing-list-as-a-txt-file-code-export-code-coming-in-v2-0">3.3.11. Export the packing list as a txt file: <code>export</code> [coming in v2.0]</a></li>
 </ul>
 </li>
-<li><a href="#expense-manager">3.4. Expense Manager</a>
+<li><a href="#fixed-expense-manager">3.4. Fixed Expense Manager</a>
 <ul class="sectlevel3">
-<li><a href="#modifying-budgets-for-a-whole-trip">3.4.1. Modifying budgets for a whole trip</a>
+<li><a href="#modifying-expenses">3.4.1. Modifying expenses</a>
 <ul class="sectlevel4">
-<li><a href="#add-new-budget-for-a-whole-trip-code-addbudget-code">3.4.1.1. Add new budget for a whole trip: <code>addbudget</code></a></li>
-<li><a href="#edit-budget-for-a-whole-trip-code-editbudget-code">3.4.1.2. Edit Budget for a whole trip: <code>editbudget</code></a></li>
-<li><a href="#delete-budget-for-a-whole-trip-code-deletebudget-code">3.4.1.3. Delete budget for a whole trip: <code>deletebudget</code></a></li>
+<li><a href="#adding-a-new-fixed-expense-code-addexpense-code">3.4.1.1. Adding a new fixed expense: <code>addexpense</code></a></li>
+<li><a href="#editing-a-fixed-expense-code-editexpense-code">3.4.1.2. Editing a fixed expense: <code>editexpense</code></a></li>
+<li><a href="#deleting-a-fixed-expense-code-deleteexpense-code">3.4.1.3. Deleting a fixed expense: <code>deleteexpense</code></a></li>
+<li><a href="#clearing-a-fixed-expense-code-clearexpense-code">3.4.1.4. Clearing a fixed expense: <code>clearexpense</code></a></li>
 </ul>
 </li>
-<li><a href="#setting-and-modifying-budgets-for-a-single-day">3.4.2. Setting and modifying budgets for a single day.</a>
+<li><a href="#setting-conversion-rates-code-conversion-code">3.4.2. Setting conversion rates: <code>conversion</code></a>
 <ul class="sectlevel4">
-<li><a href="#add-new-budget-for-a-day-code-addbudgetday-code">3.4.2.1. Add new Budget for a day: <code>addbudgetday</code></a></li>
-<li><a href="#edit-new-budget-for-a-day-code-editbudgetday-code">3.4.2.2. Edit new Budget for a day: <code>editbudgetday</code></a></li>
-<li><a href="#delete-budget-for-a-single-day-code-deletebudgetday-code">3.4.2.3. Delete budget for a single day: <code>deletebudgetday</code></a></li>
+<li><a href="#sort-fixed-expenses-according-to-amount-spent-code-sortexpense-code">3.4.2.1. Sort fixed expenses according to amount spent: <code>sortexpense</code></a></li>
 </ul>
 </li>
-<li><a href="#setting-conversion-rates-code-conversion-code">3.4.3. Setting conversion rates: <code>conversion</code></a></li>
-<li><a href="#modifying-expenses">3.4.4. Modifying expenses</a>
-<ul class="sectlevel4">
-<li><a href="#adding-a-new-expense-code-addexpense-code">3.4.4.1. Adding a new expense: <code>addexpense</code></a></li>
-<li><a href="#editing-an-expense-code-editexpense-code">3.4.4.2. Editing an expense: <code>editexpense</code></a></li>
-<li><a href="#deleting-an-expense-code-deleteexpense-code">3.4.4.3. Deleting an expense: <code>deleteexpense</code></a></li>
-<li><a href="#listing-down-expenses-for-a-day-code-list-code">3.4.4.4. Listing down expenses for a day: <code>list</code></a></li>
-</ul>
-</li>
-<li><a href="#recommend-ways-to-save-money-based-on-prevailing-usage-coming-in-v2-0">3.4.5. Recommend ways to save money based on prevailing usage [Coming in v2.0]</a></li>
-<li><a href="#automatically-keep-track-of-expenses-coming-in-v2-0">3.4.6. Automatically keep track of expenses [Coming in v2.0]</a></li>
+<li><a href="#recommend-ways-to-save-money-based-on-prevailing-usage-coming-in-v2-0">3.4.3. Recommend ways to save money based on prevailing usage [Coming in v2.0]</a></li>
+<li><a href="#automatically-keep-track-of-expenses-coming-in-v2-0">3.4.4. Automatically keep track of expenses [Coming in v2.0]</a></li>
 </ul>
 </li>
 <li><a href="#memory">3.5. Memory</a>
@@ -1059,38 +1049,68 @@ Creates a packing list based on the information provided. Since the trip is 7 da
 </div>
 </div>
 <div class="sect2">
-<h3 id="expense-manager"><a class="link" href="#expense-manager">3.4. Expense Manager</a></h3>
+<h3 id="fixed-expense-manager"><a class="link" href="#fixed-expense-manager">3.4. Fixed Expense Manager</a></h3>
 <div class="paragraph">
-<p>Allow the user to set their budget and track their expenses during their trip.</p>
-</div>
-<div class="sect3">
-<h4 id="modifying-budgets-for-a-whole-trip"><a class="link" href="#modifying-budgets-for-a-whole-trip">3.4.1. Modifying budgets for a whole trip</a></h4>
-<div class="paragraph">
-<p>The following sections [3.4.1.1 - 3.4.1.3] allows the user to set and modify budgets for a whole trip.</p>
-</div>
-<div class="sect4">
-<h5 id="add-new-budget-for-a-whole-trip-code-addbudget-code"><a class="link" href="#add-new-budget-for-a-whole-trip-code-addbudget-code">3.4.1.1. Add new budget for a whole trip: <code>addbudget</code></a></h5>
-<div class="paragraph">
-<p>Add a new budget for the whole trip.</p>
+<p>Allow the user to set fixed expenses prior to the trip to allow users to plan a suitable budget for their upcoming trip.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>addbudget amount/AMOUNT [notify/NOTIFYAMOUNT]</code></p>
+<p>Examples of Fixed Expenses include,</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Adds a new budget for a trip.</p>
+<p>Flight Tickets</p>
 </li>
 <li>
-<p>Users will be able to set a notification whenever they reach a pre-determined budget. This would be set under <code>notify/NOTIFYAMOUNT</code>.</p>
+<p>Hotel Accommodation Bookings</p>
 </li>
 <li>
-<p>The value of <code>NOTIFYAMOUNT</code> must be equal to or lesser than <code>AMOUNT</code>.</p>
+<p>Transportation Tickets</p>
 </li>
 <li>
-<p>Both <code>AMOUNT</code> and <code>NOTIFYAMOUNT</code> <strong>must be a positive integer</strong> 1,2,3&#8230;&#8203;</p>
+<p>Cost of admission tickets</p>
+</li>
+<li>
+<p>Or any other fixed miscellaneous costs</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="modifying-expenses"><a class="link" href="#modifying-expenses">3.4.1. Modifying expenses</a></h4>
+<div class="paragraph">
+<p>The following sections [3.4.4.1 - 3.4.4.4] allows a user to set and modify fixed expenses prior to the trip.</p>
+</div>
+<div class="sect4">
+<h5 id="adding-a-new-fixed-expense-code-addexpense-code"><a class="link" href="#adding-a-new-fixed-expense-code-addexpense-code">3.4.1.1. Adding a new fixed expense: <code>addexpense</code></a></h5>
+<div class="paragraph">
+<p>Allow the user to add a new expense.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>addexpense amount/AMOUNT description/DESCRIPTION category/CATEGORY
+[amountSGD/AMOUNT/SGD] [amountOTHR/AMOUNTOTHR]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Adds a new fixed expense for the upcoming trip.</p>
+</li>
+<li>
+<p>The amount <strong>must be a positive integer</strong></p>
+</li>
+<li>
+<p>Both the <code>Description</code> and <code>Category</code> <strong>must be alphanumeric word</strong> and contains 50 and 30 characters respectively.</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>If the user enters the expense in other currency, the amount will be automatically converted to SGD using the <strong>exchange rate</strong> provided.</p>
 </li>
 </ul>
 </div>
@@ -1102,51 +1122,44 @@ Creates a packing list based on the information provided. Since the trip is 7 da
 <div class="ulist">
 <ul>
 <li>
-<p><code>addbudget amount/2000</code><br>
-Adds a budget of $2000 to the trip.</p>
+<p><code>addexpense amount/1100 description/SQ Tickets category/Flights</code><br>
+Adds a fixed expense of $1100SGD, for <code>SQ Tickets</code> of category <code>Flights</code>.</p>
 </li>
 <li>
-<p><code>addbudget amount/2000 notify/1800</code><br>
-Adds a budget of $2000 to the trip, and will notify the user when their expenses is at $1800.</p>
+<p><code>addexpense amount/300 description/Bullet Train category/Transportation</code><br>
+Adds a fixed expense of $300SGD for <code>Bullet Train</code> of category <code>Transportation</code>.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect4">
-<h5 id="edit-budget-for-a-whole-trip-code-editbudget-code"><a class="link" href="#edit-budget-for-a-whole-trip-code-editbudget-code">3.4.1.2. Edit Budget for a whole trip: <code>editbudget</code></a></h5>
+<h5 id="editing-a-fixed-expense-code-editexpense-code"><a class="link" href="#editing-a-fixed-expense-code-editexpense-code">3.4.1.2. Editing a fixed expense: <code>editexpense</code></a></h5>
 <div class="paragraph">
-<p>Edit current budget set for the whole trip.</p>
+<p>Allow the user to edit a fixed expense. The expense must have been already added to the fixed expense tracker.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>editbudget amount/AMOUNT [notify/NOTIFYAMOUNT]</code></p>
+<p>Format: <code>editexpense INDEX amount/AMOUNT [description/DESCRIPTION] [category/CATEGORY] [amountSGD/AMOUNTSGD] [amountOTHR/AMOUNTOTHR]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the current budget in place.</p>
+<p>Edits the expense at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed fixed expense
+list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 <li>
-<p>Command can only be used if a budget has been added.</p>
+<p>At least one of the optional fields must be provided.</p>
 </li>
 <li>
 <p>Existing values will be updated to the input values.</p>
 </li>
 <li>
-<p>When editing the budget without specifying an notification amount, the current notification will be removed.</p>
+<p>An <strong>exchange rate</strong> is required if the user is entering the amount in another currency.</p>
 </li>
 <li>
-<p>Any budgets set for specific day will be removed along with their notifications.</p>
-</li>
-<li>
-<p>Users will be able to set a notification whenever they reach a pre-determined budget. This would be set under <code>notify/NOTIFYAMOUNT</code>.</p>
-</li>
-<li>
-<p>The value of <code>NOTIFYAMOUNT</code> must be equal to or lesser than <code>AMOUNT</code>.</p>
-</li>
-<li>
-<p>Both <code>AMOUNT</code> and <code>NOTIFYAMOUNT</code> <strong>must be a positive integer</strong> 1,2,3&#8230;&#8203;</p>
+<p>If the user enters the expense in other currency,
+the amount will be automatically converted to SGD using the <strong>exchange rate</strong> provided.</p>
 </li>
 </ul>
 </div>
@@ -1158,199 +1171,49 @@ Adds a budget of $2000 to the trip, and will notify the user when their expenses
 <div class="ulist">
 <ul>
 <li>
-<p><code>editbudget amount/3000</code><br>
-Edits the current budget of the trip to $3000 and resets the notified amount [if any].</p>
+<p><code>editexpense 1 amount/3000 description/Cathay Pacific Flight</code><br>
+Edit the details and amount paid in SGD of the 1st fixed expense to be <code>Cathay Pacific Flight</code> and <code>$3000 SGD</code> respectively.</p>
 </li>
 <li>
-<p><code>editbudget amount/5000 notify/4500</code><br>
-Edits the current budget of the trip to $5000 to the trip, and will notify the user when their expenses is at $4500.</p>
+<p><code>editexpense 1 amountOTHR/3000 description/Business Class Flight category/Flight Ticket</code><br>
+Edit the details and amount paid in other currency of the 1st fixed expense to be
+<code>Business Class Flight</code> and <code>$3000</code> respectively.
+The amount will be automatically converted to SGD using <strong>exchange rate</strong> provided.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect4">
-<h5 id="delete-budget-for-a-whole-trip-code-deletebudget-code"><a class="link" href="#delete-budget-for-a-whole-trip-code-deletebudget-code">3.4.1.3. Delete budget for a whole trip: <code>deletebudget</code></a></h5>
+<h5 id="deleting-a-fixed-expense-code-deleteexpense-code"><a class="link" href="#deleting-a-fixed-expense-code-deleteexpense-code">3.4.1.3. Deleting a fixed expense: <code>deleteexpense</code></a></h5>
 <div class="paragraph">
-<p>Removes budget set for a whole trip.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>deletebudget</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Removes any budget which has been set.</p>
-</li>
-<li>
-<p>Command can only be used if a budget has been added.</p>
-</li>
-<li>
-<p>Any existing budgets, set for a specific day will be removed as well.</p>
-</li>
-</ul>
-</div>
-</div>
+<p>Allow the user to delete a fixed expense. The expense must be already added to the fixed expense list.</p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Format: <code>deleteexpense INDEX</code></p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>deletebudget</code><br>
-Deletes any budgets which has been set for the trip.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>Examples:
+* deleteexpense 1<br>
+Delete the 1st item in the fixed expense list.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="clearing-a-fixed-expense-code-clearexpense-code"><a class="link" href="#clearing-a-fixed-expense-code-clearexpense-code">3.4.1.4. Clearing a fixed expense: <code>clearexpense</code></a></h5>
+<div class="paragraph">
+<p>Allow the user to clear the fixed expense in the list.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>clearexpense INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Example:
+* clearexpense<br>
+Clears the fixed expense in the list</p>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="setting-and-modifying-budgets-for-a-single-day"><a class="link" href="#setting-and-modifying-budgets-for-a-single-day">3.4.2. Setting and modifying budgets for a single day.</a></h4>
-<div class="paragraph">
-<p>The following sections [3.4.2.1 to 3.4.2.3] allows a user to set and modify budgets for a single day of the trip.</p>
-</div>
-<div class="sect4">
-<h5 id="add-new-budget-for-a-day-code-addbudgetday-code"><a class="link" href="#add-new-budget-for-a-day-code-addbudgetday-code">3.4.2.1. Add new Budget for a day: <code>addbudgetday</code></a></h5>
-<div class="paragraph">
-<p>Allow the user to add a budget for a specific day of the trip.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>addbudgetday  DAY amount/AMOUNT [notify/NOTIFYAMOUNT]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Adds a new budget for a single day of the trip at the specified <code>DAY</code>.</p>
-</li>
-<li>
-<p>The <code>DAY</code> selected by the user must not be longer than the length of the trip.</p>
-</li>
-<li>
-<p>Both <code>AMOUNT</code> and `NOTIFYAMOUNT`specified by the user must be equal to or below the budget set for the whole trip.</p>
-</li>
-<li>
-<p>The value of <code>NOTIFYAMOUNT</code> must be equal to or lesser than <code>AMOUNT</code>.</p>
-</li>
-<li>
-<p>Users will be able to set a notification whenever they reach a pre-determined budget. This would be set under <code>notify/NOTIFYAMOUNT</code>.</p>
-</li>
-<li>
-<p>Both <code>AMOUNT</code> and <code>NOTIFYAMOUNT</code> <strong>must be a positive integer</strong> 1,2,3&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>addbudgetday 1 amount/3000</code><br>
-Adds a budget for the 1st day of the trip at $3000</p>
-</li>
-<li>
-<p><code>addbudgetday 1 amount/5000 notify/4500</code><br>
-Adds a budget for the 1st day of the trip at $5000 and will notify the user when their expenses on <code>DAY</code> 1 is at $4500.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="edit-new-budget-for-a-day-code-editbudgetday-code"><a class="link" href="#edit-new-budget-for-a-day-code-editbudgetday-code">3.4.2.2. Edit new Budget for a day: <code>editbudgetday</code></a></h5>
-<div class="paragraph">
-<p>Allow the user to edit a budget for a specific day of the trip.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>editbudgetday DAY amount/AMOUNT [notify/NOTIFYAMOUNT]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Edits the current budget for a specific <code>DAY</code>. There must be a budget already added for that day.</p>
-</li>
-<li>
-<p>The <code>DAY</code> selected by the user must not be longer than the length of the trip.</p>
-</li>
-<li>
-<p>Existing values will be updated to the input values.</p>
-</li>
-<li>
-<p>When editing the budget without specifying an notification amount, the current notification will be removed.</p>
-</li>
-<li>
-<p>The value of <code>NOTIFYAMOUNT</code> must be equal to or lesser than <code>AMOUNT</code>.</p>
-</li>
-<li>
-<p>Users will be able to set a notification whenever they reach a pre-determined budget. This would be set under <code>notify/NOTIFYAMOUNT</code>.</p>
-</li>
-<li>
-<p>Both <code>AMOUNT</code> and <code>NOTIFYAMOUNT</code> <strong>must be a positive integer</strong> 1,2,3&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>editbudgetday 1 amount/3000</code><br>
-Edits the current budget for the 1st day of the trip to $3000 and resets the notified amount [if any]</p>
-</li>
-<li>
-<p><code>editbudgetday 1 amount/5000 notify/4500</code><br>
-Edits the current budget for the 1st day of the trip to $5000, and will notify the user when their expenses is at $4500.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="delete-budget-for-a-single-day-code-deletebudgetday-code"><a class="link" href="#delete-budget-for-a-single-day-code-deletebudgetday-code">3.4.2.3. Delete budget for a single day: <code>deletebudgetday</code></a></h5>
-<div class="paragraph">
-<p>Allow the user to delete a budget set for a specific day of the trip.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>deletebudgetday DAY</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Removes any budget which has been set for the Day specified by the user.</p>
-</li>
-<li>
-<p>Command can only be used if a budget has been set for the day.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>deletebudgetday 1</code><br>
-Deletes the budget set for the 1st day of the trip.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="setting-conversion-rates-code-conversion-code"><a class="link" href="#setting-conversion-rates-code-conversion-code">3.4.3. Setting conversion rates: <code>conversion</code></a></h4>
+<h4 id="setting-conversion-rates-code-conversion-code"><a class="link" href="#setting-conversion-rates-code-conversion-code">3.4.2. Setting conversion rates: <code>conversion</code></a></h4>
 <div class="paragraph">
 <p>Allow the user to set conversion rates to allow for automatic conversion to SGD for any expenses incurred during the trip.</p>
 </div>
@@ -1374,32 +1237,30 @@ Deletes the budget set for the 1st day of the trip.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="sect3">
-<h4 id="modifying-expenses"><a class="link" href="#modifying-expenses">3.4.4. Modifying expenses</a></h4>
-<div class="paragraph">
-<p>The following sections [3.4.4.1 - 3.4.4.4] allows a user to set and modify expenses incurred during the trip.</p>
-</div>
 <div class="sect4">
-<h5 id="adding-a-new-expense-code-addexpense-code"><a class="link" href="#adding-a-new-expense-code-addexpense-code">3.4.4.1. Adding a new expense: <code>addexpense</code></a></h5>
+<h5 id="sort-fixed-expenses-according-to-amount-spent-code-sortexpense-code"><a class="link" href="#sort-fixed-expenses-according-to-amount-spent-code-sortexpense-code">3.4.2.1. Sort fixed expenses according to amount spent: <code>sortexpense</code></a></h5>
 <div class="paragraph">
-<p>Allow the user to add a new expense.</p>
+<p>Allow the user to sort their fixed expense in the list.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>addexpense DAY detail/DETAIL [amountSGD/AMOUNTSGD] [amoungOTHR/AMOUNTOTHR]</code></p>
+<p>Format: <code>sortexpense SORTIDENTIFIER [AMOUNT] [DESCRIPTION] [CATEGORY]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Adds a new expense on specified <code>DAY</code>. The day refers to a specific day of the trip. The day <strong>must be a positive integer</strong> and be <strong>lesser than the total number of days of the trip</strong>.</p>
+<p>Sorts all fixed expense in ascending or descending order dependent on <code>SORTIDENTIFIER</code>.</p>
 </li>
 <li>
-<p>At least one of the optional fields must be provided.</p>
+<p>The list will be sorted in ascending order if <code>SORTIDENTIFIER</code> is 0 and descending order if <code>SORTIDENTIFIER</code> is 1.</p>
 </li>
 <li>
-<p>If the user enters the expense in other currency, the amount will be automatically converted to SGD using the <strong>exchange rate</strong> provided.</p>
+<p>Only one of the optional fields [AMOUNT] [DESCRIPTION] [CATEGORY] must be provided and will sort the
+list in ascending or descending order dependent on what needs to be sorted.</p>
+</li>
+<li>
+<p>The list must not be empty.</p>
 </li>
 </ul>
 </div>
@@ -1411,124 +1272,25 @@ Deletes the budget set for the 1st day of the trip.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>addexpense 1 detail/iPHONE11 amountSGD/1100</code><br>
-Adds an expense incurred on the 1st day of the trip of an <code>iPHONE11</code> for $1100 SGD.</p>
+<p><code>sortexpense 1 amount</code><br>
+Sorts all fixed expense in descending order of amount.</p>
 </li>
 <li>
-<p><code>addexpense 1 detail/iPHONE11 amountOTHR/800</code><br>
-Adds an expense incurred on the 1st day of the trip of an <code>iPHONE11</code> for $800. This amount will be converted to SGD using <strong>exchange rate</strong> provided.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="editing-an-expense-code-editexpense-code"><a class="link" href="#editing-an-expense-code-editexpense-code">3.4.4.2. Editing an expense: <code>editexpense</code></a></h5>
-<div class="paragraph">
-<p>Allow the user to edit an expense. The expense must be already added to the expense tracker.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>editexpense INDEX [detail/DETAIL] [amountSGD/AMOUNTSGD] [amountOTHR/AMOUNTOTHR]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Edits the expense at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed expense list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-<li>
-<p>At least one of the optional fields must be provided.</p>
-</li>
-<li>
-<p>Existing values will be updated to the input values.</p>
-</li>
-<li>
-<p>An <strong>exchange rate</strong> is required if the user is entering the amount in another currency.</p>
-</li>
-<li>
-<p>If the user enters the expense in other currency, the amount will be automatically converted to SGD using the <strong>exchange rate</strong> provided.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>editexpense 1 detail/MacbookPro 13 amountSGD/3000</code><br>
-Edit the details and amount paid in SGD of the 1st expense to be <code>MacbookPro 13</code> and <code>$3000 SGD</code> respectively.</p>
-</li>
-<li>
-<p><code>editexpense 1 detail/AirPods amountOTHR/300</code><br>
-Edit the details and amount paid in other currency of the 1st expense to be <code>AirPods</code> and <code>$300</code> respectively. The amount will be automatically converted to SGD using <strong>exchange rate</strong> provided.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="deleting-an-expense-code-deleteexpense-code"><a class="link" href="#deleting-an-expense-code-deleteexpense-code">3.4.4.3. Deleting an expense: <code>deleteexpense</code></a></h5>
-<div class="paragraph">
-<p>Allow the user to delete an expense. The expense must be already added to the expense tracker.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>deleteexpense INDEX</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:
-*deleteexpense 1<br>
-Delete the 1st item in the expense tracker.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="listing-down-expenses-for-a-day-code-list-code"><a class="link" href="#listing-down-expenses-for-a-day-code-list-code">3.4.4.4. Listing down expenses for a day: <code>list</code></a></h5>
-<div class="paragraph">
-<p>Allow the user to see their expense for a specific day of the trip as a list.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>list DAY</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Shows a list of expense on a specified <code>DAY</code>. The day refers to a specific day of the trip. The day <strong>must be a positive integer</strong> and be <strong>lesser than the total number of days of the trip</strong>.</p>
-</li>
-<li>
-<p>If <code>DAY</code> is entered as 0, all expenses incurred during the trip will be shown as a list.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list 1</code><br>
-Shows the expenses incurred on the 1st day of the trip.</p>
-</li>
-<li>
-<p><code>list 0</code><br>
-Shows all expenses incurred during the whole duration of the trip</p>
+<p><code>sortexpense 0 description</code><br>
+Sorts all fixed expense in lexicographical order.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="recommend-ways-to-save-money-based-on-prevailing-usage-coming-in-v2-0"><a class="link" href="#recommend-ways-to-save-money-based-on-prevailing-usage-coming-in-v2-0">3.4.5. Recommend ways to save money based on prevailing usage [Coming in v2.0]</a></h4>
+<h4 id="recommend-ways-to-save-money-based-on-prevailing-usage-coming-in-v2-0"><a class="link" href="#recommend-ways-to-save-money-based-on-prevailing-usage-coming-in-v2-0">3.4.3. Recommend ways to save money based on prevailing usage [Coming in v2.0]</a></h4>
 <div class="paragraph">
 <p>Use complex algorithms to monitor and track the user&#8217;s spending habits. Recommend ways to save money on certain items.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="automatically-keep-track-of-expenses-coming-in-v2-0"><a class="link" href="#automatically-keep-track-of-expenses-coming-in-v2-0">3.4.6. Automatically keep track of expenses [Coming in v2.0]</a></h4>
+<h4 id="automatically-keep-track-of-expenses-coming-in-v2-0"><a class="link" href="#automatically-keep-track-of-expenses-coming-in-v2-0">3.4.4. Automatically keep track of expenses [Coming in v2.0]</a></h4>
 <div class="paragraph">
 <p>Avoid requiring the user to enter their expenses on the application. Instead, all their expenses will be automatically entered into the app for them.</p>
 </div>
@@ -1991,4 +1753,4 @@ e.g. <code>find James Jake</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-22 11:31:16 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-22 11:46:32 UTC</div></div></div></body></html>

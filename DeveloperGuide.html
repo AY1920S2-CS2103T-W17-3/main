@@ -22,11 +22,12 @@
 </li>
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#schedule-feature">3.1. Schedule feature</a></li>
-<li><a href="#proposed-undo-redo-feature">3.2. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.4. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
+<li><a href="#check-status">3.1. Check Status</a></li>
+<li><a href="#schedule-feature">3.2. Schedule feature</a></li>
+<li><a href="#proposed-undo-redo-feature">3.3. [Proposed] Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.5. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.6. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -331,7 +332,110 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="schedule-feature"><a class="link" href="#schedule-feature">3.1. Schedule feature</a></h3>
+<h3 id="check-status"><a class="link" href="#check-status">3.1. Check Status</a></h3>
+<div class="sect3">
+<h4 id="rationale"><a class="link" href="#rationale">3.1.1. Rationale</a></h4>
+<div class="paragraph">
+<p>Currently, E.T allows a user to keep track of multiple aspects of a trip.
+However, they exist as separate lists and there is little to no integration between them.
+For example, the fixed expense list has little to no correlation with the packing list, but they are both
+important aspects of a trip. As such, the motivation behind creating a “check status” is to create that missing
+link between the different lists and make E.T more integrated and easier to use for the user.</p>
+</div>
+<div class="paragraph">
+<p>This feature allows the user to compress all the information from the lists into a single pane and
+alerts the user if they have forgotten to plan for a certain aspect of a trip.
+Before this, the user would have to scroll through each list, look at what they might have forgotten to plan or do.
+Therefore, this would help reduce the amount of information the user would need to process, and indirectly the
+stresses which accompany the planning for a trip.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="overview"><a class="link" href="#overview">3.1.2. Overview</a></h4>
+<div class="paragraph">
+<p>E.T’s database stores a hard-coded checklist. For example, it would check if the user has planned for an
+accommodation booking for every single day of the trip and would be informed through the
+<code>checkstatus</code> command if they have forgotten to plan for it.</p>
+</div>
+<div class="paragraph">
+<p><strong>TIP</strong>
+However, users can also include their own preset <code>checkstatus</code> to suit their needs {v2.0}</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">3.1.3. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The <code>checkstatus</code> command checks what the user have planned against the checklist from our database.
+The <code>checkstatus</code> command is created by parsing the user’s inputs to form a <code>checkStatusCommand</code> where E.T’s
+database is filtered to return the user with the checklist.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram shown in <a href="#Figure x.x">[Figure x.x]</a> below, summarizes what happens when a user enters a <code>checkstatus</code>
+command:</p>
+</div>
+<div class="paragraph">
+<p>[[Figure x.x]]
+Figure x.x: Activity diagram showing the workflow of a <code>checkstatus</code> command.</p>
+</div>
+<div class="paragraph">
+<p>In detail, whenever a “checkstatus” command is entered,
+the command will be identified by E.T by parsing it through the <code>eTParser</code> through the <code>Logic</code> component.
+A <code>CheckStatusCommand</code> will be created.
+E.T will then check against the hard-coded database and generate a checklist of what the
+user might have forgotten to prepare for their upcoming trip.
+The following sequence diagram shown in <a href="#Figure x.x">[Figure x.x]</a> below,
+summarizes the sequence flow when a user enters a valid <code>checkstatus</code> command:</p>
+</div>
+<div class="paragraph">
+<p>Figure x.x: Sequence diagram of a “checkstatus” command.</p>
+</div>
+<div class="paragraph">
+<p>From the sequence diagram:</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>When the <code>LogicManager</code> receives the “execute” command from <code>MainApp</code>, it will call the <code>parseCommand</code> method of
+<code>eTParser</code>.</p>
+</li>
+<li>
+<p><code>eTParser</code> will receive <code>checkstatus</code> as the command type and instantiate <code>CheckStatusCommand</code></p>
+</li>
+<li>
+<p>Through <code>Model”, the `CheckStatusCommand</code> will check the individual lists
+against the hard-coded database in <code>Storage</code> to ensure that the user had made sufficient planning for the trip.</p>
+</li>
+<li>
+<p>A <code>CommandResult</code> object which consists of a <code>MESSAGE_SUCCESS</code> back to <code>LogicManager</code> if the user had made
+sufficient planning for the upcoming trip.</p>
+</li>
+<li>
+<p>After receiving the <code>CommandResult</code> from <code>CheckStatusCommand</code>, <code>LogicManager</code> will then proceed to
+return the <code>CommandResult</code> back to “MainApp” where the checklist will be shown to the user.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.4. Design Considerations</a></h4>
+<div class="paragraph">
+<p>Aspect: Aligning with AB3 Command Calls</p>
+</div>
+<div class="paragraph">
+<p>Choice 1: Commands to called and handled like AB3.
+Pros:</p>
+</div>
+<div class="paragraph">
+<p>Easy to implement and understand. All command calls is similar to other commands in ET.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="schedule-feature"><a class="link" href="#schedule-feature">3.2. Schedule feature</a></h3>
 <div class="paragraph">
 <p><strong><em>E.T.</em></strong> allows the user to schedule an activity from the activity list to a specified time of a day.
 This is done using the <code>schedule</code> command which requires the user to specify the <code>activity index</code> of an activity from
@@ -341,7 +445,7 @@ day of the trip at 1pm. Before using the <code>schedule</code> command, the user
 activities.</p>
 </div>
 <div class="sect3">
-<h4 id="rationale"><a class="link" href="#rationale">3.1.1. Rationale</a></h4>
+<h4 id="rationale-2"><a class="link" href="#rationale-2">3.2.1. Rationale</a></h4>
 <div class="paragraph">
 <p>The schedule feature is an important feature that allows the users to manage and plan for their trip schedule or itinerary.
 This feature is separated from the activity management feature to increase the ease of planning because users can just focus
@@ -349,7 +453,7 @@ on the time management aspect when scheduling proposed activities from the activ
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">3.1.2. Current Implementation</a></h4>
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The keywords from the command given by user is parsed using <code>ScheduleActivityCommandParser</code> which converts the string
 variable of the <code>start time</code> into a java <code>Time</code> object, while <code>activity index</code> and <code>day number</code> are converted into <code>Index</code> objects.
@@ -403,7 +507,7 @@ These objects are used to create the <code>ScheduleActivityCommand</code> object
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration"><a class="link" href="#design-consideration">3.1.3. Design Consideration</a></h4>
+<h4 id="design-consideration"><a class="link" href="#design-consideration">3.2.3. Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect-separation-between-scheduling-and-activity-management"><a class="link" href="#aspect-separation-between-scheduling-and-activity-management">Aspect: Separation between scheduling and activity management</a></h5>
 <div class="ulist">
@@ -441,9 +545,9 @@ and be added into the schedule.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.2. [Proposed] Undo/Redo feature</a></h3>
+<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.3. [Proposed] Undo/Redo feature</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.2.1. Proposed Implementation</a></h4>
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.3.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
 It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
@@ -585,7 +689,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.3.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -655,20 +759,20 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.5. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.6, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -699,7 +803,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.6. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1381,4 +1485,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-22 11:31:16 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-22 11:46:32 UTC</div></div></div></body></html>
