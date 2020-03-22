@@ -22,10 +22,11 @@
 </li>
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#proposed-undo-redo-feature">3.1. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.3. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
+<li><a href="#schedule-feature">3.1. Schedule feature</a></li>
+<li><a href="#proposed-undo-redo-feature">3.2. [Proposed] Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.4. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -330,9 +331,119 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.1. [Proposed] Undo/Redo feature</a></h3>
+<h3 id="schedule-feature"><a class="link" href="#schedule-feature">3.1. Schedule feature</a></h3>
+<div class="paragraph">
+<p><strong><em>E.T.</em></strong> allows the user to schedule an activity from the activity list to a specified time of a day.
+This is done using the <code>schedule</code> command which requires the user to specify the <code>activity index</code> of an activity from
+the displayed activity list, the <code>day number</code> of the trip and the <code>start time</code> of the activity to be scheduled. For
+example, <code>schedule 1 day/2 starttime/13:00</code> means that the activity with the index of <code>1</code> will be schedule on the second
+day of the trip at 1pm. Before using the <code>schedule</code> command, the user should have filled up the activity list with
+activities.</p>
+</div>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.1.1. Proposed Implementation</a></h4>
+<h4 id="rationale"><a class="link" href="#rationale">3.1.1. Rationale</a></h4>
+<div class="paragraph">
+<p>The schedule feature is an important feature that allows the users to manage and plan for their trip schedule or itinerary.
+This feature is separated from the activity management feature to increase the ease of planning because users can just focus
+on the time management aspect when scheduling proposed activities from the activity list.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">3.1.2. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The keywords from the command given by user is parsed using <code>ScheduleActivityCommandParser</code> which converts the string
+variable of the <code>start time</code> into a java <code>Time</code> object, while <code>activity index</code> and <code>day number</code> are converted into <code>Index</code> objects.
+These objects are used to create the <code>ScheduleActivityCommand</code> object that can be execution to schedule the activity.</p>
+</div>
+<div class="paragraph">
+<p>The sequence diagram below shows the creation of the <code>ScheduleActivityCommand</code> object:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/developer-guide/schedule-feature/ScheduleActivityCommandCreation.png" alt="ScheduleActivityCommandCreation">
+</div>
+<div class="title">Figure 9. Sequence diagram that describes the creation of the <code>ScheduleActivityCommand</code> from the input user command <code>schedule 1 day/2 starttime/13:00</code>.</div>
+</div>
+<div class="paragraph">
+<p>After the creation of the <code>ScheduleActivityCommand</code> object, the <code>LogicManager</code> will proceed to call the <code>execute()</code> method of <code>ScheduleActivityCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following steps describes the execution of the <code>ScheduleActivityCommand</code>:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>Model</code> retrieves the list of activities from the <code>UniqueList</code> that stores <code>Activity</code> objects.</p>
+</li>
+<li>
+<p>The <code>activityIndex</code> is used to obtain the target <code>Activity</code> from the activity list.</p>
+</li>
+<li>
+<p>The <code>Activity</code> object, <code>dayIndex</code> and <code>startTime</code> is passed into the <code>scheduleActivity()</code> method of <code>Model</code>.</p>
+</li>
+<li>
+<p><code>Activity</code> is converted to a <code>Schedulee</code> object using the <code>startTime</code> from the <code>ScheduleActivityCommand</code>, the <code>title</code> and <code>duration</code> from the target <code>Activity</code>.</p>
+</li>
+<li>
+<p>The <code>Schedulee</code> object is added to the target day&#8217;s <code>DaySchedule</code>.</p>
+</li>
+<li>
+<p>The list of <code>Schedulee</code> is sorted according to the <code>startTime</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The sequence diagram below shows the the execution of <code>ScheduleActivityCommand</code>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/developer-guide/schedule-feature/ScheduleActivityCommandExecution.png" alt="Schedule Activity Command Execution">
+</div>
+<div class="title">Figure 10. Sequence diagram that describes the execution of ScheduleActivityCommand.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration"><a class="link" href="#design-consideration">3.1.3. Design Consideration</a></h4>
+<div class="sect4">
+<h5 id="aspect-separation-between-scheduling-and-activity-management"><a class="link" href="#aspect-separation-between-scheduling-and-activity-management">Aspect: Separation between scheduling and activity management</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Current Choice:</strong> Scheduling is separated from activity management.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Better user experience. Allows for extension: other type of objects could easily be converted into a <code>Schedulee</code> object
+and be added into the schedule.</p>
+</li>
+<li>
+<p>Cons: Complicated to implement and more likely to result in bugs.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative:</strong> Activity must be scheduled directly into a day.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Simple to implement.</p>
+</li>
+<li>
+<p>Cons: Increase difficulty planning for users and limit the schedule to <code>Activity</code> objects only.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.2. [Proposed] Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.2.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
 It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
@@ -474,7 +585,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.2.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -544,20 +655,20 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -588,7 +699,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1270,4 +1381,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-22 08:46:32 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-22 10:15:23 UTC</div></div></div></body></html>
