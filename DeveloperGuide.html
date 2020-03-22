@@ -23,15 +23,17 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#check-status">3.1. Check Status</a></li>
-<li><a href="#schedule-feature">3.2. Schedule feature</a></li>
-<li><a href="#transport-booking-feature">3.3. Transport Booking feature</a></li>
-<li><a href="#accommodation-booking-feature">3.4. Accommodation Booking feature</a></li>
-<li><a href="#packing-list-manager">3.5. Packing List Manager</a></li>
-<li><a href="#packing-list-manager-2">3.6. Packing List Manager</a></li>
-<li><a href="#proposed-undo-redo-feature">3.7. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.8. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.9. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.10. Configuration</a></li>
+<li><a href="#trip-management-feature">3.2. Trip Management feature</a></li>
+<li><a href="#schedule-feature">3.3. Schedule feature</a></li>
+<li><a href="#transport-booking-feature">3.4. Transport Booking feature</a></li>
+<li><a href="#accommodation-booking-feature">3.5. Accommodation Booking feature</a></li>
+<li><a href="#activity-manager">3.6. Activity Manager</a></li>
+<li><a href="#packing-list-manager">3.7. Packing List Manager</a></li>
+<li><a href="#packing-list-manager-2">3.8. Packing List Manager</a></li>
+<li><a href="#proposed-undo-redo-feature">3.9. [Proposed] Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">3.10. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.11. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.12. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -341,17 +343,19 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <h4 id="rationale"><a class="link" href="#rationale">3.1.1. Rationale</a></h4>
 <div class="paragraph">
 <p>Currently, E.T allows a user to keep track of multiple aspects of a trip.
-However, they exist as separate lists and there is little to no integration between them.
-For example, the fixed expense list has little to no correlation with the packing list, but they are both
-important aspects of a trip. As such, the motivation behind creating a “check status” is to create that missing
-link between the different lists and make E.T more integrated and easier to use for the user.</p>
+However, they exist as separate lists and there is little to no integration between them.</p>
+</div>
+<div class="paragraph">
+<p>For example, the fixed expense list has little to no correlation with the packing list, but they are both
+important aspects of a trip. As such, the motivation behind creating a “check status” is to create that missing link between the different lists and make E.T more integrated and easier to use for the user.</p>
 </div>
 <div class="paragraph">
 <p>This feature allows the user to compress all the information from the lists into a single pane and
 alerts the user if they have forgotten to plan for a certain aspect of a trip.
-Before this, the user would have to scroll through each list, look at what they might have forgotten to plan or do.
-Therefore, this would help reduce the amount of information the user would need to process, and indirectly the
-stresses which accompany the planning for a trip.</p>
+Before this, the user would have to scroll through each list, look at what they might have forgotten to plan or do.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, this would help reduce the amount of information the user would need to process, and indirectly the stresses which accompany the planning for a trip.</p>
 </div>
 </div>
 <div class="sect3">
@@ -439,7 +443,131 @@ Pros:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="schedule-feature"><a class="link" href="#schedule-feature">3.2. Schedule feature</a></h3>
+<h3 id="trip-management-feature"><a class="link" href="#trip-management-feature">3.2. Trip Management feature</a></h3>
+<div class="paragraph">
+<p><strong><em>E.T.</em></strong> only allow the user to manage one trip at a time and is necessary to be used first before other commands are available. This is done using the <code>settrip</code> command which requires the user to specify the <code>title</code> of the trip, the <code>budget</code> of the trip and the <code>start date</code> and <code>end date</code> of the entire trip.
+For example, <code>settrip title/cheese budget/2000 startdate/20-09-20 enddate/28-09-20</code> means that the trip with the title <code>cheese land</code> will be set with a budget of <code>2000</code> dollars and a duration of 8 days between <code>20-09-20' to `28-09-20</code>.</p>
+</div>
+<div class="sect3">
+<h4 id="rationale-2"><a class="link" href="#rationale-2">3.2.1. Rationale</a></h4>
+<div class="paragraph">
+<p>The Trip Manager feature is the main driving feature that allows the users to set their trip schedule, budget as well
+as the duration of the trip.
+The Trip manager oversees the feature schedule and is essential to be set first before the user is allow to access any other features within the application. This is for the application to ensure that user must have a trip in mind before being allowed to plan for the trip.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.2. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The keywords from the command given by user is parsed using <code>SetTripCommandParser</code> which converts the string
+variable of the <code>startDate</code> and <code>endDate</code> into a java <code>Date</code> object, the <code>title</code> into a <code>Title</code> object while the <code>budget</code> is converted into <code>Budget</code> objects.
+These objects are used to create the <code>SetTripCommand</code> object that can be execution to create the trip. Execution of this object would hence enable other features within the application.</p>
+</div>
+<div class="paragraph">
+<p>The sequence diagram below shows the creation of the <code>SetTripCommand</code> object:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/developer-guide/trip/SetTripCommandCreation.png" alt="SetTripCommandCreation">
+</div>
+<div class="title">Figure 9. Sequence diagram that describes the creation of the <code>SetTripCommand</code> from the input user command <code>settrip title/cheese budget/2000 startdate/20-09-20 enddate/28-09-20</code>.</div>
+</div>
+<div class="paragraph">
+<p>After the creation of the <code>SetTripCommand</code> object, the <code>LogicManager</code> will proceed to call the <code>execute()</code> method of <code>SetTripCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following steps describes the execution of the <code>SetTripCommand</code>:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <code>Schedule</code> object, <code>Budget</code> object, <code>startDate</code> and <code>endDate</code> is passed into the <code>createTrip()</code> method of <code>Model</code> and parse into a <code>Trip</code> object.</p>
+</li>
+<li>
+<p>A new <code>Scheduler</code> will be created while <code>Budget</code> object, <code>startDate</code> and <code>endDate</code> object given by the <code>Trip object</code>  .</p>
+</li>
+<li>
+<p>The <code>trip</code> object will calculate and initialise the <code>duration</code> of the trip using the given <code>startDate</code> and <code>endDate</code>.</p>
+</li>
+<li>
+<p><code>Trip</code> would enable access to other commands within application.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The sequence diagram below shows the the execution of <code>ScheduleActivityCommand</code>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/developer-guide/trip/f.png" alt="SetTrip Command Execution PlaceHolder">
+</div>
+<div class="title">Figure 10. Sequence diagram that describes the execution of ScheduleActivityCommand.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration"><a class="link" href="#design-consideration">3.2.3. Design Consideration</a></h4>
+<div class="sect4">
+<h5 id="aspect-trip-is-isolated-from-any-list-manager"><a class="link" href="#aspect-trip-is-isolated-from-any-list-manager">Aspect: Trip is isolated from any list manager</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Current Choice:</strong> Trip is isolated from all list managing</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Better user experience. Single Responsibility: only handles objects necessary for a <code>trip</code> to exist
+and be added into the schedule.</p>
+</li>
+<li>
+<p>Cons: Complicated to implement and more likely to result in bugs.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-creation-of-trip-is-required-before-use-of-any-other-commands"><a class="link" href="#aspect-creation-of-trip-is-required-before-use-of-any-other-commands">Aspect: Creation of trip is required before use of any other commands</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Current Choice:</strong> A trip must be created before use of any other commands</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Ensures that users cannot implement any activity or schedule without creation of an activity.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-creation-of-trip-is-required-before-use-of-any-other-commands-2"><a class="link" href="#aspect-creation-of-trip-is-required-before-use-of-any-other-commands-2">Aspect: Creation of trip is required before use of any other commands</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Current Choice:</strong> A trip must be created before use of any other commands</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Ensures that users cannot implement any activity or schedule without creation of an activity.</p>
+</li>
+<li>
+<p>Cons: Complicate to implement and likely result in dependency issues</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="schedule-feature"><a class="link" href="#schedule-feature">3.3. Schedule feature</a></h3>
 <div class="paragraph">
 <p><strong><em>E.T.</em></strong> allows the user to schedule an activity from the activity list to a specified time of a day.
 This is done using the <code>schedule</code> command which requires the user to specify the <code>activity index</code> of an activity from
@@ -449,7 +577,7 @@ day of the trip at 1pm. Before using the <code>schedule</code> command, the user
 activities.</p>
 </div>
 <div class="sect3">
-<h4 id="rationale-2"><a class="link" href="#rationale-2">3.2.1. Rationale</a></h4>
+<h4 id="rationale-3"><a class="link" href="#rationale-3">3.3.1. Rationale</a></h4>
 <div class="paragraph">
 <p>The schedule feature is an important feature that allows the users to manage and plan for their trip schedule or itinerary.
 This feature is separated from the activity management feature to increase the ease of planning because users can just focus
@@ -457,7 +585,7 @@ on the time management aspect when scheduling proposed activities from the activ
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.2. Current Implementation</a></h4>
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.3.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The keywords from the command given by user is parsed using <code>ScheduleActivityCommandParser</code> which converts the string
 variable of the <code>start time</code> into a java <code>Time</code> object, while <code>activity index</code> and <code>day number</code> are converted into <code>Index</code> objects.
@@ -470,7 +598,7 @@ These objects are used to create the <code>ScheduleActivityCommand</code> object
 <div class="content">
 <img src="images/developer-guide/schedule-feature/ScheduleActivityCommandCreation.png" alt="ScheduleActivityCommandCreation">
 </div>
-<div class="title">Figure 9. Sequence diagram that describes the creation of the <code>ScheduleActivityCommand</code> from the input user command <code>schedule 1 day/2 starttime/13:00</code>.</div>
+<div class="title">Figure 11. Sequence diagram that describes the creation of the <code>ScheduleActivityCommand</code> from the input user command <code>schedule 1 day/2 starttime/13:00</code>.</div>
 </div>
 <div class="paragraph">
 <p>After the creation of the <code>ScheduleActivityCommand</code> object, the <code>LogicManager</code> will proceed to call the <code>execute()</code> method of <code>ScheduleActivityCommand</code>.</p>
@@ -507,11 +635,11 @@ These objects are used to create the <code>ScheduleActivityCommand</code> object
 <div class="content">
 <img src="images/developer-guide/schedule-feature/ScheduleActivityCommandExecution.png" alt="Schedule Activity Command Execution">
 </div>
-<div class="title">Figure 10. Sequence diagram that describes the execution of ScheduleActivityCommand.</div>
+<div class="title">Figure 12. Sequence diagram that describes the execution of ScheduleActivityCommand.</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration"><a class="link" href="#design-consideration">3.2.3. Design Consideration</a></h4>
+<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">3.3.3. Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect-separation-between-scheduling-and-activity-management"><a class="link" href="#aspect-separation-between-scheduling-and-activity-management">Aspect: Separation between scheduling and activity management</a></h5>
 <div class="ulist">
@@ -549,19 +677,19 @@ and be added into the schedule.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="transport-booking-feature"><a class="link" href="#transport-booking-feature">3.3. Transport Booking feature</a></h3>
+<h3 id="transport-booking-feature"><a class="link" href="#transport-booking-feature">3.4. Transport Booking feature</a></h3>
 <div class="paragraph">
 <p>E.T. allows the user to add a transport booking. This is done using the schedule command which requires the user to specify the mode, start location, end location, start time and end time.</p>
 </div>
 <div class="sect3">
-<h4 id="rationale-3"><a class="link" href="#rationale-3">3.3.1. Rationale</a></h4>
+<h4 id="rationale-4"><a class="link" href="#rationale-4">3.4.1. Rationale</a></h4>
 <div class="paragraph">
 <p>The transport booking feature is an important feature that allows the user to track the list of transport bookings that they have made before leaving.
 This feature also allows the user to schedule their activities while taking the scheduled transport bookings into consideration.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.3.2. Current Implementation</a></h4>
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.4.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The keywords from the command given by the user is parsed using <code>AddTransportBookingCommandParser</code> which converts the string variable <code>mode</code> into a <code>Mode</code> object, <code>start location</code> and <code>end location</code> into a <code>Location</code> objects, as well as <code>start time</code> and <code>end time</code> into <code>Time</code> objects.
 These objects are used to create the <code>AddTransportBookingCommand</code> object that will execute to create a transport booking.</p>
@@ -593,7 +721,7 @@ These objects are used to create the <code>AddTransportBookingCommand</code> obj
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">3.3.3. Design Consideration</a></h4>
+<h4 id="design-consideration-3"><a class="link" href="#design-consideration-3">3.4.3. Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect"><a class="link" href="#aspect">Aspect:</a></h5>
 <div class="ulist">
@@ -630,18 +758,18 @@ These objects are used to create the <code>AddTransportBookingCommand</code> obj
 </div>
 </div>
 <div class="sect2">
-<h3 id="accommodation-booking-feature"><a class="link" href="#accommodation-booking-feature">3.4. Accommodation Booking feature</a></h3>
+<h3 id="accommodation-booking-feature"><a class="link" href="#accommodation-booking-feature">3.5. Accommodation Booking feature</a></h3>
 <div class="paragraph">
 <p>E.T. allows the user to add an accommodation booking. This is done using the schedule command which requires the user to specify the accommodation name, location, start day, end day and a remark.</p>
 </div>
 <div class="sect3">
-<h4 id="rationale-4"><a class="link" href="#rationale-4">3.4.1. Rationale</a></h4>
+<h4 id="rationale-5"><a class="link" href="#rationale-5">3.5.1. Rationale</a></h4>
 <div class="paragraph">
 <p>The accommodation booking feature is an important feature that allows the user to track the list of accommodation bookings that they have made before leaving.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.4.2. Current Implementation</a></h4>
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.5.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The keywords from the command given by the user is parsed using <code>AddTransportBookingCommandParser</code> which converts the string variable <code>accommodation name</code> into a <code>AccommodationName</code> object, <code>location</code> into a <code>Location</code> object, <code>start day</code> and <code>end day</code> into <code>Day</code> objects, as well as <code>remark</code> into a <code>Remark</code> object.
 These objects are used to create the <code>AddAccommodationBookingCommand</code> object that will execute to create an accommodation booking.</p>
@@ -673,7 +801,7 @@ These objects are used to create the <code>AddAccommodationBookingCommand</code>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-3"><a class="link" href="#design-consideration-3">3.4.3. Design Consideration</a></h4>
+<h4 id="design-consideration-4"><a class="link" href="#design-consideration-4">3.5.3. Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect-2"><a class="link" href="#aspect-2">Aspect:</a></h5>
 <div class="ulist">
@@ -710,134 +838,162 @@ These objects are used to create the <code>AddAccommodationBookingCommand</code>
 </div>
 </div>
 <div class="sect2">
-<h3 id="packing-list-manager"><a class="link" href="#packing-list-manager">3.5. Packing List Manager</a></h3>
+<h3 id="activity-manager"><a class="link" href="#activity-manager">3.6. Activity Manager</a></h3>
 <div class="paragraph">
-<p><strong><em>E.T.</em></strong> allows the user to create a packing list. The packing list allows the user to create new packing list items,
-edit, delete, check and uncheck existing items.</p>
+<p><strong><em>E.T.</em></strong> allows the user to plan for their <code>activity</code> for a trip. The activity manager handles everything to do with manipulating of activities.</p>
 </div>
 <div class="paragraph">
-<p>List of commands that helps with packing list management:</p>
+<p>This <code>addactivity</code> command requires the user to include the <code>title</code> of an activity, the <code>priority</code> of the activity , the <code>duration</code> of the activity in terms of hours, <code>Location</code> of the activity and optional <code>tags</code>.</p>
+</div>
+<div class="paragraph">
+<p>List of commands that helps with activity management:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>additem item/ITEM quantity/QUANTITY category/CATEGORY</code> &#8201;&#8212;&#8201;Creates and loads a new packing list item with desired name, quantity and category.</p>
+<p><code>addactivity title/TITLE priority/PRIORITY duration/DURATION location/LOCATION t/TAG</code>&#8201;&#8212;&#8201; create an activity with the given title, priority, duration, location and tags. There can be more than one tags included</p>
 </li>
 <li>
-<p><code>deleteitem index/INDEX</code> &#8201;&#8212;&#8201;Deletes packing list item using desired index</p>
+<p><code>clearactivity</code> &#8201;&#8212;&#8201;Clears the entire activity list</p>
 </li>
 <li>
-<p><code>edititem index/INDEX [item/ITEM] [quantity/QUANTITY] [category/CATEGORY]</code>&#8201;&#8212;&#8201;Edits a packing list item with desired index</p>
+<p><code>deleteactivity index</code> &#8201;&#8212;&#8201;Deletes the activity based on index</p>
 </li>
 <li>
-<p><code>checkitem index/INDEX</code>&#8201;&#8212;&#8201;Marks a packing list with desired index as packed</p>
-</li>
-<li>
-<p><code>uncheckitem index/INDEX</code>&#8201;&#8212;&#8201;Marks a packing list with desired index as unpacked</p>
+<p><code>editactivity index [title/TITLE] [priority/PRIORITY] [duration/DURATION] [location/LOCATION] [t/TAG]</code>&#8201;&#8212;&#8201;Edits the activity based on index</p>
 </li>
 </ul>
 </div>
-<div class="sect3">
-<h4 id="rationale-5"><a class="link" href="#rationale-5">3.5.1. Rationale</a></h4>
 <div class="paragraph">
-<p>The packing list feature is an important feature that allows the users to plan and pack for their trip.
-It ensures that the user did not forget to pack anything for their trip, providing convenience and a peace of mind.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.5.2. Current Implementation</a></h4>
-<div class="paragraph">
-<p>The keywords from the command given by user is parsed using <code>AddItemParser</code> which converts the string
-variable of the <code>item</code> into a java <code>ITEM</code> object, the string variable of the <code>quantity</code> into a java <code>QUANTITY</code> object, and the string
-variable of the <code>category</code> into a java <code>CATEGORY</code> object.
-These objects are used to create the <code>AddItemCommand</code> object that can be execution to create a packing list item.</p>
+<p>Example:</p>
 </div>
 <div class="paragraph">
-<p>The sequence diagram below shows the creation of the <code>AddItemCommand</code> object:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/developer-guide/schedule-feature/ScheduleActivityCommandCreation.png" alt="ScheduleActivityCommandCreation">
-</div>
-<div class="title">Figure 11. Sequence diagram that describes the creation of the <code>AddItemCommand</code> from the input user command <code>schedule 1 day/2 starttime/13:00</code>.</div>
+<p><code>addactivity title/Big Cheese Land priority/1 duration/2 location/The moon t/nice</code> will create an activity named <code>Big Cheese</code> with a priority of <code>1</code> , duration of <code>2</code> and is happening at a location <code>The moon</code>. The activity would also have the tag <code>nice</code></p>
 </div>
 <div class="paragraph">
-<p>After the creation of the <code>AddItemCommand</code> object, the <code>LogicManager</code> will proceed to call the <code>execute()</code> method of <code>AddIitemCommand</code>.</p>
-</div>
-<div class="paragraph">
-<p>The following steps describes the execution of the <code>AddItemCommand</code>:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><code>Model</code> retrieves the packing list from the <code>UniqueList</code> that stores <code>PackingListItem</code> objects.</p>
-</li>
-<li>
-<p>The <code>activityIndex</code> is used to obtain the target <code>Activity</code> from the activity list.</p>
-</li>
-<li>
-<p>The <code>Activity</code> object, <code>dayIndex</code> and <code>startTime</code> is passed into the <code>AddItem()</code> method of <code>Model</code>.</p>
-</li>
-<li>
-<p><code>Activity</code> is converted to a <code>Schedulee</code> object using the <code>startTime</code> from the <code>AddItemCommand</code>, the <code>title</code> and <code>duration</code> from the target <code>Activity</code>.</p>
-</li>
-<li>
-<p>The <code>Schedulee</code> object is added to the target day&#8217;s <code>DaySchedule</code>.</p>
-</li>
-<li>
-<p>The list of <code>Schedulee</code> is sorted according to the <code>startTime</code>.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>The sequence diagram below shows the the execution of <code>AddItemCommand</code>:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/developer-guide/schedule-feature/AddItemCommandExecution.png" alt="Schedule Activity Command Execution">
-</div>
-<div class="title">Figure 12. Sequence diagram that describes the execution of AddItemCommand.</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="packing-list-manager-2"><a class="link" href="#packing-list-manager-2">3.6. Packing List Manager</a></h3>
-<div class="paragraph">
-<p><strong><em>E.T.</em></strong> allows the user to create a packing list. The packing list allows the user to create new packing list items,
-edit, delete, check and uncheck existing items.</p>
-</div>
-<div class="paragraph">
-<p>List of commands that helps with packing list management:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>additem item/ITEM quantity/QUANTITY category/CATEGORY</code> &#8201;&#8212;&#8201;Creates and loads a new packing list item with desired name, quantity and category.</p>
-</li>
-<li>
-<p><code>deleteitem index/INDEX</code> &#8201;&#8212;&#8201;Deletes packing list item using desired index</p>
-</li>
-<li>
-<p><code>edititem index/INDEX [item/ITEM] [quantity/QUANTITY] [category/CATEGORY]</code>&#8201;&#8212;&#8201;Edits a packing list item with desired index</p>
-</li>
-<li>
-<p><code>checkitem index/INDEX</code>&#8201;&#8212;&#8201;Marks a packing list with desired index as packed</p>
-</li>
-<li>
-<p><code>uncheckitem index/INDEX</code>&#8201;&#8212;&#8201;Marks a packing list with desired index as unpacked</p>
-</li>
-</ul>
+<p>The user can use any other activity command if there exist at least one activity in the list.</p>
 </div>
 <div class="sect3">
 <h4 id="rationale-6"><a class="link" href="#rationale-6">3.6.1. Rationale</a></h4>
 <div class="paragraph">
-<p>The packing list feature is an important feature that allows the users to plan and pack for their trip.
-It ensures that the user did not forget to pack anything for their trip, providing convenience and a peace of mind.</p>
+<p>The activity manager allows user to plan and manage their activities for the trip.
+The activity manager only handles activities and the manipulation of activities.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.6.2. Current Implementation</a></h4>
 <div class="paragraph">
+<p>The keywords from the command given by user is parsed using a parser for the respective command</p>
+</div>
+<div class="paragraph">
+<p>e.g <code>DeleteActivityCommandParser</code></p>
+</div>
+<div class="paragraph">
+<p>These objects are used to create the command object for their respective command that can be execution to schedule the activity.</p>
+</div>
+<div class="paragraph">
+<p>e.g <code>DeleteActivity</code></p>
+</div>
+<div class="paragraph">
+<p>The sequence diagram below shows the creation of the an ActivityCommand object:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/developer-guide/activity/DeleteActivityCommandCreation.png" alt="DeleteActivityCommandCreation">
+</div>
+<div class="title">Figure 13. Sequence diagram that describes the creation of the <code>deleteactivity</code> from the input user command <code>deleteactivity 1</code>.</div>
+</div>
+<div class="paragraph">
+<p>After the creation of the <code>DeleteActivityCommand</code> object, the <code>LogicManager</code> will proceed to call the <code>execute()</code> method of <code>DeleteActivityCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following steps describes the execution of the <code>ScheduleActivityCommand</code>:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>Model</code> retrieves the list of activities from the <code>UniqueList</code> that stores <code>Activity</code> objects.</p>
+</li>
+<li>
+<p>The <code>activityIndex</code> is used to find the target <code>Activity</code> from the activity list.</p>
+</li>
+<li>
+<p>The <code>Activity</code> object that corresponds to the index is removed from the list</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The sequence diagram below shows the the execution of <code>DeleteActivityCommand</code>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/developer-guide/activity/DeleteActivityCommandExecution.png" alt="Delete Activity Command Execution placeholder">
+</div>
+<div class="title">Figure 14. Sequence diagram that describes the execution of ScheduleActivityCommand.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration-5"><a class="link" href="#design-consideration-5">3.6.3. Design Consideration</a></h4>
+<div class="sect4">
+<h5 id="aspect-activity-does-not-keep-track-of-the-day"><a class="link" href="#aspect-activity-does-not-keep-track-of-the-day">Aspect: Activity does not keep track of the day</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Current Choice:</strong> Days is being tracked by scheduler</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Separation of concerns: Only the scheduler should know which day the activity is held on.</p>
+</li>
+<li>
+<p>Cons: {kiv}</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="packing-list-manager"><a class="link" href="#packing-list-manager">3.7. Packing List Manager</a></h3>
+<div class="paragraph">
+<p><strong><em>E.T.</em></strong> allows the user to create a packing list. The packing list allows the user to create new packing list items,
+edit, delete, check and uncheck existing items.</p>
+</div>
+<div class="paragraph">
+<p>List of commands that helps with packing list management:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>additem item/ITEM quantity/QUANTITY category/CATEGORY</code> &#8201;&#8212;&#8201;Creates and loads a new packing list item with desired name, quantity and category.</p>
+</li>
+<li>
+<p><code>deleteitem index/INDEX</code> &#8201;&#8212;&#8201;Deletes packing list item using desired index</p>
+</li>
+<li>
+<p><code>edititem index/INDEX [item/ITEM] [quantity/QUANTITY] [category/CATEGORY]</code>&#8201;&#8212;&#8201;Edits a packing list item with desired index</p>
+</li>
+<li>
+<p><code>checkitem index/INDEX</code>&#8201;&#8212;&#8201;Marks a packing list with desired index as packed</p>
+</li>
+<li>
+<p><code>uncheckitem index/INDEX</code>&#8201;&#8212;&#8201;Marks a packing list with desired index as unpacked</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="rationale-7"><a class="link" href="#rationale-7">3.7.1. Rationale</a></h4>
+<div class="paragraph">
+<p>The packing list feature is an important feature that allows the users to plan and pack for their trip.
+It ensures that the user did not forget to pack anything for their trip, providing convenience and a peace of mind.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">3.7.2. Current Implementation</a></h4>
+<div class="paragraph">
 <p>The keywords from the command given by user is parsed using <code>AddItemParser</code> which converts the string
 variable of the <code>item</code> into a java <code>ITEM</code> object, the string variable of the <code>quantity</code> into a java <code>QUANTITY</code> object, and the string
 variable of the <code>category</code> into a java <code>CATEGORY</code> object.
@@ -850,7 +1006,7 @@ These objects are used to create the <code>AddItemCommand</code> object that can
 <div class="content">
 <img src="images/developer-guide/schedule-feature/ScheduleActivityCommandCreation.png" alt="ScheduleActivityCommandCreation">
 </div>
-<div class="title">Figure 13. Sequence diagram that describes the creation of the <code>AddItemCommand</code> from the input user command <code>schedule 1 day/2 starttime/13:00</code>.</div>
+<div class="title">Figure 15. Sequence diagram that describes the creation of the <code>AddItemCommand</code> from the input user command <code>schedule 1 day/2 starttime/13:00</code>.</div>
 </div>
 <div class="paragraph">
 <p>After the creation of the <code>AddItemCommand</code> object, the <code>LogicManager</code> will proceed to call the <code>execute()</code> method of <code>AddIitemCommand</code>.</p>
@@ -887,14 +1043,105 @@ These objects are used to create the <code>AddItemCommand</code> object that can
 <div class="content">
 <img src="images/developer-guide/schedule-feature/AddItemCommandExecution.png" alt="Schedule Activity Command Execution">
 </div>
-<div class="title">Figure 14. Sequence diagram that describes the execution of AddItemCommand.</div>
+<div class="title">Figure 16. Sequence diagram that describes the execution of AddItemCommand.</div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.7. [Proposed] Undo/Redo feature</a></h3>
+<h3 id="packing-list-manager-2"><a class="link" href="#packing-list-manager-2">3.8. Packing List Manager</a></h3>
+<div class="paragraph">
+<p><strong><em>E.T.</em></strong> allows the user to create a packing list. The packing list allows the user to create new packing list items,
+edit, delete, check and uncheck existing items.</p>
+</div>
+<div class="paragraph">
+<p>List of commands that helps with packing list management:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>additem item/ITEM quantity/QUANTITY category/CATEGORY</code> &#8201;&#8212;&#8201;Creates and loads a new packing list item with desired name, quantity and category.</p>
+</li>
+<li>
+<p><code>deleteitem index/INDEX</code> &#8201;&#8212;&#8201;Deletes packing list item using desired index</p>
+</li>
+<li>
+<p><code>edititem index/INDEX [item/ITEM] [quantity/QUANTITY] [category/CATEGORY]</code>&#8201;&#8212;&#8201;Edits a packing list item with desired index</p>
+</li>
+<li>
+<p><code>checkitem index/INDEX</code>&#8201;&#8212;&#8201;Marks a packing list with desired index as packed</p>
+</li>
+<li>
+<p><code>uncheckitem index/INDEX</code>&#8201;&#8212;&#8201;Marks a packing list with desired index as unpacked</p>
+</li>
+</ul>
+</div>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.7.1. Proposed Implementation</a></h4>
+<h4 id="rationale-8"><a class="link" href="#rationale-8">3.8.1. Rationale</a></h4>
+<div class="paragraph">
+<p>The packing list feature is an important feature that allows the users to plan and pack for their trip.
+It ensures that the user did not forget to pack anything for their trip, providing convenience and a peace of mind.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">3.8.2. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The keywords from the command given by user is parsed using <code>AddItemParser</code> which converts the string
+variable of the <code>item</code> into a java <code>ITEM</code> object, the string variable of the <code>quantity</code> into a java <code>QUANTITY</code> object, and the string
+variable of the <code>category</code> into a java <code>CATEGORY</code> object.
+These objects are used to create the <code>AddItemCommand</code> object that can be execution to create a packing list item.</p>
+</div>
+<div class="paragraph">
+<p>The sequence diagram below shows the creation of the <code>AddItemCommand</code> object:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/developer-guide/schedule-feature/ScheduleActivityCommandCreation.png" alt="ScheduleActivityCommandCreation">
+</div>
+<div class="title">Figure 17. Sequence diagram that describes the creation of the <code>AddItemCommand</code> from the input user command <code>schedule 1 day/2 starttime/13:00</code>.</div>
+</div>
+<div class="paragraph">
+<p>After the creation of the <code>AddItemCommand</code> object, the <code>LogicManager</code> will proceed to call the <code>execute()</code> method of <code>AddIitemCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following steps describes the execution of the <code>AddItemCommand</code>:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>Model</code> retrieves the packing list from the <code>UniqueList</code> that stores <code>PackingListItem</code> objects.</p>
+</li>
+<li>
+<p>The <code>activityIndex</code> is used to obtain the target <code>Activity</code> from the activity list.</p>
+</li>
+<li>
+<p>The <code>Activity</code> object, <code>dayIndex</code> and <code>startTime</code> is passed into the <code>AddItem()</code> method of <code>Model</code>.</p>
+</li>
+<li>
+<p><code>Activity</code> is converted to a <code>Schedulee</code> object using the <code>startTime</code> from the <code>AddItemCommand</code>, the <code>title</code> and <code>duration</code> from the target <code>Activity</code>.</p>
+</li>
+<li>
+<p>The <code>Schedulee</code> object is added to the target day&#8217;s <code>DaySchedule</code>.</p>
+</li>
+<li>
+<p>The list of <code>Schedulee</code> is sorted according to the <code>startTime</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The sequence diagram below shows the the execution of <code>AddItemCommand</code>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/developer-guide/schedule-feature/AddItemCommandExecution.png" alt="Schedule Activity Command Execution">
+</div>
+<div class="title">Figure 18. Sequence diagram that describes the execution of AddItemCommand.</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.9. [Proposed] Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.9.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
 It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
@@ -1036,7 +1283,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.7.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.9.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -1106,20 +1353,20 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.8. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.10. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.9. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.11. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.10, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.12, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1150,7 +1397,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.10. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.12. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1832,4 +2079,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-22 16:36:53 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-22 17:20:16 UTC</div></div></div></body></html>
