@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>AddressBook Level 3 - Developer Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>E.T. - Developer Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">E.T.</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-W17-3/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>AddressBook Level 3 - Developer Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">E.T.</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-W17-3/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>E.T. - Developer Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>Team Team</code>      Since: <code>Jan 2020</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -24,13 +24,16 @@
 <ul class="sectlevel2">
 <li><a href="#check-status">3.1. Check Status</a></li>
 <li><a href="#trip-management-feature">3.2. Trip Management feature</a></li>
-<li><a href="#transport-booking-feature">3.3. Transport Booking feature</a></li>
-<li><a href="#accommodation-booking-feature">3.4. Accommodation Booking feature</a></li>
-<li><a href="#activity-manager">3.5. Activity Manager</a></li>
-<li><a href="#proposed-undo-redo-feature">3.6. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.7. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.8. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.9. Configuration</a></li>
+<li><a href="#schedule-feature">3.3. Schedule feature</a></li>
+<li><a href="#transport-booking-feature">3.4. Transport Booking feature</a></li>
+<li><a href="#accommodation-booking-feature">3.5. Accommodation Booking feature</a></li>
+<li><a href="#activity-manager">3.6. Activity Manager</a></li>
+<li><a href="#packing-list-feature">3.7. Packing List feature</a></li>
+<li><a href="#fixed-expense-feature">3.8. Fixed expense feature</a></li>
+<li><a href="#proposed-undo-redo-feature">3.9. [Proposed] Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">3.10. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.11. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.12. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -562,8 +565,9 @@ and be added into the schedule.</p>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="schedule-feature"><a class="link" href="#schedule-feature">3.2.4. Schedule feature</a></h4>
+</div>
+<div class="sect2">
+<h3 id="schedule-feature"><a class="link" href="#schedule-feature">3.3. Schedule feature</a></h3>
 <div class="paragraph">
 <p><strong><em>E.T.</em></strong> allows the user to schedule an activity from the activity list to a specified time of a day.
 This is done using the <code>schedule</code> command which requires the user to specify the <code>activity index</code> of an activity from
@@ -572,9 +576,8 @@ example, <code>schedule 1 day/2 starttime/13:00</code> means that the activity w
 day of the trip at 1pm. Before using the <code>schedule</code> command, the user should have filled up the activity list with
 activities.</p>
 </div>
-</div>
 <div class="sect3">
-<h4 id="rationale-3"><a class="link" href="#rationale-3">3.2.5. Rationale</a></h4>
+<h4 id="rationale-3"><a class="link" href="#rationale-3">3.3.1. Rationale</a></h4>
 <div class="paragraph">
 <p>The schedule feature is an important feature that allows the users to manage and plan for their trip schedule or itinerary.
 This feature is separated from the activity management feature to increase the ease of planning because users can just focus
@@ -582,7 +585,7 @@ on the time management aspect when scheduling proposed activities from the activ
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.2.6. Current Implementation</a></h4>
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.3.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The keywords from the command given by user is parsed using <code>ScheduleActivityCommandParser</code> which converts the string
 variable of the <code>start time</code> into a java <code>Time</code> object, while <code>activity index</code> and <code>day number</code> are converted into <code>Index</code> objects.
@@ -636,7 +639,7 @@ These objects are used to create the <code>ScheduleActivityCommand</code> object
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">3.2.7. Design Consideration</a></h4>
+<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">3.3.3. Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect-separation-between-scheduling-and-activity-management"><a class="link" href="#aspect-separation-between-scheduling-and-activity-management">Aspect: Separation between scheduling and activity management</a></h5>
 <div class="ulist">
@@ -674,19 +677,19 @@ and be added into the schedule.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="transport-booking-feature"><a class="link" href="#transport-booking-feature">3.3. Transport Booking feature</a></h3>
+<h3 id="transport-booking-feature"><a class="link" href="#transport-booking-feature">3.4. Transport Booking feature</a></h3>
 <div class="paragraph">
 <p>E.T. allows the user to add a transport booking. This is done using the schedule command which requires the user to specify the mode, start location, end location, start time and end time.</p>
 </div>
 <div class="sect3">
-<h4 id="rationale-4"><a class="link" href="#rationale-4">3.3.1. Rationale</a></h4>
+<h4 id="rationale-4"><a class="link" href="#rationale-4">3.4.1. Rationale</a></h4>
 <div class="paragraph">
 <p>The transport booking feature is an important feature that allows the user to track the list of transport bookings that they have made before leaving.
 This feature also allows the user to schedule their activities while taking the scheduled transport bookings into consideration.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.3.2. Current Implementation</a></h4>
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.4.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The keywords from the command given by the user is parsed using <code>AddTransportBookingCommandParser</code> which converts the string variable <code>mode</code> into a <code>Mode</code> object, <code>start location</code> and <code>end location</code> into a <code>Location</code> objects, as well as <code>start time</code> and <code>end time</code> into <code>Time</code> objects.
 These objects are used to create the <code>AddTransportBookingCommand</code> object that will execute to create a transport booking.</p>
@@ -718,7 +721,7 @@ These objects are used to create the <code>AddTransportBookingCommand</code> obj
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-3"><a class="link" href="#design-consideration-3">3.3.3. Design Consideration</a></h4>
+<h4 id="design-consideration-3"><a class="link" href="#design-consideration-3">3.4.3. Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect"><a class="link" href="#aspect">Aspect:</a></h5>
 <div class="ulist">
@@ -755,18 +758,18 @@ These objects are used to create the <code>AddTransportBookingCommand</code> obj
 </div>
 </div>
 <div class="sect2">
-<h3 id="accommodation-booking-feature"><a class="link" href="#accommodation-booking-feature">3.4. Accommodation Booking feature</a></h3>
+<h3 id="accommodation-booking-feature"><a class="link" href="#accommodation-booking-feature">3.5. Accommodation Booking feature</a></h3>
 <div class="paragraph">
 <p>E.T. allows the user to add an accommodation booking. This is done using the schedule command which requires the user to specify the accommodation name, location, start day, end day and a remark.</p>
 </div>
 <div class="sect3">
-<h4 id="rationale-5"><a class="link" href="#rationale-5">3.4.1. Rationale</a></h4>
+<h4 id="rationale-5"><a class="link" href="#rationale-5">3.5.1. Rationale</a></h4>
 <div class="paragraph">
 <p>The accommodation booking feature is an important feature that allows the user to track the list of accommodation bookings that they have made before leaving.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.4.2. Current Implementation</a></h4>
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.5.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The keywords from the command given by the user is parsed using <code>AddTransportBookingCommandParser</code> which converts the string variable <code>accommodation name</code> into a <code>AccommodationName</code> object, <code>location</code> into a <code>Location</code> object, <code>start day</code> and <code>end day</code> into <code>Day</code> objects, as well as <code>remark</code> into a <code>Remark</code> object.
 These objects are used to create the <code>AddAccommodationBookingCommand</code> object that will execute to create an accommodation booking.</p>
@@ -798,7 +801,7 @@ These objects are used to create the <code>AddAccommodationBookingCommand</code>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-4"><a class="link" href="#design-consideration-4">3.4.3. Design Consideration</a></h4>
+<h4 id="design-consideration-4"><a class="link" href="#design-consideration-4">3.5.3. Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect-2"><a class="link" href="#aspect-2">Aspect:</a></h5>
 <div class="ulist">
@@ -835,7 +838,7 @@ These objects are used to create the <code>AddAccommodationBookingCommand</code>
 </div>
 </div>
 <div class="sect2">
-<h3 id="activity-manager"><a class="link" href="#activity-manager">3.5. Activity Manager</a></h3>
+<h3 id="activity-manager"><a class="link" href="#activity-manager">3.6. Activity Manager</a></h3>
 <div class="paragraph">
 <p><strong><em>E.T.</em></strong> allows the user to plan for their <code>activity</code> for a trip. The activity manager handles everything to do with manipulating of activities.</p>
 </div>
@@ -871,14 +874,14 @@ These objects are used to create the <code>AddAccommodationBookingCommand</code>
 <p>The user can use any other activity command if there exist at least one activity in the list.</p>
 </div>
 <div class="sect3">
-<h4 id="rationale-6"><a class="link" href="#rationale-6">3.5.1. Rationale</a></h4>
+<h4 id="rationale-6"><a class="link" href="#rationale-6">3.6.1. Rationale</a></h4>
 <div class="paragraph">
 <p>The activity manager allows user to plan and manage their activities for the trip.
 The activity manager only handles activities and the manipulation of activities.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.5.2. Current Implementation</a></h4>
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.6.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The keywords from the command given by user is parsed using a parser for the respective command</p>
 </div>
@@ -930,7 +933,7 @@ The activity manager only handles activities and the manipulation of activities.
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-5"><a class="link" href="#design-consideration-5">3.5.3. Design Consideration</a></h4>
+<h4 id="design-consideration-5"><a class="link" href="#design-consideration-5">3.6.3. Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect-activity-does-not-keep-track-of-the-day"><a class="link" href="#aspect-activity-does-not-keep-track-of-the-day">Aspect: Activity does not keep track of the day</a></h5>
 <div class="ulist">
@@ -952,23 +955,23 @@ The activity manager only handles activities and the manipulation of activities.
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="packing-list-feature"><a class="link" href="#packing-list-feature">3.5.4. Packing List feature</a></h4>
+</div>
+<div class="sect2">
+<h3 id="packing-list-feature"><a class="link" href="#packing-list-feature">3.7. Packing List feature</a></h3>
 <div class="paragraph">
 <p><strong><em>E.T.</em></strong> allows the user to create a packing list. The packing list manager handles everything to do with manipulating of packing list items.</p>
 </div>
 <div class="paragraph">
 <p>This <code>additem</code> command requires the user to include the <code>item</code> name of an item, the <code>quantity</code> of the item , and the <code>category</code> of the item.</p>
 </div>
-</div>
 <div class="sect3">
-<h4 id="rationale-7"><a class="link" href="#rationale-7">3.5.5. Rationale</a></h4>
+<h4 id="rationale-7"><a class="link" href="#rationale-7">3.7.1. Rationale</a></h4>
 <div class="paragraph">
 <p>The packing list feature is an important feature that allows the users to plan and pack for their trip. It ensures that the user did not forget to pack anything for their trip, providing convenience.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">3.5.6. Current Implementation</a></h4>
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">3.7.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The keywords from the command given by the user is parsed using <code>AddItemCommandParser</code> which converts the string variable <code>item name</code> into an <code>ItemName</code> object, <code>quantity</code> into a <code>Quantity</code> object, as well as <code>category</code> into a <code>ItemCategory</code> object.
 These objects are used to create the <code>AddItemCommand</code> object that will execute to create a packing list item.</p>
@@ -1000,7 +1003,7 @@ These objects are used to create the <code>AddItemCommand</code> object that wil
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-6"><a class="link" href="#design-consideration-6">3.5.7. Design Consideration</a></h4>
+<h4 id="design-consideration-6"><a class="link" href="#design-consideration-6">3.7.3. Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect-3"><a class="link" href="#aspect-3">Aspect:</a></h5>
 <div class="ulist">
@@ -1035,23 +1038,23 @@ These objects are used to create the <code>AddItemCommand</code> object that wil
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="fixed-expense-feature"><a class="link" href="#fixed-expense-feature">3.5.8. Fixed expense feature</a></h4>
+</div>
+<div class="sect2">
+<h3 id="fixed-expense-feature"><a class="link" href="#fixed-expense-feature">3.8. Fixed expense feature</a></h3>
 <div class="paragraph">
 <p><strong><em>E.T.</em></strong> allows the user to create a fixed expense. The fixed expense manager handles everything to do with manipulating of fixed expenses.</p>
 </div>
 <div class="paragraph">
 <p>This <code>addexpense</code> command requires the user to include the <code>amount</code> of the fixed expense, the <code>description</code> of the fixed expense , the <code>category</code> of the fixed expense, as well as the optional <code>amountSGD</code> and <code>amountOTHR</code></p>
 </div>
-</div>
 <div class="sect3">
-<h4 id="rationale-8"><a class="link" href="#rationale-8">3.5.9. Rationale</a></h4>
+<h4 id="rationale-8"><a class="link" href="#rationale-8">3.8.1. Rationale</a></h4>
 <div class="paragraph">
 <p>The fixed expense feature is an important feature that allows the users to plan financially for their trip. It allows the user keeps track of the amount spent on the big ticket items, such as plane tickets and accommodation bookings.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">3.5.10. Current Implementation</a></h4>
+<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">3.8.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The keywords from the command given by the user is parsed using <code>AddFixedExpenseCommandParser</code> which converts the string variable <code>amount</code> into an <code>Amount</code> object, <code>description</code> into a <code>Description</code> object, as well as <code>category</code> into a <code>Category</code> object.
 These objects are used to create the <code>AddFixedExpenseCommand</code> object that will execute to create a fixed expense.</p>
@@ -1083,7 +1086,7 @@ These objects are used to create the <code>AddFixedExpenseCommand</code> object 
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-7"><a class="link" href="#design-consideration-7">3.5.11. Design Consideration</a></h4>
+<h4 id="design-consideration-7"><a class="link" href="#design-consideration-7">3.8.3. Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect-4"><a class="link" href="#aspect-4">Aspect:</a></h5>
 <div class="ulist">
@@ -1120,9 +1123,9 @@ These objects are used to create the <code>AddFixedExpenseCommand</code> object 
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.6. [Proposed] Undo/Redo feature</a></h3>
+<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.9. [Proposed] Undo/Redo feature</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.6.1. Proposed Implementation</a></h4>
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.9.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
 It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
@@ -1264,7 +1267,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.9.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -1334,20 +1337,20 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.7. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.10. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.8. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.11. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.9, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.12, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1378,7 +1381,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.9. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.12. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2060,4 +2063,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-23 05:27:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-23 06:22:30 UTC</div></div></div></body></html>
