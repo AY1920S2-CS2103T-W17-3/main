@@ -22,8 +22,8 @@
 </li>
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#check-status">3.1. Check Status</a></li>
-<li><a href="#trip-management-feature">3.2. Trip Management feature</a></li>
+<li><a href="#trip-management">3.1. Trip Management</a></li>
+<li><a href="#check-status">3.2. Check Status</a></li>
 <li><a href="#schedule-feature">3.3. Schedule feature</a></li>
 <li><a href="#transport-booking-feature">3.4. Transport Booking feature</a></li>
 <li><a href="#accommodation-booking-feature">3.5. Accommodation Booking feature</a></li>
@@ -338,118 +338,13 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="check-status"><a class="link" href="#check-status">3.1. Check Status</a></h3>
-<div class="sect3">
-<h4 id="rationale"><a class="link" href="#rationale">3.1.1. Rationale</a></h4>
-<div class="paragraph">
-<p>Currently, E.T allows a user to keep track of multiple aspects of a trip.
-However, they exist as separate lists and there is little to no integration between them.</p>
-</div>
-<div class="paragraph">
-<p>For example, the fixed expense list has little to no correlation with the packing list, but they are both
-important aspects of a trip. As such, the motivation behind creating a “check status” is to create that missing link between the different lists and make E.T more integrated and easier to use for the user.</p>
-</div>
-<div class="paragraph">
-<p>This feature allows the user to compress all the information from the lists into a single pane and
-alerts the user if they have forgotten to plan for a certain aspect of a trip.
-Before this, the user would have to scroll through each list, look at what they might have forgotten to plan or do.</p>
-</div>
-<div class="paragraph">
-<p>Therefore, this would help reduce the amount of information the user would need to process, and indirectly the stresses which accompany the planning for a trip.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="overview"><a class="link" href="#overview">3.1.2. Overview</a></h4>
-<div class="paragraph">
-<p>E.T’s database stores a hard-coded checklist. For example, it would check if the user has planned for an
-accommodation booking for every single day of the trip and would be informed through the
-<code>checkstatus</code> command if they have forgotten to plan for it.</p>
-</div>
-<div class="paragraph">
-<p><strong>TIP</strong>
-However, users can also include their own preset <code>checkstatus</code> to suit their needs {v2.0}</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">3.1.3. Current Implementation</a></h4>
-<div class="paragraph">
-<p>The <code>checkstatus</code> command checks what the user have planned against the checklist from our database.
-The <code>checkstatus</code> command is created by parsing the user’s inputs to form a <code>checkStatusCommand</code> where E.T’s
-database is filtered to return the user with the checklist.</p>
-</div>
-<div class="paragraph">
-<p>The following activity diagram shown in <a href="#Figure x.x">[Figure x.x]</a> below, summarizes what happens when a user enters a <code>checkstatus</code>
-command:</p>
-</div>
-<div class="paragraph">
-<p>[[Figure x.x]]
-Figure x.x: Activity diagram showing the workflow of a <code>checkstatus</code> command.</p>
-</div>
-<div class="paragraph">
-<p>In detail, whenever a “checkstatus” command is entered,
-the command will be identified by E.T by parsing it through the <code>eTParser</code> through the <code>Logic</code> component.
-A <code>CheckStatusCommand</code> will be created.
-E.T will then check against the hard-coded database and generate a checklist of what the
-user might have forgotten to prepare for their upcoming trip.
-The following sequence diagram shown in <a href="#Figure x.x">[Figure x.x]</a> below,
-summarizes the sequence flow when a user enters a valid <code>checkstatus</code> command:</p>
-</div>
-<div class="paragraph">
-<p>Figure x.x: Sequence diagram of a “checkstatus” command.</p>
-</div>
-<div class="paragraph">
-<p>From the sequence diagram:</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>When the <code>LogicManager</code> receives the “execute” command from <code>MainApp</code>, it will call the <code>parseCommand</code> method of
-<code>eTParser</code>.</p>
-</li>
-<li>
-<p><code>eTParser</code> will receive <code>checkstatus</code> as the command type and instantiate <code>CheckStatusCommand</code></p>
-</li>
-<li>
-<p>Through <code>Model”, the `CheckStatusCommand</code> will check the individual lists
-against the hard-coded database in <code>Storage</code> to ensure that the user had made sufficient planning for the trip.</p>
-</li>
-<li>
-<p>A <code>CommandResult</code> object which consists of a <code>MESSAGE_SUCCESS</code> back to <code>LogicManager</code> if the user had made
-sufficient planning for the upcoming trip.</p>
-</li>
-<li>
-<p>After receiving the <code>CommandResult</code> from <code>CheckStatusCommand</code>, <code>LogicManager</code> will then proceed to
-return the <code>CommandResult</code> back to “MainApp” where the checklist will be shown to the user.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.4. Design Considerations</a></h4>
-<div class="paragraph">
-<p>Aspect: Aligning with AB3 Command Calls</p>
-</div>
-<div class="paragraph">
-<p>Choice 1: Commands to called and handled like AB3.
-Pros:</p>
-</div>
-<div class="paragraph">
-<p>Easy to implement and understand. All command calls is similar to other commands in ET.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="trip-management-feature"><a class="link" href="#trip-management-feature">3.2. Trip Management feature</a></h3>
+<h3 id="trip-management"><a class="link" href="#trip-management">3.1. Trip Management</a></h3>
 <div class="paragraph">
 <p><strong><em>E.T.</em></strong> only allow the user to manage one trip at a time and is necessary to be used first before other commands are available. This is done using the <code>settrip</code> command which requires the user to specify the <code>title</code> of the trip, the <code>budget</code> of the trip and the <code>start date</code> and <code>end date</code> of the entire trip.
 For example, <code>settrip title/cheese budget/2000 startdate/20-09-20 enddate/28-09-20</code> means that the trip with the title <code>cheese land</code> will be set with a budget of <code>2000</code> dollars and a duration of 8 days between <code>20-09-20' to `28-09-20</code>.</p>
 </div>
 <div class="sect3">
-<h4 id="rationale-2"><a class="link" href="#rationale-2">3.2.1. Rationale</a></h4>
+<h4 id="rationale"><a class="link" href="#rationale">3.1.1. Rationale</a></h4>
 <div class="paragraph">
 <p>The Trip Manager feature is the main driving feature that allows the users to set their trip schedule, budget as well
 as the duration of the trip.
@@ -457,7 +352,7 @@ The Trip manager oversees the feature schedule and is essential to be set first 
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.2. Current Implementation</a></h4>
+<h4 id="current-implementation"><a class="link" href="#current-implementation">3.1.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The keywords from the command given by user is parsed using <code>SetTripCommandParser</code> which converts the string
 variable of the <code>startDate</code> and <code>endDate</code> into a java <code>Date</code> object, the <code>title</code> into a <code>Title</code> object while the <code>budget</code> is converted into <code>Budget</code> objects.
@@ -505,7 +400,7 @@ These objects are used to create the <code>SetTripCommand</code> object that can
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration"><a class="link" href="#design-consideration">3.2.3. Design Consideration</a></h4>
+<h4 id="design-consideration"><a class="link" href="#design-consideration">3.1.3. Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect-trip-is-isolated-from-any-list-manager"><a class="link" href="#aspect-trip-is-isolated-from-any-list-manager">Aspect: Trip is isolated from any list manager</a></h5>
 <div class="ulist">
@@ -567,6 +462,123 @@ and be added into the schedule.</p>
 </div>
 </div>
 <div class="sect2">
+<h3 id="check-status"><a class="link" href="#check-status">3.2. Check Status</a></h3>
+<div class="sect3">
+<h4 id="rationale-2"><a class="link" href="#rationale-2">3.2.1. Rationale</a></h4>
+<div class="paragraph">
+<p>Currently, E.T allows a user to keep track of multiple aspects of a trip.
+However, they exist as separate lists and there is little to no integration between them.</p>
+</div>
+<div class="paragraph">
+<p>For example, the fixed expense list has little to no correlation with the packing list, but they are both
+important aspects of a trip. As such, the motivation behind creating a “check status” is to create that missing link between the different lists and make E.T more integrated and easier to use for the user.</p>
+</div>
+<div class="paragraph">
+<p>This feature allows the user to compress all the information from the lists into a single pane and
+alerts the user if they have forgotten to plan for a certain aspect of a trip.
+Before this, the user would have to scroll through each list, look at what they might have forgotten to plan or do.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, this would help reduce the amount of information the user would need to process, and indirectly the stresses which accompany the planning for a trip.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="overview"><a class="link" href="#overview">3.2.2. Overview</a></h4>
+<div class="paragraph">
+<p>E.T’s database stores a hard-coded checklist. For example, it would check if the user has planned for an
+accommodation booking for every single day of the trip and would be informed through the
+<code>checkstatus</code> command if they have forgotten to plan for it.</p>
+</div>
+<div class="paragraph">
+<p><strong>TIP</strong>
+However, users can also include their own preset <code>checkstatus</code> to suit their needs {v2.0}</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.3. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The <code>checkstatus</code> command checks what the user have planned against the checklist from our database.
+The <code>checkstatus</code> command is created by parsing the user’s inputs to form a <code>checkStatusCommand</code> where E.T’s
+database is filtered to return the user with the checklist.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram shown in <a href="#Figure x.x">[Figure x.x]</a> below, summarizes what happens when a user enters a <code>checkstatus</code>
+command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/developer-guide/check-status-feature/CheckStatusCommandExecution.png" alt="CheckStatusCommandExecution">
+</div>
+<div class="title">Figure 11. Activity diagram showing the workflow of a <code>checkstatus</code> command.</div>
+</div>
+<div class="paragraph">
+<p>In detail, whenever a “checkstatus” command is entered,
+the command will be identified by E.T by parsing it through the <code>eTParser</code> through the <code>Logic</code> component.
+A <code>CheckStatusCommand</code> will be created.
+E.T will then check against the hard-coded database and generate a checklist of what the
+user might have forgotten to prepare for their upcoming trip.
+The following sequence diagram shown in <a href="#Figure x.x">[Figure x.x]</a> below,
+summarizes the sequence flow when a user enters a valid <code>checkstatus</code> command:</p>
+</div>
+<div class="paragraph">
+<p>Figure x.x: Sequence diagram of a “checkstatus” command.</p>
+</div>
+<div class="paragraph">
+<p>From the sequence diagram:</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>When the <code>LogicManager</code> receives the “execute” command from <code>MainApp</code>, it will call the <code>parseCommand</code> method of
+<code>eTParser</code>.</p>
+</li>
+<li>
+<p><code>eTParser</code> will receive <code>checkstatus</code> as the command type and instantiate <code>CheckStatusCommand</code></p>
+</li>
+<li>
+<p>Through <code>Model”, the `CheckStatusCommand</code> will check the individual lists
+against the hard-coded database in <code>Storage</code> to ensure that the user had made sufficient planning for the trip.</p>
+</li>
+<li>
+<p>A <code>CommandResult</code> object which consists of a <code>MESSAGE_SUCCESS</code> back to <code>LogicManager</code> if the user had made
+sufficient planning for the upcoming trip.</p>
+</li>
+<li>
+<p>After receiving the <code>CommandResult</code> from <code>CheckStatusCommand</code>, <code>LogicManager</code> will then proceed to
+return the <code>CommandResult</code> back to “MainApp” where the checklist will be shown to the user.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.2.4. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-access-to-all-list"><a class="link" href="#aspect-access-to-all-list">Aspect: Access to all list</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Choice 1: Check status has access to all list</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement and understand. Check status can call and access all variables from the lists.</p>
+</li>
+<li>
+<p>Cons: There might be dependency issues.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="schedule-feature"><a class="link" href="#schedule-feature">3.3. Schedule feature</a></h3>
 <div class="paragraph">
 <p><strong><em>E.T.</em></strong> allows the user to schedule an activity from the activity list to a specified time of a day.
@@ -598,7 +610,7 @@ These objects are used to create the <code>ScheduleActivityCommand</code> object
 <div class="content">
 <img src="images/developer-guide/schedule-feature/ScheduleActivityCommandCreation.png" alt="ScheduleActivityCommandCreation">
 </div>
-<div class="title">Figure 11. Sequence diagram that describes the creation of the <code>ScheduleActivityCommand</code> from the input user command <code>schedule 1 day/2 starttime/13:00</code>.</div>
+<div class="title">Figure 12. Sequence diagram that describes the creation of the <code>ScheduleActivityCommand</code> from the input user command <code>schedule 1 day/2 starttime/13:00</code>.</div>
 </div>
 <div class="paragraph">
 <p>After the creation of the <code>ScheduleActivityCommand</code> object, the <code>LogicManager</code> will proceed to call the <code>execute()</code> method of <code>ScheduleActivityCommand</code>.</p>
@@ -635,7 +647,7 @@ These objects are used to create the <code>ScheduleActivityCommand</code> object
 <div class="content">
 <img src="images/developer-guide/schedule-feature/ScheduleActivityCommandExecution.png" alt="Schedule Activity Command Execution">
 </div>
-<div class="title">Figure 12. Sequence diagram that describes the execution of ScheduleActivityCommand.</div>
+<div class="title">Figure 13. Sequence diagram that describes the execution of ScheduleActivityCommand.</div>
 </div>
 </div>
 <div class="sect3">
@@ -901,7 +913,7 @@ The activity manager only handles activities and the manipulation of activities.
 <div class="content">
 <img src="images/developer-guide/activity/DeleteActivityCommandCreation.png" alt="DeleteActivityCommandCreation">
 </div>
-<div class="title">Figure 13. Sequence diagram that describes the creation of the <code>deleteactivity</code> from the input user command <code>deleteactivity 1</code>.</div>
+<div class="title">Figure 14. Sequence diagram that describes the creation of the <code>deleteactivity</code> from the input user command <code>deleteactivity 1</code>.</div>
 </div>
 <div class="paragraph">
 <p>After the creation of the <code>DeleteActivityCommand</code> object, the <code>LogicManager</code> will proceed to call the <code>execute()</code> method of <code>DeleteActivityCommand</code>.</p>
@@ -929,7 +941,7 @@ The activity manager only handles activities and the manipulation of activities.
 <div class="content">
 <img src="images/developer-guide/activity/DeleteActivityCommandExecution.png" alt="Delete Activity Command Execution placeholder">
 </div>
-<div class="title">Figure 14. Sequence diagram that describes the execution of ScheduleActivityCommand.</div>
+<div class="title">Figure 15. Sequence diagram that describes the execution of ScheduleActivityCommand.</div>
 </div>
 </div>
 <div class="sect3">
@@ -2063,4 +2075,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-24 06:27:12 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-24 07:28:03 UTC</div></div></div></body></html>
