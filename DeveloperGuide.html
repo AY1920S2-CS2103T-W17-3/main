@@ -509,7 +509,7 @@ command:</p>
 <div class="content">
 <img src="images/developer-guide/check-status-feature/CheckStatusCommandExecution.png" alt="CheckStatusCommandExecution">
 </div>
-<div class="title">Figure 11. Activity diagram showing the workflow of a <code>checkstatus</code> command.</div>
+<div class="title">Figure 11. Sequence diagram showing the workflow of a <code>checkstatus</code> command.</div>
 </div>
 <div class="paragraph">
 <p>In detail, whenever a “checkstatus” command is entered,
@@ -709,8 +709,11 @@ These objects are used to create the <code>AddTransportBookingCommand</code> obj
 <div class="paragraph">
 <p>The sequence diagram below shows the creation of the <code>AddTransportBookingCommand</code> object:</p>
 </div>
-<div class="paragraph">
-<p>Figure x.x: Sequence diagram of a Add Transport Booking command.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/developer-guide/transport-booking/AddTransportBookingActivityDiagram.png" alt="AddTransportBookingActivityDiagram">
+</div>
+<div class="title">Figure 14. Activity diagram showing the workflow of a <code>addtransport</code> command.</div>
 </div>
 <div class="paragraph">
 <p>After the creation of the <code>AddTransportBookingCommand</code> object, the <code>LogicManager</code> will proceed to call the <code>execute()</code> method of <code>AddTransportBookingCommand</code>.</p>
@@ -913,7 +916,7 @@ The activity manager only handles activities and the manipulation of activities.
 <div class="content">
 <img src="images/developer-guide/activity/DeleteActivityCommandCreation.png" alt="DeleteActivityCommandCreation">
 </div>
-<div class="title">Figure 14. Sequence diagram that describes the creation of the <code>deleteactivity</code> from the input user command <code>deleteactivity 1</code>.</div>
+<div class="title">Figure 15. Sequence diagram that describes the creation of the <code>deleteactivity</code> from the input user command <code>deleteactivity 1</code>.</div>
 </div>
 <div class="paragraph">
 <p>After the creation of the <code>DeleteActivityCommand</code> object, the <code>LogicManager</code> will proceed to call the <code>execute()</code> method of <code>DeleteActivityCommand</code>.</p>
@@ -941,7 +944,7 @@ The activity manager only handles activities and the manipulation of activities.
 <div class="content">
 <img src="images/developer-guide/activity/DeleteActivityCommandExecution.png" alt="Delete Activity Command Execution placeholder">
 </div>
-<div class="title">Figure 15. Sequence diagram that describes the execution of ScheduleActivityCommand.</div>
+<div class="title">Figure 16. Sequence diagram that describes the execution of ScheduleActivityCommand.</div>
 </div>
 </div>
 <div class="sect3">
@@ -2075,4 +2078,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-24 07:28:03 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-24 09:08:30 UTC</div></div></div></body></html>
