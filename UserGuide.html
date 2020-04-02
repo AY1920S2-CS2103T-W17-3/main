@@ -86,26 +86,34 @@
 <li><a href="#editing-a-fixed-expense-code-editexpense-code">4.6.1.2. Editing a fixed expense: <code>editexpense</code></a></li>
 <li><a href="#deleting-a-fixed-expense-code-deleteexpense-code">4.6.1.3. Deleting a fixed expense: <code>deleteexpense</code></a></li>
 <li><a href="#clearing-a-fixed-expense-code-clearexpense-code">4.6.1.4. Clearing a fixed expense: <code>clearexpense</code></a></li>
+<li><a href="#sort-fixed-expenses-according-to-amount-spent-code-sortexpense-code">4.6.1.5. Sort fixed expenses according to amount spent: <code>sortexpense</code></a></li>
 </ul>
 </li>
-<li><a href="#setting-conversion-rates-code-conversion-code">4.6.2. Setting conversion rates: <code>conversion</code></a>
-<ul class="sectlevel4">
-<li><a href="#sort-fixed-expenses-according-to-amount-spent-code-sortexpense-code">4.6.2.1. Sort fixed expenses according to amount spent: <code>sortexpense</code></a></li>
 </ul>
 </li>
-<li><a href="#recommend-ways-to-save-money-based-on-prevailing-usage-coming-in-v2-0">4.6.3. Recommend ways to save money based on prevailing usage [Coming in v2.0]</a></li>
-<li><a href="#automatically-keep-track-of-expenses-coming-in-v2-0">4.6.4. Automatically keep track of expenses [Coming in v2.0]</a></li>
-<li><a href="#export-the-diary-to-pdf-file-coming-in-v2-0">4.6.5. Export the diary to pdf file [Coming in V2.0]</a></li>
-</ul>
-</li>
-<li><a href="#undo-redo">4.7. Undo-Redo</a>
+<li><a href="#features-coming-in-version-2-0">4.7. Features coming in Version 2.0</a>
 <ul class="sectlevel3">
-<li><a href="#undo-an-action-code-undo-code">4.7.1. Undo an action: <code>undo</code></a></li>
-<li><a href="#redo-an-action-code-redo-code">4.7.2. Redo an action: <code>redo</code></a></li>
+<li><a href="#packing-list-manager">4.7.1. Packing List Manager</a>
+<ul class="sectlevel4">
+<li><a href="#create-a-smart-packing-list-code-createlist-code">4.7.1.1. Create a smart packing list: <code>createlist</code></a></li>
 </ul>
 </li>
-<li><a href="#auto-complete-coming-in-v2-0">4.8. Auto-Complete [Coming in V2.0]</a></li>
-<li><a href="#import-and-export-of-data-coming-in-v2-0">4.9. Import and export of data [Coming in V2.0]</a></li>
+<li><a href="#export-the-packing-list-as-a-text-file-code-export-code">4.7.2. Export the packing list as a text file: <code>export</code></a></li>
+</ul>
+</li>
+<li><a href="#fixed-expense-manager-2">4.8. Fixed Expense Manager</a>
+<ul class="sectlevel3">
+<li><a href="#recommend-ways-to-save-money-based-on-prevailing-usage">4.8.1. Recommend ways to save money based on prevailing usage</a></li>
+<li><a href="#automatically-keep-track-of-expenses">4.8.2. Automatically keep track of expenses</a></li>
+</ul>
+</li>
+<li><a href="#improvements-to-e-t-interface">4.9. Improvements to E.T. Interface</a>
+<ul class="sectlevel3">
+<li><a href="#auto-complete">4.9.1. Auto-Complete</a></li>
+<li><a href="#undo-redo">4.9.2. Undo/Redo</a></li>
+</ul>
+</li>
+<li><a href="#import-and-export-of-data-coming-in-v2-0">4.10. Import and export of data [Coming in V2.0]</a></li>
 </ul>
 </li>
 <li><a href="#strong-faq-strong">5. <strong>FAQ</strong></a></li>
@@ -113,7 +121,9 @@
 <ul class="sectlevel2">
 <li><a href="#trip-commands">6.1. Trip Commands</a></li>
 <li><a href="#activity-command">6.2. Activity Command</a></li>
-<li><a href="#transportion-booking-command">6.3. Transportion Booking Command</a></li>
+<li><a href="#transportation-booking-command">6.3. Transportation Booking Command</a></li>
+<li><a href="#packing-list-commands">6.4. Packing List Commands</a></li>
+<li><a href="#fixed-expense-commands">6.5. Fixed Expense Commands</a></li>
 </ul>
 </li>
 </ul>
@@ -1686,39 +1696,46 @@ Let’s say you want to add a list of items under a pre-existing category, but y
 <div class="sect3">
 <h4 id="modifying-expenses"><a class="link" href="#modifying-expenses">4.6.1. Modifying expenses</a></h4>
 <div class="paragraph">
-<p>The following sections [3.4.4.1 - 3.4.4.4] allows a user to set and modify fixed expenses prior to the trip.</p>
+<p>The following sections [4.6.1.1 - 4.6.1.5] allows a user to set and modify fixed expenses before the trip.</p>
 </div>
 <div class="sect4">
 <h5 id="adding-a-new-fixed-expense-code-addexpense-code"><a class="link" href="#adding-a-new-fixed-expense-code-addexpense-code">4.6.1.1. Adding a new fixed expense: <code>addexpense</code></a></h5>
 <div class="paragraph">
-<p>Allow the user to add a new expense.</p>
+<p>Given that you want to add a new fixed expense for your trip, you could use the <code>addexpense</code> command to add your fixed expense into the list.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>addexpense amount/AMOUNT description/DESCRIPTION category/CATEGORY
-[amountSGD/AMOUNT/SGD] [amountOTHR/AMOUNTOTHR]</code></p>
+<p>Format: `addexpense amount/AMOUNT currency/CURRENCY description/DESCRIPTION category/CATEGORY `</p>
 </div>
-<div class="sidebarblock">
-<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="ulist">
 <ul>
 <li>
 <p>Adds a new fixed expense for the upcoming trip.</p>
 </li>
 <li>
-<p>The amount <strong>must be a positive integer</strong></p>
+<p>Only one amount must be provided and <strong>must be a positive integer</strong></p>
 </li>
 <li>
-<p>Both the <code>Description</code> and <code>Category</code> <strong>must be alphanumeric word</strong> and contains 50 and 30 characters respectively.</p>
+<p>Both the <code>Description</code> and <code>Category</code> fields <strong>must be alphanumeric word</strong> and contains 50 and 30 characters respectively.</p>
 </li>
 <li>
 <p>At least one of the optional fields must be provided.</p>
 </li>
 <li>
-<p>If the user enters the expense in other currency, the amount will be automatically converted to SGD using the <strong>exchange rate</strong> provided.</p>
+<p>If the user enters the expense in other currency, which is identified through typing <code>OTHER</code> in the <code>CURRENCY</code>
+field, the amount will be automatically converted to SGD using the exchange rate provided.</p>
 </li>
 </ul>
 </div>
-</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -1726,26 +1743,44 @@ Let’s say you want to add a list of items under a pre-existing category, but y
 <div class="ulist">
 <ul>
 <li>
-<p><code>addexpense amount/1100 description/SQ Tickets category/Flights</code><br>
+<p><code>addexpense amount/1100 description/SQ Tickets category/Flights  currency/SGD</code><br>
 Adds a fixed expense of $1100SGD, for <code>SQ Tickets</code> of category <code>Flights</code>.</p>
 </li>
 <li>
-<p><code>addexpense amount/300 description/Bullet Train category/Transportation</code><br>
+<p><code>addexpense amount/300 currency/other description/Bullet Train category/Transportation</code><br>
 Adds a fixed expense of $300SGD for <code>Bullet Train</code> of category <code>Transportation</code>.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>After successfully adding the fixed expense, you would be able to see the expected output below along with the details of the fixed expense you have just added and your remaining budget for the trip.</p>
+</div>
+<div class="paragraph">
+<p>Expected output:</p>
+</div>
+<div class="paragraph">
+<p><code>New Fixed Expense added: Fixed Expense Entry - Description: Plane Tickets Amount: 1500.00 Category: transport
+Your budget left is now 3500</code></p>
+</div>
+<div class="paragraph">
+<p>Figure X: After successfully adding a fixed expense.</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="editing-a-fixed-expense-code-editexpense-code"><a class="link" href="#editing-a-fixed-expense-code-editexpense-code">4.6.1.2. Editing a fixed expense: <code>editexpense</code></a></h5>
 <div class="paragraph">
-<p>Allow the user to edit a fixed expense. The expense must have been already added to the fixed expense tracker.</p>
+<p>Given that you wish to edit your fixed expense as there are some changes to your fixed expenses, you could do so with ease through the <code>editexpense</code> command.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>editexpense INDEX amount/AMOUNT [description/DESCRIPTION] [category/CATEGORY] [amountSGD/AMOUNTSGD] [amountOTHR/AMOUNTOTHR]</code></p>
+<p>Format: <code>editexpense INDEX [amount/AMOUNT] [currency/CURRENCY]  [description/DESCRIPTION] [category/CATEGORY]</code></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -1759,15 +1794,22 @@ list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#82
 <p>Existing values will be updated to the input values.</p>
 </li>
 <li>
-<p>An <strong>exchange rate</strong> is required if the user is entering the amount in another currency.</p>
+<p>If the user wishes to change the amount, they must indicate what currency the edited amount is in.</p>
 </li>
 <li>
-<p>If the user enters the expense in other currency,
-the amount will be automatically converted to SGD using the <strong>exchange rate</strong> provided.</p>
+<p>Both currency and amount fields must exist for a successful edit.</p>
+</li>
+<li>
+<p>If the user enters the expense in other currency, the amount will be automatically converted to SGD using the exchange rate provided.</p>
+</li>
+<li>
+<p>A <strong>warning</strong> will be shown to you if you have edited an expense such that you have overshot your budget.</p>
 </li>
 </ul>
 </div>
-</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -1779,88 +1821,120 @@ the amount will be automatically converted to SGD using the <strong>exchange rat
 Edit the details and amount paid in SGD of the 1st fixed expense to be <code>Cathay Pacific Flight</code> and <code>$3000 SGD</code> respectively.</p>
 </li>
 <li>
-<p><code>editexpense 1 amountOTHR/3000 description/Business Class Flight category/Flight Ticket</code><br>
+<p><code>editexpense 1 amount/3000 currency/other description/Business Class Flight category/Flight Ticket</code><br>
 Edit the details and amount paid in other currency of the 1st fixed expense to be
 <code>Business Class Flight</code> and <code>$3000</code> respectively.
 The amount will be automatically converted to SGD using <strong>exchange rate</strong> provided.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>You can see your edited fixed expense in the list after successfully editing the fixed expense. You will also receive the expected output message shown below.</p>
+</div>
+<div class="paragraph">
+<p>Expected output:<br>
+<code>Edited Fixed Expense: Fixed Expense Entry - Description: Edited Amount: 1236.00 Category: others
+Your current budget left is 5000</code></p>
+</div>
+<div class="paragraph">
+<p>Figure 35: After successfully editing  a fixed expense.</p>
+</div>
 </div>
 <div class="sect4">
 <h5 id="deleting-a-fixed-expense-code-deleteexpense-code"><a class="link" href="#deleting-a-fixed-expense-code-deleteexpense-code">4.6.1.3. Deleting a fixed expense: <code>deleteexpense</code></a></h5>
 <div class="paragraph">
-<p>Allow the user to delete a fixed expense. The expense must be already added to the fixed expense list.</p>
+<p>Given that you wish to delete your fixed expense as it might not be relevant to your trip anymore,
+you could do so with ease through the <code>deleteexpense</code> command.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>deleteexpense INDEX</code></p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>You must include an index equivalent to the number of fixed expenses in the list.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Examples:
-* deleteexpense 1<br>
+<code>deleteexpense 1</code><br>
 Delete the 1st item in the fixed expense list.</p>
+</div>
+<div class="paragraph">
+<p>You can see that the fixed expense you have deleted is not in the list after successfully deleting the fixed expense. You will also receive the expected output message shown below.</p>
+</div>
+<div class="paragraph">
+<p>Expected output:<br>
+<code>Deleted Fixed Expense: Fixed Expense Entry - Description: haha Amount: 1500.00 Category: transport
+Your remaining budget is 3500</code></p>
+</div>
+<div class="paragraph">
+<p>Figure 36: After successfully deleting a fixed expense.</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="clearing-a-fixed-expense-code-clearexpense-code"><a class="link" href="#clearing-a-fixed-expense-code-clearexpense-code">4.6.1.4. Clearing a fixed expense: <code>clearexpense</code></a></h5>
 <div class="paragraph">
-<p>Allow the user to clear the fixed expense in the list.</p>
+<p>Given that you have reached an irrevocable amount of editing with your fixed expense list and would like to start
+afresh, you could do so with ease through the <code>clearexpense</code> command.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>clearexpense INDEX</code></p>
+<p>Format: <code>clearexpense</code></p>
 </div>
 <div class="paragraph">
 <p>Example:
-* clearexpense<br>
+<code>clearexpense</code><br>
 Clears the fixed expense in the list</p>
 </div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="setting-conversion-rates-code-conversion-code"><a class="link" href="#setting-conversion-rates-code-conversion-code">4.6.2. Setting conversion rates: <code>conversion</code></a></h4>
 <div class="paragraph">
-<p>Allow the user to set conversion rates to allow for automatic conversion to SGD for any expenses incurred during the trip.</p>
+<p>You can see that the fixed expenses you currently have in the list will be cleared after successfully executing the command. You will also receive the expected output message shown below.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>conversion rate/RATE</code></p>
+<p>Expected output:<br>
+<code>Fixed Expenses has been cleared!</code></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Sets a conversion rate from their currency to SGD.</p>
-</li>
-<li>
-<p><code>RATE</code> must be a positive real number.</p>
-</li>
-<li>
-<p>Any expenses entered by the user during the trip would be automatically converted to SGD.</p>
-</li>
-</ul>
-</div>
+<div class="paragraph">
+<p>Figure 37: After successfully clearing all fixed expense.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="sort-fixed-expenses-according-to-amount-spent-code-sortexpense-code"><a class="link" href="#sort-fixed-expenses-according-to-amount-spent-code-sortexpense-code">4.6.2.1. Sort fixed expenses according to amount spent: <code>sortexpense</code></a></h5>
+<h5 id="sort-fixed-expenses-according-to-amount-spent-code-sortexpense-code"><a class="link" href="#sort-fixed-expenses-according-to-amount-spent-code-sortexpense-code">4.6.1.5. Sort fixed expenses according to amount spent: <code>sortexpense</code></a></h5>
 <div class="paragraph">
-<p>Allow the user to sort their fixed expense in the list.</p>
+<p>Given that you have too many fixed expenses and wish to know the smallest or largest expense, you could simply do so
+through the <code>sortexpense</code> command.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>sortexpense SORTIDENTIFIER [AMOUNT] [DESCRIPTION] [CATEGORY]</code></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="ulist">
 <ul>
 <li>
 <p>Sorts all fixed expense in ascending or descending order dependent on <code>SORTIDENTIFIER</code>.</p>
 </li>
 <li>
-<p>The list will be sorted in ascending order if <code>SORTIDENTIFIER</code> is 0 and descending order if <code>SORTIDENTIFIER</code> is 1.</p>
+<p>The list will be sorted in ascending order if <code>SORTIDENTIFIER</code> is <code>ASC</code> and descending order if <code>SORTIDENTIFIER</code> is <code>DES</code>.</p>
 </li>
 <li>
-<p>Only one of the optional fields [AMOUNT] [DESCRIPTION] [CATEGORY] must be provided and will sort the
+<p>Only one of the optional fields <code>[AMOUNT]</code> <code>[DESCRIPTION]</code> <code>[CATEGORY]</code> must be provided and will sort the
 list in ascending or descending order dependent on what needs to be sorted.</p>
 </li>
 <li>
@@ -1868,7 +1942,9 @@ list in ascending or descending order dependent on what needs to be sorted.</p>
 </li>
 </ul>
 </div>
-</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -1876,80 +1952,130 @@ list in ascending or descending order dependent on what needs to be sorted.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>sortexpense 1 amount</code><br>
+<p><code>sortexpense des amount</code><br>
 Sorts all fixed expense in descending order of amount.</p>
 </li>
 <li>
-<p><code>sortexpense 0 description</code><br>
+<p><code>sortexpense asc description</code><br>
 Sorts all fixed expense in lexicographical order.</p>
 </li>
 </ul>
 </div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="recommend-ways-to-save-money-based-on-prevailing-usage-coming-in-v2-0"><a class="link" href="#recommend-ways-to-save-money-based-on-prevailing-usage-coming-in-v2-0">4.6.3. Recommend ways to save money based on prevailing usage [Coming in v2.0]</a></h4>
 <div class="paragraph">
-<p>Use complex algorithms to monitor and track the user&#8217;s spending habits. Recommend ways to save money on certain items.</p>
+<p>You can see that the fixed expense will be sorted according to what you have chosen. You will also receive the expected output message shown below.</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="automatically-keep-track-of-expenses-coming-in-v2-0"><a class="link" href="#automatically-keep-track-of-expenses-coming-in-v2-0">4.6.4. Automatically keep track of expenses [Coming in v2.0]</a></h4>
 <div class="paragraph">
-<p>Avoid requiring the user to enter their expenses on the application. Instead, all their expenses will be automatically entered into the app for them.</p>
+<p>Expected output:<br>
+<code>Sorting of FixedExpense successful :)</code></p>
+</div>
+<div class="paragraph">
+<p>Figure 38: After successful sorting of fixed expense.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="export-the-diary-to-pdf-file-coming-in-v2-0"><a class="link" href="#export-the-diary-to-pdf-file-coming-in-v2-0">4.6.5. Export the diary to pdf file [Coming in V2.0]</a></h4>
-
 </div>
 </div>
 <div class="sect2">
-<h3 id="undo-redo"><a class="link" href="#undo-redo">4.7. Undo-Redo</a></h3>
+<h3 id="features-coming-in-version-2-0"><a class="link" href="#features-coming-in-version-2-0">4.7. Features coming in Version 2.0</a></h3>
 <div class="paragraph">
-<p>Allows the user to revert their actions quickly and conveniently.</p>
+<p>The following sections [4.7.1 - 4.7.3] describes the various features that will be implemented in Version 2.0 of E.T.</p>
 </div>
 <div class="sect3">
-<h4 id="undo-an-action-code-undo-code"><a class="link" href="#undo-an-action-code-undo-code">4.7.1. Undo an action: <code>undo</code></a></h4>
+<h4 id="packing-list-manager"><a class="link" href="#packing-list-manager">4.7.1. Packing List Manager</a></h4>
 <div class="paragraph">
-<p>Undo an undoable command entered by the user.<br>
-Format: <code>undo</code></p>
+<p>The following sections [4.7.1.1 - 4.7.1.2] describes the additional features which would be added to the <strong>Packing List Manager</strong> in version 2.0 of E.T.</p>
 </div>
+<div class="sect4">
+<h5 id="create-a-smart-packing-list-code-createlist-code"><a class="link" href="#create-a-smart-packing-list-code-createlist-code">4.7.1.1. Create a smart packing list: <code>createlist</code></a></h5>
 <div class="paragraph">
-<p>Example:</p>
+<p>This feature allows users to create a smart packing list. The motivation behind it is to allow inexperienced users.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="ulist">
 <ul>
 <li>
-<p><code>undo</code></p>
+<p>Creates a list based on the information given by the user.</p>
+</li>
+<li>
+<p>Useful for inexperienced users, as they do not know what to pack or the quantity to pack.</p>
+</li>
+<li>
+<p><code>DAYS</code>, <code>ADULT</code>, <code>CHILDREN</code> must be a positive integer <strong>1,2,3&#8230;&#8203;.</strong>.</p>
+</li>
+<li>
+<p><code>SEASON</code> must be in <code>Spring</code>, <code>Summer</code>, <code>Autumn</code>, <code>Winter</code>.</p>
 </li>
 </ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:<br>
+<code>createlist d/7, m/1, f/1, c/2, s/Summer</code></p>
+</div>
+<div class="paragraph">
+<p>If you are planning a trip is 7 days, with 1 male and 1 female,
+this command will create a packing list based on the information provided.
+7 sets of adult and child summer clothing will be added into the packing list, along with toys for the children.</p>
+</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="redo-an-action-code-redo-code"><a class="link" href="#redo-an-action-code-redo-code">4.7.2. Redo an action: <code>redo</code></a></h4>
+<h4 id="export-the-packing-list-as-a-text-file-code-export-code"><a class="link" href="#export-the-packing-list-as-a-text-file-code-export-code">4.7.2. Export the packing list as a text file: <code>export</code></a></h4>
 <div class="paragraph">
-<p>Redo an undone action after using the command <code>undo</code>.<br>
-Format: <code>redo</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>redo</code></p>
-</li>
-</ul>
+<p>This feature would allow users to export their existing packing list into a formatted text file.
+The motivation behind it is to enable users to share their packing lists among each other freely.
+This will give inexperienced users a template to refer to while planning for their upcoming trips.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="auto-complete-coming-in-v2-0"><a class="link" href="#auto-complete-coming-in-v2-0">4.8. Auto-Complete [Coming in V2.0]</a></h3>
-
+<h3 id="fixed-expense-manager-2"><a class="link" href="#fixed-expense-manager-2">4.8. Fixed Expense Manager</a></h3>
+<div class="paragraph">
+<p>The following sections [4.7.2.1-4.7.2.2] describes the additional features which would be added to the packing list manager
+in Version 2.0 of E.T.</p>
+</div>
+<div class="sect3">
+<h4 id="recommend-ways-to-save-money-based-on-prevailing-usage"><a class="link" href="#recommend-ways-to-save-money-based-on-prevailing-usage">4.8.1. Recommend ways to save money based on prevailing usage</a></h4>
+<div class="paragraph">
+<p>Use complex algorithms to monitor and track the user&#8217;s spending habits.
+Recommend ways to save money on certain items.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="automatically-keep-track-of-expenses"><a class="link" href="#automatically-keep-track-of-expenses">4.8.2. Automatically keep track of expenses</a></h4>
+<div class="paragraph">
+<p>Avoid requiring the user to enter their expenses on the application. Instead, all their expenses will be automatically entered into E.T.</p>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="import-and-export-of-data-coming-in-v2-0"><a class="link" href="#import-and-export-of-data-coming-in-v2-0">4.9. Import and export of data [Coming in V2.0]</a></h3>
+<h3 id="improvements-to-e-t-interface"><a class="link" href="#improvements-to-e-t-interface">4.9. Improvements to E.T. Interface</a></h3>
+<div class="paragraph">
+<p>The following sections [4.7.3.1 - 4.7.3.2] describes the additional features which would be added to the general E.T. interface to make E.T. more user friendly.</p>
+</div>
+<div class="sect3">
+<h4 id="auto-complete"><a class="link" href="#auto-complete">4.9.1. Auto-Complete</a></h4>
+<div class="paragraph">
+<p>This feature would allow users who are unfamiliar with E.T to type part of a command instead of the whole command.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="undo-redo"><a class="link" href="#undo-redo">4.9.2. Undo/Redo</a></h4>
+<div class="paragraph">
+<p>This feature would allow users to undo or redo certain commands which are accidentally done.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="import-and-export-of-data-coming-in-v2-0"><a class="link" href="#import-and-export-of-data-coming-in-v2-0">4.10. Import and export of data [Coming in V2.0]</a></h3>
 
 </div>
 </div>
@@ -1961,21 +2087,28 @@ Format: <code>redo</code></p>
 <p><strong><u>TO BE EDITED</u></strong></p>
 </div>
 <div class="paragraph">
-<p><strong>Q</strong>: How many trips am I able to set in E.T.?
-<strong>A</strong>: Users are only able to set 1 trip in E.T.
-<strong>Q</strong>: What happens if 2 of my activities clash? Will E.T detect it?
-<strong>A</strong>: E.T. will allow the scheduling of overlapping activities. However, when you check the status of your plan using the status command, E.T. will notify you the days of the trip with clashes in timings.
-<strong>Q</strong>: How do I transfer my data to another Computer?
-<strong>A</strong>: By default, E.T. save all your data in a folder named data in the same directory as the application. You can copy and transfer the data folder into the same directory as E.T. on your other computer and E.T. will automatically load your data when you open the application.</p>
+<p><strong>Q</strong>: How many trips am I able to set in E.T.?</p>
+</div>
+<div class="paragraph">
+<p><strong>A</strong>: Users are only able to set 1 trip in E.T.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: What happens if 2 of my activities clash? Will E.T detect it?</p>
+</div>
+<div class="paragraph">
+<p><strong>A</strong>: E.T. will allow the scheduling of overlapping activities. However, when you check the status of your plan using the status command, E.T. will notify you the days of the trip with clashes in timings.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: How do I transfer my data to another Computer?</p>
+</div>
+<div class="paragraph">
+<p><strong>A</strong>: By default, E.T. save all your data in a folder named data in the same directory as the application. You can copy and transfer the data folder into the same directory as E.T. on your other computer and E.T. will automatically load your data when you open the application.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="strong-command-summary-strong"><a class="link" href="#strong-command-summary-strong">6. <strong>Command Summary</strong></a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p><strong><u>TO BE EDITED</u></strong></p>
-</div>
 <div class="sect2">
 <h3 id="trip-commands"><a class="link" href="#trip-commands">6.1. Trip Commands</a></h3>
 <table class="tableblock frame-all grid-all spread">
@@ -2032,7 +2165,7 @@ Format: <code>redo</code></p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Activity</strong> : <code>addactivity title/TITLE duration/DURATION location/LOCATION [t/tag]&#8230;&#8203;</code>, row 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Activity</strong> : <code>addactivity title/TITLE duration/DURATION location/LOCATION [t/tag]&#8230;&#8203;</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>addactivity title/Going to the beach duration/4 location/Hakone t/sea t/ocean</code></p></td>
 </tr>
 <tr>
@@ -2051,7 +2184,7 @@ Format: <code>redo</code></p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="transportion-booking-command"><a class="link" href="#transportion-booking-command">6.3. Transportion Booking Command</a></h3>
+<h3 id="transportation-booking-command"><a class="link" href="#transportation-booking-command">6.3. Transportation Booking Command</a></h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -2065,7 +2198,7 @@ Format: <code>redo</code></p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Transport Booking</strong> : <code>addtransport mode/MODE startloc/START_LOCATION endloc/END_LOCATION starttime/DATE_TIME_OF_DEPARTURE endtime/DATE_TIME_OF_ARRIVAL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Transport Booking</strong> : <code>=addtransport mode/MODE startloc/START_LOCATION endloc/END_LOCATION starttime/DATE_TIME_OF_DEPARTURE endtime/DATE_TIME_OF_ARRIVAL</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>addtransport mode/plane startloc/Singapore endloc/Japan starttime/22-04-2021 09:00 endtime/22-04-2021 16:00</code></p></td>
 </tr>
 <tr>
@@ -2078,10 +2211,105 @@ Format: <code>redo</code></p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear Transportation Bookings</strong> : <code>cleartransport</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cleartransport</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cleartransport</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="packing-list-commands"><a class="link" href="#packing-list-commands">6.4. Packing List Commands</a></h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Preset Category</strong> : <code>addpreset preset/PRESET_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addpreset beach</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List all Presets in Packing List</strong>: <code>listpresets</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listpresets</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Item in Packing List</strong> : <code>additem item/ITEM quantity/QUANTITY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>additem item/underwear quantity/5</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Item in Packing List</strong> : <code>edititem INDEX [i/item] [q/quantity]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edititem 1 item/shirt quantity/5</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete item in Packing List</strong> : <code>deleteitem INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deleteitem 1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Mark Item as packed in Packing List</strong> :  <code>checkitem INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>checkitem 1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Mark Item as unpacked in Packing List</strong> : <code>uncheckitem INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>uncheckitem 1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sort Items in Packing List</strong> : <code>sortitem order criteria</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sortitem asc alphabet</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Find items in Packing List</strong>: <code>finditem</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>finditem car shampoo</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Find items in Packing List under category</strong>: <code>finditemcategory</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>finditemcategory swimming clothes</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="fixed-expense-commands"><a class="link" href="#fixed-expense-commands">6.5. Fixed Expense Commands</a></h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Fixed Expense</strong> :  <code>addexpense amount/AMOUNT currency/CURRENCY
+description/DESCRIPTION category/CATEGORY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addexpense amount/1100 currency/SGD description/SQ Tickets category/Flights</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Fixed Expense</strong> : <code>editexpense INDEX amount/AMOUNT currency/CURRENCY [description/DESCRIPTION] [category/CATEGORY]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>editexpense 1 amount/3000 currency/other description/Cathay Pacific Flight</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete Fixed Expense</strong> : <code>deleteexpense INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deleteexpense 1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear Fixed Expenses</strong> : <code>clearexpense</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clearexpense</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sort Fixed Expenses</strong> : <code>sortexpense SORTIDENTIFIER [AMOUNT] [DESCRIPTION] [CATEGORY]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sortexpense 1 amount</code></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 13:49:14 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 13:53:54 UTC</div></div></div></body></html>
