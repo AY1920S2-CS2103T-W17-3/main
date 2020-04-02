@@ -341,7 +341,23 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <h3 id="trip-management"><a class="link" href="#trip-management">3.1. Trip Management</a></h3>
 <div class="paragraph">
 <p><strong><em>E.T.</em></strong> only allow the user to manage one trip at a time and is necessary to be used first before other commands are available. This is done using the <code>settrip</code> command which requires the user to specify the <code>title</code> of the trip, the <code>budget</code> of the trip and the <code>start date</code> and <code>end date</code> of the entire trip.
-For example, <code>settrip title/cheese budget/2000 startdate/20-09-20 enddate/28-09-20</code> means that the trip with the title <code>cheese land</code> will be set with a budget of <code>2000</code> dollars and a duration of 8 days between <code>20-09-20' to `28-09-20</code>.</p>
+For example, <code>settrip title/cheese land budget/2000 startdate/20-09-20 enddate/28-09-20</code> means that the trip with the title <code>cheese land</code> will be set with a budget of <code>2000</code> dollars and a duration of 8 days between <code>20-09-20</code> to <code>28-09-20</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>title = cheese land</p>
+</li>
+<li>
+<p>budget = 2000</p>
+</li>
+<li>
+<p>start date = 20-09-20</p>
+</li>
+<li>
+<p>end date = 28-09-20</p>
+</li>
+</ul>
 </div>
 <div class="sect3">
 <h4 id="rationale"><a class="link" href="#rationale">3.1.1. Rationale</a></h4>
@@ -390,7 +406,7 @@ These objects are used to create the <code>SetTripCommand</code> object that can
 </ol>
 </div>
 <div class="paragraph">
-<p>The sequence diagram below shows the the execution of <code>ScheduleActivityCommand</code>:</p>
+<p>The sequence diagram below shows the the execution of <code>SetTripCommand</code>:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -433,25 +449,21 @@ and be added into the schedule.</p>
 <li>
 <p>Pros: Ensures that users cannot implement any activity or schedule without creation of an activity.</p>
 </li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-creation-of-trip-is-required-before-use-of-any-other-commands-2"><a class="link" href="#aspect-creation-of-trip-is-required-before-use-of-any-other-commands-2">Aspect: Creation of trip is required before use of any other commands</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Current Choice:</strong> A trip must be created before use of any other commands</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Ensures that users cannot implement any activity or schedule without creation of an activity.</p>
-</li>
 <li>
 <p>Cons: Complicate to implement and likely result in dependency issues</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative:</strong> A trip can be created after the use of any other commands</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Gives the user the freedom to use commands before the trip is set, such as the budgeting and packing list.</p>
+</li>
+<li>
+<p>Cons: Defeats the purpose of planning the trip from top down, starting from the trip being set first.</p>
 </li>
 </ul>
 </div>
@@ -513,15 +525,12 @@ command:</p>
 </div>
 <div class="paragraph">
 <p>In detail, whenever a “checkstatus” command is entered,
-the command will be identified by E.T by parsing it through the <code>eTParser</code> through the <code>Logic</code> component.
+the command will be identified by E.T by parsing it through the <code>EasyTravelParser</code> through the <code>Logic</code> component.
 A <code>CheckStatusCommand</code> will be created.
 E.T will then check against the hard-coded database and generate a checklist of what the
 user might have forgotten to prepare for their upcoming trip.
 The following sequence diagram shown in <a href="#Figure x.x">[Figure x.x]</a> below,
 summarizes the sequence flow when a user enters a valid <code>checkstatus</code> command:</p>
-</div>
-<div class="paragraph">
-<p>Figure x.x: Sequence diagram of a “checkstatus” command.</p>
 </div>
 <div class="paragraph">
 <p>From the sequence diagram:</p>
@@ -532,10 +541,10 @@ summarizes the sequence flow when a user enters a valid <code>checkstatus</code>
 <ol class="arabic">
 <li>
 <p>When the <code>LogicManager</code> receives the “execute” command from <code>MainApp</code>, it will call the <code>parseCommand</code> method of
-<code>eTParser</code>.</p>
+<code>EasyTravelParser</code>.</p>
 </li>
 <li>
-<p><code>eTParser</code> will receive <code>checkstatus</code> as the command type and instantiate <code>CheckStatusCommand</code></p>
+<p><code>EasyTravelParser</code> will receive <code>checkstatus</code> as the command type and instantiate <code>CheckStatusCommand</code></p>
 </li>
 <li>
 <p>Through <code>Model”, the `CheckStatusCommand</code> will check the individual lists
@@ -561,14 +570,27 @@ return the <code>CommandResult</code> back to “MainApp” where the checklist 
 <div class="ulist">
 <ul>
 <li>
-<p>Choice 1: Check status has access to all list</p>
+<p><strong>Current Choice:</strong> Check status has access to all lists</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to implement and understand. Check status can call and access all variables from the lists.</p>
+<p><strong>Pros:</strong> Easy to implement and understand. Check status can call and access all variables from the lists.</p>
 </li>
 <li>
-<p>Cons: There might be dependency issues.</p>
+<p><strong>Cons:</strong> There might be dependency issues.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative:</strong> User will have to check each list one by one</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Pros:</strong> No dependency issues, as all lists are kept separated.</p>
+</li>
+<li>
+<p><strong>Cons:</strong> Troublesome for the user to check each list one by one.</p>
 </li>
 </ul>
 </div>
@@ -707,13 +729,13 @@ This feature also allows the user to schedule their activities while taking the 
 These objects are used to create the <code>AddTransportBookingCommand</code> object that will execute to create a transport booking.</p>
 </div>
 <div class="paragraph">
-<p>The sequence diagram below shows the creation of the <code>AddTransportBookingCommand</code> object:</p>
+<p>The activity diagram below shows the creation of the <code>AddTransportBookingCommand</code> object:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/developer-guide/transport-booking/AddTransportBookingActivityDiagram.png" alt="AddTransportBookingActivityDiagram">
 </div>
-<div class="title">Figure 14. Activity diagram showing the workflow of a <code>addtransport</code> command.</div>
+<div class="title">Figure 14. Activity diagram showing the workflow of a <code>AddTransportBooking</code> command.</div>
 </div>
 <div class="paragraph">
 <p>After the creation of the <code>AddTransportBookingCommand</code> object, the <code>LogicManager</code> will proceed to call the <code>execute()</code> method of <code>AddTransportBookingCommand</code>.</p>
@@ -746,10 +768,10 @@ These objects are used to create the <code>AddTransportBookingCommand</code> obj
 <div class="ulist">
 <ul>
 <li>
-<p>Pros:</p>
+<p><strong>Pros:</strong></p>
 </li>
 <li>
-<p>Cons:</p>
+<p><strong>Cons:</strong></p>
 </li>
 </ul>
 </div>
@@ -759,10 +781,10 @@ These objects are used to create the <code>AddTransportBookingCommand</code> obj
 <div class="ulist">
 <ul>
 <li>
-<p>Pros:</p>
+<p><strong>Pros:</strong></p>
 </li>
 <li>
-<p>Cons:</p>
+<p><strong>Cons:</strong></p>
 </li>
 </ul>
 </div>
@@ -826,10 +848,10 @@ These objects are used to create the <code>AddAccommodationBookingCommand</code>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros:</p>
+<p><strong>Pros:</strong></p>
 </li>
 <li>
-<p>Cons:</p>
+<p><strong>Cons:</strong></p>
 </li>
 </ul>
 </div>
@@ -839,10 +861,10 @@ These objects are used to create the <code>AddAccommodationBookingCommand</code>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros:</p>
+<p><strong>Pros:</strong></p>
 </li>
 <li>
-<p>Cons:</p>
+<p><strong>Cons:</strong></p>
 </li>
 </ul>
 </div>
@@ -964,10 +986,10 @@ The activity manager only handles activities and the manipulation of activities.
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Separation of concerns: Only the scheduler should know which day the activity is held on.</p>
+<p><strong>Pros:</strong> Separation of concerns: Only the scheduler should know which day the activity is held on.</p>
 </li>
 <li>
-<p>Cons: {kiv}</p>
+<p><strong>Cons:</strong> {kiv}</p>
 </li>
 </ul>
 </div>
@@ -983,7 +1005,9 @@ The activity manager only handles activities and the manipulation of activities.
 <p><strong><em>E.T.</em></strong> allows the user to create a packing list. The packing list manager handles everything to do with manipulating of packing list items.</p>
 </div>
 <div class="paragraph">
-<p>This <code>additem</code> command requires the user to include the <code>item</code> name of an item, the <code>quantity</code> of the item , and the <code>category</code> of the item.</p>
+<p>The <code>addpreset</code> command requires the user to include the <code>category</code> of the preset they want to add into the packing list.
+For example, <code>addpreset swimming</code> means that the preset called <code>swimming</code> will be be added into the user&#8217;s packing list.
+Only pre-existing presets can be added into the user&#8217;s packing list.</p>
 </div>
 <div class="sect3">
 <h4 id="rationale-7"><a class="link" href="#rationale-7">3.7.1. Rationale</a></h4>
@@ -994,34 +1018,34 @@ The activity manager only handles activities and the manipulation of activities.
 <div class="sect3">
 <h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">3.7.2. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The keywords from the command given by the user is parsed using <code>AddItemCommandParser</code> which converts the string variable <code>item name</code> into an <code>ItemName</code> object, <code>quantity</code> into a <code>Quantity</code> object, as well as <code>category</code> into a <code>ItemCategory</code> object.
-These objects are used to create the <code>AddItemCommand</code> object that will execute to create a packing list item.</p>
+<p>The keywords from the command given by the user is parsed using <code>AddPresetCommandParser</code> which converts the string variable <code>category</code> into a <code>ItemCategory</code> object.
+These objects are used to create the <code>AddPresetCommand</code> object that will execute to create a packing list item.</p>
 </div>
 <div class="paragraph">
-<p>The sequence diagram below shows the creation of the <code>AddItemCommand</code> object:</p>
+<p>The sequence diagram below shows the creation of the <code>AddPresetCommand</code> object:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/developer-guide/packing-list/AddPackingListActivityDiagram.png" alt="AddPackingListActivityDiagram">
 </div>
-<div class="title">Figure 18. Activity diagram showing the workflow of an <code>additem</code> command.</div>
+<div class="title">Figure 18. Activity diagram showing the workflow of an <code>addpreset</code> command.</div>
 </div>
 <div class="paragraph">
-<p>After the creation of the <code>AddItemCommand</code> object, the <code>LogicManager</code> will proceed to call the <code>execute()</code> method of <code>AddItemCommand</code>.</p>
+<p>After the creation of the <code>AddPresetCommand</code> object, the <code>LogicManager</code> will proceed to call the <code>execute()</code> method of <code>AddPresetCommand</code>.</p>
 </div>
 <div class="paragraph">
-<p>The following steps describes the execution of the <code>AddItemCommand</code>:</p>
+<p>The following steps describes the execution of the <code>AddPresetCommand</code>:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>In <code>Model</code>, the <code>AddItemCommand</code> checks the current packing list for duplicates before adding the new object into the packing list</p>
+<p>In <code>Model</code>, the <code>AddPresetCommand</code> adds a list of pre-existing list of items under a category into the packing list. If it encounters duplicates, it will skip the duplicate, and continue adding the rest of the items in the preset into the packing list.</p>
 </li>
 <li>
-<p>A <code>CommandResult</code> object which consists of a <code>MESSAGE_SUCCESS</code> is sent back to <code>LogicManager</code> if there is a successful addition of the item into the packing list</p>
+<p>A <code>CommandResult</code> object which consists of a <code>MESSAGE_SUCCESS</code> is sent back to <code>LogicManager</code> if there is a successful addition of the items into the packing list.</p>
 </li>
 <li>
-<p>After receiving the <code>CommandResult</code> from <code>AddItemCommand</code>, <code>LogicManager</code> will return the <code>CommandResult</code> back to “MainApp” where the updated packing list is shown</p>
+<p>After receiving the <code>CommandResult</code> from <code>AddPresetCommand</code>, <code>LogicManager</code> will return the <code>CommandResult</code> back to “MainApp” where the updated packing list is shown.</p>
 </li>
 </ol>
 </div>
@@ -1033,27 +1057,27 @@ These objects are used to create the <code>AddItemCommand</code> object that wil
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Current Choice:</strong></p>
+<p><strong>Current Choice:</strong> Users choose a preset list of items under a category</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros:</p>
+<p><strong>Pros:</strong> Gives the user more convenience; allows them to add a list of items at one go, instead of adding an item each time.</p>
 </li>
 <li>
-<p>Cons:</p>
+<p><strong>Cons:</strong> Users are only able to choose from the pre-existing list of presets, hence not a lot of freedom to create their own preset.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative:</strong></p>
+<p><strong>Alternative:</strong> Users create their own presets</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros:</p>
+<p><strong>Pros:</strong> Gives the user a lot of freedom to customise their presets and packing list, making it user focused.</p>
 </li>
 <li>
-<p>Cons:</p>
+<p><strong>Cons:</strong> Difficult to implement</p>
 </li>
 </ul>
 </div>
@@ -1116,27 +1140,27 @@ These objects are used to create the <code>AddFixedExpenseCommand</code> object 
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Current Choice:</strong></p>
+<p><strong>Current Choice:</strong> Category can only be <code>accommodation</code>, <code>activities</code>, <code>transport</code> or <code>others</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros:</p>
+<p><strong>Pros:</strong> Keeps the implementation simple, and since a pie chart will be shown, the pie chart will be kept simple and clean as well.</p>
 </li>
 <li>
-<p>Cons:</p>
+<p><strong>Cons:</strong> Restricts the user on the categories they can use, prevents them from customising the category to suit their expenses.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative:</strong></p>
+<p><strong>Alternative:</strong> Category can be any user input</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros:</p>
+<p><strong>Pros:</strong> Not restricted to a fixed category, gives the user freedom to choose and customise their fixed expenses.</p>
 </li>
 <li>
-<p>Cons:</p>
+<p><strong>Cons:</strong> The pie chart shown will look messy, not visually pleasing to the user.</p>
 </li>
 </ul>
 </div>
@@ -2087,4 +2111,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-01 16:03:25 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 08:51:06 UTC</div></div></div></body></html>
