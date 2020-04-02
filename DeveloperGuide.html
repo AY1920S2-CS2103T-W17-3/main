@@ -1093,7 +1093,8 @@ These objects are used to create the <code>AddPresetCommand</code> object that w
 <p><strong><em>E.T.</em></strong> allows the user to create a fixed expense. The fixed expense manager handles everything to do with manipulating of fixed expenses.</p>
 </div>
 <div class="paragraph">
-<p>This <code>addexpense</code> command requires the user to include the <code>amount</code> of the fixed expense, the <code>description</code> of the fixed expense , the <code>category</code> of the fixed expense, as well as the optional <code>amountSGD</code> and <code>amountOTHR</code></p>
+<p>This <code>sortexpense</code> command requires the user to include the <code>order</code> of the sorting, which is either ascending or descending, and the <code>criteria</code> of the sorting, which is either amount, blah or category.
+For example, <code>sortexpense asc amount</code> sorts the fixed expense list in ascending order, according to the amount of the fixed expenses.</p>
 </div>
 <div class="sect3">
 <h4 id="rationale-8"><a class="link" href="#rationale-8">3.8.1. Rationale</a></h4>
@@ -1104,31 +1105,31 @@ These objects are used to create the <code>AddPresetCommand</code> object that w
 <div class="sect3">
 <h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">3.8.2. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The keywords from the command given by the user is parsed using <code>AddFixedExpenseCommandParser</code> which converts the string variable <code>amount</code> into an <code>Amount</code> object, <code>description</code> into a <code>Description</code> object, as well as <code>category</code> into a <code>Category</code> object.
-These objects are used to create the <code>AddFixedExpenseCommand</code> object that will execute to create a fixed expense.</p>
+<p>The keywords from the command given by the user is parsed using <code>SortFixedExpenseCommandParser</code> which converts the retrieves the order of the sort, and the sorting criteria.
+These objects are used to create the <code>SortFixedExpenseCommand</code> object that will execute the sorting of the fixed expense list according to the given order and criteria.</p>
 </div>
 <div class="paragraph">
-<p>The sequence diagram below shows the creation of the <code>AddFixedExpenseCommand</code> object:</p>
+<p>The sequence diagram below shows the creation of the <code>SortFixedExpenseCommand</code> object:</p>
 </div>
 <div class="paragraph">
-<p>Figure x.x: Sequence diagram of a Add Fixed Expense command.</p>
+<p>Figure x.x: Sequence diagram of a Sort Fixed Expense command.</p>
 </div>
 <div class="paragraph">
-<p>After the creation of the <code>AddFixedExpenseCommand</code> object, the <code>LogicManager</code> will proceed to call the <code>execute()</code> method of <code>AddFixedExpenseCommand</code>.</p>
+<p>After the creation of the <code>SortFixedExpenseCommand</code> object, the <code>LogicManager</code> will proceed to call the <code>execute()</code> method of <code>SortFixedExpenseCommand</code>.</p>
 </div>
 <div class="paragraph">
-<p>The following steps describes the execution of the <code>AddFixedExpenseCommand</code>:</p>
+<p>The following steps describes the execution of the <code>SortFixedExpenseCommand</code>:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>In <code>Model</code>, the <code>AddFixedExpenseCommand</code> checks the current fixed expense for duplicates before adding the new object into the fixed expense list</p>
+<p>In <code>Model</code>, the <code>SortFixedExpenseCommand</code> sorts the current fixed expense list according to an order and criteria.</p>
 </li>
 <li>
-<p>A <code>CommandResult</code> object which consists of a <code>MESSAGE_SUCCESS</code> is sent back to <code>LogicManager</code> if there is a successful addition of the fixed expense into the fixed expense list</p>
+<p>A <code>CommandResult</code> object which consists of a <code>MESSAGE_SUCCESS</code> is sent back to <code>LogicManager</code> if there is a successful sorting of the fixed expense list.</p>
 </li>
 <li>
-<p>After receiving the <code>CommandResult</code> from <code>AddFixedExpenseCommand</code>, <code>LogicManager</code> will return the <code>CommandResult</code> back to “MainApp” where the updated fixed expense list is shown</p>
+<p>After receiving the <code>CommandResult</code> from <code>SortFixedExpenseCommand</code>, <code>LogicManager</code> will return the <code>CommandResult</code> back to “MainApp” where the sorted fixed expense list is shown.</p>
 </li>
 </ol>
 </div>
@@ -1140,27 +1141,27 @@ These objects are used to create the <code>AddFixedExpenseCommand</code> object 
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Current Choice:</strong> Category can only be <code>accommodation</code>, <code>activities</code>, <code>transport</code> or <code>others</code></p>
+<p><strong>Current Choice:</strong> Sorting criteria can only be <code>amount</code>, <code>description</code> or <code>category</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Pros:</strong> Keeps the implementation simple, and since a pie chart will be shown, the pie chart will be kept simple and clean as well.</p>
+<p><strong>Pros:</strong> Keeps the implementation simple, as well as the fields of fixed expense only contain the above criteria</p>
 </li>
 <li>
-<p><strong>Cons:</strong> Restricts the user on the categories they can use, prevents them from customising the category to suit their expenses.</p>
+<p><strong>Cons:</strong> Restricts the user on the criteria they can use, prevents them from customising the sorting of their fixed expense list.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative:</strong> Category can be any user input</p>
+<p><strong>Alternative:</strong> Sorting criteria can be anything the user inputs</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Pros:</strong> Not restricted to a fixed category, gives the user freedom to choose and customise their fixed expenses.</p>
+<p><strong>Pros:</strong> Not restricted to a fixed criteria, gives the user freedom to choose and customise their sorting criteria.</p>
 </li>
 <li>
-<p><strong>Cons:</strong> The pie chart shown will look messy, not visually pleasing to the user.</p>
+<p><strong>Cons:</strong> Difficult to implement, too many criteria to consider.</p>
 </li>
 </ul>
 </div>
@@ -2111,4 +2112,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 16:32:10 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 16:44:24 UTC</div></div></div></body></html>
