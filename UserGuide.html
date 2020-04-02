@@ -73,7 +73,7 @@
 <li><a href="#finding-item-categories-in-the-packing-list-code-finditemcategory-code">4.5.8. Finding item categories in the packing list: <code>finditemcategory</code></a></li>
 <li><a href="#listing-items-in-the-packing-list-code-listitem-code">4.5.9. Listing items in the packing list: <code>listitem</code></a></li>
 <li><a href="#adding-a-preset-category-code-addpreset-code">4.5.10. Adding a preset category: <code>addpreset</code></a></li>
-<li><a href="#listing-all-the-presets-in-the-packing-list-code-listpresets-code">4.5.11. Listing all the presets in the packing list: <code>listpresets</code></a></li>
+<li><a href="#listing-all-the-presets-in-the-packing-list-code-listpreset-code">4.5.11. Listing all the presets in the packing list: <code>listpreset</code></a></li>
 <li><a href="#create-a-smart-packing-list-code-createlist-code-coming-in-v2-0">4.5.12. Create a smart packing list: <code>createlist</code> [coming in v2.0]</a></li>
 <li><a href="#export-the-packing-list-as-a-txt-file-code-export-code-coming-in-v2-0">4.5.13. Export the packing list as a txt file: <code>export</code> [coming in v2.0]</a></li>
 </ul>
@@ -1150,7 +1150,7 @@ you want to bring for your trip, as well as the category that underwear is locat
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Type ` deleteitem 1` into the command box, and press <code>Enter</code> to execute it.</p>
+<p>Type <code>deleteitem 1</code> into the command box, and press <code>Enter</code> to execute it.</p>
 </li>
 <li>
 <p>The result box will display the message <code>Deleted Item: Packing list item - Item Name: Swimsuit Quantity: 1 Category: swimming Is Checked: true</code></p>
@@ -1212,7 +1212,7 @@ you want to bring for your trip, as well as the category that underwear is locat
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Type ` checkitem 1` into the command box, and press <code>Enter</code> to execute it.</p>
+<p>Type <code>checkitem 1</code> into the command box, and press <code>Enter</code> to execute it.</p>
 </li>
 <li>
 <p>The result box will display the message <code>Packed Item: Packing list item - Item Name: Swimsuit Coverup Quantity: 1 Category: swimming Is Checked: true</code></p>
@@ -1401,7 +1401,7 @@ you want to bring for your trip, as well as the category that underwear is locat
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Type ` finditem shampoo hairbrush` into the command box, and press <code>Enter</code> to execute it.</p>
+<p>Type <code>finditem shampoo hairbrush</code> into the command box, and press <code>Enter</code> to execute it.</p>
 </li>
 <li>
 <p>The result box will display the message <code>2 items listed!</code></p>
@@ -1485,13 +1485,13 @@ you want to bring for your trip, as well as the category that underwear is locat
 <p>This command lists items in the packing list.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>listpreset</code></p>
+<p>Format: <code>listitem</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
 <div class="paragraph">
-<p><code>listpreset</code><br></p>
+<p><code>listitem</code><br></p>
 </div>
 <div class="paragraph">
 <p>Let&#8217;s say you want to display the original packing list, after executing the <code>finditem</code> or <code>finditemcategory</code>.</p>
@@ -1504,7 +1504,7 @@ you want to bring for your trip, as well as the category that underwear is locat
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Type <code>listpreset</code> into the command box, and press <code>Enter</code> to execute it.</p>
+<p>Type <code>listitem</code> into the command box, and press <code>Enter</code> to execute it.</p>
 </li>
 <li>
 <p>The result box will display the message <code>Listed all packing list items.</code></p>
@@ -1590,12 +1590,12 @@ you want to bring for your trip, as well as the category that underwear is locat
 </div>
 </div>
 <div class="sect4">
-<h5 id="listing-all-the-presets-in-the-packing-list-code-listpresets-code"><a class="link" href="#listing-all-the-presets-in-the-packing-list-code-listpresets-code">4.5.11. Listing all the presets in the packing list: <code>listpresets</code></a></h5>
+<h5 id="listing-all-the-presets-in-the-packing-list-code-listpreset-code"><a class="link" href="#listing-all-the-presets-in-the-packing-list-code-listpreset-code">4.5.11. Listing all the presets in the packing list: <code>listpreset</code></a></h5>
 <div class="paragraph">
 <p>This command lists all the presets available for use.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>listpresets</code></p>
+<p>Format: <code>listpreset</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1624,7 +1624,7 @@ you want to bring for your trip, as well as the category that underwear is locat
 <div class="ulist">
 <ul>
 <li>
-<p><code>listpresets</code><br>
+<p><code>listpreset</code><br>
 Let’s say you want to add a list of items under a pre-existing category, but you are not sure of the available presets you can use. You may find the pre-existing categories by executing the <code>addpreset</code> command.</p>
 </li>
 </ul>
@@ -1640,7 +1640,7 @@ Let’s say you want to add a list of items under a pre-existing category, but y
 <p>Type <code>listpreset</code> into the command box, and press <code>Enter</code> to execute it.</p>
 </li>
 <li>
-<p>This will open the pop up window called <code>List Presets</code>.</p>
+<p>This will open the pop up window called <code>List Preset</code>.</p>
 </li>
 <li>
 <p>You can see icons and names of all the available pre-existing presets in the pop up window</p>
@@ -2312,4 +2312,4 @@ description/DESCRIPTION category/CATEGORY</code></p></td>
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 13:53:54 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 14:22:31 UTC</div></div></div></body></html>
