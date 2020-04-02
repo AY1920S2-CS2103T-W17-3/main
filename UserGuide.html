@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>E.T. V2.0 - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>E.T. - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">E.T.</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-W17-3/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>E.T. V2.0 - User Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">E.T.</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-W17-3/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>E.T. - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>Team ET</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -63,18 +63,19 @@
 </li>
 <li><a href="#packing-list">4.5. Packing List</a>
 <ul class="sectlevel4">
-<li><a href="#add-a-preset-category-code-addpreset-code">4.5.1. Add a preset category: <code>addpreset</code></a></li>
-<li><a href="#list-all-the-presets-in-the-packing-list-code-listpresets-code">4.5.2. List all the presets in the packing list: <code>listpresets</code></a></li>
-<li><a href="#add-an-item-in-the-packing-list-code-additem-code">4.5.3. Add an item in the packing list: <code>additem</code></a></li>
-<li><a href="#edit-an-item-in-the-packing-list-code-edititem-code">4.5.4. Edit an item in the packing list: <code>edititem</code></a></li>
-<li><a href="#delete-an-item-in-the-packing-list-code-deleteitem-code">4.5.5. Delete an item in the packing list: <code>deleteitem</code></a></li>
-<li><a href="#mark-an-item-as-packed-in-the-packing-list-code-checkitem-code">4.5.6. Mark an item as packed in the packing list: <code>checkitem</code></a></li>
-<li><a href="#mark-an-item-as-unpacked-in-the-packing-list-code-uncheckitem-code">4.5.7. Mark an item as unpacked in the packing list: <code>uncheckitem</code></a></li>
-<li><a href="#sort-items-in-the-packing-list-code-sort-code">4.5.8. Sort items in the packing list: <code>sort</code></a></li>
-<li><a href="#list-the-all-sorting-criteria-for-the-packing-list-code-listcriteria-code">4.5.9. List the all sorting criteria for the packing list: <code>listcriteria</code></a></li>
-<li><a href="#save-the-current-packing-list-as-a-preset-code-savepreset-code">4.5.10. Save the current packing list as a preset: <code>savepreset</code></a></li>
-<li><a href="#create-a-smart-packing-list-code-createlist-code-coming-in-v2-0">4.5.11. Create a smart packing list: <code>createlist</code> [coming in v2.0]</a></li>
-<li><a href="#export-the-packing-list-as-a-txt-file-code-export-code-coming-in-v2-0">4.5.12. Export the packing list as a txt file: <code>export</code> [coming in v2.0]</a></li>
+<li><a href="#adding-an-item-in-the-packing-list-code-additem-code">4.5.1. Adding an item in the packing list: <code>additem</code></a></li>
+<li><a href="#editing-an-item-in-the-packing-list-code-edititem-code">4.5.2. Editing an item in the packing list: <code>edititem</code></a></li>
+<li><a href="#deleting-an-item-in-the-packing-list-code-deleteitem-code">4.5.3. Deleting an item in the packing list: <code>deleteitem</code></a></li>
+<li><a href="#marking-an-item-as-packed-in-the-packing-list-code-checkitem-code">4.5.4. Marking an item as packed in the packing list: <code>checkitem</code></a></li>
+<li><a href="#marking-an-item-as-unpacked-in-the-packing-list-code-uncheckitem-code">4.5.5. Marking an item as unpacked in the packing list: <code>uncheckitem</code></a></li>
+<li><a href="#sorting-items-in-the-packing-list-code-sort-code">4.5.6. Sorting items in the packing list: <code>sort</code></a></li>
+<li><a href="#finding-items-in-the-packing-list-code-finditem-code">4.5.7. Finding items in the packing list: <code>finditem</code></a></li>
+<li><a href="#finding-item-categories-in-the-packing-list-code-finditemcategory-code">4.5.8. Finding item categories in the packing list: <code>finditemcategory</code></a></li>
+<li><a href="#listing-items-in-the-packing-list-code-listitem-code">4.5.9. Listing items in the packing list: <code>listitem</code></a></li>
+<li><a href="#adding-a-preset-category-code-addpreset-code">4.5.10. Adding a preset category: <code>addpreset</code></a></li>
+<li><a href="#listing-all-the-presets-in-the-packing-list-code-listpresets-code">4.5.11. Listing all the presets in the packing list: <code>listpresets</code></a></li>
+<li><a href="#create-a-smart-packing-list-code-createlist-code-coming-in-v2-0">4.5.12. Create a smart packing list: <code>createlist</code> [coming in v2.0]</a></li>
+<li><a href="#export-the-packing-list-as-a-txt-file-code-export-code-coming-in-v2-0">4.5.13. Export the packing list as a txt file: <code>export</code> [coming in v2.0]</a></li>
 </ul>
 </li>
 <li><a href="#fixed-expense-manager">4.6. Fixed Expense Manager</a>
@@ -903,29 +904,640 @@ This command will remove all the accommodation bookings that is in your current 
 Format: <code>list</code></p>
 </div>
 <div class="paragraph">
-<p>The following sections [3.3.1. - 3.3.11] allows the user to set and modify the packing list for their trip.</p>
+<p>The following sections [4.5.1. - 4.5.11] allows the user to set and modify the packing list for their trip.</p>
 </div>
 <div class="sect4">
-<h5 id="add-a-preset-category-code-addpreset-code"><a class="link" href="#add-a-preset-category-code-addpreset-code">4.5.1. Add a preset category: <code>addpreset</code></a></h5>
+<h5 id="adding-an-item-in-the-packing-list-code-additem-code"><a class="link" href="#adding-an-item-in-the-packing-list-code-additem-code">4.5.1. Adding an item in the packing list: <code>additem</code></a></h5>
 <div class="paragraph">
-<p>Adds a preset category</p>
+<p>This command adds a new item into the packing list.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>additem name/NAME quantity/QUANTITY category/CATEGORY</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>NAME</code> must be made of alphanumeric characters, and it must be less than 50 characters long</p>
+</li>
+<li>
+<p><code>NAME</code> can be made up of multiple words</p>
+</li>
+<li>
+<p><code>QUANTITY</code> must be a positive integer 1,2,3…</p>
+</li>
+<li>
+<p><code>CATEGORY</code> must be made of alphanumeric characters, and it must be less than 30 characters long</p>
+</li>
+<li>
+<p><code>CATEGORY</code> can be made up of multiple words</p>
+</li>
+<li>
+<p>If a duplicated item is added, it will let the user know that the item is already in the list.</p>
+</li>
+<li>
+<p>If CATEGORY is not in the available presets (see section 4.5.11), then the default icon  will be placed next to the packing list item’s name. Else, the default icon will be placed next to the packing list item’s name instead.</p>
+</li>
+<li>
+<p>E.T. will automatically capitalise the first letter of the NAME. For example, if the user types in name/high heels, it will display “High Heels” in the packing list.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p><code>additem name/underwear quantity/5 category/clothes</code><br></p>
+</div>
+<div class="paragraph">
+<p>Let’s say you want to add a new item named underwear into the packing list.
+You can do so by <code>additem</code> - ing the underwear item, alongside with the quantity of 5 underwear
+you want to bring for your trip, as well as the category that underwear is located in, which is clothes.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>To add a new item:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>additem name/underwear quantity/5 category/clothes</code> into the command box, and press <code>Enter</code> to execute it.</p>
+</li>
+<li>
+<p>The result box will display the message  <code>New item added: Packing list item - Item Name: Underwear Quantity: 5 Category: clothes Is Checked: false.</code></p>
+</li>
+<li>
+<p>You can check that the new packing list item is visible in the list.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 23: After add item command</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="editing-an-item-in-the-packing-list-code-edititem-code"><a class="link" href="#editing-an-item-in-the-packing-list-code-edititem-code">4.5.2. Editing an item in the packing list: <code>edititem</code></a></h5>
+<div class="paragraph">
+<p>This command edits an existing item in the packing list</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>edititem INDEX [name/NAME] [quantity/QUANTITY] [category/CATEGORY]</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+<li>
+<p>Command can only be used if an item has been added.</p>
+</li>
+<li>
+<p><code>NAME</code> must be made of alphanumeric characters, and it must be less than 50 characters long</p>
+</li>
+<li>
+<p><code>NAME</code> can be made up of multiple words</p>
+</li>
+<li>
+<p><code>QUANTITY</code> must be a positive integer 1,2,3…</p>
+</li>
+<li>
+<p><code>CATEGORY</code> must be made of alphanumeric characters, and it must be less than 30 characters long</p>
+</li>
+<li>
+<p><code>CATEGORY</code> can be made up of multiple words</p>
+</li>
+<li>
+<p>If the item is marked as packed initially, it will not change after you edit the item. Likewise the same for an item that is marked as unpacked.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p><code>edititem 5 item/boxer</code><br></p>
+</div>
+<div class="paragraph">
+<p>Let’s say initially, the item at index 5 is underwear. Let’s say you want to change it to boxer. You may edit the item by executing the <code>edititem</code> command.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>To edit an item:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>edititem 5 name/boxer</code> into the command box, and press <code>Enter</code> to execute it.</p>
+</li>
+<li>
+<p>The result box will display the message <code>Edited Item: Packing list item - Item Name: Boxer Quantity: 5 Category: clothes Is Checked: false</code></p>
+</li>
+<li>
+<p>And you can see that the item will change from <code>Underwear</code> to <code>Boxer</code>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 24: After edit item command</p>
+</div>
+<div class="paragraph">
+<p><code>edititem 5 item/boxer quantity/3 category/essentials</code><br></p>
+</div>
+<div class="paragraph">
+<p>Let’s say initially, the item at index 5 is underwear, the quantity is 5 and the category is clothes. Let’s say you want to change it to boxer, change the quantity to 3 and change the category to essentials. You may edit the item by executing the <code>edititem</code> command.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>To edit an item:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>edititem 5 name/boxer quantity/3 category/essentials</code> into the command box, and press <code>Enter</code> to execute it.</p>
+</li>
+<li>
+<p>The result box will display the message <code>The result box will display the message “Edited Item: Packing list item - Item Name: Boxer Quantity: 3 Category: essentials Is Checked: false”</code></p>
+</li>
+<li>
+<p>You can see that the item will change from <code>Underwear</code> to <code>Boxer</code>, quantity will change from <code>5</code> to <code>3</code>, and the category will change from <code>clothes</code> to <code>essentials</code></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 25: After edit item command</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="deleting-an-item-in-the-packing-list-code-deleteitem-code"><a class="link" href="#deleting-an-item-in-the-packing-list-code-deleteitem-code">4.5.3. Deleting an item in the packing list: <code>deleteitem</code></a></h5>
+<div class="paragraph">
+<p>This commands deletes an item in the packing list</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>deleteitem INDEX</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Command can only be used if there is at least 1 item in the packing list</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p><code>deleteitem 1</code><br></p>
+</div>
+<div class="paragraph">
+<p>Let’s say you want to delete the first item in the packing list. You may delete the item by executing the <code>deleteitem</code> command.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>To delete an item:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type ` deleteitem 1` into the command box, and press <code>Enter</code> to execute it.</p>
+</li>
+<li>
+<p>The result box will display the message <code>Deleted Item: Packing list item - Item Name: Swimsuit Quantity: 1 Category: swimming Is Checked: true</code></p>
+</li>
+<li>
+<p>You can see that the item at index 1 is deleted.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 26: After delete item command</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="marking-an-item-as-packed-in-the-packing-list-code-checkitem-code"><a class="link" href="#marking-an-item-as-packed-in-the-packing-list-code-checkitem-code">4.5.4. Marking an item as packed in the packing list: <code>checkitem</code></a></h5>
+<div class="paragraph">
+<p>This command marks an item as packed in the packing list.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>checkitem INDEX</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Command can only be used if there is at least 1 item in the packing list</p>
+</li>
+<li>
+<p>If item is already packed, then it will just remain packed</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p><code>checkitem 1</code><br></p>
+</div>
+<div class="paragraph">
+<p>Let’s say you want to mark the first item in the packing list as packed. You may do so by executing the <code>checkitem</code> command.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>To mark an item as packed:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type ` checkitem 1` into the command box, and press <code>Enter</code> to execute it.</p>
+</li>
+<li>
+<p>The result box will display the message <code>Packed Item: Packing list item - Item Name: Swimsuit Coverup Quantity: 1 Category: swimming Is Checked: true</code></p>
+</li>
+<li>
+<p>You can see that the item is marked as packed.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 27: After check item command</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="marking-an-item-as-unpacked-in-the-packing-list-code-uncheckitem-code"><a class="link" href="#marking-an-item-as-unpacked-in-the-packing-list-code-uncheckitem-code">4.5.5. Marking an item as unpacked in the packing list: <code>uncheckitem</code></a></h5>
+<div class="paragraph">
+<p>This command marks an item as packed in the packing list</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>uncheckitem INDEX</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Command can only be used if there is at least 1 item in the packing list</p>
+</li>
+<li>
+<p>If item is already unpacked, then it will just remain unpacked</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p><code>uncheckitem 2</code><br></p>
+</div>
+<div class="paragraph">
+<p>Let’s say you want to mark the second item in the packing list as unpacked. You may do so by executing the <code>uncheckitem</code> command.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>To mark an item as packed:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>uncheckitem 2</code> into the command box, and press <code>Enter</code> to execute it.</p>
+</li>
+<li>
+<p>The result box will display the message <code>Unpacked Item: Packing list item - Item Name: Sandals Quantity: 1 Category: swimming Is Checked: false</code></p>
+</li>
+<li>
+<p>You can see the item at index 2 is marked as unpacked</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 28: After uncheck item command</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="sorting-items-in-the-packing-list-code-sort-code"><a class="link" href="#sorting-items-in-the-packing-list-code-sort-code">4.5.6. Sorting items in the packing list: <code>sort</code></a></h5>
+<div class="paragraph">
+<p>This command sorts items in the packing list</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>sortitem order criteria</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Criteria can be only alphabet <code>alphabet</code> , quantity <code>quantity</code> or category <code>category</code></p>
+</li>
+<li>
+<p>Order can only be ascending <code>asc</code> or descending <code>des</code></p>
+</li>
+<li>
+<p>Command can only be used if at least 1 item has been added.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p><code>sort asc alphabet</code><br></p>
+</div>
+<div class="paragraph">
+<p>Let’s say you want to sort the packing list alphabetically. You may do so by executing the <code>sortitem</code> command.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>To sort the packing list:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>sortitem asc alphabet</code> into the command box, and press <code>Enter</code> to execute it.</p>
+</li>
+<li>
+<p>The result box will display the message <code>Sorting of Item successful :)</code></p>
+</li>
+<li>
+<p>You can see that the packing list items are sorted in ascending order, according to their category.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 29: After sort item command</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="finding-items-in-the-packing-list-code-finditem-code"><a class="link" href="#finding-items-in-the-packing-list-code-finditem-code">4.5.7. Finding items in the packing list: <code>finditem</code></a></h5>
+<div class="paragraph">
+<p>This command finds items in the packing list according to keywords in the items’ names.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>finditem keyword</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Command can only be used if there is at least 1 item in the packing list.</p>
+</li>
+<li>
+<p>If packing list does not contain any of the keywords, then it will display an empty list.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p><code>finditem shampoo hairbrush</code><br></p>
+</div>
+<div class="paragraph">
+<p>Let’s say you want to find items that contain either shampoo or hairbrush in its name in the packing list. You may do so by executing the <code>finditem</code> command.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>To find items in the packing list:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type ` finditem shampoo hairbrush` into the command box, and press <code>Enter</code> to execute it.</p>
+</li>
+<li>
+<p>The result box will display the message <code>2 items listed!</code></p>
+</li>
+<li>
+<p>You can see all the packing list items that contain either shampoo or hairbrush will be listed in the packing list.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 30: After find item command</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="finding-item-categories-in-the-packing-list-code-finditemcategory-code"><a class="link" href="#finding-item-categories-in-the-packing-list-code-finditemcategory-code">4.5.8. Finding item categories in the packing list: <code>finditemcategory</code></a></h5>
+<div class="paragraph">
+<p>This command find items in the packing list according to keywords that are categories.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>finditemcategory keyword</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Command can only be used if there is at least 1 item in the packing list.</p>
+</li>
+<li>
+<p>If packing list does not contain any of the keywords, then it will display an empty list.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p><code>finditemcategory swimming clothes</code><br></p>
+</div>
+<div class="paragraph">
+<p>Let’s say you want to find items that are either in the swimming or clothes category. You may do so by executing the <code>finditemcategory</code> command.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>To find items in the packing list under categories:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>finditemcategory swimming clothes</code> into the command box, and press <code>Enter</code> to execute it.</p>
+</li>
+<li>
+<p>The result box will display the message <code>16 items listed!</code></p>
+</li>
+<li>
+<p>You can now see the displayed packing list items that are either in the swimming category or in the clothes category</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 31: After find item category command</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="listing-items-in-the-packing-list-code-listitem-code"><a class="link" href="#listing-items-in-the-packing-list-code-listitem-code">4.5.9. Listing items in the packing list: <code>listitem</code></a></h5>
+<div class="paragraph">
+<p>This command lists items in the packing list.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>listpreset</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p><code>listpreset</code><br></p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s say you want to display the original packing list, after executing the <code>finditem</code> or <code>finditemcategory</code>.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>To show the original packing list:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>listpreset</code> into the command box, and press <code>Enter</code> to execute it.</p>
+</li>
+<li>
+<p>The result box will display the message <code>Listed all packing list items.</code></p>
+</li>
+<li>
+<p>You can now see the original packing list.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 32: After the list item command</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="adding-a-preset-category-code-addpreset-code"><a class="link" href="#adding-a-preset-category-code-addpreset-code">4.5.10. Adding a preset category: <code>addpreset</code></a></h5>
+<div class="paragraph">
+<p>This command adds a pre-existing list of items under a category into the packing list.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>addpreset preset/PRESET_NAME</code></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Adds a preset category into the packing list.</p>
+<p>If the preset contains an item that is already in the packing list, it will not add that item in. It will add the rest of the items in the preset into the packing list.</p>
 </li>
 <li>
-<p>When a preset is selected, it will add a preset list of items under that category into that list.</p>
+<p>You can only add in pre-existing presets. If you add in other presets, then you will receive the message, "Sorry! This preset does not exist."</p>
 </li>
 </ul>
 </div>
-</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -933,33 +1545,68 @@ Format: <code>list</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>addpreset beach</code><br>
-Adds a preset list of items under beach into the packing list, such as sunblock, bathing suit, sunglasses, etc.</p>
+<p><code>addpreset category/beach</code><br></p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Let’s say you will be going to the beach during your trip, but you are too lazy to add a packing list item one-by-one. You want to add all the items in the beach category into your packing list. You may do so by executing the <code>addpreset</code> command.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>To add a pre-existing preset:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>addpreset category/beach</code> into the command box, and press <code>Enter</code> to execute it.</p>
+</li>
+<li>
+<p>The result box will display the message <code>New preset added: beach</code></p>
+</li>
+<li>
+<p>You can see that the list of items under the category beach is added into the packing list.</p>
+</li>
+<li>
+<p>As you can see, it is just a preset. Feel free to customize your packing list by adding in other items in the packing list through the <code>additem</code> command (see Section 4.5.1) and editing the sample list of items provided through the <code>edititem</code> command (see Section 4.5.2)</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 33: After add preset command</p>
+</div>
 </div>
 <div class="sect4">
-<h5 id="list-all-the-presets-in-the-packing-list-code-listpresets-code"><a class="link" href="#list-all-the-presets-in-the-packing-list-code-listpresets-code">4.5.2. List all the presets in the packing list: <code>listpresets</code></a></h5>
+<h5 id="listing-all-the-presets-in-the-packing-list-code-listpresets-code"><a class="link" href="#listing-all-the-presets-in-the-packing-list-code-listpresets-code">4.5.11. Listing all the presets in the packing list: <code>listpresets</code></a></h5>
 <div class="paragraph">
-<p>Lists all the presets in the packing list</p>
+<p>This command lists all the presets available for use.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>listpresets</code></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Lists all the presets in the packing list.</p>
+<p>The list will be shown in a pop up window.</p>
 </li>
 <li>
-<p>The list will be shown in a pop up window.</p>
+<p>The pop up window will only contain the icons and names of the presets, not the items inside the preset.</p>
 </li>
 </ul>
 </div>
-</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -968,342 +1615,40 @@ Adds a preset list of items under beach into the packing list, such as sunblock,
 <ul>
 <li>
 <p><code>listpresets</code><br>
-Lists all the presets that one has currently, such as beach, camping, work, fancy dinner, etc.</p>
+Let’s say you want to add a list of items under a pre-existing category, but you are not sure of the available presets you can use. You may find the pre-existing categories by executing the <code>addpreset</code> command.</p>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="add-an-item-in-the-packing-list-code-additem-code"><a class="link" href="#add-an-item-in-the-packing-list-code-additem-code">4.5.3. Add an item in the packing list: <code>additem</code></a></h5>
-<div class="paragraph">
-<p>Creates an item in the packing list</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>additem item/ITEM quantity/QUANTITY</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
-<div class="ulist">
-<ul>
+<div class="paragraph">
+<p>To show all the available presets:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p>Adds an item into the packing list.</p>
+<p>Type <code>listpreset</code> into the command box, and press <code>Enter</code> to execute it.</p>
 </li>
 <li>
-<p>If a duplicated item is added, it will let the user know that the item is already in the list.</p>
+<p>This will open the pop up window called <code>List Presets</code>.</p>
 </li>
 <li>
-<p><code>QUANTITY</code> <strong>must be a positive integer</strong> 1,2,3&#8230;&#8203;</p>
+<p>You can see icons and names of all the available pre-existing presets in the pop up window</p>
 </li>
-</ul>
+</ol>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>additem item/underwear quantity/5</code><br>
-Adds an item called underwear, with a quantity of 5</p>
-</li>
-</ul>
+<p>Figure 33: After list preset command</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="edit-an-item-in-the-packing-list-code-edititem-code"><a class="link" href="#edit-an-item-in-the-packing-list-code-edititem-code">4.5.4. Edit an item in the packing list: <code>edititem</code></a></h5>
-<div class="paragraph">
-<p>Edits an item in the packing list</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>edititem INDEX [i/item] [q/quantity]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Edits an item in the packing list.</p>
-</li>
-<li>
-<p>Command can only be used if a budget has been added.</p>
-</li>
-<li>
-<p>Existing values will be updated to the input values.</p>
-</li>
-<li>
-<p><code>quantity</code> <strong>must be a positive integer</strong> 1,2,3&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>edititem 1 item/boxer</code><br>
-Edits an item from index 1 to boxer</p>
-</li>
-<li>
-<p><code>edititem 1 item/boxer quantity/3</code><br>
-Edits an item from index 1 to boxer, and edits the quantity from 5 to 3</p>
-</li>
-</ul>
-</div>
+<h5 id="create-a-smart-packing-list-code-createlist-code-coming-in-v2-0"><a class="link" href="#create-a-smart-packing-list-code-createlist-code-coming-in-v2-0">4.5.12. Create a smart packing list: <code>createlist</code> [coming in v2.0]</a></h5>
+
 </div>
 <div class="sect4">
-<h5 id="delete-an-item-in-the-packing-list-code-deleteitem-code"><a class="link" href="#delete-an-item-in-the-packing-list-code-deleteitem-code">4.5.5. Delete an item in the packing list: <code>deleteitem</code></a></h5>
-<div class="paragraph">
-<p>Deletes an item in the packing list</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>deleteitem INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes an item in the packing list.</p>
-</li>
-<li>
-<p>Command can only be used if an item has been added.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>deleteitem 1</code><br>
-Deletes item in the index 1 of the list</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="mark-an-item-as-packed-in-the-packing-list-code-checkitem-code"><a class="link" href="#mark-an-item-as-packed-in-the-packing-list-code-checkitem-code">4.5.6. Mark an item as packed in the packing list: <code>checkitem</code></a></h5>
-<div class="paragraph">
-<p>Marks an item as packed in the packing list</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>checkitem INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Checks an item off in the packing list.</p>
-</li>
-<li>
-<p>Command can only be used if an item has been added.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>checkitem 1</code><br>
-Marks item 1 in the packing list as packed</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="mark-an-item-as-unpacked-in-the-packing-list-code-uncheckitem-code"><a class="link" href="#mark-an-item-as-unpacked-in-the-packing-list-code-uncheckitem-code">4.5.7. Mark an item as unpacked in the packing list: <code>uncheckitem</code></a></h5>
-<div class="paragraph">
-<p>Marks an item as packed in the packing list</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>uncheckitem INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Unchecks an item off in the packing list.</p>
-</li>
-<li>
-<p>Command can only be used if an item has been added.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>uncheckitem 1</code><br>
-Marks item 1 in the packing list as unpacked</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="sort-items-in-the-packing-list-code-sort-code"><a class="link" href="#sort-items-in-the-packing-list-code-sort-code">4.5.8. Sort items in the packing list: <code>sort</code></a></h5>
-<div class="paragraph">
-<p>Sorts items in the packing list</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>sort criteria/CRITERIA</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Sorts items in the packing list according to a criteria.</p>
-</li>
-<li>
-<p>Command can only be used if at least 1 item has been added.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>sort alphabet</code><br>
-Sorts the packing list alphabetically</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="list-the-all-sorting-criteria-for-the-packing-list-code-listcriteria-code"><a class="link" href="#list-the-all-sorting-criteria-for-the-packing-list-code-listcriteria-code">4.5.9. List the all sorting criteria for the packing list: <code>listcriteria</code></a></h5>
-<div class="paragraph">
-<p>Lists the all the possible sorting criteria for the packing list</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>listcriteria</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Lists the all the possible sorting criteria for the packing list.</p>
-</li>
-<li>
-<p>The list will be shown in a pop up window.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>listcriteria</code><br>
-Lists all the possible criteria, such as alphabetically, by whether it is marked as packed, etc, in a pop up window</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="save-the-current-packing-list-as-a-preset-code-savepreset-code"><a class="link" href="#save-the-current-packing-list-as-a-preset-code-savepreset-code">4.5.10. Save the current packing list as a preset: <code>savepreset</code></a></h5>
-<div class="paragraph">
-<p>Saves the current packing list as a preset</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>savepreset preset/PRESET_NAME</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Saves the current packing list as a preset</p>
-</li>
-<li>
-<p>All items in the packing list when saved as a preset will be marked as not packed</p>
-</li>
-<li>
-<p>This is for future uses, if the user wants to use a previous trip&#8217;s packing list again</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>savepreset Japan 2020</code><br>
-Saves the current packing list as a preset called Japan 2020</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="create-a-smart-packing-list-code-createlist-code-coming-in-v2-0"><a class="link" href="#create-a-smart-packing-list-code-createlist-code-coming-in-v2-0">4.5.11. Create a smart packing list: <code>createlist</code> [coming in v2.0]</a></h5>
-<div class="paragraph">
-<p>Creates a smart packing list for inexperienced travelers</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>createlist days/DAYS [adult/ADULT] [children/CHILDREN] [season/SEASON]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Creates a list based on the information given by the user</p>
-</li>
-<li>
-<p>Useful for inexperienced users, as they do not know what to pack or the quantity to pack</p>
-</li>
-<li>
-<p><code>DAYS</code>, <code>ADULT</code>, <code>CHILDREN</code>  <strong>must be a positive integer</strong> 1,2,3&#8230;&#8203;</p>
-</li>
-<li>
-<p><code>SEASON</code> <strong>must be</strong> Spring, Summer, Autumn, Winter</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>createlist d/7, m/1, f/1, c/2, s/Summer</code><br>
-Creates a packing list based on the information provided. Since the trip is 7 days, with 1 male and 1 female,
-7 sets of adult and child summer clothing will be packed, along with toys for the children.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="export-the-packing-list-as-a-txt-file-code-export-code-coming-in-v2-0"><a class="link" href="#export-the-packing-list-as-a-txt-file-code-export-code-coming-in-v2-0">4.5.12. Export the packing list as a txt file: <code>export</code> [coming in v2.0]</a></h5>
+<h5 id="export-the-packing-list-as-a-txt-file-code-export-code-coming-in-v2-0"><a class="link" href="#export-the-packing-list-as-a-txt-file-code-export-code-coming-in-v2-0">4.5.13. Export the packing list as a txt file: <code>export</code> [coming in v2.0]</a></h5>
 
 </div>
 </div>
@@ -1739,4 +2084,4 @@ Format: <code>redo</code></p>
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 13:30:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 13:49:14 UTC</div></div></div></body></html>
