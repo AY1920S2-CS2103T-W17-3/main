@@ -14,6 +14,13 @@
 <li><a href="#strong-about-strong">3. <strong>About</strong></a>
 <ul class="sectlevel2">
 <li><a href="#structure-of-this-document">3.1. Structure of this document</a></li>
+<li><a href="#reading-this-document">3.2. Reading this Document</a>
+<ul class="sectlevel3">
+<li><a href="#terminology-related-to-the-gui">3.2.1. Terminology related to the GUI.</a></li>
+<li><a href="#general-symbols-and-syntax">3.2.2. General Symbols and Syntax</a></li>
+<li><a href="#command-syntaxes-and-usages">3.2.3. Command Syntaxes and Usages</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#Features">4. <strong>Features</strong></a>
@@ -139,7 +146,7 @@
 <p>Do you enjoy going on overseas trips, but dislike or have trouble planning for it? Fret not, our application, <strong>E.T.</strong>, will help reduce the amount of stress and anxiety when planning for a trip. <strong>E.T.</strong> is a desktop application that helps travellers <strong>manage and plan for their trips</strong>. This application uses a Command Line Interface (CLI); this means that you operate the application by typing commands into a Command Box. If you are fast at typing, you can manage your trips faster than other Graphical User Interface (GUI) applications; GUI applications allow users to interact with the application through graphical icons such as buttons.</p>
 </div>
 <div class="paragraph">
-<p>The purpose of this user guide is to provide you with in-depth documentation on how to install and use our application. What are you waiting for? Head on to <em>Section 2 - Quick Start to get started.</em></p>
+<p>The purpose of this user guide is to provide you with in-depth documentation on how to install and use our application. What are you waiting for? Head on to <u>Section 2 - Quick Start to get started</u>.</p>
 </div>
 </div>
 </div>
@@ -152,7 +159,7 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Ensure that you have Java <em>11</em> or above installed in your Computer. If you don’t you can install it using the link to Oracle <a href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html">here</a></p>
+<p>Ensure that you have <em>Java 11</em> or above installed in your Computer. If you don’t you can install it using the link to <em>Oracle</em> <a href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html">here</a></p>
 </li>
 <li>
 <p>Download the latest version of <strong>E.T.</strong> found <a href="https://github.com/AY1920S2-CS2103T-W17-3/main/releases">here</a>.</p>
@@ -174,6 +181,9 @@
 <div class="paragraph">
 <p>Refer to <u>Section 4.3 - Command Syntaxes and Usages</u> on how to use commands and <u>Section 5 - Features</u> on the commands you can use for each feature.</p>
 </div>
+<div class="paragraph">
+<p>Figure X</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -182,7 +192,298 @@
 <div class="sect2">
 <h3 id="structure-of-this-document"><a class="link" href="#structure-of-this-document">3.1. Structure of this document</a></h3>
 <div class="paragraph">
-<p>There are many things you can do with <strong>E.T.</strong>. Thus, we have structured this User Guide in such a way that you can easily find what you need. The next section, <u>Section 5 - Features</u> will document the seven main features of <strong>E.T.</strong> and their commands:</p>
+<p>There are many things you can do with <strong>E.T.</strong>. Thus, we have structured this User Guide in such a way that you can easily find what you need. In the next subsection, <u>Section 3.2 Reading this Document</u>, you will find useful tips on reading this document. It is then followed by Section 4 - Features where the seven main features of E.T. and their commands are documented:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Trip Planner</p>
+</li>
+<li>
+<p>Scheduler</p>
+</li>
+<li>
+<p>Activity manager</p>
+</li>
+<li>
+<p>Transportation Booking Manager</p>
+</li>
+<li>
+<p>Accommodation Booking Manager</p>
+</li>
+<li>
+<p>Packing list Manager</p>
+</li>
+<li>
+<p>Fixed Expense Manager</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="reading-this-document"><a class="link" href="#reading-this-document">3.2. Reading this Document</a></h3>
+<div class="paragraph">
+<p>However, before moving on to the next section, you may want to familiarise yourself with some technical terms, symbols and syntax that are used throughout the document. In this subsection, you can find all the information you need to know when reading this document.</p>
+</div>
+<div class="sect3">
+<h4 id="terminology-related-to-the-gui"><a class="link" href="#terminology-related-to-the-gui">3.2.1. Terminology related to the GUI.</a></h4>
+<div class="paragraph">
+<p>The following figure shows how E.T. looks like.</p>
+</div>
+<div class="paragraph">
+<p>Figure X</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="general-symbols-and-syntax"><a class="link" href="#general-symbols-and-syntax">3.2.2. General Symbols and Syntax</a></h4>
+<div class="paragraph">
+<p>Table 1 below explains the general symbols and syntax used throughout the document.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Symbol/syntax</th>
+<th class="tableblock halign-left valign-top">What does it mean?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>italics</em>,</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Italicised text indicates that the text has a definition that is specific to the application. Look out for the definitions of these words in the same paragraph or in the glossary.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>command</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A grey highlight (called a code-block markup) indicates that this is a command that can be typed into the command box and executed by the application.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">💡</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A light bulb indicates that the enclosed text is a tip.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">⚠</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A warning sign indicates that the enclosed text is important.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Table 1. General symbols and syntax</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="command-syntaxes-and-usages"><a class="link" href="#command-syntaxes-and-usages">3.2.3. Command Syntaxes and Usages</a></h4>
+<div class="paragraph">
+<p>Since <strong>E.T.</strong> is a CLI application, knowing how to use commands is very important. The following subsection will teach you how to read and use commands in <strong>E.T.</strong>. All commands in <strong>E.T.</strong> follow similar formats as described below and examples will be provided to help you understand their usage. Examples of commands and their formats will be written in <code>code-blocks</code>.</p>
+</div>
+<div class="paragraph">
+<p>Table 2 below explains some important technical terms. An example will be provided to help you visualize these terms.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Technical Term</th>
+<th class="tableblock halign-left valign-top">What does it mean?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Command word</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The first word of a command. It determines the action that E.T. should perform.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The word or group of words following the command word. They are values given to a command to perform the specified action.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prefix</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The word that at the start of a parameter. It distinguishes one parameter from another.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Table 2. Commands technical terms</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>additem name/NAME quantity/QUANTITY category/CATEGORY</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Breakdown:</p>
+</div>
+<div class="paragraph">
+<p><strong>Command Word</strong> - <code>additem</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Parameters</strong> - <code>NAME</code>, <code>QUANTITY</code>, <code>CATEGORY</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Prefix</strong> -  <code>name/</code>, <code>quantity/</code>, <code>category/</code></p>
+</div>
+<div class="paragraph">
+<p>The following points explain how you can use a command with the provided format. More examples will be provided for each command in <u>Section 5 - Features</u>.
+Words in the upper case are the parameters to be supplied by you.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Words in the <strong>upper case</strong> are the parameters to be supplied by you.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Format given</th>
+<th class="tableblock halign-left valign-top">Example of user input</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletetransport INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletetransport 1</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><code>INDEX</code> is a parameter that you supply.</p>
+</div>
+<div class="paragraph">
+<p>In this example, the user supplied <code>1</code> as the <code>INDEX</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Items in <strong>square brackets</strong> are optional.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Format given</th>
+<th class="tableblock halign-left valign-top">Example of user input</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edititem INDEX [name/NAME] [quantity/QUANTITY] [category/CATEGORY]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edititem 1 quantity/5</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><code>INDEX</code> is compulsory as it is not in a pair of <strong>square brackets</strong>.</p>
+</div>
+<div class="paragraph">
+<p><code>[name/NAME]</code> on the other hand is optional as it is in a pair of <strong>square brackets</strong>.</p>
+</div>
+<div class="paragraph">
+<p>The same rule applies to the rest of the parameters.</p>
+</div>
+<div class="paragraph">
+<p>In the example above, the user supplied the compulsory parameter <code>INDEX</code> and only one optional parameter <code>[quantity/QUANTITY]</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Items with <code>&#8230;&#8203;</code> after them can be used zero or multiple times.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Format given</th>
+<th class="tableblock halign-left valign-top">Example of user input</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addactivity title/TITLE location/LOCATION duration/DURATION tag/TAG&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addactivity title/Shopping location/Treasure Factory duration/2 tag/shopping tag/tokyo</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Same as above</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addactivity title/Osaka Castle View location/Treasure Factory duration/2 duration/1</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>In the first example above, the user supplied 2 <code>tag/TAG</code> parameters.</p>
+</div>
+<div class="paragraph">
+<p>In the second example above, the user did not supply any <code>tag/TAG</code> parameters.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Parameters can be supplied in any order</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Format given</th>
+<th class="tableblock halign-left valign-top">Example of user input</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">`addactivity title/TITLE location/LOCATION duration/DURATION tag/TAG&#8230;&#8203; `</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addactivity title/Shopping location/Treasure Factory duration/2 tag/shopping tag/tokyo</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Same as above</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addactivity duration/2 tag/shopping location/Treasure Factory tag/tokyo title/Shopping</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The above user input command examples are equivalent even though the order of the parameters supplied are different.</p>
+</div>
+<div class="paragraph">
+<p>With the above information, you can now move on to Section 5 - Feature to learn all the features of the application and start using the commands.</p>
+</div>
 </div>
 </div>
 </div>
@@ -2312,4 +2613,4 @@ description/DESCRIPTION category/CATEGORY</code></p></td>
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 14:22:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 14:31:04 UTC</div></div></div></body></html>
