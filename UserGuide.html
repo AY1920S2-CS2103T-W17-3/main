@@ -108,7 +108,13 @@
 </ul>
 </li>
 <li><a href="#strong-faq-strong">5. <strong>FAQ</strong></a></li>
-<li><a href="#strong-command-summary-strong">6. <strong>Command Summary</strong></a></li>
+<li><a href="#strong-command-summary-strong">6. <strong>Command Summary</strong></a>
+<ul class="sectlevel2">
+<li><a href="#trip-commands">6.1. Trip Commands</a></li>
+<li><a href="#activity-command">6.2. Activity Command</a></li>
+<li><a href="#transportion-booking-command">6.3. Transportion Booking Command</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -1610,8 +1616,12 @@ Format: <code>redo</code></p>
 <p><strong><u>TO BE EDITED</u></strong></p>
 </div>
 <div class="paragraph">
-<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
+<p><strong>Q</strong>: How many trips am I able to set in E.T.?
+<strong>A</strong>: Users are only able to set 1 trip in E.T.
+<strong>Q</strong>: What happens if 2 of my activities clash? Will E.T detect it?
+<strong>A</strong>: E.T. will allow the scheduling of overlapping activities. However, when you check the status of your plan using the status command, E.T. will notify you the days of the trip with clashes in timings.
+<strong>Q</strong>: How do I transfer my data to another Computer?
+<strong>A</strong>: By default, E.T. save all your data in a folder named data in the same directory as the application. You can copy and transfer the data folder into the same directory as E.T. on your other computer and E.T. will automatically load your data when you open the application.</p>
 </div>
 </div>
 </div>
@@ -1621,34 +1631,112 @@ Format: <code>redo</code></p>
 <div class="paragraph">
 <p><strong><u>TO BE EDITED</u></strong></p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
-</li>
-<li>
-<p><strong>Clear</strong> : <code>clear</code></p>
-</li>
-<li>
-<p><strong>Delete</strong> : <code>delete INDEX</code><br>
-e.g. <code>delete 3</code></p>
-</li>
-<li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
-</li>
-<li>
-<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
-e.g. <code>find James Jake</code></p>
-</li>
-<li>
-<p><strong>List</strong> : <code>list</code></p>
-</li>
-<li>
-<p><strong>Help</strong> : <code>help</code></p>
-</li>
-</ul>
+<div class="sect2">
+<h3 id="trip-commands"><a class="link" href="#trip-commands">6.1. Trip Commands</a></h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Set Trip</strong> : <code>settrip title/TITLE start/START_DATE end/END_DATE location/LOCATION`</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>settrip title/Graduation Trip start/28-09-2020 end/28-10-2020 location/Japan</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Trip</strong> : <code>edittrip [title/TITLE] [start/START_DATE] [end/END_DATE][country/COUNTRY]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edittrip title/not a graduation trip country/Singapore</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>Delete Trip</strong> : deletetrip</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletetrip</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear Trip</strong> : <code>cleartrip</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cleartrip</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>View Itinerary</strong> : <code>view</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Check Preparation</strong> : <code>status</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="activity-command"><a class="link" href="#activity-command">6.2. Activity Command</a></h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Activity</strong> : <code>addactivity title/TITLE duration/DURATION location/LOCATION [t/tag]&#8230;&#8203;</code>, row 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addactivity title/Going to the beach duration/4 location/Hakone t/sea t/ocean</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Activity</strong> : <code>editactivity index [title/NAME] [duration/DURATION] [location/LOCATION] [t/tag]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>editactivity 1 name/Go to an aquarium</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete Activity</strong> : <code>deleteactivity index</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deleteactivity 1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear Activity</strong> : <code>clearactivity</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clearactivity</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="transportion-booking-command"><a class="link" href="#transportion-booking-command">6.3. Transportion Booking Command</a></h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Transport Booking</strong> : <code>addtransport mode/MODE startloc/START_LOCATION endloc/END_LOCATION starttime/DATE_TIME_OF_DEPARTURE endtime/DATE_TIME_OF_ARRIVAL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addtransport mode/plane startloc/Singapore endloc/Japan starttime/22-04-2021 09:00 endtime/22-04-2021 16:00</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Transportation Booking</strong> : <code>edittransport INDEX [mode/MODE] [startloc/START_LOCATION] [endloc/END_LOCATION] [starttime/DATE_TIME_OF_DEPARTURE] [endtime/DATE_TIME_OF_ARRIVAL]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edittransport 2 starttime/22-04-2021 10:00</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete transportation Booking</strong> : <code>deletetransport INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletetransport 1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear Transportation Bookings</strong> : <code>cleartransport</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cleartransport</strong></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 13:24:03 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 13:30:47 UTC</div></div></div></body></html>
