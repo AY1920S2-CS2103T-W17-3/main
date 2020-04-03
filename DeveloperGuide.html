@@ -797,7 +797,29 @@ These objects are used to create the <code>AddTransportBookingCommand</code> obj
 <div class="sect2">
 <h3 id="accommodation-booking-feature"><a class="link" href="#accommodation-booking-feature">3.5. Accommodation Booking feature</a></h3>
 <div class="paragraph">
-<p>E.T. allows the user to add an accommodation booking. This is done using the schedule command which requires the user to specify the accommodation name, location, start day, end day and a remark.</p>
+<p>E.T. allows the user to add an accommodation booking. This is done using the schedule command which requires the user to specify the accommodation name, location, start day, end day and a remark. This feature also prevents the user from having an overlap of accommodation.</p>
+</div>
+<div class="paragraph">
+<p>The activity contains the following fields:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>accommodation name</code></p>
+</li>
+<li>
+<p><code>location</code></p>
+</li>
+<li>
+<p><code>start day</code></p>
+</li>
+<li>
+<p><code>end day</code></p>
+</li>
+<li>
+<p><code>remarks</code></p>
+</li>
+</ul>
 </div>
 <div class="sect3">
 <h4 id="rationale-5"><a class="link" href="#rationale-5">3.5.1. Rationale</a></h4>
@@ -808,31 +830,36 @@ These objects are used to create the <code>AddTransportBookingCommand</code> obj
 <div class="sect3">
 <h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.5.2. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The keywords from the command given by the user is parsed using <code>AddTransportBookingCommandParser</code> which converts the string variable <code>accommodation name</code> into a <code>AccommodationName</code> object, <code>location</code> into a <code>Location</code> object, <code>start day</code> and <code>end day</code> into <code>Day</code> objects, as well as <code>remark</code> into a <code>Remark</code> object.
-These objects are used to create the <code>AddAccommodationBookingCommand</code> object that will execute to create an accommodation booking.</p>
+<p>When a user adds an accommodation booking using the <code>AddAccommodationBookingCommandParser</code>, an <code>AddAccommodationBookingCommand</code> object is created that will execute to create an accommodation booking. When the <code>execute()</code> method is called, a method <code>isOverlappingWithOthers()</code> will check if there is an overlap of the new accommodation booking with the other bookings.</p>
 </div>
 <div class="paragraph">
-<p>The sequence diagram below shows the creation of the <code>AddAccommodationBookingCommand</code> object:</p>
+<p>Using a stream, the new accommodation booking will be against all other bookings in the list to find look for any overlaps. The activity diagram shows how 2 bookings are checked if there is an overlap:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/developer-guide/accommodation-booking/FindOverlapActivityDiagram.png" alt="FindOverlapActivityDiagram">
+</div>
+<div class="title">Figure 15. Activity diagram of check overlap for 2 accommodation bookings</div>
 </div>
 <div class="paragraph">
-<p>Figure x.x: Sequence diagram of a Add Accommodation Booking command.</p>
-</div>
-<div class="paragraph">
-<p>After the creation of the <code>AddAccommodationBookingCommand</code> object, the <code>LogicManager</code> will proceed to call the <code>execute()</code> method of <code>AddAccommodationBookingCommand</code>.</p>
-</div>
-<div class="paragraph">
-<p>The following steps describes the execution of the <code>AddAccommodationBookingCommand</code>:</p>
+<p>The following steps describes the process of the check overlap method:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>In <code>Model</code>, the <code>AddAccommodationBookingCommand</code> checks the current accommodation booking list for duplicates before adding the new object into the accommodation booking list</p>
+<p>The start day and end day of both bookings are retrieved using <code>getStartDay()</code> and <code>getEndDay()</code></p>
 </li>
 <li>
-<p>A <code>CommandResult</code> object which consists of a <code>MESSAGE_SUCCESS</code> is sent back to <code>LogicManager</code> if there is a successful addition of the accommodation booking into the accommodation booking list</p>
+<p>The largest end day and smallest start day is calculated and the difference of the largest and smallest is calculated</p>
 </li>
 <li>
-<p>After receiving the <code>CommandResult</code> from <code>AddAccommodationBookingCommand</code>, <code>LogicManager</code> will return the <code>CommandResult</code> back to “MainApp” where the updated accommodation booking list is shown.</p>
+<p>The duration of both bookings is calculated by adding the difference of the end day and start day of both bookings</p>
+</li>
+<li>
+<p>If the difference of the largest end day and smallest start day is greater than the duration of both bookings, there is no overlap. The accommodation booking will then be added into the list.</p>
+</li>
+<li>
+<p>If there is an overlap, user will receive a message that informs that there is the new accommodation booking has an overlap with another booking.</p>
 </li>
 </ol>
 </div>
@@ -840,37 +867,31 @@ These objects are used to create the <code>AddAccommodationBookingCommand</code>
 <div class="sect3">
 <h4 id="design-consideration-4"><a class="link" href="#design-consideration-4">3.5.3. Design Consideration</a></h4>
 <div class="sect4">
-<h5 id="aspect-2"><a class="link" href="#aspect-2">Aspect:</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Current Choice:</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Pros:</strong></p>
-</li>
-<li>
-<p><strong>Cons:</strong></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative:</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Pros:</strong></p>
-</li>
-<li>
-<p><strong>Cons:</strong></p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
+<h5 id="aspect-calculating-overlap-of-the-new-accommodation-booking-with-the-other-accommodation-bookings-in-the-list"><a class="link" href="#aspect-calculating-overlap-of-the-new-accommodation-booking-with-the-other-accommodation-bookings-in-the-list">Aspect: Calculating overlap of the new accommodation booking with the other accommodation bookings in the list</a></h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Current Choice : Using stream to compare the accommodation bookings</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Few lines of codes needed to compare the bookings, follows the KISS principle</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Difficult for beginner users to understand our code</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alternative Choice: Using an arraylist of days to track accommodations</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy to use and understand</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Requires many lines of code, may become difficult to read</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -935,7 +956,7 @@ The activity manager only handles activities and the manipulation of activities.
 <div class="content">
 <img src="images/developer-guide/activity/DeleteActivityActivityDiagram.png" alt="DeleteActivityActivityDiagram">
 </div>
-<div class="title">Figure 15. Activity diagram showing the workflow of a <code>deleteactivity</code> command.</div>
+<div class="title">Figure 16. Activity diagram showing the workflow of a <code>deleteactivity</code> command.</div>
 </div>
 <div class="paragraph">
 <p>The sequence diagram below shows the creation of the an ActivityCommand object:</p>
@@ -944,7 +965,7 @@ The activity manager only handles activities and the manipulation of activities.
 <div class="content">
 <img src="images/developer-guide/activity/DeleteActivityCommandCreation.png" alt="DeleteActivityCommandCreation">
 </div>
-<div class="title">Figure 16. Sequence diagram that describes the creation of the <code>deleteactivity</code> from the input user command <code>deleteactivity 1</code>.</div>
+<div class="title">Figure 17. Sequence diagram that describes the creation of the <code>deleteactivity</code> from the input user command <code>deleteactivity 1</code>.</div>
 </div>
 <div class="paragraph">
 <p>After the creation of the <code>DeleteActivityCommand</code> object, the <code>LogicManager</code> will proceed to call the <code>execute()</code> method of <code>DeleteActivityCommand</code>.</p>
@@ -972,7 +993,7 @@ The activity manager only handles activities and the manipulation of activities.
 <div class="content">
 <img src="images/developer-guide/activity/DeleteActivityCommandExecution.png" alt="Delete Activity Command Execution placeholder">
 </div>
-<div class="title">Figure 17. Sequence diagram that describes the execution of ScheduleActivityCommand.</div>
+<div class="title">Figure 18. Sequence diagram that describes the execution of ScheduleActivityCommand.</div>
 </div>
 </div>
 <div class="sect3">
@@ -1028,7 +1049,7 @@ These objects are used to create the <code>AddPresetCommand</code> object that w
 <div class="content">
 <img src="images/developer-guide/packing-list/AddPackingListActivityDiagram.png" alt="AddPackingListActivityDiagram">
 </div>
-<div class="title">Figure 18. Activity diagram showing the workflow of an <code>addpreset</code> command.</div>
+<div class="title">Figure 19. Activity diagram showing the workflow of an <code>addpreset</code> command.</div>
 </div>
 <div class="paragraph">
 <p>After the creation of the <code>AddPresetCommand</code> object, the <code>LogicManager</code> will proceed to call the <code>execute()</code> method of <code>AddPresetCommand</code>.</p>
@@ -1053,7 +1074,7 @@ These objects are used to create the <code>AddPresetCommand</code> object that w
 <div class="sect3">
 <h4 id="design-consideration-6"><a class="link" href="#design-consideration-6">3.7.3. Design Consideration</a></h4>
 <div class="sect4">
-<h5 id="aspect-3"><a class="link" href="#aspect-3">Aspect:</a></h5>
+<h5 id="aspect-2"><a class="link" href="#aspect-2">Aspect:</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1137,7 +1158,7 @@ These objects are used to create the <code>SortFixedExpenseCommand</code> object
 <div class="sect3">
 <h4 id="design-consideration-7"><a class="link" href="#design-consideration-7">3.8.3. Design Consideration</a></h4>
 <div class="sect4">
-<h5 id="aspect-4"><a class="link" href="#aspect-4">Aspect:</a></h5>
+<h5 id="aspect-3"><a class="link" href="#aspect-3">Aspect:</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -2112,4 +2133,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-03 11:33:06 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-03 12:21:52 UTC</div></div></div></body></html>
