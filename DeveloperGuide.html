@@ -1047,8 +1047,71 @@ The activity manager only handles activities and the manipulation of activities.
 <p><strong><em>E.T.</em></strong> allows the user to create a packing list. The packing list manager handles everything to do with manipulating of packing list items.</p>
 </div>
 <div class="paragraph">
-<p>The <code>addpreset</code> command requires the user to include the <code>category</code> of the preset they want to add into the packing list.
-For example, <code>addpreset swimming</code> means that the preset called <code>swimming</code> will be be added into the user&#8217;s packing list.
+<p>The packing list item contains the following fields:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>itemName</code></p>
+</li>
+<li>
+<p><code>quantity</code></p>
+</li>
+<li>
+<p><code>itemCategory</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>PackingListManager</code> has commands other than the basic CRUD commands, such as:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>finditem</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Finds packing list items based on the keywords given by the user</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>finditemcategory</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Finds packing list items in the categories given by the user</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>addpreset</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Adds a pre-existing list of items in a category into the current packing list</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>listpreset</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Shows the available presets that the user can add into the packing list</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>I will be focusing on the <code>addpreset</code> command here. The <code>addpreset</code> command requires the user to include the <code>category</code> of the preset they want to add into the packing list.
+For example, <code>addpreset swimming</code> means that the preset called <code>swimming</code> will be added into the user&#8217;s packing list.
 Only pre-existing presets can be added into the user&#8217;s packing list.</p>
 </div>
 <div class="sect3">
@@ -1061,7 +1124,7 @@ Only pre-existing presets can be added into the user&#8217;s packing list.</p>
 <h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">3.7.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The keywords from the command given by the user is parsed using <code>AddPresetCommandParser</code> which converts the string variable <code>category</code> into a <code>ItemCategory</code> object.
-These objects are used to create the <code>AddPresetCommand</code> object that will execute to create a packing list item.</p>
+These objects are used to create the <code>AddPresetCommand</code> object that will execute to create a list of packing list items.</p>
 </div>
 <div class="paragraph">
 <p>The sequence diagram below shows the creation of the <code>AddPresetCommand</code> object:</p>
@@ -1084,7 +1147,7 @@ These objects are used to create the <code>AddPresetCommand</code> object that w
 <p>In <code>Model</code>, the <code>AddPresetCommand</code> adds a list of pre-existing list of items under a category into the packing list. If it encounters duplicates, it will skip the duplicate, and continue adding the rest of the items in the preset into the packing list.</p>
 </li>
 <li>
-<p>A <code>CommandResult</code> object which consists of a <code>MESSAGE_SUCCESS</code> is sent back to <code>LogicManager</code> if there is a successful addition of the items into the packing list.</p>
+<p>A <code>CommandResult</code> object which consists of a <code>MESSAGE_SUCCESS</code> is sent back to <code>LogicManager</code> if there is a successful addition of the preset items into the packing list.</p>
 </li>
 <li>
 <p>After receiving the <code>CommandResult</code> from <code>AddPresetCommand</code>, <code>LogicManager</code> will return the <code>CommandResult</code> back to “MainApp” where the updated packing list is shown.</p>
@@ -1934,4 +1997,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-04 08:33:42 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-04 09:42:56 UTC</div></div></div></body></html>

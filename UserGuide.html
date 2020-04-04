@@ -74,7 +74,7 @@
 <li><a href="#deleting-an-item-in-the-packing-list-code-deleteitem-code">4.5.3. Deleting an item in the packing list: <code>deleteitem</code></a></li>
 <li><a href="#marking-an-item-as-packed-in-the-packing-list-code-checkitem-code">4.5.4. Marking an item as packed in the packing list: <code>checkitem</code></a></li>
 <li><a href="#marking-an-item-as-unpacked-in-the-packing-list-code-uncheckitem-code">4.5.5. Marking an item as unpacked in the packing list: <code>uncheckitem</code></a></li>
-<li><a href="#sorting-items-in-the-packing-list-code-sort-code">4.5.6. Sorting items in the packing list: <code>sort</code></a></li>
+<li><a href="#sorting-items-in-the-packing-list-code-sortitem-code">4.5.6. Sorting items in the packing list: <code>sortitem</code></a></li>
 <li><a href="#finding-items-in-the-packing-list-code-finditem-code">4.5.7. Finding items in the packing list: <code>finditem</code></a></li>
 <li><a href="#finding-item-categories-in-the-packing-list-code-finditemcategory-code">4.5.8. Finding item categories in the packing list: <code>finditemcategory</code></a></li>
 <li><a href="#listing-items-in-the-packing-list-code-listitem-code">4.5.9. Listing items in the packing list: <code>listitem</code></a></li>
@@ -1316,13 +1316,13 @@ Format: <code>list</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>NAME</code> must be made of alphanumeric characters, and it must be less than 50 characters long</p>
+<p><code>NAME</code> must be made of alphanumeric characters, and it must be less than 30 characters long</p>
 </li>
 <li>
 <p><code>NAME</code> can be made up of multiple words</p>
 </li>
 <li>
-<p><code>QUANTITY</code> must be a positive integer 1,2,3…</p>
+<p><code>QUANTITY</code> must be a positive integer 1,2,3… and must be less than 100000</p>
 </li>
 <li>
 <p><code>CATEGORY</code> must be made of alphanumeric characters, and it must be less than 30 characters long</p>
@@ -1407,13 +1407,13 @@ you want to bring for your trip, as well as the category that underwear is locat
 <p>Command can only be used if an item has been added.</p>
 </li>
 <li>
-<p><code>NAME</code> must be made of alphanumeric characters, and it must be less than 50 characters long</p>
+<p><code>NAME</code> must be made of alphanumeric characters, and it must be less than 30 characters long</p>
 </li>
 <li>
 <p><code>NAME</code> can be made up of multiple words</p>
 </li>
 <li>
-<p><code>QUANTITY</code> must be a positive integer 1,2,3…</p>
+<p><code>QUANTITY</code> must be a positive integer 1,2,3… and must be less than 100000</p>
 </li>
 <li>
 <p><code>CATEGORY</code> must be made of alphanumeric characters, and it must be less than 30 characters long</p>
@@ -1691,12 +1691,12 @@ you want to bring for your trip, as well as the category that underwear is locat
 </div>
 </div>
 <div class="sect4">
-<h5 id="sorting-items-in-the-packing-list-code-sort-code"><a class="link" href="#sorting-items-in-the-packing-list-code-sort-code">4.5.6. Sorting items in the packing list: <code>sort</code></a></h5>
+<h5 id="sorting-items-in-the-packing-list-code-sortitem-code"><a class="link" href="#sorting-items-in-the-packing-list-code-sortitem-code">4.5.6. Sorting items in the packing list: <code>sortitem</code></a></h5>
 <div class="paragraph">
 <p>This command sorts items in the packing list</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>sortitem order criteria</code></p>
+<p>Format: <code>sortitem order criteria/CRITERIA</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1726,7 +1726,7 @@ you want to bring for your trip, as well as the category that underwear is locat
 <p>Examples:</p>
 </div>
 <div class="paragraph">
-<p><code>sortitem asc alphabet</code><br></p>
+<p><code>sortitem asc criteria/alphabet</code><br></p>
 </div>
 <div class="paragraph">
 <p>Let’s say you want to sort the packing list alphabetically. You may do so by executing the <code>sortitem</code> command.</p>
@@ -1780,6 +1780,9 @@ you want to bring for your trip, as well as the category that underwear is locat
 </li>
 <li>
 <p>If packing list does not contain any of the keywords, then it will display an empty list.</p>
+</li>
+<li>
+<p>If you want to return to the packing list after using the <code>finditem</code> command, use the <code>listitem</code> command. (see Section 4.5.9)</p>
 </li>
 </ul>
 </div>
@@ -1844,7 +1847,10 @@ you want to bring for your trip, as well as the category that underwear is locat
 <p>Command can only be used if there is at least 1 item in the packing list.</p>
 </li>
 <li>
-<p>If packing list does not contain any of the keywords, then it will display an empty list.</p>
+<p>If packing list does not contain any of the keywords, then it will display an empty list</p>
+</li>
+<li>
+<p>If you want to return to the packing list after using the <code>finditemcategory</code> command, use the <code>listitem</code> command. (see Section 4.5.9)</p>
 </li>
 </ul>
 </div>
@@ -1938,7 +1944,7 @@ you want to bring for your trip, as well as the category that underwear is locat
 <p>This command adds a pre-existing list of items under a category into the packing list.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>addpreset preset/PRESET_NAME</code></p>
+<p>Format: <code>addpreset PRESET_NAME</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1955,6 +1961,9 @@ you want to bring for your trip, as well as the category that underwear is locat
 <li>
 <p>You can only add in pre-existing presets. If you add in other presets, then you will receive the message, "Sorry! This preset does not exist."</p>
 </li>
+<li>
+<p>To see all the available presets, use the <code>listpreset</code> command. (see Section 4.5.11)</p>
+</li>
 </ul>
 </div>
 </td>
@@ -1967,7 +1976,7 @@ you want to bring for your trip, as well as the category that underwear is locat
 <div class="ulist">
 <ul>
 <li>
-<p><code>addpreset category/beach</code><br></p>
+<p><code>addpreset beach</code><br></p>
 </li>
 </ul>
 </div>
@@ -1982,7 +1991,7 @@ you want to bring for your trip, as well as the category that underwear is locat
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Type <code>addpreset category/beach</code> into the command box, and press <code>Enter</code> to execute it.</p>
+<p>Type <code>addpreset beach</code> into the command box, and press <code>Enter</code> to execute it.</p>
 </li>
 <li>
 <p>The result box will display the message <code>New preset added: beach</code></p>
@@ -2040,7 +2049,7 @@ you want to bring for your trip, as well as the category that underwear is locat
 <ul>
 <li>
 <p><code>listpreset</code><br>
-Let’s say you want to add a list of items under a pre-existing category, but you are not sure of the available presets you can use. You may find the pre-existing categories by executing the <code>addpreset</code> command.</p>
+Let’s say you want to add a list of items under a pre-existing category, but you are not sure of the available presets you can use. You may find the pre-existing categories by executing the <code>listpreset</code> command.</p>
 </li>
 </ul>
 </div>
@@ -2412,7 +2421,7 @@ Sorts all fixed expense in lexicographical order.</p>
 <div class="sect4">
 <h5 id="create-a-smart-packing-list-code-createlist-code"><a class="link" href="#create-a-smart-packing-list-code-createlist-code">4.7.1.1. Create a smart packing list: <code>createlist</code></a></h5>
 <div class="paragraph">
-<p>This feature allows users to create a smart packing list. The motivation behind it is to allow inexperienced users.</p>
+<p>This feature allows users to create a smart packing list. The motivation behind it is to help inexperienced users with their packing list.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2737,4 +2746,4 @@ description/DESCRIPTION category/CATEGORY</code></p></td>
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-04 08:33:42 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-04 09:42:56 UTC</div></div></div></body></html>
