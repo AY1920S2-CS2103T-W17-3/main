@@ -63,7 +63,7 @@
 <ul class="sectlevel4">
 <li><a href="#create-a-new-accommodation-booking-code-addacc-code">4.4.1. Create a new accommodation booking: <code>addacc</code></a></li>
 <li><a href="#edit-accommodation-booking-code-editacc-code">4.4.2. Edit accommodation booking: <code>editacc</code></a></li>
-<li><a href="#delete-accommodation-booking-code-deletehotel-code">4.4.3. Delete accommodation booking: <code>deletehotel</code></a></li>
+<li><a href="#delete-accommodation-booking-code-deleteacc-code">4.4.3. Delete accommodation booking: <code>deleteacc</code></a></li>
 <li><a href="#clear-accommodation-booking-code-clearacc-code">4.4.4. Clear accommodation booking: <code>clearacc</code></a></li>
 </ul>
 </li>
@@ -176,7 +176,7 @@
 </ol>
 </div>
 <div class="paragraph">
-<p>Refer to <u>Section 4.3 - Command Syntaxes and Usages</u> on how to use commands and <u>Section 5 - Features</u> on the commands you can use for each feature.</p>
+<p>Refer to <u>Section 3.2.3 - Command Syntaxes and Usages</u> on how to use commands and <u>Section 4 - Features</u> on the commands you can use for each feature.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -192,7 +192,7 @@
 <div class="sect2">
 <h3 id="structure-of-this-document"><a class="link" href="#structure-of-this-document">3.1. Structure of this document</a></h3>
 <div class="paragraph">
-<p>There are many things you can do with <strong>E.T.</strong>. Thus, we have structured this User Guide in such a way that you can easily find what you need. In the next subsection, <u>Section 3.2 Reading this Document</u>, you will find useful tips on reading this document. It is then followed by Section 4 - Features where the seven main features of E.T. and their commands are documented:</p>
+<p>There are many things you can do with <strong>E.T.</strong>. Thus, we have structured this User Guide in such a way that you can easily find what you need. In the next subsection, <u>Section 3.2 Reading this Document</u>, you will find useful tips on reading this document. It is then followed by <u>Section 4 - Features</u> where the seven main features of E.T. and their commands are documented:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -334,7 +334,7 @@
 <p><strong>Prefix</strong> -  <code>name/</code>, <code>quantity/</code>, <code>category/</code></p>
 </div>
 <div class="paragraph">
-<p>The following points explain how you can use a command with the provided format. More examples will be provided for each command in <u>Section 5 - Features</u>.
+<p>The following points explain how you can use a command with the provided format. More examples will be provided for each command in <u>Section 4 - Features</u>.
 Words in the upper case are the parameters to be supplied by you.</p>
 </div>
 <div class="ulist">
@@ -522,7 +522,7 @@ A trip is required to be set before other features are unlocked
 <div class="sect4">
 <h5 id="create-your-brand-new-trip-code-settrip-code"><a class="link" href="#create-your-brand-new-trip-code-settrip-code">4.1.1.1. Create your brand new trip: <code>settrip</code></a></h5>
 <div class="paragraph">
-<p>Format: <code>settrip title/TITLE start/START_DATE end/END_DATE location/LOCATION budget/BUDGET exchangerate/EXCHANGERATE</code></p>
+<p>Format: <code>settrip title/TITLE start/START_DATE end/END_DATE budget/BUDGET exchangerate/EXCHANGERATE</code></p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -543,6 +543,9 @@ A trip is required to be set before other features are unlocked
 <p>Title cannot exceed 50 characters.</p>
 </li>
 <li>
+<p>Trip must be within 30 days</p>
+</li>
+<li>
 <p>Budget must be a valid positive Integer from 0 to 1,000,000</p>
 </li>
 <li>
@@ -558,7 +561,7 @@ A trip is required to be set before other features are unlocked
 <p>Let’s say you have an upcoming Graduation Trip and you are planning for it. You can execute a command as shown in the example below:</p>
 </div>
 <div class="paragraph">
-<p><code>settrip title/Graduation Trip start/28-09-2020 end/28-10-2020 location/Japan budget/5000 exchangerate/1.03</code></p>
+<p><code>settrip title/Graduation Trip start/28-09-2020 end/28-10-2020 budget/5000 exchangerate/1.03</code></p>
 </div>
 <div class="paragraph">
 <p>This would create a trip titled “Graduation trip” with a start day of 28 September 2020 to 28 October 2020. The budget set is $5000 with the exchangerate of 1.03</p>
@@ -637,7 +640,7 @@ A trip is required to be set before other features are unlocked
 <p>Example:</p>
 </div>
 <div class="paragraph">
-<p><code>Editbudget 3000</code></p>
+<p><code>editbudget 3000</code></p>
 </div>
 <div class="paragraph">
 <p>E.T. will reflect the new budget in the trip info as shown in the figure below.</p>
@@ -755,7 +758,7 @@ A trip is required to be set before other features are unlocked
 <p>Assume you have accidentally made a mistake in the spelling or the location of the activity and wish to change it. Running the <code>editactivity</code> command will allow you to make any changes to previously set activities.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>editactivity INDEX [title/NAME][duration/DURATION][location/LOCATION][t/tag]&#8230;&#8203;</code></p>
+<p>Format: <code>editactivity INDEX [title/NAME][duration/DURATION][location/LOCATION][tag/tag]&#8230;&#8203;</code></p>
 </div>
 <div class="paragraph">
 <p>Example:
@@ -990,7 +993,7 @@ Example:
 <p><code>edittransport 2 starttime/22-04-2021 10:00</code></p>
 </div>
 <div class="paragraph">
-<p>In the case that the start time has changed to 22 April 2021 1000hr, you can use <code>editcommand</code> to change it.</p>
+<p>In the case that the start time has changed to 22 April 2021 1000hr, you can use <code>edittransport</code> to change it.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1002,7 +1005,7 @@ Example:
 <p><code>edittransport 4 mode/plane endloc/Italy</code></p>
 </div>
 <div class="paragraph">
-<p>In the case that you want to change the end location and mode of transport, you can use <code>editcommand</code> to change it.</p>
+<p>In the case that you want to change the end location and mode of transport, you can use <code>edittransport</code> to change it.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1190,7 +1193,7 @@ This command will remove all the transportation booking that is in your current 
 <p>Examples:</p>
 </div>
 <div class="paragraph">
-<p><code>edithotel 2 startday/4 endday/6</code></p>
+<p><code>editacc 2 startday/4 endday/6</code></p>
 </div>
 <div class="paragraph">
 <p>In the case that you want to change the start day and end day of the 2nd accommodation, you can use <code>editacc</code> command.</p>
@@ -1202,7 +1205,7 @@ This command will remove all the transportation booking that is in your current 
 <div class="title">Figure 19. After edit accommodation booking command</div>
 </div>
 <div class="paragraph">
-<p><code>edithotel 3 address/Hilton KL remark/Check-in at 2pm</code></p>
+<p><code>editacc 3 address/Hilton KL remark/Check-in at 2pm</code></p>
 </div>
 <div class="paragraph">
 <p>You can also use this command to change the third accommodation booking in the list to Hilton, set the location to KL and change the remark to check in at 2pm.</p>
@@ -1215,7 +1218,7 @@ This command will remove all the transportation booking that is in your current 
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-accommodation-booking-code-deletehotel-code"><a class="link" href="#delete-accommodation-booking-code-deletehotel-code">4.4.3. Delete accommodation booking: <code>deletehotel</code></a></h4>
+<h4 id="delete-accommodation-booking-code-deleteacc-code"><a class="link" href="#delete-accommodation-booking-code-deleteacc-code">4.4.3. Delete accommodation booking: <code>deleteacc</code></a></h4>
 <div class="paragraph">
 <p>Assuming you have another accommodation booking and plan to delete the previous one that you set on the same days, you can use this command to remove it.</p>
 </div>
@@ -1238,7 +1241,7 @@ This command will remove all the transportation booking that is in your current 
 <p>Examples:</p>
 </div>
 <div class="paragraph">
-<p><code>deletehotel 2</code></p>
+<p><code>deleteacc 2</code></p>
 </div>
 <div class="paragraph">
 <p>You can use <code>deleteacc</code> to delete the second accommodation booking.</p>
@@ -2150,6 +2153,9 @@ Let’s say you want to add a list of items under a pre-existing category, but y
 <p>If the user enters the expense in other currency, which is identified through typing <code>OTHER</code> in the <code>CURRENCY</code>
 field, the amount will be automatically converted to SGD using the exchange rate provided.</p>
 </li>
+<li>
+<p><code>Category</code> s is should only be  <code>accommodation</code>, <code>transport</code>, <code>activities</code> and <code>others</code></p>
+</li>
 </ul>
 </div>
 </td>
@@ -2558,20 +2564,20 @@ Recommend ways to save money on certain items.</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Set Trip</strong> : <code>settrip title/TITLE start/START_DATE end/END_DATE location/LOCATION`</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>settrip title/Graduation Trip start/28-09-2020 end/28-10-2020 location/Japan</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Set Trip</strong> : <code>settrip title/TITLE startdate/START_DATE enddate/END_DATE budget/BUDGET exchangerate/EXCHANGERATE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>settrip title/Graduation Trip start/28-09-2020 end/28-10-2020 budget/1000 exchangerate/1.40</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Trip</strong> : <code>edittrip [title/TITLE] [start/START_DATE] [end/END_DATE][country/COUNTRY]</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edittrip title/not a graduation trip country/Singapore</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>Delete Trip</strong> : deletetrip</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete Trip</strong> : <code>deletetrip</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletetrip</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear Trip</strong> : <code>cleartrip</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cleartrip</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Rename a Trip</strong> : <code>rename</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rename Not a graduation Trip</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>Edit Budget for Trip</strong> : editbudget BUDGET</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>editbudget 1000</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>View Itinerary</strong> : <code>view</code></p></td>
@@ -2599,8 +2605,8 @@ Recommend ways to save money on certain items.</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Activity</strong> : <code>addactivity title/TITLE duration/DURATION location/LOCATION [t/tag]&#8230;&#8203;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addactivity title/Going to the beach duration/4 location/Hakone t/sea t/ocean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Activity</strong> : <code>addactivity title/TITLE duration/DURATION location/LOCATION [tag/TAG]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addactivity title/Going to the beach duration/4 location/Hakone tag/sea tag/ocean</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Activity</strong> : <code>editactivity index [title/NAME] [duration/DURATION] [location/LOCATION] [t/tag]</code></p></td>
@@ -2740,10 +2746,10 @@ description/DESCRIPTION category/CATEGORY</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sort Fixed Expenses</strong> : <code>sortexpense SORTIDENTIFIER [AMOUNT] [DESCRIPTION] [CATEGORY]</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sortexpense 1 amount</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sortexpense asc amount</code></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-04 09:42:56 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-04 10:15:36 UTC</div></div></div></body></html>
