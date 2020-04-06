@@ -2195,12 +2195,12 @@ field, the amount will be automatically converted to SGD using the exchange rate
 <div class="ulist">
 <ul>
 <li>
-<p><code>addexpense amount/1100 description/SQ Tickets category/Flights  currency/SGD</code><br>
-Adds a fixed expense of $1100SGD, for <code>SQ Tickets</code> of category <code>Flights</code>.</p>
+<p><code>addexpense amount/1100 currency/SGD description/SQ Tickets category/transport</code><br>
+Adds a fixed expense of $1100SGD, for <code>SQ Tickets</code> of category <code>transport</code>.</p>
 </li>
 <li>
-<p><code>addexpense amount/300 currency/other description/Bullet Train category/Transportation</code><br>
-Adds a fixed expense of $300SGD for <code>Bullet Train</code> of category <code>Transportation</code>.</p>
+<p><code>addexpense amount/300 currency/other description/Bullet Train category/transport</code><br>
+Adds a fixed expense of $300SGD for <code>Bullet Train</code> of category <code>transport</code>.</p>
 </li>
 </ul>
 </div>
@@ -2272,13 +2272,13 @@ list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#82
 <div class="ulist">
 <ul>
 <li>
-<p><code>editexpense 1 amount/3000 description/Cathay Pacific Flight</code><br>
-Edit the details and amount paid in SGD of the 1st fixed expense to be <code>Cathay Pacific Flight</code> and <code>$3000 SGD</code> respectively.</p>
+<p><code>editexpense 1 amount/3000 currency/SGD description/Cathay Pacific Flight</code><br>
+Edit the description and amount of the 1st fixed expense to be <code>Cathay Pacific Flight</code> and <code>$3000 SGD</code> respectively.</p>
 </li>
 <li>
-<p><code>editexpense 1 amount/3000 currency/other description/Business Class Flight category/Flight Ticket</code><br>
-Edit the details and amount paid in other currency of the 1st fixed expense to be
-<code>Business Class Flight</code> and <code>$3000</code> respectively.
+<p><code>editexpense 1 amount/3000 currency/other description/Business Class Flight category/Transport</code><br>
+Edit the description, currency, amount, category  of the 1st fixed expense to be
+<code>Business Class Flight</code> , <code>other</code>, <code>$3000</code>, <code>Transport</code> respectively.
 The amount will be automatically converted to SGD using <strong>exchange rate</strong> provided.</p>
 </li>
 </ul>
@@ -2769,11 +2769,11 @@ Recommend ways to save money on certain items.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Fixed Expense</strong> :  <code>addexpense amount/AMOUNT currency/CURRENCY
 description/DESCRIPTION category/CATEGORY</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addexpense amount/1100 currency/SGD description/SQ Tickets category/Flights</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addexpense amount/1500 currency/sgd description/Plane Tickets category/transport</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Fixed Expense</strong> : <code>editexpense INDEX amount/AMOUNT currency/CURRENCY [description/DESCRIPTION] [category/CATEGORY]</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>editexpense 1 amount/3000 currency/other description/Cathay Pacific Flight</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>editexpense 1 amount/3000 currency/sgd description/SQ Flight category/transport</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete Fixed Expense</strong> : <code>deleteexpense INDEX</code></p></td>
@@ -2791,4 +2791,4 @@ description/DESCRIPTION category/CATEGORY</code></p></td>
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-06 08:04:07 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-06 12:32:22 UTC</div></div></div></body></html>
