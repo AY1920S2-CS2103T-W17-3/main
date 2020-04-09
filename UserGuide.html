@@ -78,8 +78,9 @@
 <li><a href="#finding-items-in-the-packing-list-code-finditem-code">4.5.7. Finding items in the packing list: <code>finditem</code></a></li>
 <li><a href="#finding-item-categories-in-the-packing-list-code-finditemcategory-code">4.5.8. Finding item categories in the packing list: <code>finditemcategory</code></a></li>
 <li><a href="#listing-items-in-the-packing-list-code-listitem-code">4.5.9. Listing items in the packing list: <code>listitem</code></a></li>
-<li><a href="#adding-a-preset-category-code-addpreset-code">4.5.10. Adding a preset category: <code>addpreset</code></a></li>
-<li><a href="#listing-all-the-presets-in-the-packing-list-code-listpreset-code">4.5.11. Listing all the presets in the packing list: <code>listpreset</code></a></li>
+<li><a href="#clearing-items-in-the-packing-list-code-clearitem-code">4.5.10. Clearing items in the packing list: <code>clearitem</code></a></li>
+<li><a href="#adding-a-preset-category-code-addpreset-code">4.5.11. Adding a preset category: <code>addpreset</code></a></li>
+<li><a href="#listing-all-the-presets-in-the-packing-list-code-listpreset-code">4.5.12. Listing all the presets in the packing list: <code>listpreset</code></a></li>
 </ul>
 </li>
 <li><a href="#fixed-expense-manager">4.6. Fixed Expense Manager</a>
@@ -1326,7 +1327,7 @@ This command will remove all the accommodation bookings that is in your current 
 Format: <code>list</code></p>
 </div>
 <div class="paragraph">
-<p>The following sections [4.5.1. - 4.5.11] allows the user to set and modify the packing list for their trip.</p>
+<p>The following sections [4.5.1. - 4.5.12] allows the user to set and modify the packing list for their trip.</p>
 </div>
 <div class="sect4">
 <h5 id="adding-an-item-in-the-packing-list-code-additem-code"><a class="link" href="#adding-an-item-in-the-packing-list-code-additem-code">4.5.1. Adding an item in the packing list: <code>additem</code></a></h5>
@@ -1491,7 +1492,7 @@ you want to bring for your trip, as well as the category that underwear is locat
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/user-guide/EditItem.png" alt="EditItem">
+<img src="images/user-guide/EditItem%201.png" alt="EditItem 1">
 </div>
 <div class="title">Figure 24. After edit item command</div>
 </div>
@@ -1523,7 +1524,7 @@ you want to bring for your trip, as well as the category that underwear is locat
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/user-guide/EditItem2.png" alt="EditItem2">
+<img src="images/user-guide/EditItem%202.png" alt="EditItem 2">
 </div>
 <div class="title">Figure 25. After edit item command</div>
 </div>
@@ -1585,9 +1586,15 @@ you want to bring for your trip, as well as the category that underwear is locat
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/user-guide/DeleteItem.png" alt="DeleteItem">
+<img src="images/user-guide/DeleteItem%201.png" alt="DeleteItem 1">
 </div>
-<div class="title">Figure 26. After delete item command</div>
+<div class="title">Figure 26. Before delete item command</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/user-guide/DeleteItem%202.png" alt="DeleteItem 2">
+</div>
+<div class="title">Figure 27. After delete item command</div>
 </div>
 </div>
 <div class="sect4">
@@ -1596,7 +1603,7 @@ you want to bring for your trip, as well as the category that underwear is locat
 <p>This command marks an item as packed in the packing list.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>checkitem INDEX</code></p>
+<p>Format: <code>checkitem INDEX [MORE_INDEXES]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1612,6 +1619,18 @@ you want to bring for your trip, as well as the category that underwear is locat
 </li>
 <li>
 <p>If item is already packed, then it will just remain packed</p>
+</li>
+<li>
+<p>The result box will display the checked item(s)</p>
+</li>
+<li>
+<p>You are able to mark multiple items as packed in one command</p>
+</li>
+<li>
+<p>If there is one invalid index given in the command, for example <code>checkitem 1 3 1000 5</code>, and 1000 is the invalid index, then the items at index 1, 3 and 5 will be marked as packed, but not 1000.</p>
+</li>
+<li>
+<p>However, if a negative index is given, such as <code>checkitem 1 3 -2 5</code>, no matter the position of the negative index, the whole command will be deemed as invalid, and every item at the indicated indexes will remain as unchecked.</p>
 </li>
 </ul>
 </div>
@@ -1639,7 +1658,7 @@ you want to bring for your trip, as well as the category that underwear is locat
 <p>Type <code>checkitem 1</code> into the command box, and press <code>Enter</code> to execute it.</p>
 </li>
 <li>
-<p>The result box will display the message <code>Packed Item: Packing list item - Item Name: Swimsuit Coverup Quantity: 1 Category: swimming Is Checked: true</code></p>
+<p>The result box will display the message <code>Packed Item: Packing list item - Item Name: Cruise tickets Quantity: 1 Category: cruise Is Checked: true</code></p>
 </li>
 <li>
 <p>You can see that the item is marked as packed.</p>
@@ -1650,9 +1669,64 @@ you want to bring for your trip, as well as the category that underwear is locat
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/user-guide/CheckItem.png" alt="CheckItem">
+<img src="images/user-guide/CheckItem%201.png" alt="CheckItem 1">
 </div>
-<div class="title">Figure 27. After check item command</div>
+<div class="title">Figure 28. After check item command</div>
+</div>
+<div class="paragraph">
+<p><code>checkitem 1 3 5 6</code><br></p>
+</div>
+<div class="paragraph">
+<p>Let’s say you want to mark the first, third, fifth and sixth items in the packing list as packed. You may do so by executing the checkitem command.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>To mark an item as packed:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>checkitem 1 3 5 6</code> into the command box, and press <code>Enter</code> to execute it.</p>
+</li>
+<li>
+<p>The result box will display the message
+“Packed Item: Checked items</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Packing list item - Item Name: Cruise Tickets Quantity: 1 Category: cruise Is Checked: true</p>
+</li>
+<li>
+<p>Packing list item - Item Name: Belt Quantity: 1 Category: clothes Is Checked: true</p>
+</li>
+<li>
+<p>Packing list item - Item Name: Jacket Quantity: 2 Category: clothes Is Checked: true</p>
+</li>
+<li>
+<p>Packing list item - Item Name: Jeans Quantity: 3 Category: clothes Is Checked: true”</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>You can see that now the items indicated by the user are marked as packed, from a cross, to a tick next to the item.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/user-guide/CheckItem%202.png" alt="CheckItem 2">
+</div>
+<div class="title">Figure 29. After check item command part 1</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/user-guide/CheckItem%203.png" alt="CheckItem 3">
+</div>
+<div class="title">Figure 30. After check item command part 2</div>
 </div>
 </div>
 <div class="sect4">
@@ -1661,7 +1735,7 @@ you want to bring for your trip, as well as the category that underwear is locat
 <p>This command marks an item as packed in the packing list</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>uncheckitem INDEX</code></p>
+<p>Format: <code>uncheckitem INDEX [MORE_INDEXES]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1677,6 +1751,18 @@ you want to bring for your trip, as well as the category that underwear is locat
 </li>
 <li>
 <p>If item is already unpacked, then it will just remain unpacked</p>
+</li>
+<li>
+<p>The result box will display the unchecked item(s)</p>
+</li>
+<li>
+<p>You are able to mark multiple items as unpacked in one command</p>
+</li>
+<li>
+<p>If there is one invalid index given in the command, for example <code>uncheckitem 1 3 1000 5</code>, and 1000 is the invalid index, then the items at index 1, 3 and 5 will be marked as unpacked, but not 1000.</p>
+</li>
+<li>
+<p>However, if a negative index is given, such as   <code>uncheckitem 1 3 -2 5</code>, no matter the position of the negative index, the whole command will be deemed as invalid, and every item at the indicated indexes will remain as checked.</p>
 </li>
 </ul>
 </div>
@@ -1696,7 +1782,7 @@ you want to bring for your trip, as well as the category that underwear is locat
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>To mark an item as packed:</p>
+<p>To mark an item as unpacked:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1704,7 +1790,15 @@ you want to bring for your trip, as well as the category that underwear is locat
 <p>Type <code>uncheckitem 2</code> into the command box, and press <code>Enter</code> to execute it.</p>
 </li>
 <li>
-<p>The result box will display the message <code>Unpacked Item: Packing list item - Item Name: Sandals Quantity: 1 Category: swimming Is Checked: false</code></p>
+<p>The result box will display the message
+<code>Unpacked Item(s): Unchecked items</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Packing list item - Item Name: Sandals Quantity: 1 Category: swimming Is Checked: false</code></p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>You can see the item at index 2 is marked as unpacked</p>
@@ -1715,9 +1809,73 @@ you want to bring for your trip, as well as the category that underwear is locat
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/user-guide/UncheckItem.png" alt="UncheckItem">
+<img src="images/user-guide/UncheckItem%201.png" alt="UncheckItem 1">
 </div>
-<div class="title">Figure 28. After uncheck item command</div>
+<div class="title">Figure 31. After uncheck item command</div>
+</div>
+<div class="paragraph">
+<p><code>uncheckitem 1 4 7 13 16</code><br></p>
+</div>
+<div class="paragraph">
+<p>Let’s say you want to mark the first, fourth, seventh, thirteenth and sixteenth items in the packing list as unpacked. You may do so by executing the uncheckitem command.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>To mark an item as unpacked:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>uncheckitem 1 4 7 13 16</code> into the command box, and press <code>Enter</code> to execute it.</p>
+</li>
+<li>
+<p>The result box will display the message
+<code>Unpacked Item(s): Unchecked items</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Packing list item - Item Name: Cruise Tickets Quantity: 1 Category: cruise Is Checked: false</code></p>
+</li>
+<li>
+<p><code>Packing list item - Item Name: Dress Quantity: 3 Category: clothes Is Checked: false</code></p>
+</li>
+<li>
+<p><code>Packing list item - Item Name: Pyjamas Quantity: 5 Category: clothes Is Checked: false</code></p>
+</li>
+<li>
+<p><code>Packing list item - Item Name: Underwear Quantity: 7 Category: clothes Is Checked: false</code></p>
+</li>
+<li>
+<p><code>Packing list item - Item Name: Fanny Pack Quantity: 1 Category: music festival Is Checked: false</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>You can see that now the items indicated by the user are marked as unpacked, from a tick, to a cross next to the item.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/user-guide/UncheckItem%202.png" alt="UncheckItem 2">
+</div>
+<div class="title">Figure 32. After uncheck item command part 1</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/user-guide/UncheckItem%203.png" alt="UncheckItem 3">
+</div>
+<div class="title">Figure 33. After uncheck item command part 2</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/user-guide/UncheckItem%204.png" alt="UncheckItem 4">
+</div>
+<div class="title">Figure 34. After uncheck item command part 3</div>
 </div>
 </div>
 <div class="sect4">
@@ -1783,9 +1941,15 @@ you want to bring for your trip, as well as the category that underwear is locat
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/user-guide/SortItem.png" alt="SortItem">
+<img src="images/user-guide/SortItem%201.png" alt="SortItem 1">
 </div>
-<div class="title">Figure 29. After sort item command</div>
+<div class="title">Figure 35. After sort item command part 1</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/user-guide/SortItem%202.png" alt="SortItem 2">
+</div>
+<div class="title">Figure 36. After sort item command part 2</div>
 </div>
 </div>
 <div class="sect4">
@@ -1794,7 +1958,7 @@ you want to bring for your trip, as well as the category that underwear is locat
 <p>This command finds items in the packing list according to keywords in the items’ names.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>finditem keyword</code></p>
+<p>Format: <code>finditem KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1813,6 +1977,9 @@ you want to bring for your trip, as well as the category that underwear is locat
 </li>
 <li>
 <p>If you want to return to the packing list after using the <code>finditem</code> command, use the <code>listitem</code> command. (see Section 4.5.9)</p>
+</li>
+<li>
+<p>The result box will display the number of items that contains the keyword(s).</p>
 </li>
 </ul>
 </div>
@@ -1837,13 +2004,13 @@ you want to bring for your trip, as well as the category that underwear is locat
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Type <code>finditem shampoo hairbrush</code> into the command box, and press <code>Enter</code> to execute it.</p>
+<p>Type <code>finditem shampoo dress</code> into the command box, and press <code>Enter</code> to execute it.</p>
 </li>
 <li>
 <p>The result box will display the message <code>2 items listed!</code></p>
 </li>
 <li>
-<p>You can see all the packing list items that contain either shampoo or hairbrush will be listed in the packing list.</p>
+<p>You can see all the packing list items that contain either shampoo or dress will be listed in the packing list.</p>
 </li>
 </ol>
 </div>
@@ -1853,7 +2020,7 @@ you want to bring for your trip, as well as the category that underwear is locat
 <div class="content">
 <img src="images/user-guide/FindItem.png" alt="FindItem">
 </div>
-<div class="title">Figure 30. After find item command</div>
+<div class="title">Figure 37. After find item command</div>
 </div>
 </div>
 <div class="sect4">
@@ -1862,7 +2029,7 @@ you want to bring for your trip, as well as the category that underwear is locat
 <p>This command find items in the packing list according to keywords that are categories.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>finditemcategory keyword</code></p>
+<p>Format: <code>finditemcategory KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1882,6 +2049,9 @@ you want to bring for your trip, as well as the category that underwear is locat
 <li>
 <p>If you want to return to the packing list after using the <code>finditemcategory</code> command, use the <code>listitem</code> command. (see Section 4.5.9)</p>
 </li>
+<li>
+<p>The result box will display the number of items that is in the categories of the given keyword(s).</p>
+</li>
 </ul>
 </div>
 </td>
@@ -1892,7 +2062,7 @@ you want to bring for your trip, as well as the category that underwear is locat
 <p>Examples:</p>
 </div>
 <div class="paragraph">
-<p><code>finditemcategory swimming clothes</code><br></p>
+<p><code>finditemcategory international clothes</code><br></p>
 </div>
 <div class="paragraph">
 <p>Let’s say you want to find items that are either in the swimming or clothes category. You may do so by executing the <code>finditemcategory</code> command.</p>
@@ -1905,13 +2075,13 @@ you want to bring for your trip, as well as the category that underwear is locat
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Type <code>finditemcategory swimming clothes</code> into the command box, and press <code>Enter</code> to execute it.</p>
+<p>Type <code>finditemcategory international clothes</code> into the command box, and press <code>Enter</code> to execute it.</p>
 </li>
 <li>
-<p>The result box will display the message <code>16 items listed!</code></p>
+<p>The result box will display the message <code>20 item(s) listed!</code></p>
 </li>
 <li>
-<p>You can now see the displayed packing list items that are either in the swimming category or in the clothes category</p>
+<p>You can now see the displayed packing list items that are either in the international category or in the clothes category</p>
 </li>
 </ol>
 </div>
@@ -1921,7 +2091,7 @@ you want to bring for your trip, as well as the category that underwear is locat
 <div class="content">
 <img src="images/user-guide/FindItemCategory.png" alt="FindItemCategory">
 </div>
-<div class="title">Figure 31. After find item category command</div>
+<div class="title">Figure 38. After find item category command</div>
 </div>
 </div>
 <div class="sect4">
@@ -1965,11 +2135,55 @@ you want to bring for your trip, as well as the category that underwear is locat
 <div class="content">
 <img src="images/user-guide/ListItem.png" alt="ListItem">
 </div>
-<div class="title">Figure 32. After the list item command</div>
+<div class="title">Figure 39. After the list item command</div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="adding-a-preset-category-code-addpreset-code"><a class="link" href="#adding-a-preset-category-code-addpreset-code">4.5.10. Adding a preset category: <code>addpreset</code></a></h5>
+<h5 id="clearing-items-in-the-packing-list-code-clearitem-code"><a class="link" href="#clearing-items-in-the-packing-list-code-clearitem-code">4.5.10. Clearing items in the packing list: <code>clearitem</code></a></h5>
+<div class="paragraph">
+<p>This command lists items in the packing list.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>clearitem</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p><code>clearitem</code><br></p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s say you want to delete all the items in your packing list, to start from an empty packing list. You may do so by executing the clearitem command</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>To clear all items:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>clearitem</code> into the command box, and press <code>Enter</code> to execute it.</p>
+</li>
+<li>
+<p>The result box will display the message <code>Packing List has been cleared!</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>3.You can now see an empty packing list.</p>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/user-guide/ClearItem.png" alt="ClearItem">
+</div>
+<div class="title">Figure 40. After the clear item command</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="adding-a-preset-category-code-addpreset-code"><a class="link" href="#adding-a-preset-category-code-addpreset-code">4.5.11. Adding a preset category: <code>addpreset</code></a></h5>
 <div class="paragraph">
 <p>This command adds a pre-existing list of items under a category into the packing list.</p>
 </div>
@@ -2040,11 +2254,11 @@ you want to bring for your trip, as well as the category that underwear is locat
 <div class="content">
 <img src="images/user-guide/AddPreset.png" alt="AddPreset">
 </div>
-<div class="title">Figure 33. After add preset command</div>
+<div class="title">Figure 41. After add preset command</div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="listing-all-the-presets-in-the-packing-list-code-listpreset-code"><a class="link" href="#listing-all-the-presets-in-the-packing-list-code-listpreset-code">4.5.11. Listing all the presets in the packing list: <code>listpreset</code></a></h5>
+<h5 id="listing-all-the-presets-in-the-packing-list-code-listpreset-code"><a class="link" href="#listing-all-the-presets-in-the-packing-list-code-listpreset-code">4.5.12. Listing all the presets in the packing list: <code>listpreset</code></a></h5>
 <div class="paragraph">
 <p>This command lists all the presets available for use.</p>
 </div>
@@ -2107,7 +2321,7 @@ Let’s say you want to add a list of items under a pre-existing category, but y
 <div class="content">
 <img src="images/user-guide/ListPreset.png" alt="ListPreset">
 </div>
-<div class="title">Figure 34. After list preset command</div>
+<div class="title">Figure 42. After list preset command</div>
 </div>
 </div>
 </div>
@@ -2218,7 +2432,7 @@ Your budget left is now 3500</code></p>
 <div class="content">
 <img src="images/user-guide/AddFixedExpense.png" alt="AddFixedExpense">
 </div>
-<div class="title">Figure 35. After successfully adding a fixed expense</div>
+<div class="title">Figure 43. After successfully adding a fixed expense</div>
 </div>
 </div>
 <div class="sect4">
@@ -2295,7 +2509,7 @@ Your current budget left is 5000</code></p>
 <div class="content">
 <img src="images/user-guide/EditFixedExpense.png" alt="EditFixedExpense">
 </div>
-<div class="title">Figure 36. After successfully editing a fixed expense</div>
+<div class="title">Figure 44. After successfully editing a fixed expense</div>
 </div>
 </div>
 <div class="sect4">
@@ -2342,7 +2556,7 @@ Your remaining budget is 3500</code></p>
 <div class="content">
 <img src="images/user-guide/DeleteFixedExpense.png" alt="DeleteFixedExpense">
 </div>
-<div class="title">Figure 37. After successfully deleting a fixed expense</div>
+<div class="title">Figure 45. After successfully deleting a fixed expense</div>
 </div>
 </div>
 <div class="sect4">
@@ -2370,7 +2584,7 @@ Clears the fixed expense in the list</p>
 <div class="content">
 <img src="images/user-guide/ClearFixedExpense.png" alt="ClearFixedExpense">
 </div>
-<div class="title">Figure 38. After successfully clearing all fixed expense</div>
+<div class="title">Figure 46. After successfully clearing all fixed expense</div>
 </div>
 </div>
 <div class="sect4">
@@ -2436,7 +2650,7 @@ Sorts all fixed expense in lexicographical order.</p>
 <div class="content">
 <img src="images/user-guide/SortFixedExpense.png" alt="SortFixedExpense">
 </div>
-<div class="title">Figure 39. After successful sorting of fixed expense</div>
+<div class="title">Figure 47. After successful sorting of fixed expense</div>
 </div>
 </div>
 </div>
@@ -2791,4 +3005,4 @@ description/DESCRIPTION category/CATEGORY</code></p></td>
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-09 10:40:53 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-09 10:58:18 UTC</div></div></div></body></html>
