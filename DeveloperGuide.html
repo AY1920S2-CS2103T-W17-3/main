@@ -14,7 +14,7 @@
 <ul class="sectlevel2">
 <li><a href="#Design-Architecture">2.1. Architecture</a></li>
 <li><a href="#Design-Ui">2.2. UI component</a></li>
-<li><a href="#Design-Logic">2.3. Logic component</a></li>
+<li><a href="#logic-component">2.3. Logic component</a></li>
 <li><a href="#Design-Model">2.4. Model component</a></li>
 <li><a href="#Design-Storage">2.5. Storage component</a></li>
 <li><a href="#Design-Commons">2.6. Common classes</a></li>
@@ -22,16 +22,17 @@
 </li>
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#trip-management">3.1. Trip Management</a></li>
-<li><a href="#check-status">3.2. Check Status</a></li>
-<li><a href="#schedule-feature">3.3. Schedule feature</a></li>
-<li><a href="#transport-booking-feature">3.4. Transport Booking feature</a></li>
-<li><a href="#accommodation-booking-feature">3.5. Accommodation Booking feature</a></li>
-<li><a href="#activity-manager">3.6. Activity Manager</a></li>
+<li><a href="#trip-manager">3.1. Trip Manager</a></li>
+<li><a href="#list-manager">3.2. List Managers</a></li>
+<li><a href="#activity-manager">3.3. Activity Manager</a></li>
+<li><a href="#schedule-feature">3.4. Schedule feature</a></li>
+<li><a href="#transport-booking-feature">3.5. Transport Booking feature</a></li>
+<li><a href="#accommodation-booking-feature">3.6. Accommodation Booking feature</a></li>
 <li><a href="#packing-list-feature">3.7. Packing List feature</a></li>
 <li><a href="#fixed-expense-feature">3.8. Fixed expense feature</a></li>
-<li><a href="#logging">3.9. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.10. Configuration</a></li>
+<li><a href="#progress-checker">3.9. Progress Checker</a></li>
+<li><a href="#logging">3.10. Logging</a></li>
+<li><a href="#implementation-configuration">3.11. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -199,7 +200,7 @@ The following class plays an important role at the architecture level:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Logic"><a class="link" href="#Design-Logic">2.3. Logic component</a></h3>
+<h3 id="logic-component"><a class="link" href="#logic-component">2.3. Logic component</a></h3>
 <div id="fig-LogicClassDiagram" class="imageblock">
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
@@ -359,135 +360,170 @@ does not depend on any of the other three components.</p>
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="trip-management"><a class="link" href="#trip-management">3.1. Trip Management</a></h3>
+<h3 id="trip-manager"><a class="link" href="#trip-manager">3.1. Trip Manager</a></h3>
 <div class="paragraph">
-<p><strong><em>E.T.</em></strong> only allow the user to manage one trip at a time and is necessary to be used first before other commands are available. This is done using the <code>settrip</code> command which requires the user to specify the <code>title</code> of the trip, the <code>budget</code> of the trip and the <code>start date</code> and <code>end date</code> of the entire trip.
-For example, <code>settrip title/cheese land budget/2000 startdate/20-09-20 enddate/28-09-20</code> means that the trip with the title <code>cheese land</code> will be set with a budget of <code>2000</code> dollars and a duration of 8 days between <code>20-09-20</code> to <code>28-09-20</code>.</p>
+<p><strong>E.T</strong>  allows the user to plan for an overseas trip. <strong>E.T</strong> is implemented in a way that the user can only plan for one single trip at any time. i.e. Only a single trip’s data can be managed. In this Trip Manager feature, the user can set, edit and delete his/her trip details. The trip details includes:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>title = cheese land</p>
+<p><code>title</code></p>
 </li>
 <li>
-<p>budget = 2000</p>
+<p><code>budget</code></p>
 </li>
 <li>
-<p>start date = 20-09-20</p>
+<p><code>exchangeRate</code></p>
 </li>
 <li>
-<p>end date = 28-09-20</p>
+<p><code>startDate</code></p>
+</li>
+<li>
+<p><code>endDate</code></p>
 </li>
 </ul>
 </div>
 <div class="sect3">
 <h4 id="rationale"><a class="link" href="#rationale">3.1.1. Rationale</a></h4>
 <div class="paragraph">
-<p>The Trip Manager feature is the main driving feature that allows the users to set their trip schedule, budget as well
-as the duration of the trip.
-The Trip manager oversees the feature schedule and is essential to be set first before the user is allow to access any other features within the application. This is for the application to ensure that user must have a trip in mind before being allowed to plan for the trip.</p>
+<p>The Trip Manager feature is included in <strong>E.T.</strong> because it is the core feature of the application. If the user wants to plan for an overseas trip, he/she has to record details about the trip.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">3.1.2. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The keywords from the command given by user is parsed using <code>SetTripCommandParser</code> which converts the string
-variable of the <code>startDate</code> and <code>endDate</code> into a java <code>Date</code> object, the <code>title</code> into a <code>Title</code> object while the <code>budget</code> is converted into <code>Budget</code> objects.
-These objects are used to create the <code>SetTripCommand</code> object that can be execution to create the trip. Execution of this object would hence enable other features within the application.</p>
-</div>
-<div class="paragraph">
-<p>The sequence diagram below shows the creation of the <code>SetTripCommand</code> object:</p>
+<p>The <code>TripManager</code> class in the <code>Model</code> component is responsible for all operations on the trip which is represented by the <code>Trip</code> class. The following <em>Class Diagram</em> describes the structure of the <code>TripManager</code> and its relevant classes.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/developer-guide/trip/SetTripCommandCreation.png" alt="SetTripCommandCreation">
+<img src="images/developer-guide/trip/TripClassDiagram.png" alt="TripClassDiagram">
 </div>
-<div class="title">Figure 9. Sequence diagram that describes the creation of the <code>SetTripCommand</code> from the input user command <code>settrip title/cheese budget/2000 startdate/20-09-20 enddate/28-09-20</code>.</div>
-</div>
-<div class="paragraph">
-<p>After the creation of the <code>SetTripCommand</code> object, the <code>LogicManager</code> will proceed to call the <code>execute()</code> method of <code>SetTripCommand</code>.</p>
+<div class="title">Figure 9. Structure of the <code>TripManager</code> and its relevant classes.</div>
 </div>
 <div class="paragraph">
-<p>The following steps describes the execution of the <code>SetTripCommand</code>:</p>
+<p>As seen from the diagram, the <code>TripManager</code> can only manage one trip at any point in time.
+Next, the following table shows the commands related to managing the trip details.</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The <code>Schedule</code> object, <code>Budget</code> object, <code>startDate</code> and <code>endDate</code> is passed into the <code>createTrip()</code> method of <code>Model</code> and parse into a <code>Trip</code> object.</p>
-</li>
-<li>
-<p>A new <code>Scheduler</code> will be created while <code>Budget</code> object, <code>startDate</code> and <code>endDate</code> object given by the <code>Trip object</code>  .</p>
-</li>
-<li>
-<p>The <code>trip</code> object will calculate and initialise the <code>duration</code> of the trip using the given <code>startDate</code> and <code>endDate</code>.</p>
-</li>
-<li>
-<p><code>Trip</code> would enable access to other commands within application.</p>
-</li>
-</ol>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>settrip</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adds a trip and sets the trip details.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rename</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edits the trip title.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>editbudget</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edits the budget of the trip.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletetrip</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deletes the trip and all the data in the App.</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
-<p>The sequence diagram below shows the the execution of <code>SetTripCommand</code>:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/developer-guide/trip/f.png" alt="SetTrip Command Execution PlaceHolder">
-</div>
-<div class="title">Figure 10. Sequence diagram that describes the execution of ScheduleActivityCommand.</div>
+<p>This ability to change the start and end dates and the exchange rate of the trip is not available.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-consideration"><a class="link" href="#design-consideration">3.1.3. Design Consideration</a></h4>
 <div class="sect4">
-<h5 id="aspect-trip-is-isolated-from-any-list-manager"><a class="link" href="#aspect-trip-is-isolated-from-any-list-manager">Aspect: Trip is isolated from any list manager</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Current Choice:</strong> Trip is isolated from all list managing</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Better user experience. Single Responsibility: only handles objects necessary for a <code>trip</code> to exist
-and be added into the schedule.</p>
-</li>
-<li>
-<p>Cons: Complicated to implement and more likely to result in bugs.</p>
-</li>
-</ul>
+<h5 id="aspect-number-of-trips-allowed-to-be-managed"><a class="link" href="#aspect-number-of-trips-allowed-to-be-managed">Aspect: Number of trips allowed to be managed</a></h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top">Pros</th>
+<th class="tableblock halign-left valign-top">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Option 1 (Current)</strong>
+Only one</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy to implement. <code>TripManager</code> just needs to hold one <code>Trip</code> object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Less flexibility for the user.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Option 2</strong>
+More than one</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">More flexibility for the user.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">More overhead, especially in terms of space.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Reasons for choosing the option 1:</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>A typical user would only plan one trip at a time. Thus, the overhead incurred by option 2 is not justified.</p>
+</li>
+<li>
+<p>Limited time for implementing this feature. Thus, option 1 is more ideal.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect4">
-<h5 id="aspect-creation-of-trip-is-required-before-use-of-any-other-commands"><a class="link" href="#aspect-creation-of-trip-is-required-before-use-of-any-other-commands">Aspect: Creation of trip is required before use of any other commands</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Current Choice:</strong> A trip must be created before use of any other commands</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Ensures that users cannot implement any activity or schedule without creation of an activity.</p>
-</li>
-<li>
-<p>Cons: Complicate to implement and likely result in dependency issues</p>
-</li>
-</ul>
+<h5 id="aspect-ability-to-edit-the-details-of-the-trip"><a class="link" href="#aspect-ability-to-edit-the-details-of-the-trip">Aspect: Ability to edit the details of the trip</a></h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top">Pros</th>
+<th class="tableblock halign-left valign-top">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Option 1 (Current)</strong>
+Can only edit the title and budget.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy to implement. Nothing depends on the trip title and budget.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Users who need to change the dates or exchange rate of the trip need to delete and then set the trip which is troublesome.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Option 2</strong>
+Can edit every detail.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">More flexibility and convenience for the user.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The schedule feature depends on the trip dates while the expense feature depends on the exchange rate. Thus, allowing these fields to be changed is very difficult to implement and likely to result in bugs.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Reasons for choosing option 1:</p>
 </div>
-</li>
-<li>
-<p><strong>Alternative:</strong> A trip can be created after the use of any other commands</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Gives the user the freedom to use commands before the trip is set, such as the budgeting and packing list.</p>
+<p>The exchange rate of a trip does not tend to fluctuate much, thus the cons of option 2 outweigh the pros for the exchange rate.</p>
 </li>
 <li>
-<p>Cons: Defeats the purpose of planning the trip from top down, starting from the trip being set first.</p>
-</li>
-</ul>
-</div>
+<p>As for the trip dates, the schedule feature is a big feature of <strong>E.T.</strong> and it depends on the trip dates. Given the limited time for implementation, we decided to opt for a less bug-prone approach that can showcase <strong>E.T.</strong>’s feature.</p>
 </li>
 </ul>
 </div>
@@ -495,126 +531,137 @@ and be added into the schedule.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="check-status"><a class="link" href="#check-status">3.2. Check Status</a></h3>
+<h3 id="list-manager"><a class="link" href="#list-manager">3.2. List Managers</a></h3>
+<div class="paragraph">
+<p><strong>E.T.</strong> allows the user to schedule an activity from the activity list to a specified time of a day. This is done using the <code>schedule</code> command which requires the user to specify the <code>INDEX</code> of an activity from the displayed activity list, the <code>DAY_INDEX</code> of the trip and the <code>START_TIME</code> of the activity to be scheduled.</p>
+</div>
 <div class="sect3">
 <h4 id="rationale-2"><a class="link" href="#rationale-2">3.2.1. Rationale</a></h4>
 <div class="paragraph">
-<p>Currently, E.T allows a user to keep track of multiple aspects of a trip.
-However, they exist as separate lists and there is little to no integration between them.</p>
-</div>
-<div class="paragraph">
-<p>For example, the fixed expense list has little to no correlation with the packing list, but they are both
-important aspects of a trip. As such, the motivation behind creating a “check status” is to create that missing link between the different lists and make E.T more integrated and easier to use for the user.</p>
-</div>
-<div class="paragraph">
-<p>This feature allows the user to compress all the information from the lists into a single pane and
-alerts the user if they have forgotten to plan for a certain aspect of a trip.
-Before this, the user would have to scroll through each list, look at what they might have forgotten to plan or do.</p>
-</div>
-<div class="paragraph">
-<p>Therefore, this would help reduce the amount of information the user would need to process, and indirectly the stresses which accompany the planning for a trip.</p>
+<p>The schedule feature is an important feature that allows the users to manage and plan for their trip schedule or itinerary. This feature is added to <strong>E.T.</strong> to separate from the activity management feature from the schedule. This can increase the ease of planning because users can just focus on the time management aspect when scheduling proposed activities from the activity list. The schedule feature also automatically adds any transport bookings into the schedule.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="overview"><a class="link" href="#overview">3.2.2. Overview</a></h4>
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.2. Current Implementation</a></h4>
 <div class="paragraph">
-<p>E.T’s database stores a hard-coded checklist. For example, it would check if the user has planned for an
-accommodation booking for every single day of the trip and would be informed through the
-<code>checkstatus</code> command if they have forgotten to plan for it.</p>
+<p>The schedule feature uses a separate system and structure as compared to the <code>ListManager`s. Instead, the schedule feature will be more closely related to the trip feature because it heavily relies on information about the `Trip</code> such as the <code>startDate</code> and <code>endDate</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>TIP</strong>
-However, users can also include their own preset <code>checkstatus</code> to suit their needs {v2.0}</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.3. Current Implementation</a></h4>
-<div class="paragraph">
-<p>The <code>checkstatus</code> command checks what the user have planned against the checklist from our database.
-The <code>checkstatus</code> command is created by parsing the user’s inputs to form a <code>checkStatusCommand</code> where E.T’s
-database is filtered to return the user with the checklist.</p>
+<p>As such, the <code>TripManager</code> is in charge of managing the schedule. The <code>TripManager</code>, contains a list of <code>DaySchedule`s which represents the schedule of a specific day of the `Trip</code>. Thus, the number of <code>DaySchedule`s equals the number of days in the `Trip</code>. E.g. a trip of 2 days means that the <code>TripManager</code> contains 2 <code>DaySchedule</code> objects.</p>
 </div>
 <div class="paragraph">
-<p>The following activity diagram shown in <a href="#Figure x.x">[Figure x.x]</a> below, summarizes what happens when a user enters a <code>checkstatus</code>
-command:</p>
+<p>Within each <code>DaySchedule</code> object, there is a <code>UniqueList</code> of <code>DayScheduleEntry</code>. The <code>DayScheduleEntry</code> object represents an entry in the schedule.
+As an example, the following UML object diagram describes the relevant objects related to this feature when a <code>Trip</code> of 2 days is set.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/developer-guide/check-status-feature/CheckStatusCommandExecution.png" alt="CheckStatusCommandExecution">
+<img src="images/developer-guide/schedule/ScheduleFeatureObjectDiagram.png" alt="ScheduleFeatureObjectDiagram">
 </div>
-<div class="title">Figure 11. Sequence diagram showing the workflow of a <code>checkstatus</code> command.</div>
-</div>
-<div class="paragraph">
-<p>In detail, whenever a “checkstatus” command is entered,
-the command will be identified by E.T by parsing it through the <code>EasyTravelParser</code> through the <code>Logic</code> component.
-A <code>CheckStatusCommand</code> will be created.
-E.T will then check against the hard-coded database and generate a checklist of what the
-user might have forgotten to prepare for their upcoming trip.
-The following sequence diagram shown in <a href="#Figure x.x">[Figure x.x]</a> below,
-summarizes the sequence flow when a user enters a valid <code>checkstatus</code> command:</p>
+<div class="title">Figure 10. Example of associations between related objects of the schedule feature.</div>
 </div>
 <div class="paragraph">
-<p>From the sequence diagram:</p>
+<p>When the user enters the <code>schedule</code> command to schedule an activity, the user input command undergoes the same command parsing as described in <a href="#logic-component">Section 2.3 Logic Component</a> . A <code>ScheduleCommand</code> will then be created.
+The following steps describe the execution of the <code>ScheduleCommand</code>, assuming that no error is encountered.</p>
 </div>
-<div class="sidebarblock">
-<div class="content">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>When the <code>LogicManager</code> receives the “execute” command from <code>MainApp</code>, it will call the <code>parseCommand</code> method of
-<code>EasyTravelParser</code>.</p>
+<p>When <code>execute()</code> of the <code>ScheduleCommand</code> is called, the <code>ModelManager</code> retrieves the displayed list of activities shown to the user.</p>
 </li>
 <li>
-<p><code>EasyTravelParser</code> will receive <code>checkstatus</code> as the command type and instantiate <code>CheckStatusCommand</code></p>
+<p>Then, it retrieves the target <code>Activity</code> using the user-specified <code>INDEX</code>.</p>
 </li>
 <li>
-<p>Through <code>Model”, the `CheckStatusCommand</code> will check the individual lists
-against the hard-coded database in <code>Storage</code> to ensure that the user had made sufficient planning for the trip.</p>
+<p>The <code>ModelManager</code>’s <code>scheduleActivity()</code> method is called to schedule the target <code>Activity</code>.</p>
 </li>
 <li>
-<p>A <code>CommandResult</code> object which consists of a <code>MESSAGE_SUCCESS</code> back to <code>LogicManager</code> if the user had made
-sufficient planning for the upcoming trip.</p>
+<p>The <code>ModelManager</code> proceeds to call the <code>scheduleActivity()</code> method of the <code>TripManager</code>.</p>
 </li>
 <li>
-<p>After receiving the <code>CommandResult</code> from <code>CheckStatusCommand</code>, <code>LogicManager</code> will then proceed to
-return the <code>CommandResult</code> back to “MainApp” where the checklist will be shown to the user.</p>
+<p>The <code>TripManager</code> then uses the given activity to create a corresponding <code>DayScheduleEntry</code> object.</p>
+</li>
+<li>
+<p>The <code>TripManager will calculate which day of the trip to schedule this activity and get the `DaySchedule</code> representing the schedule of the target day.</p>
+</li>
+<li>
+<p>The target activity is then scheduled on the target day through the <code>addScheduleEntry()</code> method of the target <code>DaySchedule</code>.</p>
+</li>
+<li>
+<p>If the above steps are all successful, the <code>ScheduleCommand</code> will then create a <code>CommandResult</code> object and return the result.</p>
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>The  <em>Sequence Diagram</em> below summarizes the execution of the <code>ScheduleCommand</code>.</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/developer-guide/schedule/ScheduleCommandExecution.png" alt="Schedule Activity Command Execution">
+</div>
+<div class="title">Figure 11. Execution of the <code>ScheduleCommand</code>.</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The lifelines for the <code>ScheduleCommand</code> should end at the destroy marker (X). However, due to a limitation of PlantUML, the lifeline reaches the end of the diagram.</p>
+</div>
+<div class="paragraph">
+<p>This sequence diagram does not take into consideration the possible exceptions which might occur during the <code>ScheduleCommand</code> execution.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.2.4. Design Considerations</a></h4>
+<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">3.2.3. Design Consideration</a></h4>
 <div class="sect4">
-<h5 id="aspect-access-to-all-list"><a class="link" href="#aspect-access-to-all-list">Aspect: Access to all list</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Current Choice:</strong> Check status has access to all lists</p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Pros:</strong> Easy to implement and understand. Check status can call and access all variables from the lists.</p>
-</li>
-<li>
-<p><strong>Cons:</strong> There might be dependency issues.</p>
-</li>
-</ul>
+<h5 id="aspect-separation-between-scheduling-and-activity-management"><a class="link" href="#aspect-separation-between-scheduling-and-activity-management">Aspect: Separation between scheduling and activity management</a></h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top">Pros</th>
+<th class="tableblock halign-left valign-top">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Option 1 (Current)</strong>
+Scheduling is separated from activity management.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Better user experience.
+Allows for extensions. Other types of objects such as a <code>TransportBooking</code> could easily be converted into a <code>DayScheduleEntry</code> object and be added into the schedule. This is by the Open-Closed principle.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Complicated to implement and more likely to result in bugs if undesirable dependencies are introduced.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Option 2</strong>
+An activity must be scheduled directly into a day as it is added.
+i.e. <code>ActivityManager</code> is in charge of scheduling.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Straightforward and simple to implement.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Other types of objects such as <code>TransportBooking</code> will not be able to be scheduled. This can result in poorer user experience when using <strong>E.T.</strong> as users may want to include transport bookings into their schedule.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Reasons for choosing option 1:</p>
 </div>
-</li>
-<li>
-<p><strong>Alternative:</strong> User will have to check each list one by one</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Pros:</strong> No dependency issues, as all lists are kept separated.</p>
+<p>The schedule feature is a major feature because it is the main part of planning for a trip. Thus, we decided to opt for the option with better user experience.</p>
 </li>
 <li>
-<p><strong>Cons:</strong> Troublesome for the user to check each list one by one.</p>
-</li>
-</ul>
-</div>
+<p>The ability for other objects to be converted into a <code>DayScheduleEntry</code> object in option 1 is also beneficial for future versions of <strong>E.T.</strong> if we want to extend this feature to schedule other items such as accommodation bookings.</p>
 </li>
 </ul>
 </div>
@@ -622,109 +669,235 @@ return the <code>CommandResult</code> back to “MainApp” where the checklist 
 </div>
 </div>
 <div class="sect2">
-<h3 id="schedule-feature"><a class="link" href="#schedule-feature">3.3. Schedule feature</a></h3>
+<h3 id="activity-manager"><a class="link" href="#activity-manager">3.3. Activity Manager</a></h3>
 <div class="paragraph">
-<p><strong><em>E.T.</em></strong> allows the user to schedule an activity from the activity list to a specified time of a day.
-This is done using the <code>schedule</code> command which requires the user to specify the <code>activity index</code> of an activity from
-the displayed activity list, the <code>day number</code> of the trip and the <code>start time</code> of the activity to be scheduled. For
-example, <code>schedule 1 day/2 starttime/13:00</code> means that the activity with the index of <code>1</code> will be schedule on the second
-day of the trip at 1pm. Before using the <code>schedule</code> command, the user should have filled up the activity list with
-activities.</p>
+<p><strong>E.T.</strong> allows the user to keep track of their activities for his/her trip. The activity manager is one of the <code>ListManager`s <a href="#list-manager">(See Section 3.1 List Managers)</a>. On top of the basic operations provided by a `ListManager</code>, it also allows the user to search for their activities using the <code>findacitivty</code> command. The parameters of the <code>findactivity</code> command are keywords in the activity entries that the user wants to search for. E.g. <code>findactivity sightseeing carnival</code> will search and list all activity entries with <code>sightseeing</code> or <code>carnival</code> in their detail. Another similar command, <code>findactivitytag</code> has the same functionality but only searches for the tags of activity entries.</p>
+</div>
+<div class="paragraph">
+<p><code>ActivityManager</code> has other than the basic CRUD commands, find command provide a find command to assist in activity management such as:
+* <code>findactivitytag</code>
+* <code>findactivity</code></p>
 </div>
 <div class="sect3">
 <h4 id="rationale-3"><a class="link" href="#rationale-3">3.3.1. Rationale</a></h4>
 <div class="paragraph">
-<p>The schedule feature is an important feature that allows the users to manage and plan for their trip schedule or itinerary.
-This feature is separated from the activity management feature to increase the ease of planning because users can just focus
-on the time management aspect when scheduling proposed activities from the activity list.</p>
+<p>The activity manager is an important feature to have because any oversea trip will be packed with activities for the traveller. Thus, we decided to create an activity manager as one of the `ListManager`s.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.3.2. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The keywords from the command given by user is parsed using <code>ScheduleActivityCommandParser</code> which converts the string
-variable of the <code>start time</code> into a java <code>Time</code> object, while <code>activity index</code> and <code>day number</code> are converted into <code>Index</code> objects.
-These objects are used to create the <code>ScheduleActivityCommand</code> object that can be execution to schedule the activity.</p>
+<p>The current implementation of the activity manager only allows the user to keep track of a list of activities for their trip. It does not allow the user to indicate the start and end time of an activity. Instead, the ability to indicate a start time for an activity will be in another feature known as the schedule feature (See Section 3.4).</p>
 </div>
 <div class="paragraph">
-<p>The sequence diagram below shows the creation of the <code>ScheduleActivityCommand</code> object:</p>
+<p>In this section, we will outline the <code>findactivity</code> command of the activity manager which is summarised by the <em>Activity Diagram</em> below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/developer-guide/schedule-feature/ScheduleActivityCommandCreation.png" alt="ScheduleActivityCommandCreation">
+<img src="images/developer-guide/activity/FindActivityDiagram.png" alt="FindActivityDiagram">
 </div>
-<div class="title">Figure 12. Sequence diagram that describes the creation of the <code>ScheduleActivityCommand</code> from the input user command <code>schedule 1 day/2 starttime/13:00</code>.</div>
-</div>
-<div class="paragraph">
-<p>After the creation of the <code>ScheduleActivityCommand</code> object, the <code>LogicManager</code> will proceed to call the <code>execute()</code> method of <code>ScheduleActivityCommand</code>.</p>
+<div class="title">Figure 12. Activity diagram showing the workflow of a <code>findactivity</code> command.</div>
 </div>
 <div class="paragraph">
-<p>The following steps describes the execution of the <code>ScheduleActivityCommand</code>:</p>
+<p>The sequence diagram below shows the creation of the an ActivityCommand object:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/developer-guide/activity/DeleteActivityCommandCreation.png" alt="DeleteActivityCommandCreation">
+</div>
+<div class="title">Figure 13. Sequence diagram that describes the creation of the <code>deleteactivity</code> from the input user command <code>deleteactivity 1</code>.</div>
+</div>
+<div class="paragraph">
+<p>When the user enters the <code>findactivity</code> command to search for activities, the user input command undergoes the same command parsing as described in Section 2.3 Logic Component. During the parsing, a predicate is created. This predicate checks if a given <code>Activity</code> contains the user input keywords. The <code>FindActivityCommand</code> will then receive this predicate when it is created.</p>
+</div>
+<div class="paragraph">
+<p>The following steps will describe the execution of the <code>FindActivityCommand</code> in detail, assuming that no error is encountered.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>Model</code> retrieves the list of activities from the <code>UniqueList</code> that stores <code>Activity</code> objects.</p>
+<p>When the <code>execute()</code> method of the <code>FindActivityCommand</code> is called, the <code>ModelManager</code>’s <code>updateFilteredActivityList()</code> method is called.</p>
 </li>
 <li>
-<p>The <code>activityIndex</code> is used to obtain the target <code>Activity</code> from the activity list.</p>
+<p>The <code>ModelManager</code> then proceeds to call the <code>updateFilteredActivityList()</code> method of the <code>ActivityManager</code>.</p>
 </li>
 <li>
-<p>The <code>Activity</code> object, <code>dayIndex</code> and <code>startTime</code> is passed into the <code>scheduleActivity()</code> method of <code>Model</code>.</p>
+<p>The <code>ActivityManager</code> will then update its filtered list of `Activity`s to contain only `Activity`s that fulfil the given predicate.</p>
 </li>
 <li>
-<p><code>Activity</code> is converted to a <code>Schedulee</code> object using the <code>startTime</code> from the <code>ScheduleActivityCommand</code>, the <code>title</code> and <code>duration</code> from the target <code>Activity</code>.</p>
+<p>The <code>Ui</code> component will detect this change and update the <em>GUI</em>.</p>
 </li>
 <li>
-<p>The <code>Schedulee</code> object is added to the target day&#8217;s <code>DaySchedule</code>.</p>
-</li>
-<li>
-<p>The list of <code>Schedulee</code> is sorted according to the <code>startTime</code>.</p>
+<p>If the above steps are all successful, the <code>ScheduleCommand</code> will then create a <code>CommandResult</code> object and return the result.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>The sequence diagram below shows the the execution of <code>ScheduleActivityCommand</code>:</p>
+<p>The <em>Sequence Diagram</em> below summarises the aforementioned steps.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/developer-guide/schedule-feature/ScheduleActivityCommandExecution.png" alt="Schedule Activity Command Execution">
+<img src="images/developer-guide/activity/FindActivitySequenceDiagram.png" alt="FindActivitySequenceDiagram">
 </div>
-<div class="title">Figure 13. Sequence diagram that describes the execution of ScheduleActivityCommand.</div>
+<div class="title">Figure 14. Execution of the <code>FindActivityCommand</code>.</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The lifelines for the <code>FindActivityCommand</code> should end at the destroy marker (X). However, due to a limitation of PlantUML, the lifeline reaches the end of the diagram.</p>
+</div>
+<div class="paragraph">
+<p>This sequence diagram does not take into consideration the possible exceptions which might occur during the <code>FindActivityCommand</code> execution.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">3.3.3. Design Consideration</a></h4>
+<h4 id="design-consideration-3"><a class="link" href="#design-consideration-3">3.3.3. Design Consideration</a></h4>
+<div class="paragraph">
+<p>We do not have other implementation options for the <code>FindActivityCommand</code> as the current implementation is the only option that we came up with. This option is quite easy to understand and follows good coding principles.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="schedule-feature"><a class="link" href="#schedule-feature">3.4. Schedule feature</a></h3>
+<div class="paragraph">
+<p><strong>E.T.</strong> allows the user to schedule an activity from the activity list to a specified time of a day. This is done using the <code>schedule</code> command which requires the user to specify the <code>INDEX</code> of an activity from the displayed activity list, the <code>DAY_INDEX</code> of the trip and the <code>START_TIME</code> of the activity to be scheduled.</p>
+</div>
+<div class="sect3">
+<h4 id="rationale-4"><a class="link" href="#rationale-4">3.4.1. Rationale</a></h4>
+<div class="paragraph">
+<p>The schedule feature is an important feature that allows the users to manage and plan for their trip schedule or itinerary. This feature is added to <strong>E.T.</strong> to separate from the activity management feature from the schedule. This can increase the ease of planning because users can just focus on the time management aspect when scheduling proposed activities from the activity list. The schedule feature also automatically adds any transport bookings into the schedule.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.4.2. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The schedule feature uses a separate system and structure as compared to the <code>ListManager`s. Instead, the schedule feature will be more closely related to the trip feature because it heavily relies on information about the `Trip</code> such as the <code>startDate</code> and <code>endDate</code>.</p>
+</div>
+<div class="paragraph">
+<p>As such, the <code>TripManager</code> is in charge of managing the schedule. The <code>TripManager</code>, contains a list of <code>DaySchedule`s which represents the schedule of a specific day of the `Trip</code>. Thus, the number of <code>DaySchedule`s equals the number of days in the `Trip</code>. E.g. a trip of 2 days means that the <code>TripManager</code> contains 2 <code>DaySchedule</code> objects.</p>
+</div>
+<div class="paragraph">
+<p>Within each <code>DaySchedule</code> object, there is a <code>UniqueList</code> of <code>DayScheduleEntry</code>. The <code>DayScheduleEntry</code> object represents an entry in the schedule.
+As an example, the following UML object diagram describes the relevant objects related to this feature when a <code>Trip</code> of 2 days is set.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/developer-guide/schedule/ScheduleFeatureObjectDiagram.png" alt="ScheduleFeatureObjectDiagram">
+</div>
+<div class="title">Figure 15. Example of associations between related objects of the schedule feature.</div>
+</div>
+<div class="paragraph">
+<p>When the user enters the <code>schedule</code> command to schedule an activity, the user input command undergoes the same command parsing as described in <a href="#logic-component">Section 2.3 Logic Component</a> . A <code>ScheduleCommand</code> will then be created.
+The following steps describe the execution of the <code>ScheduleCommand</code>, assuming that no error is encountered.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>When <code>execute()</code> of the <code>ScheduleCommand</code> is called, the <code>ModelManager</code> retrieves the displayed list of activities shown to the user.</p>
+</li>
+<li>
+<p>Then, it retrieves the target <code>Activity</code> using the user-specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The <code>ModelManager</code>’s <code>scheduleActivity()</code> method is called to schedule the target <code>Activity</code>.</p>
+</li>
+<li>
+<p>The <code>ModelManager</code> proceeds to call the <code>scheduleActivity()</code> method of the <code>TripManager</code>.</p>
+</li>
+<li>
+<p>The <code>TripManager</code> then uses the given activity to create a corresponding <code>DayScheduleEntry</code> object.</p>
+</li>
+<li>
+<p>The <code>TripManager will calculate which day of the trip to schedule this activity and get the `DaySchedule</code> representing the schedule of the target day.</p>
+</li>
+<li>
+<p>The target activity is then scheduled on the target day through the <code>addScheduleEntry()</code> method of the target <code>DaySchedule</code>.</p>
+</li>
+<li>
+<p>If the above steps are all successful, the <code>ScheduleCommand</code> will then create a <code>CommandResult</code> object and return the result.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The  <em>Sequence Diagram</em> below summarizes the execution of the <code>ScheduleCommand</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/developer-guide/schedule/ScheduleCommandExecution.png" alt="Schedule Activity Command Execution">
+</div>
+<div class="title">Figure 16. Execution of the <code>ScheduleCommand</code>.</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The lifelines for the <code>ScheduleCommand</code> should end at the destroy marker (X). However, due to a limitation of PlantUML, the lifeline reaches the end of the diagram.</p>
+</div>
+<div class="paragraph">
+<p>This sequence diagram does not take into consideration the possible exceptions which might occur during the <code>ScheduleCommand</code> execution.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration-4"><a class="link" href="#design-consideration-4">3.4.3. Design Consideration</a></h4>
 <div class="sect4">
-<h5 id="aspect-separation-between-scheduling-and-activity-management"><a class="link" href="#aspect-separation-between-scheduling-and-activity-management">Aspect: Separation between scheduling and activity management</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Current Choice:</strong> Scheduling is separated from activity management.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Better user experience. Allows for extension: other type of objects could easily be converted into a <code>Schedulee</code> object
-and be added into the schedule.</p>
-</li>
-<li>
-<p>Cons: Complicated to implement and more likely to result in bugs.</p>
-</li>
-</ul>
+<h5 id="aspect-separation-between-scheduling-and-activity-management-2"><a class="link" href="#aspect-separation-between-scheduling-and-activity-management-2">Aspect: Separation between scheduling and activity management</a></h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top">Pros</th>
+<th class="tableblock halign-left valign-top">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Option 1 (Current)</strong>
+Scheduling is separated from activity management.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Better user experience.
+Allows for extensions. Other types of objects such as a <code>TransportBooking</code> could easily be converted into a <code>DayScheduleEntry</code> object and be added into the schedule. This is by the Open-Closed principle.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Complicated to implement and more likely to result in bugs if undesirable dependencies are introduced.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Option 2</strong>
+An activity must be scheduled directly into a day as it is added.
+i.e. <code>ActivityManager</code> is in charge of scheduling.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Straightforward and simple to implement.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Other types of objects such as <code>TransportBooking</code> will not be able to be scheduled. This can result in poorer user experience when using <strong>E.T.</strong> as users may want to include transport bookings into their schedule.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Reasons for choosing option 1:</p>
 </div>
-</li>
-<li>
-<p><strong>Alternative:</strong> Activity must be scheduled directly into a day.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Simple to implement.</p>
+<p>The schedule feature is a major feature because it is the main part of planning for a trip. Thus, we decided to opt for the option with better user experience.</p>
 </li>
 <li>
-<p>Cons: Increase difficulty planning for users and limit the schedule to <code>Activity</code> objects only.</p>
-</li>
-</ul>
-</div>
+<p>The ability for other objects to be converted into a <code>DayScheduleEntry</code> object in option 1 is also beneficial for future versions of <strong>E.T.</strong> if we want to extend this feature to schedule other items such as accommodation bookings.</p>
 </li>
 </ul>
 </div>
@@ -732,19 +905,19 @@ and be added into the schedule.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="transport-booking-feature"><a class="link" href="#transport-booking-feature">3.4. Transport Booking feature</a></h3>
+<h3 id="transport-booking-feature"><a class="link" href="#transport-booking-feature">3.5. Transport Booking feature</a></h3>
 <div class="paragraph">
 <p>E.T. allows the user to add a transport booking. This is done using the schedule command which requires the user to specify the mode, start location, end location, start time and end time.</p>
 </div>
 <div class="sect3">
-<h4 id="rationale-4"><a class="link" href="#rationale-4">3.4.1. Rationale</a></h4>
+<h4 id="rationale-5"><a class="link" href="#rationale-5">3.5.1. Rationale</a></h4>
 <div class="paragraph">
 <p>The transport booking feature is an important feature that allows the user to track the list of transport bookings that they have made before leaving.
 This feature also allows the user to schedule their activities while taking the scheduled transport bookings into consideration.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.4.2. Current Implementation</a></h4>
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.5.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The keywords from the command given by the user is parsed using <code>AddTransportBookingCommandParser</code> which converts the string variable <code>mode</code> into a <code>Mode</code> object, <code>start location</code> and <code>end location</code> into a <code>Location</code> objects, as well as <code>start time</code> and <code>end time</code> into <code>Time</code> objects.
 These objects are used to create the <code>AddTransportBookingCommand</code> object that will execute to create a transport booking.</p>
@@ -756,7 +929,7 @@ These objects are used to create the <code>AddTransportBookingCommand</code> obj
 <div class="content">
 <img src="images/developer-guide/transport-booking/AddTransportBookingActivityDiagram.png" alt="AddTransportBookingActivityDiagram">
 </div>
-<div class="title">Figure 14. Activity diagram showing the workflow of a <code>AddTransportBooking</code> command.</div>
+<div class="title">Figure 17. Activity diagram showing the workflow of a <code>AddTransportBooking</code> command.</div>
 </div>
 <div class="paragraph">
 <p>After the creation of the <code>AddTransportBookingCommand</code> object, the <code>LogicManager</code> will proceed to call the <code>execute()</code> method of <code>AddTransportBookingCommand</code>.</p>
@@ -779,7 +952,7 @@ These objects are used to create the <code>AddTransportBookingCommand</code> obj
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-3"><a class="link" href="#design-consideration-3">3.4.3. Design Consideration</a></h4>
+<h4 id="design-consideration-5"><a class="link" href="#design-consideration-5">3.5.3. Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect"><a class="link" href="#aspect">Aspect:</a></h5>
 <div class="ulist">
@@ -816,7 +989,7 @@ These objects are used to create the <code>AddTransportBookingCommand</code> obj
 </div>
 </div>
 <div class="sect2">
-<h3 id="accommodation-booking-feature"><a class="link" href="#accommodation-booking-feature">3.5. Accommodation Booking feature</a></h3>
+<h3 id="accommodation-booking-feature"><a class="link" href="#accommodation-booking-feature">3.6. Accommodation Booking feature</a></h3>
 <div class="paragraph">
 <p>E.T. allows the user to add an accommodation booking. This is done using the schedule command which requires the user to specify the accommodation name, location, start day, end day and a remark. This feature also prevents the user from having an overlap of accommodation.</p>
 </div>
@@ -843,13 +1016,13 @@ These objects are used to create the <code>AddTransportBookingCommand</code> obj
 </ul>
 </div>
 <div class="sect3">
-<h4 id="rationale-5"><a class="link" href="#rationale-5">3.5.1. Rationale</a></h4>
+<h4 id="rationale-6"><a class="link" href="#rationale-6">3.6.1. Rationale</a></h4>
 <div class="paragraph">
 <p>The accommodation booking feature is an important feature that allows the user to track the list of accommodation bookings that they have made before leaving.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.5.2. Current Implementation</a></h4>
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.6.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>When a user adds an accommodation booking using the <code>AddAccommodationBookingCommandParser</code>, an <code>AddAccommodationBookingCommand</code> object is created that will execute to create an accommodation booking. When the <code>execute()</code> method is called, a method <code>isOverlappingWithOthers()</code> will check if there is an overlap of the new accommodation booking with the other bookings.</p>
 </div>
@@ -860,7 +1033,7 @@ These objects are used to create the <code>AddTransportBookingCommand</code> obj
 <div class="content">
 <img src="images/developer-guide/accommodation-booking/FindOverlapActivityDiagram.png" alt="FindOverlapActivityDiagram">
 </div>
-<div class="title">Figure 15. Activity diagram of check overlap for 2 accommodation bookings</div>
+<div class="title">Figure 18. Activity diagram of check overlap for 2 accommodation bookings</div>
 </div>
 <div class="paragraph">
 <p>The following steps describes the process of the check overlap method:</p>
@@ -886,7 +1059,7 @@ These objects are used to create the <code>AddTransportBookingCommand</code> obj
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-4"><a class="link" href="#design-consideration-4">3.5.3. Design Consideration</a></h4>
+<h4 id="design-consideration-6"><a class="link" href="#design-consideration-6">3.6.3. Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect-calculating-overlap-of-the-new-accommodation-booking-with-the-other-accommodation-bookings-in-the-list"><a class="link" href="#aspect-calculating-overlap-of-the-new-accommodation-booking-with-the-other-accommodation-bookings-in-the-list">Aspect: Calculating overlap of the new accommodation booking with the other accommodation bookings in the list</a></h5>
 <table class="tableblock frame-all grid-all spread">
@@ -913,131 +1086,6 @@ These objects are used to create the <code>AddTransportBookingCommand</code> obj
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="activity-manager"><a class="link" href="#activity-manager">3.6. Activity Manager</a></h3>
-<div class="paragraph">
-<p><strong><em>E.T.</em></strong> allows the user to plan for their <code>activity</code> for a trip. The activity manager handles everything to do with manipulating of activities.</p>
-</div>
-<div class="paragraph">
-<p>This <code>addactivity</code> command requires the user to include the <code>title</code> of an activity, the <code>priority</code> of the activity , the <code>duration</code> of the activity in terms of hours, <code>Location</code> of the activity and optional <code>tags</code>.</p>
-</div>
-<div class="paragraph">
-<p>List of commands that helps with activity management:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>addactivity title/TITLE priority/PRIORITY duration/DURATION location/LOCATION t/TAG</code>&#8201;&#8212;&#8201; create an activity with the given title, priority, duration, location and tags. There can be more than one tags included</p>
-</li>
-<li>
-<p><code>clearactivity</code> &#8201;&#8212;&#8201;Clears the entire activity list</p>
-</li>
-<li>
-<p><code>deleteactivity index</code> &#8201;&#8212;&#8201;Deletes the activity based on index</p>
-</li>
-<li>
-<p><code>editactivity index [title/TITLE] [priority/PRIORITY] [duration/DURATION] [location/LOCATION] [t/TAG]</code>&#8201;&#8212;&#8201;Edits the activity based on index</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="paragraph">
-<p><code>addactivity title/Big Cheese Land priority/1 duration/2 location/The moon t/nice</code> will create an activity named <code>Big Cheese</code> with a priority of <code>1</code> , duration of <code>2</code> and is happening at a location <code>The moon</code>. The activity would also have the tag <code>nice</code></p>
-</div>
-<div class="paragraph">
-<p>The user can use any other activity command if there exist at least one activity in the list.</p>
-</div>
-<div class="sect3">
-<h4 id="rationale-6"><a class="link" href="#rationale-6">3.6.1. Rationale</a></h4>
-<div class="paragraph">
-<p>The activity manager allows user to plan and manage their activities for the trip.
-The activity manager only handles activities and the manipulation of activities.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.6.2. Current Implementation</a></h4>
-<div class="paragraph">
-<p>The keywords from the command given by user is parsed using a parser for the respective command</p>
-</div>
-<div class="paragraph">
-<p>e.g <code>DeleteActivityCommandParser</code></p>
-</div>
-<div class="paragraph">
-<p>These objects are used to create the command object for their respective command that can be execution to schedule the activity.</p>
-</div>
-<div class="paragraph">
-<p>e.g <code>DeleteActivity</code></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/developer-guide/activity/DeleteActivityActivityDiagram.png" alt="DeleteActivityActivityDiagram">
-</div>
-<div class="title">Figure 16. Activity diagram showing the workflow of a <code>deleteactivity</code> command.</div>
-</div>
-<div class="paragraph">
-<p>The sequence diagram below shows the creation of the an ActivityCommand object:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/developer-guide/activity/DeleteActivityCommandCreation.png" alt="DeleteActivityCommandCreation">
-</div>
-<div class="title">Figure 17. Sequence diagram that describes the creation of the <code>deleteactivity</code> from the input user command <code>deleteactivity 1</code>.</div>
-</div>
-<div class="paragraph">
-<p>After the creation of the <code>DeleteActivityCommand</code> object, the <code>LogicManager</code> will proceed to call the <code>execute()</code> method of <code>DeleteActivityCommand</code>.</p>
-</div>
-<div class="paragraph">
-<p>The following steps describes the execution of the <code>ScheduleActivityCommand</code>:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><code>Model</code> retrieves the list of activities from the <code>UniqueList</code> that stores <code>Activity</code> objects.</p>
-</li>
-<li>
-<p>The <code>activityIndex</code> is used to find the target <code>Activity</code> from the activity list.</p>
-</li>
-<li>
-<p>The <code>Activity</code> object that corresponds to the index is removed from the list</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>The sequence diagram below shows the the execution of <code>DeleteActivityCommand</code>:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/developer-guide/activity/DeleteActivityCommandExecution.png" alt="Delete Activity Command Execution placeholder">
-</div>
-<div class="title">Figure 18. Sequence diagram that describes the execution of ScheduleActivityCommand.</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-consideration-5"><a class="link" href="#design-consideration-5">3.6.3. Design Consideration</a></h4>
-<div class="sect4">
-<h5 id="aspect-activity-does-not-keep-track-of-the-day"><a class="link" href="#aspect-activity-does-not-keep-track-of-the-day">Aspect: Activity does not keep track of the day</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Current Choice:</strong> Days is being tracked by scheduler</p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Pros:</strong> Separation of concerns: Only the scheduler should know which day the activity is held on.</p>
-</li>
-<li>
-<p><strong>Cons:</strong> {kiv}</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
 </div>
 </div>
 </div>
@@ -1156,7 +1204,7 @@ These objects are used to create the <code>AddPresetCommand</code> object that w
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-6"><a class="link" href="#design-consideration-6">3.7.3. Design Consideration</a></h4>
+<h4 id="design-consideration-7"><a class="link" href="#design-consideration-7">3.7.3. Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect-2"><a class="link" href="#aspect-2">Aspect:</a></h5>
 <div class="ulist">
@@ -1240,7 +1288,7 @@ These objects are used to create the <code>SortFixedExpenseCommand</code> object
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-7"><a class="link" href="#design-consideration-7">3.8.3. Design Consideration</a></h4>
+<h4 id="design-consideration-8"><a class="link" href="#design-consideration-8">3.8.3. Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect-3"><a class="link" href="#aspect-3">Aspect:</a></h5>
 <div class="ulist">
@@ -1277,14 +1325,117 @@ These objects are used to create the <code>SortFixedExpenseCommand</code> object
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.9. Logging</a></h3>
+<h3 id="progress-checker"><a class="link" href="#progress-checker">3.9. Progress Checker</a></h3>
+<div class="paragraph">
+<p>This feature allows the user to keep track of the progress of his/her planning. It integrates multiple features to show the user what has been done and what needs to be done for his/her trip. The command to check the current progress is <code>status</code>. The following aspect of the trip will be shown to the user:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Accommodation</code> - Accommodation coverage</p>
+</li>
+<li>
+<p><code>Schedule</code> - Time clash in the schedule</p>
+</li>
+<li>
+<p><code>PackingList</code> - Number of items packed or yet to be packed</p>
+</li>
+<li>
+<p><code>Expense</code> - Remaining budget</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="rationale-9"><a class="link" href="#rationale-9">3.9.1. Rationale</a></h4>
+<div class="paragraph">
+<p>This feature is added because as a travel planning application, the user would want to know his progress when planning for a trip. Thus, information on what is done and what needs to be done will help the user gauge his planning progress. The user would also want to know if they have forgotten to plan for any aspect of a trip which will be provided by this feature.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-9"><a class="link" href="#current-implementation-9">3.9.2. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The following <em>Activity Diagram</em> summarizes what happens when a user enters the <code>status</code> command.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/developer-guide/progress-checker/CheckStatusActivityDiagram.png" alt="CheckStatusActivityDiagram">
+</div>
+<div class="title">Figure 20. Workflow of the <code>status</code> command.</div>
+</div>
+<div class="paragraph">
+<p>When a user enters the <code>status</code> command, the <code>Logic</code> Component parses and creates a <code>CheckStatusCommand</code> object. <a href="#logic-component">(See Section 2.3 Logic Component)</a>.</p>
+</div>
+<div class="paragraph">
+<p>The execution of the <code>CheckStatusCommand</code> undergoes the following steps.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <code>ModelManager</code>’s <code>getStatus()</code> will first be called.</p>
+</li>
+<li>
+<p>The <code>ModelManager</code> calls the <code>getScheduleStatus()</code> method of the <code>TripManager</code>.</p>
+</li>
+<li>
+<p>The <code>ModelManager</code> calls the <code>getStatus()</code> method of the <code>PackingListManager</code>.</p>
+</li>
+<li>
+<p>The <code>ModelManager</code> calls the <code>getStatus()</code> method of the <code>FixedExpenseManager</code>.</p>
+</li>
+<li>
+<p>The <code>ModelManager</code> calls the <code>getStatus()</code> method of the <code>AccommodationBookingManager</code>.</p>
+</li>
+<li>
+<p>After all the required data is obtained, the <code>ModelManager</code> will return the data to the <code>CheckStatusCommand</code>.</p>
+</li>
+<li>
+<p>The <code>CheckStatusCommand</code> will then create a new <code>CommandResult</code> object using the data obtained and return this <code>CommandResult</code> object.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/developer-guide/progress-checker/CheckStatusCommandExecution.png" alt="CheckStatusCommandExecution">
+</div>
+<div class="title">Figure 21. Execution of the <code>CheckStatusCommand</code>.</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The lifelines for the <code>CheckStatusCommand</code> should end at the destroy marker (X). However, due to a limitation of PlantUML, the lifeline reaches the end of the diagram.</p>
+</div>
+<div class="paragraph">
+<p>This sequence diagram does not take into consideration the possible exceptions which might occur during the <code>CheckStatusCommand</code> execution.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.9.3. Design Considerations</a></h4>
+<div class="paragraph">
+<p>We do not have other implementation options for this feature as the current implementation is the only option that we came up with. It is also a good option because it follows good coding principles such as the Law of Demeter (LoD). In our implementation, each object only calls the methods of other objects that it is directly associated with.</p>
+</div>
+<div class="paragraph">
+<p>E.g. the <code>CheckStatusCommand</code> object only calls the the <code>ModelManager</code> object’s <code>getStatus()</code> method and the <code>ModelManager</code> object only calls the the <code>PackingListManager</code> object’s <code>getStatus()</code>. The <code>CheckStatusCommand</code> object does not know or have access to the <code>getStatus()</code> method of the <code>PackingListManager</code> object.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">3.10. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.10, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">[Implementation-Configuration]</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1315,7 +1466,7 @@ These objects are used to create the <code>SortFixedExpenseCommand</code> object
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.10. Configuration</a></h3>
+<h3 id="implementation-configuration"><a class="link" href="#implementation-configuration">3.11. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1997,4 +2148,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 08:27:26 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 17:27:08 UTC</div></div></div></body></html>
