@@ -991,71 +991,64 @@ These objects are used to create the <code>AddTransportBookingCommand</code> obj
 <div class="sect2">
 <h3 id="accommodation-booking-feature"><a class="link" href="#accommodation-booking-feature">3.6. Accommodation Booking feature</a></h3>
 <div class="paragraph">
-<p>E.T. allows the user to add an accommodation booking. This is done using the schedule command which requires the user to specify the accommodation name, location, start day, end day and a remark. This feature also prevents the user from having an overlap of accommodation.</p>
-</div>
-<div class="paragraph">
-<p>The activity contains the following fields:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>accommodation name</code></p>
-</li>
-<li>
-<p><code>location</code></p>
-</li>
-<li>
-<p><code>start day</code></p>
-</li>
-<li>
-<p><code>end day</code></p>
-</li>
-<li>
-<p><code>remarks</code></p>
-</li>
-</ul>
+<p><strong>E.T.</strong> allows the user to keep track of their accommodation bookings for his/her trip. The accommodation booking manager is one of the <code>ListManager</code>s (See <a href="#">Section 3.1 List Managers</a>). On top of the basic operations provided by a <code>ListManager</code>, it also prevents the user from having overlapping accommodation bookings.</p>
 </div>
 <div class="sect3">
 <h4 id="rationale-6"><a class="link" href="#rationale-6">3.6.1. Rationale</a></h4>
 <div class="paragraph">
-<p>The accommodation booking feature is an important feature that allows the user to track the list of accommodation bookings that they have made before leaving.</p>
+<p>The transport booking manager is an important feature to have because any oversea trip of more than one day will require some form of accommodation. Thus, we decided to create an accommodation booking manager as one of the <code>ListManager</code>s.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.6.2. Current Implementation</a></h4>
 <div class="paragraph">
-<p>When a user adds an accommodation booking using the <code>AddAccommodationBookingCommandParser</code>, an <code>AddAccommodationBookingCommand</code> object is created that will execute to create an accommodation booking. When the <code>execute()</code> method is called, a method <code>isOverlappingWithOthers()</code> will check if there is an overlap of the new accommodation booking with the other bookings.</p>
+<p>When a user adds an accommodation booking, the <code>Logic</code> Component parses the user input and creates an <code>AddAccommodationBookingCommand</code> object (See <a href="#logic-component">Section 2.3 Logic Component</a>). When the <code>execute()</code> method of <code>AddAccommodationBookingCommand</code> is called, the execution will check if the new accommodation booking overlaps with any other other current bookings.</p>
 </div>
 <div class="paragraph">
-<p>Using a stream, the new accommodation booking will be against all other bookings in the list to find look for any overlaps. The activity diagram shows how 2 bookings are checked if there is an overlap:</p>
+<p>Using a Java’s <em>stream</em>, the new accommodation booking will be checked against all other bookings in the list to look for any overlaps.
+We used an interval overlap detection algorithm to check for overlap between 2 accommodation bookings. If the total duration of the 2 accommodation bookings is within the <em>acceptable duration</em> of the algorithm, then there is no overlap.
+<em>acceptable duration</em> = latest end day - earliest start day</p>
+</div>
+<div class="paragraph">
+<p>The following diagram gives a visual explanation on this interval overlap detection algorithm.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/developer-guide/accommodation-booking/OverlappingIntervalAlgorithm.png" alt="OverlappingIntervalAlgorithm">
+</div>
+<div class="title">Figure 18. Visual explanation on the interval overlap detection algorithm</div>
+</div>
+<div class="paragraph">
+<p>The following steps describe the flow of an overlap check between 2 accommodation bookings:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The start day and end day of both bookings are retrieved using <code>getStartDay()</code> and <code>getEndDay()</code> methods of the <code>AccommodationBooking</code> object.</p>
+</li>
+<li>
+<p>The total duration of both accommodation bookings is calculated.</p>
+</li>
+<li>
+<p>The latest end day and earliest start day is obtained.</p>
+</li>
+<li>
+<p>The <em>acceptable duration</em> is calculated.</p>
+</li>
+<li>
+<p>If the <em>acceptable duration</em> is greater than the total duration of both bookings, there is no overlap. The overlap check will continue for the next accommodation booking until the last.
+If there is an overlap, the check will stop and the user will receive a message that informs them that the new accommodation booking will overlap with another booking.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The <em>Activity Diagram</em> below summaries the above steps.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/developer-guide/accommodation-booking/FindOverlapActivityDiagram.png" alt="FindOverlapActivityDiagram">
 </div>
-<div class="title">Figure 18. Activity diagram of check overlap for 2 accommodation bookings</div>
-</div>
-<div class="paragraph">
-<p>The following steps describes the process of the check overlap method:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The start day and end day of both bookings are retrieved using <code>getStartDay()</code> and <code>getEndDay()</code></p>
-</li>
-<li>
-<p>The largest end day and smallest start day is calculated and the difference of the largest and smallest is calculated</p>
-</li>
-<li>
-<p>The duration of both bookings is calculated by adding the difference of the end day and start day of both bookings</p>
-</li>
-<li>
-<p>If the difference of the largest end day and smallest start day is greater than the duration of both bookings, there is no overlap. The accommodation booking will then be added into the list.</p>
-</li>
-<li>
-<p>If there is an overlap, user will receive a message that informs that there is the new accommodation booking has an overlap with another booking.</p>
-</li>
-</ol>
+<div class="title">Figure 19. Activity diagram of check overlap for 2 accommodation bookings</div>
 </div>
 </div>
 <div class="sect3">
@@ -1075,14 +1068,20 @@ These objects are used to create the <code>AddTransportBookingCommand</code> obj
 <td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Current Choice : Using stream to compare the accommodation bookings</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Few lines of codes needed to compare the bookings, follows the KISS principle</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Difficult for beginner users to understand our code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Option 1 (Current)</strong></p>
+<p class="tableblock">Use an interval overlap detection algorithm.</p>
+<p class="tableblock">In the worst case, the checking for overlap against all accommodation booking takes O(n) time where n is the number of accommodation bookings</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Simple and easy to implement.</p>
+<p class="tableblock">Only require constant space to calculate overlaps between 2 intervals.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Requires some calculation.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Alternative Choice: Using an arraylist of days to track accommodations</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Easy to use and understand</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Requires many lines of code, may become difficult to read</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Option 2</strong></p>
+<p class="tableblock">Use a hashtable to store the days that have been accounted for.</p>
+<p class="tableblock">In the worst case, the checking for overlap against all accommodation booking takes O(d) time where d is the number of days.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Simple and easy to implement.</p>
+<p class="tableblock">Checking for any particular day takes constant time.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Require a large amount of storage space to save the hashtable data.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1181,7 +1180,7 @@ These objects are used to create the <code>AddPresetCommand</code> object that w
 <div class="content">
 <img src="images/developer-guide/packing-list/AddPackingListActivityDiagram.png" alt="AddPackingListActivityDiagram">
 </div>
-<div class="title">Figure 19. Activity diagram showing the workflow of an <code>addpreset</code> command.</div>
+<div class="title">Figure 20. Activity diagram showing the workflow of an <code>addpreset</code> command.</div>
 </div>
 <div class="paragraph">
 <p>After the creation of the <code>AddPresetCommand</code> object, the <code>LogicManager</code> will proceed to call the <code>execute()</code> method of <code>AddPresetCommand</code>.</p>
@@ -1360,7 +1359,7 @@ These objects are used to create the <code>SortFixedExpenseCommand</code> object
 <div class="content">
 <img src="images/developer-guide/progress-checker/CheckStatusActivityDiagram.png" alt="CheckStatusActivityDiagram">
 </div>
-<div class="title">Figure 20. Workflow of the <code>status</code> command.</div>
+<div class="title">Figure 21. Workflow of the <code>status</code> command.</div>
 </div>
 <div class="paragraph">
 <p>When a user enters the <code>status</code> command, the <code>Logic</code> Component parses and creates a <code>CheckStatusCommand</code> object. <a href="#logic-component">(See Section 2.3 Logic Component)</a>.</p>
@@ -1397,7 +1396,7 @@ These objects are used to create the <code>SortFixedExpenseCommand</code> object
 <div class="content">
 <img src="images/developer-guide/progress-checker/CheckStatusCommandExecution.png" alt="CheckStatusCommandExecution">
 </div>
-<div class="title">Figure 21. Execution of the <code>CheckStatusCommand</code>.</div>
+<div class="title">Figure 22. Execution of the <code>CheckStatusCommand</code>.</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2148,4 +2147,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 17:27:08 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 17:40:59 UTC</div></div></div></body></html>
