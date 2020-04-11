@@ -13,11 +13,11 @@
 <li><a href="#design">2. Design</a>
 <ul class="sectlevel2">
 <li><a href="#Design-Architecture">2.1. Architecture</a></li>
-<li><a href="#Design-Ui">2.2. UI component</a></li>
+<li><a href="#ui-component">2.2. UI Component</a></li>
 <li><a href="#logic-component">2.3. Logic component</a></li>
-<li><a href="#Design-Model">2.4. Model component</a></li>
-<li><a href="#Design-Storage">2.5. Storage component</a></li>
-<li><a href="#Design-Commons">2.6. Common classes</a></li>
+<li><a href="#model-component">2.4. Model component</a></li>
+<li><a href="#storage-component">2.5. Storage component</a></li>
+<li><a href="#commons-component">2.6. Common classes</a></li>
 </ul>
 </li>
 <li><a href="#implementation">3. Implementation</a>
@@ -65,16 +65,19 @@
 <div class="sect1">
 <h2 id="design"><a class="link" href="#design">2. Design</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>In this section, you will learn about the general design and structure of <strong>E.T.</strong>. Subsequently, this section will also describe and explain how each component in <strong>E.T.</strong> works individually. <strong>E.T.</strong> is coded using the <em>Object-Oriented Programming</em> paradigm and it follows the <em>Facade Pattern</em> and <em>Command Pattern</em> in software design.</p>
+</div>
 <div class="sect2">
 <h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">2.1. Architecture</a></h3>
+<div class="paragraph">
+<p>The <em>Architecture Diagram</em> below explains the high-level design of the <strong>E.T.</strong>.</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/ArchitectureDiagram.png" alt="ArchitectureDiagram">
 </div>
-<div class="title">Figure 1. Architecture Diagram</div>
-</div>
-<div class="paragraph">
-<p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the App. Given below is a quick overview of each component.</p>
+<div class="title">Figure 1. Architecture Diagram of <strong>E.T.</strong></div>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -90,103 +93,175 @@ Refer to the <a href="UsingPlantUml.html">Using PlantUML guide</a> to learn how 
 </table>
 </div>
 <div class="paragraph">
-<p><code>Main</code> has two classes called <a href="https://github.com/AY1920S2-CS2103T-W17-3/main/tree/master/src/main/java/team/easytravel/Main.java"><code>Main</code></a> and <a href="https://github.com/AY1920S2-CS2103T-W17-3/main/tree/master/src/main/java/team/easytravel/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
+<p>The following table gives a quick overview of each component of <strong>E.T.</strong>. More details about the components can be found in the following subsections.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Component</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Main</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Has two classes called <a href="https://github.com/AY1920S2-CS2103T-W17-3/main/tree/master/src/main/java/team/easytravel/Main.java"><code>Main</code></a> and <a href="https://github.com/AY1920S2-CS2103T-W17-3/main/tree/master/src/main/java/team/easytravel/MainApp.java"><code>MainApp</code></a>.</p>
+</div>
+<div class="paragraph">
+<p>It is responsible for:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>At app launch: Initializes the components in the correct sequence, and connects them up with each other.</p>
+<p>At App launch: Initializes the components in the correct sequence, and connects them up with one another.</p>
 </li>
 <li>
-<p>At shut down: Shuts down the components and invokes cleanup method where necessary.</p>
+<p>At shut down: Shuts down the components and cleanup resources where necessary.</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><a href="#Design-Commons"><strong><code>Commons</code></strong></a> represents a collection of classes used by multiple other components.
-The following class plays an important role at the architecture level:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>LogsCenter</code> : Used by many classes to write log messages to the App&#8217;s log file.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The rest of the App consists of four components.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="#Design-Ui"><strong><code>UI</code></strong></a>: The UI of the App.</p>
-</li>
-<li>
-<p><a href="#Design-Logic"><strong><code>Logic</code></strong></a>: The command executor.</p>
-</li>
-<li>
-<p><a href="#Design-Model"><strong><code>Model</code></strong></a>: Holds the data of the App in-memory.</p>
-</li>
-<li>
-<p><a href="#Design-Storage"><strong><code>Storage</code></strong></a>: Reads data from, and writes data to, the hard disk.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Each of the four components</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Defines its <em>API</em> in an <code>interface</code> with the same name as the Component.</p>
-</li>
-<li>
-<p>Exposes its functionality using a <code>{Component Name}Manager</code> class.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>For example, the <code>Logic</code> component (see the class diagram given below) defines it&#8217;s API in the <code>Logic.java</code> interface and exposes its functionality using the <code>LogicManager.java</code> class.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
-</div>
-<div class="title">Figure 2. Class Diagram of the Logic Component</div>
-</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Commons</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents a collection of classes used by multiple different components.</p>
+<p class="tableblock">It contains the LogCenter component. The LogCenter component plays an important role at the architectural level and is used by many classes to write log messages to the App&#8217;s log file.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Ui</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The UI of the App.</p>
+<p class="tableblock">Defines its API in the <code>Ui</code> interface and exposes its functionality through the <code>UiManager</code> class.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Logic</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Column 2, row 4</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Model</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Holds the data of the App in-memory.</p>
+<p class="tableblock">Defines its API in the <code>Model</code> interface and exposes its functionality through the <code>ModelManager</code> class.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Storage</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reads data from, and writes data to, the hard disk.</p>
+<p class="tableblock">Defines its API in the <code>Storage</code> interface and exposes its functionality through the <code>StorageManager</code> class.</p></td>
+</tr>
+</tbody>
+</table>
 <h4 id="how-the-architecture-components-interact-with-each-other" class="discrete">How the architecture components interact with each other</h4>
 <div class="paragraph">
-<p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues the command <code>deleteitem 1</code>.</p>
+<p>The <em>Sequence Diagram</em> below shows how the different components interact with one another for the scenario where the user issues the command <code>deleteitem 1</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/ArchitectureSequenceDiagram.png" alt="ArchitectureSequenceDiagram">
 </div>
-<div class="title">Figure 3. Component interactions for <code>deleteitem 1</code> command</div>
+<div class="title">Figure 2. Interactions between components for the <code>deleteitem 1</code> command</div>
 </div>
 <div class="paragraph">
-<p>The sections below give more details of each component.</p>
+<p>The following subsections will outline the major components in detail.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Ui"><a class="link" href="#Design-Ui">2.2. UI component</a></h3>
+<h3 id="ui-component"><a class="link" href="#ui-component">2.2. UI Component</a></h3>
+<div class="paragraph">
+<p>This segment will explain the structure and responsibilities of the <code>Ui</code> component.</p>
+</div>
+<div class="sect3">
+<h4 id="structure"><a class="link" href="#structure">2.2.1. Structure</a></h4>
 <div class="imageblock">
 <div class="content">
 <img src="images/UiClassDiagram.png" alt="UiClassDiagram">
 </div>
-<div class="title">Figure 4. Structure of the UI Component</div>
+<div class="title">Figure 3. Structure of the <code>Ui</code> component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103T-W17-3/main/tree/master/src/main/java/team/easytravel/ui/Ui.java"><code>Ui.java</code></a></p>
+<p><strong>API</strong>:
+<a href="https://github.com/AY1920S2-CS2103T-W17-3/main/tree/master/src/main/java/team/easytravel/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>SideTabsBar</code>, <code>XYZTabPanel</code>, <code>DashboardPanel</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+<p>The <code>Ui</code> component consists of a <code>MainWindow</code> that is made up of smaller parts such as <code>ResultDisplay</code> and <code>CommandBox</code> as shown in the <em>Class Diagram</em> above. All UI parts in the <code>Ui</code> component including <code>MainWindow</code> inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
-<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S2-CS2103T-W17-3/main/tree/master/src/main/java/team/easytravel/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S2-CS2103T-W17-3/main/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+<p>The <code>TabPanel</code> is an abstract class that represents a tab in the <em>GUI</em> and each tab will display information on different features of <strong>E.T.</strong>. The following classes inherit from the <code>TabPanel</code> abstract class:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ScheduleTabPanel</code></p>
+</li>
+<li>
+<p><code>ActivityTabPanel</code></p>
+</li>
+<li>
+<p><code>AccommodationBookingTabPanel</code></p>
+</li>
+<li>
+<p><code>TransportBookingTabPanel</code></p>
+</li>
+<li>
+<p><code>PackingListTabPanel</code></p>
+</li>
+<li>
+<p><code>FixedExpenseTabPanel</code></p>
+</li>
+<li>
+<p><code>HelpTabPanel</code></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>The <code>UI</code> component,</p>
+<p>Each tab may also contain smaller parts known as cards. A card is a UI component that contains information that is shown to the user. E.g. An <code>ActivityCard</code> will contain information about a particular activity.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+A generic tab is referred to as an <code>XYZTabPanel</code> while a generic card is referred to as an <code>XYZCard</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <code>MainWindow</code> also has access to 2 more windows, namely:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ListPresetWindow</code></p>
+</li>
+<li>
+<p><code>StatusWindow</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>XYZWindow</code> is used to refer to the 2 windows listed above.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <code>Ui</code> component uses <em>JavaFX</em> UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S2-CS2103T-W17-3/main/tree/master/src/main/java/team/easytravel/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S2-CS2103T-W17-3/main/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="responsibilities"><a class="link" href="#responsibilities">2.2.2. Responsibilities</a></h4>
+<div class="paragraph">
+<p>The <code>Ui</code> component,</p>
 </div>
 <div class="ulist">
 <ul>
@@ -194,36 +269,51 @@ The following class plays an important role at the architecture level:</p>
 <p>Executes user commands using the <code>Logic</code> component.</p>
 </li>
 <li>
-<p>Listens for changes to <code>Model</code> data so that the UI can be updated with the modified data.</p>
+<p>Listens for changes to <code>Model</code> data so that the <em>GUI</em> can be updated with the modified data.</p>
 </li>
 </ul>
 </div>
 </div>
+</div>
 <div class="sect2">
 <h3 id="logic-component"><a class="link" href="#logic-component">2.3. Logic component</a></h3>
+<div class="paragraph">
+<p>This segment will explain the structure and responsibilities of the <code>Ui</code> component.</p>
+</div>
+<div class="sect3">
+<h4 id="structure-2"><a class="link" href="#structure-2">2.3.1. Structure</a></h4>
 <div id="fig-LogicClassDiagram" class="imageblock">
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
 </div>
-<div class="title">Figure 5. Structure of the Logic Component</div>
+<div class="title">Figure 4. Structure of the <code>Logic</code> component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> :
+<p><strong>API</strong>:
 <a href="https://github.com/AY1920S2-CS2103T-W17-3/main/tree/master/src/main/java/team/easytravel/logic/Logic.java"><code>Logic.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>From the diagram above, you can see that the <code>Logic</code> component is split into 2 groups, one for command and another for command parsing. As <strong>E.T.</strong> follows a <em>Command Pattern</em>, a specific <code>XYZCommand</code> class will inherit from the abstract <code>Command</code> class. This allows the <code>LogicManager</code> to execute these commands without having to know each command type.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="responsibilities-2"><a class="link" href="#responsibilities-2">2.3.2. Responsibilities</a></h4>
+<div class="paragraph">
+<p>The <code>Logic</code> component is in charge of command parsing from the commands given by the user through the <code>Ui</code> component. It is also responsible for command execution.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>Logic</code> uses the <code>EasyTravelParser</code> class to parse the user command.</p>
+<p>Logic uses the <code>EasyTravelParser</code> class to parse the user command.</p>
 </li>
 <li>
 <p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
 </li>
 <li>
-<p>The command execution can affect the <code>Model</code> (e.g. adding a person).</p>
+<p>The command execution can affect the <code>Model</code> (e.g. adding an activity).</p>
 </li>
 <li>
-<p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code>.</p>
+<p>The result of the command execution is encapsulated as a CommandResult object which is passed back to the <code>Ui</code>.</p>
 </li>
 <li>
 <p>In addition, the <code>CommandResult</code> object can also instruct the <code>Ui</code> to perform certain actions, such as displaying help to the user.</p>
@@ -231,13 +321,13 @@ The following class plays an important role at the architecture level:</p>
 </ol>
 </div>
 <div class="paragraph">
-<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("deleteitem 1")</code> API call.</p>
+<p>The steps described above will be the standard command parsing and execution of every command in <strong>E.T.</strong>. To illustrate these steps, the <em>Sequence Diagram</em> for interactions within the <code>Logic</code> component when the command <code>deleteitem 1</code> is shown below. The diagram starts with the <code>execute("deleteitem 1")</code> API call.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/DeleteSequenceDiagram.png" alt="DeleteSequenceDiagram">
 </div>
-<div class="title">Figure 6. Interactions Inside the Logic Component for the <code>deleteitem 1</code> Command</div>
+<div class="title">Figure 5. Interactions inside the <code>Logic</code> component for the <code>deleteitem 1</code> command</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -246,49 +336,35 @@ The following class plays an important role at the architecture level:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The lifeline for <code>DeleteItemCommandParser</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+The lifelines for the <code>DeleteItemCommandParser</code> and <code>DeleteItemCommand</code> should end at the destroy marker (X). However, due to a limitation of PlantUML, the lifeline reaches the end of the diagram.
 </td>
 </tr>
 </table>
 </div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="Design-Model"><a class="link" href="#Design-Model">2.4. Model component</a></h3>
+<h3 id="model-component"><a class="link" href="#model-component">2.4. Model component</a></h3>
+<div class="paragraph">
+<p>This segment will explain the structure and responsibilities of the <code>Model</code> component.</p>
+</div>
+<div class="sect3">
+<h4 id="structure-3"><a class="link" href="#structure-3">2.4.1. Structure</a></h4>
 <div class="imageblock">
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
 </div>
-<div class="title">Figure 7. Structure of the Model Component</div>
+<div class="title">Figure 6. Simplified structure of the <code>Model</code> component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103T-W17-3/main/tree/master/src/main/java/team/easytravel/model/Model.java"><code>Model.java</code></a></p>
+<p><strong>API</strong>:
+<a href="https://github.com/AY1920S2-CS2103T-W17-3/main/tree/master/src/main/java/team/easytravel/model/Model.java"><code>Model.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The <code>Model</code>,</p>
+<p>The <code>UserPrefs</code> class represents the user’s preference.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>stores a <code>UserPref</code> object that represents the user’s preferences.</p>
-</li>
-<li>
-<p>stores the Address Book data.</p>
-</li>
-<li>
-<p>exposes an unmodifiable <code>ObservableList&lt;XYZ&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
-does not depend on any of the other three components.</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
 <div class="paragraph">
-<p>XYZManager refers to:</p>
+<p>The <code>XYZManager</code> is a generic name given to the following managers which represent the manager for each feature of <strong>E.T.</strong>:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -299,10 +375,10 @@ does not depend on any of the other three components.</p>
 <p><code>ActivityManager</code></p>
 </li>
 <li>
-<p><code>TransportationBookingManager</code></p>
+<p><code>AccommodationBookingManager</code></p>
 </li>
 <li>
-<p><code>AccommodationBookingManager</code></p>
+<p><code>TransportBookingManager</code></p>
 </li>
 <li>
 <p><code>PackingListManager</code></p>
@@ -313,42 +389,89 @@ does not depend on any of the other three components.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>The ObservableList&lt;XYZ&gt; includes all managers except for the Trip Manager</p>
+<p>The <code>ObservableList</code> abstract class is exposed by the <code>Model</code> component for the <code>Ui</code> component to observe and automatically update the <em>GUI</em> when data in the <code>Model</code> component changes. This follows the <em>Observer Pattern</em> in software design.</p>
 </div>
-</td>
-</tr>
-</table>
+</div>
+<div class="sect3">
+<h4 id="responsibilities-3"><a class="link" href="#responsibilities-3">2.4.2. Responsibilities</a></h4>
+<div class="paragraph">
+<p>The <code>Model</code> component,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Represents data of different features of <strong>E.T.</strong>.</p>
+</li>
+<li>
+<p>Stores these data in-memory when the App is running.</p>
+</li>
+<li>
+<p>Does not depend on the <code>Ui</code>, <code>Logic</code> and <code>Storage</code> components.</p>
+</li>
+<li>
+<p>Contains observable data so that the <em>GUI</em> can automatically update upon data changes.</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Storage"><a class="link" href="#Design-Storage">2.5. Storage component</a></h3>
+<h3 id="storage-component"><a class="link" href="#storage-component">2.5. Storage component</a></h3>
+<div class="paragraph">
+<p>This segment will explain the structure and responsibilities of the <code>Storage</code> component.</p>
+</div>
+<div class="sect3">
+<h4 id="structure-4"><a class="link" href="#structure-4">2.5.1. Structure</a></h4>
 <div class="imageblock">
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
 </div>
-<div class="title">Figure 8. Structure of the Storage Component</div>
+<div class="title">Figure 7. Simplified structure of the <code>Storage</code> component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103T-W17-3/main/tree/master/src/main/java/team/easytravel/storage/Storage.java"><code>Storage.java</code></a></p>
+<p><strong>API</strong>:
+<a href="https://github.com/AY1920S2-CS2103T-W17-3/main/tree/master/src/main/java/team/easytravel/storage/Storage.java"><code>Storage.java</code></a></p>
 </div>
+<div class="paragraph">
+<p>The <code>UserPrefsStorage</code> interface and <code>XYZStorage</code> interface define the API for reading and saving the <code>Model</code> component’s data from and to the hard disk.</p>
+</div>
+<div class="paragraph">
+<p>The <code>JsonXYZStorage</code> is the implementation of the <code>XYZStorage</code> interface which manages the storage for various features. The following <em>Class Diagram</em> will describe the structure of a <code>JsonFixedExpenseStorage</code> as an example. The other storage class will follow a similar structure.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FixedExpenseStorageClassDiagram.png" alt="FixedExpenseStorageClassDiagram">
+</div>
+<div class="title">Figure 8. Structure of the <code>FixedExpenseStorage</code></div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="responsibilities-4"><a class="link" href="#responsibilities-4">2.5.2. Responsibilities</a></h4>
 <div class="paragraph">
 <p>The <code>Storage</code> component,</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>can save <code>UserPref</code> objects in json format and read it back.</p>
+<p>Can save the <code>UserPref</code> object in a <em>JSON</em> format.</p>
 </li>
 <li>
-<p>can save the XYZManager data in json format and read it back.</p>
+<p>Can parse a <code>json</code> file in the correct format to get the <code>UserPref</code> object.</p>
+</li>
+<li>
+<p>Can save the <code>XYZManager</code> data in a <em>JSON</em> format.</p>
+</li>
+<li>
+<p>Can parse a <code>json</code> file in the correct format to get the <code>XYZManager</code>’s data.</p>
 </li>
 </ul>
 </div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.6. Common classes</a></h3>
+<h3 id="commons-component"><a class="link" href="#commons-component">2.6. Common classes</a></h3>
 <div class="paragraph">
-<p>Classes used by multiple components are in the <code>team.easytravel.commons</code> package.</p>
+<p>The <code>Common</code> component contains classes used by multiple other components in the <code>team.easytravel.commons</code> package.</p>
 </div>
 </div>
 </div>
@@ -2147,4 +2270,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 17:47:30 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 18:18:54 UTC</div></div></div></body></html>
