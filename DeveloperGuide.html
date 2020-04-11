@@ -26,8 +26,8 @@
 <li><a href="#list-manager">3.2. List Managers</a></li>
 <li><a href="#activity-manager">3.3. Activity Manager</a></li>
 <li><a href="#schedule-feature">3.4. Schedule feature</a></li>
-<li><a href="#transport-booking-feature">3.5. Transport Booking feature</a></li>
-<li><a href="#accommodation-booking-feature">3.6. Accommodation Booking feature</a></li>
+<li><a href="#accommodation-booking-feature">3.5. Accommodation Booking feature</a></li>
+<li><a href="#transport-booking-feature">3.6. Transport Booking feature</a></li>
 <li><a href="#packing-list-feature">3.7. Packing List feature</a></li>
 <li><a href="#fixed-expense-feature">3.8. Fixed expense feature</a></li>
 <li><a href="#progress-checker">3.9. Progress Checker</a></li>
@@ -656,72 +656,87 @@ Can edit every detail.</p></td>
 <div class="sect2">
 <h3 id="list-manager"><a class="link" href="#list-manager">3.2. List Managers</a></h3>
 <div class="paragraph">
-<p><strong>E.T.</strong> allows the user to schedule an activity from the activity list to a specified time of a day. This is done using the <code>schedule</code> command which requires the user to specify the <code>INDEX</code> of an activity from the displayed activity list, the <code>DAY_INDEX</code> of the trip and the <code>START_TIME</code> of the activity to be scheduled.</p>
+<p><strong>E.T.</strong> allows the user to manage different essential lists for their trip.</p>
+</div>
+<div class="paragraph">
+<p>These list include:
+* Activities
+* Transport Bookings
+* Fix Expenses
+* Accommodation Bookings
+* Packing List</p>
+</div>
+<div class="paragraph">
+<p>All these lists are managed by `ListManager`s which support basic <em>CRUD</em> operations and some additional operations for users to manage their list efficiently. The term <em>item</em> will be used to refer to the elements stored in a list.</p>
+</div>
+<div class="paragraph">
+<p>Common commands for all `ListManager`s:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add</code> — Creates a new <em>item</em></p>
+</li>
+<li>
+<p><code>delete</code> — Deletes an existing <em>item</em></p>
+</li>
+<li>
+<p><code>edit</code> — Edits an existing <em>item</em></p>
+</li>
+<li>
+<p><code>sort</code> — Sorts the list by the given specification</p>
+</li>
+<li>
+<p><code>list</code> — List all <em>items</em> in the list.</p>
+</li>
+</ul>
 </div>
 <div class="sect3">
 <h4 id="rationale-2"><a class="link" href="#rationale-2">3.2.1. Rationale</a></h4>
 <div class="paragraph">
-<p>The schedule feature is an important feature that allows the users to manage and plan for their trip schedule or itinerary. This feature is added to <strong>E.T.</strong> to separate from the activity management feature from the schedule. This can increase the ease of planning because users can just focus on the time management aspect when scheduling proposed activities from the activity list. The schedule feature also automatically adds any transport bookings into the schedule.</p>
+<p>When planning for a trip, there are many things that the user may want to keep track of. This is our reason for creating the 5 lists stated above. The `ListManager`s are thus created to help the user manage the 5 lists so that they can plan their trip conveniently and efficiently.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.2. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The schedule feature uses a separate system and structure as compared to the <code>ListManager`s. Instead, the schedule feature will be more closely related to the trip feature because it heavily relies on information about the `Trip</code> such as the <code>startDate</code> and <code>endDate</code>.</p>
+<p>In this section, we will first explain the structure of a typical <code>ListManager</code> also known as an <code>XYZListManager</code>. As mentioned earlier in the overview of this section, the term <em>item</em> will be used to refer to the elements stored in a list.</p>
 </div>
 <div class="paragraph">
-<p>As such, the <code>TripManager</code> is in charge of managing the schedule. The <code>TripManager</code>, contains a list of <code>DaySchedule`s which represents the schedule of a specific day of the `Trip</code>. Thus, the number of <code>DaySchedule`s equals the number of days in the `Trip</code>. E.g. a trip of 2 days means that the <code>TripManager</code> contains 2 <code>DaySchedule</code> objects.</p>
+<p>The <code>XYZListManager</code> contains a <code>UniqueList</code> which is a data structure that stores all the <em>items</em> of a list. The <code>UniqueList</code> makes use of Java’s <em>generics</em> and can only contain <em>items</em> that implement the <code>UniqueListElement</code> interface. This is because the uniqueness of an element in the <code>UniqueList</code> is determined by the returned value of the <code>isSame()</code> method of the UniqueListElement interface.</p>
 </div>
 <div class="paragraph">
-<p>Within each <code>DaySchedule</code> object, there is a <code>UniqueList</code> of <code>DayScheduleEntry</code>. The <code>DayScheduleEntry</code> object represents an entry in the schedule.
-As an example, the following UML object diagram describes the relevant objects related to this feature when a <code>Trip</code> of 2 days is set.</p>
+<p>In addition, the <code>XYZListManager</code> implements the <code>ReadOnlyXYZManager</code> interface. This interface has the <code>getXYZList()</code> method which returns an <code>ObservableList</code> of <em>items</em>. For example, <code>ActivityManager</code> implements <code>ReadOnlyActivityManager</code>. The <code>ObservableList</code> of <em>items</em> allows the <code>Ui</code> model to use the <em>Observer Pattern</em> to update the <em>GUI</em>.</p>
+</div>
+<div class="paragraph">
+<p>The following <em>Class Diagram</em> describes the aforementioned structure of the <code>ActivityManager</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/developer-guide/schedule/ScheduleFeatureObjectDiagram.png" alt="ScheduleFeatureObjectDiagram">
+<img src="images/developer-guide/list-managers/ListManagerClassDiagram.png" alt="ListManagerClassDiagram">
 </div>
-<div class="title">Figure 10. Example of associations between related objects of the schedule feature.</div>
-</div>
-<div class="paragraph">
-<p>When the user enters the <code>schedule</code> command to schedule an activity, the user input command undergoes the same command parsing as described in <a href="#logic-component">Section 2.3 Logic Component</a> . A <code>ScheduleCommand</code> will then be created.
-The following steps describe the execution of the <code>ScheduleCommand</code>, assuming that no error is encountered.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>When <code>execute()</code> of the <code>ScheduleCommand</code> is called, the <code>ModelManager</code> retrieves the displayed list of activities shown to the user.</p>
-</li>
-<li>
-<p>Then, it retrieves the target <code>Activity</code> using the user-specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The <code>ModelManager</code>’s <code>scheduleActivity()</code> method is called to schedule the target <code>Activity</code>.</p>
-</li>
-<li>
-<p>The <code>ModelManager</code> proceeds to call the <code>scheduleActivity()</code> method of the <code>TripManager</code>.</p>
-</li>
-<li>
-<p>The <code>TripManager</code> then uses the given activity to create a corresponding <code>DayScheduleEntry</code> object.</p>
-</li>
-<li>
-<p>The <code>TripManager will calculate which day of the trip to schedule this activity and get the `DaySchedule</code> representing the schedule of the target day.</p>
-</li>
-<li>
-<p>The target activity is then scheduled on the target day through the <code>addScheduleEntry()</code> method of the target <code>DaySchedule</code>.</p>
-</li>
-<li>
-<p>If the above steps are all successful, the <code>ScheduleCommand</code> will then create a <code>CommandResult</code> object and return the result.</p>
-</li>
-</ol>
+<div class="title">Figure 10. Structure of <code>ActivityManager</code>.</div>
 </div>
 <div class="paragraph">
-<p>The  <em>Sequence Diagram</em> below summarizes the execution of the <code>ScheduleCommand</code>.</p>
+<p>The following paragraphs will describe what happens when the user performs an operation on a <code>ListManager</code> through commands. <code>XYZCommand</code> here will refer to a command described above for the 5 <code>ListManager</code> s. (e.g. <code>AddActivityCommand</code>, <code>EditTransportBookingCommand</code>).</p>
+</div>
+<div class="paragraph">
+<p>As described in <a href="#logic-component">Section 2.3 Logic Component</a>, after the user enters a command, the <code>EasyTravelParser</code> will generate an <code>XYZCommandParser</code> which parses the user input parameters and generate an executable <code>XYZCommand</code> that performs an operation on the list.</p>
+</div>
+<div class="paragraph">
+<p>We will describe the execution of an <code>XYZCommand</code>, using <code>AddActivityCommand</code> as an example. All other <code>XYZCommand</code> will be executed in similar ways.</p>
+</div>
+<div class="paragraph">
+<p>When <code>AddActivityCommand</code> is executed, an <code>Activity</code> will be added to the list of activities managed by the <code>ActivityManager</code> in the <code>Model</code> component.</p>
+</div>
+<div class="paragraph">
+<p>The <em>Sequence Diagram</em> below shows the execution of the <code>AddActivityCommand</code>:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/developer-guide/schedule/ScheduleCommandExecution.png" alt="Schedule Activity Command Execution">
+<img src="images/developer-guide/list-managers/AddActivitySequenceDiagram.png" alt="Schedule Activity Command Execution">
 </div>
-<div class="title">Figure 11. Execution of the <code>ScheduleCommand</code>.</div>
+<div class="title">Figure 11. Execution of the <code>AddActivityCommand</code>.</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -731,10 +746,10 @@ The following steps describe the execution of the <code>ScheduleCommand</code>, 
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The lifelines for the <code>ScheduleCommand</code> should end at the destroy marker (X). However, due to a limitation of PlantUML, the lifeline reaches the end of the diagram.</p>
+<p>The lifelines for the <code>AddActivityCommand</code> should end at the destroy marker (X). However, due to a limitation of PlantUML, the lifeline reaches the end of the diagram.</p>
 </div>
 <div class="paragraph">
-<p>This sequence diagram does not take into consideration the possible exceptions which might occur during the <code>ScheduleCommand</code> execution.</p>
+<p>This sequence diagram does not take into consideration the possible exceptions which might occur during the <code>AddActivityCommand</code> execution.</p>
 </div>
 </td>
 </tr>
@@ -760,31 +775,68 @@ The following steps describe the execution of the <code>ScheduleCommand</code>, 
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Option 1 (Current)</strong>
-Scheduling is separated from activity management.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Better user experience.
-Allows for extensions. Other types of objects such as a <code>TransportBooking</code> could easily be converted into a <code>DayScheduleEntry</code> object and be added into the schedule. This is by the Open-Closed principle.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Complicated to implement and more likely to result in bugs if undesirable dependencies are introduced.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Option 1 (Current)</strong>:
+Use 5 different list managers to manage the 5 main features</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Keeps everything separate which abide by the Separation of Concerns Principle (SoC) principle.</p>
+<p class="tableblock">Achieves better modularity by separating the code into distinct sections, such that each section addresses a separate concern.</p>
+<p class="tableblock">Allows for different behaviours of each list manager</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tedious to implement as we have many lists to manage.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Option 2</strong>
-An activity must be scheduled directly into a day as it is added.
-i.e. <code>ActivityManager</code> is in charge of scheduling.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Straightforward and simple to implement.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Other types of objects such as <code>TransportBooking</code> will not be able to be scheduled. This can result in poorer user experience when using <strong>E.T.</strong> as users may want to include transport bookings into their schedule.</p></td>
+Use a single manager to handle all the 5 lists</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy to implement as we only need to write one <code>ListManager</code> class.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Violates SoC.</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>Reasons for choosing option 1:</p>
+<p>Reason for choosing option 1:</p>
+</div>
+<div class="paragraph">
+<p>Applying SoC limits the ripple effect when changes are introduced to a specific part of the system. Since we are constantly changing our system during development, abiding by SoC will save us time in the long-run as less code is affected when changes to the system are made.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-implementation-behind-a-list-manager"><a class="link" href="#aspect-implementation-behind-a-list-manager">Aspect: Implementation behind a list manager</a></h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top">Pros</th>
+<th class="tableblock halign-left valign-top">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Option 1 (Current)</strong>:
+Extract the common operations and functionality of the 5 <code>ListManager`s into one `UniqueList</code> class. All 5 <code>ListManager`s will make use of the `UniqueList</code> as their internal data structure and build their operations on top of it.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Abide by the Don’t Repeat Yourself (DRY) principle. Minimize repeated code as all <code>ListManager`s use the basic functionality of `UniqueList</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All <code>ListManager`s have dependencies on `UniqueList</code>. Thus, <code>UniqueList</code> has to be implemented before starting on any <code>ListManager</code>. This slows down the implementation of all `ListManager`s.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Option 2</strong>
+Do not extract any common operations and functionalities</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Each <code>ListManager</code> can be worked on by different people as there is no dependency on a common data structure that has to be implemented beforehand. Allows each feature to be worked on separately by different developers.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Violates the DRY principle as there will be common operations between `ListManager`s.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Reason for choosing option 1:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The schedule feature is a major feature because it is the main part of planning for a trip. Thus, we decided to opt for the option with better user experience.</p>
+<p>It is a good coding practice to follow the DRY principle.</p>
 </li>
 <li>
-<p>The ability for other objects to be converted into a <code>DayScheduleEntry</code> object in option 1 is also beneficial for future versions of <strong>E.T.</strong> if we want to extend this feature to schedule other items such as accommodation bookings.</p>
+<p>The implementations of the <code>ListManager</code> s are done quite early on, where our team has more flexibility in terms of deadline. Thus, we can afford to spend more time developing the <code>UniqueList</code> data structure before starting on the implementation of any <code>ListManager</code></p>
 </li>
 </ul>
 </div>
@@ -794,7 +846,7 @@ i.e. <code>ActivityManager</code> is in charge of scheduling.</p></td>
 <div class="sect2">
 <h3 id="activity-manager"><a class="link" href="#activity-manager">3.3. Activity Manager</a></h3>
 <div class="paragraph">
-<p><strong>E.T.</strong> allows the user to keep track of their activities for his/her trip. The activity manager is one of the <code>ListManager`s <a href="#list-manager">(See Section 3.1 List Managers)</a>. On top of the basic operations provided by a `ListManager</code>, it also allows the user to search for their activities using the <code>findacitivty</code> command. The parameters of the <code>findactivity</code> command are keywords in the activity entries that the user wants to search for. E.g. <code>findactivity sightseeing carnival</code> will search and list all activity entries with <code>sightseeing</code> or <code>carnival</code> in their detail. Another similar command, <code>findactivitytag</code> has the same functionality but only searches for the tags of activity entries.</p>
+<p><strong>E.T.</strong> allows the user to keep track of their activities for his/her trip. The activity manager is one of the <code>ListManager</code> s  <a href="#list-manager">(See Section 3.1 List Managers)</a>. On top of the basic operations provided by a <code>ListManager</code>, it also allows the user to search for their activities using the <code>findacitivty</code> command. The parameters of the <code>findactivity</code> command are keywords in the activity entries that the user wants to search for. E.g. <code>findactivity sightseeing carnival</code> will search and list all activity entries with <code>sightseeing</code> or <code>carnival</code> in their detail. Another similar command, <code>findactivitytag</code> has the same functionality but only searches for the tags of activity entries.</p>
 </div>
 <div class="paragraph">
 <p><code>ActivityManager</code> has other than the basic CRUD commands, find command provide a find command to assist in activity management such as:
@@ -978,7 +1030,7 @@ The following steps describe the execution of the <code>ScheduleCommand</code>, 
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-4"><a class="link" href="#design-consideration-4">3.4.3. Design Consideration</a></h4>
+<h4 id="schedule-design-consideration"><a class="link" href="#schedule-design-consideration">3.4.3. Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect-separation-between-scheduling-and-activity-management-2"><a class="link" href="#aspect-separation-between-scheduling-and-activity-management-2">Aspect: Separation between scheduling and activity management</a></h5>
 <table class="tableblock frame-all grid-all spread">
@@ -1028,102 +1080,18 @@ i.e. <code>ActivityManager</code> is in charge of scheduling.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="transport-booking-feature"><a class="link" href="#transport-booking-feature">3.5. Transport Booking feature</a></h3>
+<h3 id="accommodation-booking-feature"><a class="link" href="#accommodation-booking-feature">3.5. Accommodation Booking feature</a></h3>
 <div class="paragraph">
-<p>E.T. allows the user to add a transport booking. This is done using the schedule command which requires the user to specify the mode, start location, end location, start time and end time.</p>
+<p><strong>E.T.</strong> allows the user to keep track of their accommodation bookings for his/her trip. The accommodation booking manager is one of the <code>ListManager</code>s (See <a href="#list-manager">Section 3.1 List Managers</a>). On top of the basic operations provided by a <code>ListManager</code>, it also prevents the user from having overlapping accommodation bookings.</p>
 </div>
 <div class="sect3">
 <h4 id="rationale-5"><a class="link" href="#rationale-5">3.5.1. Rationale</a></h4>
-<div class="paragraph">
-<p>The transport booking feature is an important feature that allows the user to track the list of transport bookings that they have made before leaving.
-This feature also allows the user to schedule their activities while taking the scheduled transport bookings into consideration.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.5.2. Current Implementation</a></h4>
-<div class="paragraph">
-<p>The keywords from the command given by the user is parsed using <code>AddTransportBookingCommandParser</code> which converts the string variable <code>mode</code> into a <code>Mode</code> object, <code>start location</code> and <code>end location</code> into a <code>Location</code> objects, as well as <code>start time</code> and <code>end time</code> into <code>Time</code> objects.
-These objects are used to create the <code>AddTransportBookingCommand</code> object that will execute to create a transport booking.</p>
-</div>
-<div class="paragraph">
-<p>The activity diagram below shows the creation of the <code>AddTransportBookingCommand</code> object:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/developer-guide/transport-booking/AddTransportBookingActivityDiagram.png" alt="AddTransportBookingActivityDiagram">
-</div>
-<div class="title">Figure 17. Activity diagram showing the workflow of a <code>AddTransportBooking</code> command.</div>
-</div>
-<div class="paragraph">
-<p>After the creation of the <code>AddTransportBookingCommand</code> object, the <code>LogicManager</code> will proceed to call the <code>execute()</code> method of <code>AddTransportBookingCommand</code>.</p>
-</div>
-<div class="paragraph">
-<p>The following steps describes the execution of the <code>AddTransportBookingCommand</code>:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>In <code>Model</code>, the <code>AddTransportBookingCommand</code> checks the current transport booking list for duplicates before adding the new object into the transport booking list</p>
-</li>
-<li>
-<p>A <code>CommandResult</code> object which consists of a <code>MESSAGE_SUCCESS</code> is sent back to <code>LogicManager</code> if there is a successful addition of the transport booking into the transport booking list</p>
-</li>
-<li>
-<p>After receiving the <code>CommandResult</code> from <code>AddTransportBookingCommand</code>, <code>LogicManager</code> will return the <code>CommandResult</code> back to “MainApp” where the updated transport booking list is shown.</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-consideration-5"><a class="link" href="#design-consideration-5">3.5.3. Design Consideration</a></h4>
-<div class="sect4">
-<h5 id="aspect"><a class="link" href="#aspect">Aspect:</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Current Choice:</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Pros:</strong></p>
-</li>
-<li>
-<p><strong>Cons:</strong></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative:</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Pros:</strong></p>
-</li>
-<li>
-<p><strong>Cons:</strong></p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="accommodation-booking-feature"><a class="link" href="#accommodation-booking-feature">3.6. Accommodation Booking feature</a></h3>
-<div class="paragraph">
-<p><strong>E.T.</strong> allows the user to keep track of their accommodation bookings for his/her trip. The accommodation booking manager is one of the <code>ListManager</code>s (See <a href="#">Section 3.1 List Managers</a>). On top of the basic operations provided by a <code>ListManager</code>, it also prevents the user from having overlapping accommodation bookings.</p>
-</div>
-<div class="sect3">
-<h4 id="rationale-6"><a class="link" href="#rationale-6">3.6.1. Rationale</a></h4>
 <div class="paragraph">
 <p>The transport booking manager is an important feature to have because any oversea trip of more than one day will require some form of accommodation. Thus, we decided to create an accommodation booking manager as one of the <code>ListManager</code>s.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.6.2. Current Implementation</a></h4>
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.5.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>When a user adds an accommodation booking, the <code>Logic</code> Component parses the user input and creates an <code>AddAccommodationBookingCommand</code> object (See <a href="#logic-component">Section 2.3 Logic Component</a>). When the <code>execute()</code> method of <code>AddAccommodationBookingCommand</code> is called, the execution will check if the new accommodation booking overlaps with any other other current bookings.</p>
 </div>
@@ -1139,7 +1107,7 @@ We used an interval overlap detection algorithm to check for overlap between 2 a
 <div class="content">
 <img src="images/developer-guide/accommodation-booking/OverlappingIntervalAlgorithm.png" alt="OverlappingIntervalAlgorithm">
 </div>
-<div class="title">Figure 18. Visual explanation on the interval overlap detection algorithm</div>
+<div class="title">Figure 17. Visual explanation on the interval overlap detection algorithm</div>
 </div>
 <div class="paragraph">
 <p>The following steps describe the flow of an overlap check between 2 accommodation bookings:</p>
@@ -1171,11 +1139,11 @@ If there is an overlap, the check will stop and the user will receive a message 
 <div class="content">
 <img src="images/developer-guide/accommodation-booking/FindOverlapActivityDiagram.png" alt="FindOverlapActivityDiagram">
 </div>
-<div class="title">Figure 19. Activity diagram of check overlap for 2 accommodation bookings</div>
+<div class="title">Figure 18. Activity diagram of check overlap for 2 accommodation bookings</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-6"><a class="link" href="#design-consideration-6">3.6.3. Design Consideration</a></h4>
+<h4 id="design-consideration-4"><a class="link" href="#design-consideration-4">3.5.3. Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect-calculating-overlap-of-the-new-accommodation-booking-with-the-other-accommodation-bookings-in-the-list"><a class="link" href="#aspect-calculating-overlap-of-the-new-accommodation-booking-with-the-other-accommodation-bookings-in-the-list">Aspect: Calculating overlap of the new accommodation booking with the other accommodation bookings in the list</a></h5>
 <table class="tableblock frame-all grid-all spread">
@@ -1212,150 +1180,156 @@ If there is an overlap, the check will stop and the user will receive a message 
 </div>
 </div>
 <div class="sect2">
+<h3 id="transport-booking-feature"><a class="link" href="#transport-booking-feature">3.6. Transport Booking feature</a></h3>
+<div class="paragraph">
+<p><strong>E.T.</strong> allows the user to keep track of their transport bookings for his/her trip. The transport booking manager is one of the <code>ListManager</code> s <a href="#list-manager">(See Section 3.1 List Managers)</a>. On top of the basic operations provided by a <code>ListManager</code>, it also automatically adds all the transport bookings into the trip schedule.</p>
+</div>
+<div class="sect3">
+<h4 id="rationale-6"><a class="link" href="#rationale-6">3.6.1. Rationale</a></h4>
+<div class="paragraph">
+<p>The transport booking manager is an important feature to have because any oversea trip will require some form of transportation to the destination and back. Thus, we decided to create a transport booking manager as one of the `ListManager`s.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.6.2. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The transport bookings are managed by the <code>TransportBookingManager</code> class. In this section, we will describe how a transport booking is automatically added to the schedule when the user adds a transport booking.</p>
+</div>
+<div class="paragraph">
+<p>The following <em>Class Diagram</em> describes the structure of the <code>TransportBookingManager</code> and how it is related to the <code>TripManager</code> which handles the scheduling of activities and transport bookings. Only relevant classes and methods are shown in the diagram.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/developer-guide/transport-booking/TransportBookingFeatureClassDiagram.png" alt="TransportBookingFeatureClassDiagram">
+</div>
+<div class="title">Figure 19. Structure of the <code>TransportBookingManager</code></div>
+</div>
+<div class="paragraph">
+<p>From the diagram, it is clear that the <code>TransportBookingManager</code> has no direct association with the <code>TripManager</code>. The following steps will outline how a transport booking is added to the schedule managed by the <code>TripManager</code> when the user tries to add a transport booking to the <code>TransportBookingManager</code> using the <code>addtransport</code> command.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user enters the <code>addtransport</code> command to add a transport booking.</p>
+</li>
+<li>
+<p>The command is parsed by the <code>Logic</code> component and an <code>AddTransportBookingCommand</code> is created. (See Section 2.3 Logic Component)</p>
+</li>
+<li>
+<p>During the execution of the <code>AddTransportBookingCommand</code>, a <code>DayScheduleEntry</code> representing this transport booking is first created. (See Section X.X Schedule for more information on the schedule feature)</p>
+</li>
+<li>
+<p>The day to schedule this transport booking is calculated.</p>
+</li>
+<li>
+<p>If the calculation returns an out-of-bound day of the current <code>Trip</code>, an error message will be shown to the user.</p>
+</li>
+<li>
+<p>Else, the <code>AddTransportBookingCommand</code> will add the <code>DayScheduleEntry</code> to the schedule through the <code>ModelManager</code>’s <code>scheduleTransportBooking()</code> method.</p>
+</li>
+<li>
+<p>Finally, <code>AddTransportBookingCommand</code> will then add the transport booking into the <code>TransportBookingManager</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The following <em>Activity Diagram</em> summarizes the workflow mentioned above.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/developer-guide/transport-booking/AddTransportBookingActivityDiagram.png" alt="AddTransportBookingActivityDiagram">
+</div>
+<div class="title">Figure 20. Workflow of how a transport booking is automatically scheduled</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration-5"><a class="link" href="#design-consideration-5">3.6.3. Design Consideration</a></h4>
+<div class="paragraph">
+<p>The design consideration for this feature is similar to that of the Schedule feature. <a href="#schedule-design-consideration">(See 3.4.3 Schedule Feature - Design Consideration)</a>
+This is because if we let the <code>ActivityManager</code> manage the schedule and activities, then the schedule can only contain activities. This means that transport bookings will become a basic <code>ListManager</code> <a href="#list-manager">(See 3.2 List Managers)</a> with no special functionalities. Thus, we decided to adopt the current implementation for better user experience and potential future extensions.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="packing-list-feature"><a class="link" href="#packing-list-feature">3.7. Packing List feature</a></h3>
 <div class="paragraph">
-<p><strong><em>E.T.</em></strong> allows the user to create a packing list. The packing list manager handles everything to do with manipulating of packing list items.</p>
+<p><strong>E.T.</strong> allows the user to keep track of their packing list for his/her trip. The packing list manager is one of the <code>ListManager</code> s <a href="#list-manager">(See Section 3.1 List Managers)</a>. On top of the basic operations provided by a <code>ListManager</code>, it also allows the user to add built-in lists of items into his/her current packing list through the <code>addpreset</code> command.</p>
 </div>
 <div class="paragraph">
-<p>The packing list item contains the following fields:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>itemName</code></p>
-</li>
-<li>
-<p><code>quantity</code></p>
-</li>
-<li>
-<p><code>itemCategory</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><code>PackingListManager</code> has commands other than the basic CRUD commands, such as:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>finditem</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Finds packing list items based on the keywords given by the user</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><code>finditemcategory</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Finds packing list items in the categories given by the user</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><code>addpreset</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Adds a pre-existing list of items in a category into the current packing list</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><code>listpreset</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Shows the available presets that the user can add into the packing list</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>I will be focusing on the <code>addpreset</code> command here. The <code>addpreset</code> command requires the user to include the <code>category</code> of the preset they want to add into the packing list.
-For example, <code>addpreset swimming</code> means that the preset called <code>swimming</code> will be added into the user&#8217;s packing list.
-Only pre-existing presets can be added into the user&#8217;s packing list.</p>
+<p>E.g. the <code>addpreset swimming</code> will add items related to swimming into the packing list. The term <em>preset</em> will be used to refer to the built-in list of packing list items.</p>
 </div>
 <div class="sect3">
 <h4 id="rationale-7"><a class="link" href="#rationale-7">3.7.1. Rationale</a></h4>
 <div class="paragraph">
-<p>The packing list feature is an important feature that allows the users to plan and pack for their trip. It ensures that the user did not forget to pack anything for their trip, providing convenience.</p>
+<p>The packing list manager is an important feature to have because there are many things that a traveller wants to bring for his/her oversea trip. The packing list will help the user ensure that he/she did not forget to pack anything for the trip. Thus, we decided to create a packing list manager as one of the `ListManager`s.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">3.7.2. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The keywords from the command given by the user is parsed using <code>AddPresetCommandParser</code> which converts the string variable <code>category</code> into a <code>ItemCategory</code> object.
-These objects are used to create the <code>AddPresetCommand</code> object that will execute to create a list of packing list items.</p>
+<p>When a user enters the <code>addpreset</code> command, the <code>Logic</code> Component parses the user input and creates an <code>AddPresetCommand</code> object <a href="#logic-component">(See Section 2.3 Logic Component)</a>. When the <code>execute()</code> method of <code>AddPresetCommand</code> is called, the execution of this command will retrieve the target preset specified by the user into the packing list.</p>
 </div>
 <div class="paragraph">
-<p>The sequence diagram below shows the creation of the <code>AddPresetCommand</code> object:</p>
+<p>The <em>Activity Diagram</em> below shows how a preset is added to the packing list.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/developer-guide/packing-list/AddPackingListActivityDiagram.png" alt="AddPackingListActivityDiagram">
 </div>
-<div class="title">Figure 20. Activity diagram showing the workflow of an <code>addpreset</code> command.</div>
-</div>
-<div class="paragraph">
-<p>After the creation of the <code>AddPresetCommand</code> object, the <code>LogicManager</code> will proceed to call the <code>execute()</code> method of <code>AddPresetCommand</code>.</p>
-</div>
-<div class="paragraph">
-<p>The following steps describes the execution of the <code>AddPresetCommand</code>:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>In <code>Model</code>, the <code>AddPresetCommand</code> adds a list of pre-existing list of items under a category into the packing list. If it encounters duplicates, it will skip the duplicate, and continue adding the rest of the items in the preset into the packing list.</p>
-</li>
-<li>
-<p>A <code>CommandResult</code> object which consists of a <code>MESSAGE_SUCCESS</code> is sent back to <code>LogicManager</code> if there is a successful addition of the preset items into the packing list.</p>
-</li>
-<li>
-<p>After receiving the <code>CommandResult</code> from <code>AddPresetCommand</code>, <code>LogicManager</code> will return the <code>CommandResult</code> back to “MainApp” where the updated packing list is shown.</p>
-</li>
-</ol>
+<div class="title">Figure 21. Workflow of the <code>addpreset</code> command.</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-7"><a class="link" href="#design-consideration-7">3.7.3. Design Consideration</a></h4>
+<h4 id="design-consideration-6"><a class="link" href="#design-consideration-6">3.7.3. Design Consideration</a></h4>
 <div class="sect4">
-<h5 id="aspect-2"><a class="link" href="#aspect-2">Aspect:</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Current Choice:</strong> Users choose a preset list of items under a category</p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Pros:</strong> Gives the user more convenience; allows them to add a list of items at one go, instead of adding an item each time.</p>
-</li>
-<li>
-<p><strong>Cons:</strong> Users are only able to choose from the pre-existing list of presets, hence not a lot of freedom to create their own preset.</p>
-</li>
-</ul>
+<h5 id="aspect-customizability-of-the-preset"><a class="link" href="#aspect-customizability-of-the-preset">Aspect: Customizability of the preset</a></h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top">Pros</th>
+<th class="tableblock halign-left valign-top">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Option 1 (Current)</strong>:
+Users can only choose the preset from the built-in lists</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides the user with more convenience as it allows the user to add an existing built-in list into their packing list instead of adding one item at a time.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Restricts the freedom of the user due to lack of customizability</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Option 2:</strong>
+Users create their own presets</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gives the user a lot of freedom to customise their presets and packing list, making the application user focused.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Difficult to implement as we would need to introduce more validation rules and checks to ensure the user creates a valid preset.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Option 3:</strong>
+Combine both option 1 and 2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides the best user experience as this option gets the benefit of both the previous 2 options.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Complicated and takes a long time to implement.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Reasons for choosing option 1:</p>
 </div>
-</li>
-<li>
-<p><strong>Alternative:</strong> Users create their own presets</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Pros:</strong> Gives the user a lot of freedom to customise their presets and packing list, making it user focused.</p>
+<p>Due to time restriction, we only have enough time to implement either option 1 or 2 by v1.4.</p>
 </li>
 <li>
-<p><strong>Cons:</strong> Difficult to implement</p>
+<p>We want to focus on giving the user the best first time experience when using <strong>E.T.</strong>. Thus, option 1 is more suitable as it provides convenience for the user when he first use <strong>E.T.</strong>.</p>
 </li>
-</ul>
-</div>
+<li>
+<p>Option 2 is only useful when the user uses <strong>E.T.</strong> for more than one trip and he/she wants to save his previous packing list to add for the next trip.</p>
 </li>
 </ul>
 </div>
@@ -1365,81 +1339,138 @@ These objects are used to create the <code>AddPresetCommand</code> object that w
 <div class="sect2">
 <h3 id="fixed-expense-feature"><a class="link" href="#fixed-expense-feature">3.8. Fixed expense feature</a></h3>
 <div class="paragraph">
-<p><strong><em>E.T.</em></strong> allows the user to create a fixed expense. The fixed expense manager handles everything to do with manipulating of fixed expenses.</p>
-</div>
-<div class="paragraph">
-<p>This <code>sortexpense</code> command requires the user to include the <code>order</code> of the sorting, which is either ascending or descending, and the <code>criteria</code> of the sorting, which is either amount, blah or category.
-For example, <code>sortexpense asc amount</code> sorts the fixed expense list in ascending order, according to the amount of the fixed expenses.</p>
+<p><strong>E.T.</strong> allows the user to keep track of their fixed expenses for his/her trip. The fixed expense manager is one of the <code>ListManager</code> s <a href="#list-manager">(See Section 3.1 List Managers)</a>. On top of the basic operations provided by a <code>ListManager</code>, it also allows the user to set a budget for the trip and automatically converts any fixed expenses entered in foreign currency into Singapore Dollars (SGD).</p>
 </div>
 <div class="sect3">
 <h4 id="rationale-8"><a class="link" href="#rationale-8">3.8.1. Rationale</a></h4>
 <div class="paragraph">
-<p>The fixed expense feature is an important feature that allows the users to plan financially for their trip. It allows the user keeps track of the amount spent on the big ticket items, such as plane tickets and accommodation bookings.</p>
+<p>The fixed expense manager is an important feature to have because many travellers would want to manage their expense for an overseas trip. We also found out that most accommodations are commonly charged in a foreign currency instead of SGD. This prevented travelers from having a clearer picture of how much they have spent on these big ticket items before their trip. Thus, we decided to create a transport booking manager as one of the <code>ListManager</code> s with an automatic conversion feature.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">3.8.2. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The keywords from the command given by the user is parsed using <code>SortFixedExpenseCommandParser</code> which converts the retrieves the order of the sort, and the sorting criteria.
-These objects are used to create the <code>SortFixedExpenseCommand</code> object that will execute the sorting of the fixed expense list according to the given order and criteria.</p>
+<p>Currently, the information on the trip’s budget and the exchange rate is stored as fields in the <code>Trip</code> class which is managed by the <code>TripManager</code>. All fixed expenses, on the other hand, is managed by the <code>FixedExpenseManager</code>.</p>
 </div>
 <div class="paragraph">
-<p>The sequence diagram below shows the creation of the <code>SortFixedExpenseCommand</code> object:</p>
+<p>The following <em>Class Diagram</em> shows the association between relevant classes of this feature.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/developer-guide/fixed-expense/FixedExpenseClassDiagram.png" alt="FixedExpenseClassDiagram">
+</div>
+<div class="title">Figure 22. Structure of the <code>FixedExpenseManager</code> and its relevant classes.</div>
 </div>
 <div class="paragraph">
-<p>Figure x.x: Sequence diagram of a Sort Fixed Expense command.</p>
+<p>The Activity Diagram below summarises what happens when the user adds a fixed expense entry using the <code>addexpense</code> command.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/developer-guide/fixed-expense/AddFixedExpenseActivityDiagram.png" alt="AddFixedExpenseActivityDiagram">
+</div>
+<div class="title">Figure 23. Workflow of the <code>addexpense</code> command..</div>
 </div>
 <div class="paragraph">
-<p>After the creation of the <code>SortFixedExpenseCommand</code> object, the <code>LogicManager</code> will proceed to call the <code>execute()</code> method of <code>SortFixedExpenseCommand</code>.</p>
+<p>When a user enters the <code>addexpense</code> command, the <code>Logic</code> Component parses the user input and creates an <code>AddExpeseCommand</code> object. <a href="#logic-component">(See Section 2.3 Logic Component)</a></p>
 </div>
 <div class="paragraph">
-<p>The following steps describes the execution of the <code>SortFixedExpenseCommand</code>:</p>
+<p>The following steps describes the execution of the AddFixedExpenseCommand:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>In <code>Model</code>, the <code>SortFixedExpenseCommand</code> sorts the current fixed expense list according to an order and criteria.</p>
+<p>When <code>execute()</code> of the <code>AddExpeseCommand</code> is called, the current exchange rate is obtained from <code>TripManager</code> through <code>ModelManager</code>.</p>
 </li>
 <li>
-<p>A <code>CommandResult</code> object which consists of a <code>MESSAGE_SUCCESS</code> is sent back to <code>LogicManager</code> if there is a successful sorting of the fixed expense list.</p>
+<p>A new <code>FixedExpense</code> object is created. The amount will be converted to SGD if it is in foreign currency.</p>
 </li>
 <li>
-<p>After receiving the <code>CommandResult</code> from <code>SortFixedExpenseCommand</code>, <code>LogicManager</code> will return the <code>CommandResult</code> back to “MainApp” where the sorted fixed expense list is shown.</p>
+<p>The newly created <code>FixedExpense</code> object is added to the <code>FixedExpenseManager</code> through the <code>ModelManager</code>’s <code>addFixedExpense()</code> method.</p>
+</li>
+<li>
+<p>The total sum of all expenses is obtained by calling the <code>getTotalExpense()</code> method.</p>
+</li>
+<li>
+<p>The budget of the trip is obtained by calling the <code>getBudget()</code> method.</p>
+</li>
+<li>
+<p>The remaining budget is calculated.</p>
+</li>
+<li>
+<p>A <code>CommandResult</code> object which consists of a contains the success message along with the remaining budget is created and returned.</p>
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>The following sequence diagram describes the execution of the <code>AddExpeseCommand</code> when its <code>execute()</code> method is called.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/developer-guide/fixed-expense/AddFixedExpenseCommandExecution.png" alt="AddFixedExpenseCommandExecution">
+</div>
+<div class="title">Figure 24. Workflow of the <code>addexpense</code> command..</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The lifelines for the <code>AddFixedExpenseCommand</code> should end at the destroy marker (X). However, due to a limitation of PlantUML, the lifeline reaches the end of the diagram.</p>
+</div>
+<div class="paragraph">
+<p>This sequence diagram does not take into consideration the possible exceptions which might occur during the <code>AddFixedExpenseCommand</code> execution.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-8"><a class="link" href="#design-consideration-8">3.8.3. Design Consideration</a></h4>
+<h4 id="design-consideration-7"><a class="link" href="#design-consideration-7">3.8.3. Design Consideration</a></h4>
 <div class="sect4">
-<h5 id="aspect-3"><a class="link" href="#aspect-3">Aspect:</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Current Choice:</strong> Sorting criteria can only be <code>amount</code>, <code>description</code> or <code>category</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Pros:</strong> Keeps the implementation simple, as well as the fields of fixed expense only contain the above criteria</p>
-</li>
-<li>
-<p><strong>Cons:</strong> Restricts the user on the criteria they can use, prevents them from customising the sorting of their fixed expense list.</p>
-</li>
-</ul>
+<h5 id="aspect-which-class-to-store-the-trip-s-budget-and-fixed-expense"><a class="link" href="#aspect-which-class-to-store-the-trip-s-budget-and-fixed-expense">Aspect: Which class to store the trip’s budget and fixed expense</a></h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top">Pros</th>
+<th class="tableblock halign-left valign-top">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Option 1 (Current)</strong>:
+Place the budget and exchange rate as fields in the <code>Trip</code> class.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Follows the Separation of Concerns (SoC) principle. The budget for the trip is an attribute of the trip. Thus, only the <code>Trip</code> class should contain the budget.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>Model</code> API has to provide the <code>getBudget()</code> and <code>getExchangeRate()</code> methods which will take more time to implement.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Option 2:</strong>
+Place the budget and exchange rate as fields in the <code>FixedExpenseManager</code> class</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Faster to implement as calculations for the remaining budget can be done internally in the <code>FixedExpenseManager</code>.
+Easy to access and manipulate budget and exchange rate data. Especially when calculating the remaining budget.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Breaks the Single Responsibility Principle (SRP) as the <code>FixedExpenseManager</code> should only have one job of managing fixed expenses and not manage both expenses and budget.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Reasons for choosing option 1:</p>
 </div>
-</li>
-<li>
-<p><strong>Alternative:</strong> Sorting criteria can be anything the user inputs</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Pros:</strong> Not restricted to a fixed criteria, gives the user freedom to choose and customise their sorting criteria.</p>
+<p>Option 1 follows good coding practices and principles (the SoC and SRP) which makes it more ideal.</p>
 </li>
 <li>
-<p><strong>Cons:</strong> Difficult to implement, too many criteria to consider.</p>
-</li>
-</ul>
-</div>
+<p>The implementation of this feature is done quite early on, where our team has more flexibility in terms of deadline. Thus, we can afford to spend more time on option 1’s implementation.</p>
 </li>
 </ul>
 </div>
@@ -1482,7 +1513,7 @@ These objects are used to create the <code>SortFixedExpenseCommand</code> object
 <div class="content">
 <img src="images/developer-guide/progress-checker/CheckStatusActivityDiagram.png" alt="CheckStatusActivityDiagram">
 </div>
-<div class="title">Figure 21. Workflow of the <code>status</code> command.</div>
+<div class="title">Figure 25. Workflow of the <code>status</code> command.</div>
 </div>
 <div class="paragraph">
 <p>When a user enters the <code>status</code> command, the <code>Logic</code> Component parses and creates a <code>CheckStatusCommand</code> object. <a href="#logic-component">(See Section 2.3 Logic Component)</a>.</p>
@@ -1519,7 +1550,7 @@ These objects are used to create the <code>SortFixedExpenseCommand</code> object
 <div class="content">
 <img src="images/developer-guide/progress-checker/CheckStatusCommandExecution.png" alt="CheckStatusCommandExecution">
 </div>
-<div class="title">Figure 22. Execution of the <code>CheckStatusCommand</code>.</div>
+<div class="title">Figure 26. Execution of the <code>CheckStatusCommand</code>.</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1634,22 +1665,13 @@ These objects are used to create the <code>SortFixedExpenseCommand</code> object
 <p>meticulously plan all details of the trip before leaving</p>
 </li>
 <li>
-<p>are inexperienced in planning for overseas trips</p>
+<p>is inexperienced in planning for overseas trips</p>
 </li>
 <li>
-<p>plan and stick to a preset budget set for their trips</p>
-</li>
-<li>
-<p>want to record down experiences during their trips</p>
-</li>
-<li>
-<p>prefer to have everything in one app</p>
+<p>prefer to have everything in one application</p>
 </li>
 <li>
 <p>want to manage their trip without an internet connection</p>
-</li>
-<li>
-<p>keen on privacy while writing down intimate details</p>
 </li>
 <li>
 <p>prefer desktop apps over other types</p>
@@ -1674,7 +1696,7 @@ These objects are used to create the <code>SortFixedExpenseCommand</code> object
 <p>An all in one travel planner and manager, that guides the user from head to tail in planning for an overseas trip. Even those who have never planned for a trip before will be able to focus on enjoying their trip while the app guides them in planning and managing the perfect overseas trip.</p>
 </li>
 <li>
-<p>E.T. can manage trips faster than a typical mouse/GUI driven app.</p>
+<p>E.T. can manage trips faster than a typical mouse/<em>GUI</em>  driven app.</p>
 </li>
 </ul>
 </div>
@@ -1704,21 +1726,15 @@ These objects are used to create the <code>SortFixedExpenseCommand</code> object
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Forgetful user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Write down the day&#8217;s events</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Remember what happened in that day</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Organised traveller</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add activities to my daily itinerary</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Plan for my trip</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Have a diary</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Write my thoughts and feelings for that day</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Un-thrifty traveller</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Spendthrift traveller</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Notified if my spending goes beyond my planned levels</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Adjust my budget</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adjust my budget and expenses</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
@@ -1728,15 +1744,15 @@ These objects are used to create the <code>SortFixedExpenseCommand</code> object
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Budget traveller</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Set an individual budget for each day</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Minimise my spending</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Traveller</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Get my expenses to automatically converted to SGD</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Avoid manual currency conversion</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Traveller</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">See amount spent each day/trip and balance left for each day/trip</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Record my spending</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See amount spent each day/trip and balance left for each day/trip</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
@@ -1746,33 +1762,21 @@ These objects are used to create the <code>SortFixedExpenseCommand</code> object
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Careless traveller</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Set the quantity of items I need to pack</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Pack without missing out anything</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Lazy traveller</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Add pre-set packing list</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Avoid manual addition of many common items</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Have a built-in standard packing list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Have recommendations on what to bring on the trip.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Traveller</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Maintain a list of accommodations</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Better plan my accommodations during the trips</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cautious Traveller</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Be notified if I miss out any dates I did not plan on accommodation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Account my accommodation for every night</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Forgetful traveller</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Keep track of my transportation booking information</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Avoid being late</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Organised traveller</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Plan my trip in terms of days</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Split my plan into suitable chunks</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Keep track of my flight timings</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Avoid being late for my flight</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
@@ -1781,87 +1785,39 @@ These objects are used to create the <code>SortFixedExpenseCommand</code> object
 <td class="tableblock halign-left valign-top"><p class="tableblock">Be reminded and plan for it</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Undisciplined individual</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Keep track of my expenses</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Avoid spending over my budget</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Organised traveller</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Add activities to my daily itinerary</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Plan for my trip</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">User concerned with privacy</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Private my diary entry</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Minimize chance of someone else seeing them by accident</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">User who likes pictures</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Have a photo diary</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Capture memories through pictures in a organised manner</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Careless Traveller</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Be notified if I have forgotten certain aspects of my trip</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Avoid being under prepared for my trip</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cautious Traveller</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Be notified if I miss out any dates i did not plan on accommodation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Have a place to sleep every night</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Traveller</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Be able to print itinerary</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Bring it around in my travels if my battery dies</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Traveller</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Be able to undo my actions</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Undo my mistakes</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Traveller</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">View all the information easily</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">New User</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Have a quick built-in help guide</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Get started on using the application quickly</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Non Math inclined traveller</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Get constant recommendations to my budget plan</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Avoid having to do any difficult calculations</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Traveller</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Be able to print my itinerary</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bring it around in my travels if my laptop is not easily accessible</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Command Line enthusiast</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Tab autocomplete my commands</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Press <code>Tab</code> to autocomplete my commands</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Be more efficient</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User who likes customization</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Change my application into different colour themes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Make my application&#8217;s GUI looks better</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Make my application’s <em>GUI</em> visually appealing to me</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Budget traveller</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set an individual budget for each day</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Stay within my budget</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Have a calendar planner</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Have a calendar planner in the application</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Have reference to the dates of the year</p></td>
 </tr>
 </tbody>
@@ -2270,4 +2226,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 18:18:54 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 18:25:36 UTC</div></div></div></body></html>
