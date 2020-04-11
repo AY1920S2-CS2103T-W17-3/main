@@ -47,8 +47,8 @@
 <li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-person">G.2. Deleting a person</a></li>
-<li><a href="#saving-data">G.3. Saving data</a></li>
+<li><a href="#adding-setting">G.2. Adding/Setting</a></li>
+<li><a href="#editing">G.3. Editing</a></li>
 </ul>
 </li>
 </ul>
@@ -1836,28 +1836,28 @@ Easy to access and manipulate budget and exchange rate data. Especially when cal
 <h3 id="trip-planner" class="discrete">Trip Planner</h3>
 <div class="listingblock">
 <div class="content">
-<pre>UC01: Add trip - Add a trip to the main list
+<pre>UC01: Set trip - Sets a trip in the application
 
 System: E.T.
 Actor: User
 
-Preconditions: User must be on the home page.
+Preconditions: There should be no other trip existing
 Guarantees:
     - A new trip will be added to the trip list upon successful command.
 
 MSS:
-    1. User adds a new trip to the list.
-    2. System adds trip to the list of trips.
-    3. System shows the updated list of trips.
+    1. User set a trip by providing details
+    2. E.T. sets the current trip
+    3. E.T. displays the set trip on dashboard
 Use case ends.
 
 Extensions:
-    2a. The trip list is empty.
-        2a1. System shows an empty page.
+    1a. Incomplete details are given.
+        1a1. E.T. shows an error message.
         Use case resumes at step 3.
 
-    3a. Incomplete details are given.
-        3a1. System shows an error message.
+    2a. The trip list is empty.
+        2a1. E.T. shows an empty page.
         Use case resumes at step 3.
 
 UC02: Check trip readiness
@@ -1865,13 +1865,13 @@ UC02: Check trip readiness
 System: E.T.
 Actor: User
 
-Preconditions: A trip must be opened.
+Preconditions: A trip must be existing.
 Guarantees:
-    - System informs the user of incomplete preparations.
+    - E.T. informs the user of incomplete preparations.
 
 MSS:
     1. User request for a preparation check
-    2. System shows the list of things that needs to be completed
+    2. E.T. creates a popup that shows the list of things that needs to be completed
 Use case ends.</pre>
 </div>
 </div>
@@ -1883,52 +1883,22 @@ Use case ends.</pre>
 System: E.T.
 Actor: User
 
-Preconditions: A trip must be opened.
+Preconditions: A trip must be existing.
 Guarantees:
     - A new packing list would be created upon successful command.
 
 MSS:
     1. User requests to create a new trip.
     2. User navigates to the packing list tab.
-    3. System shows the packing list.
+    3. E.T. shows the packing list.
     4. User adds an item to the packing list.
-    5. System shows the updated packing list.
+    5. E.T. shows the updated packing list.
 Use case ends.
 
 
 Extensions:
     3a. The packing list is empty.
-        3a1. System shows an empty list.
-        Use case resumes at step 4.
-
-    4a. Incomplete details are given.
-        4a1. System shows an error message.
-        Use case resumes at step 4.</pre>
-</div>
-</div>
-<h3 id="memory" class="discrete">Memory</h3>
-<div class="listingblock">
-<div class="content">
-<pre>UC04: Write entry into diary
-
-System: E.T.
-Actor: User
-
-Preconditions: A trip must be opened.
-Guarantees:
-    - A new diary entry would be created upon successful command.
-
-MSS:
-    1. User requests to create a new diary entry.
-    2. User navigates to the diary tab.
-    3. E.T. shows the existing diary entries.
-    4. User adds a diary entry to the diary.
-    5. E.T. shows the updated diary entries.
-Use case ends.
-
-Extensions:
-    3a. The diary is empty.
-        3a1. E.T. shows an empty page.
+        3a1. E.T. shows an empty list.
         Use case resumes at step 4.
 
     4a. Incomplete details are given.
@@ -1936,7 +1906,37 @@ Extensions:
         Use case resumes at step 4.</pre>
 </div>
 </div>
-<h3 id="expenditure-manager" class="discrete">Expenditure Manager</h3>
+<h3 id="scheduling" class="discrete">Scheduling</h3>
+<div class="listingblock">
+<div class="content">
+<pre>UC04: Schedule an activity
+
+System: E.T.
+Actor: User
+
+Preconditions: A trip must be existing.
+Guarantees:
+    - A new schedule entry would be created upon successful command.
+
+MSS:
+    1. Users navigates to the schedule tab
+    2. E.T. displays the current existing schedule entries
+    3. Users create a new schedule entry.
+    4. E.T. adds a scheduled entry to the schedule list.
+    5. E.T. shows the updated scheduled entries.
+Use case ends.
+
+Extensions:
+    2a. Incomplete details are given.
+        2a1. E.T. shows an error message.
+        Use case resumes at step 1.
+
+    4a. Incomplete details are given.
+        4a1. E.T. shows an error message.
+        Use case resumes at step 4.</pre>
+</div>
+</div>
+<h3 id="fixed-expense-manager" class="discrete">Fixed Expense Manager</h3>
 <div class="listingblock">
 <div class="content">
 <pre>UC05: Add expenses
@@ -1944,7 +1944,7 @@ Extensions:
 System: E.T.
 Actor: User
 
-Preconditions: A trip must be opened.
+Preconditions: A trip must be existing.
 Guarantees:
     - Any expense will be added to the trip upon successful command.
     - Current and future expenses will be flagged if it exceeds the budget set for the trip.
@@ -1952,25 +1952,25 @@ Guarantees:
 MSS:
     1. User requests to create a new expense entry.
     2. User navigates to the expense manager tab.
-    3. System shows existing expenses for the current trip.
+    3. E.T. shows existing expenses for the current trip.
     4. User adds a new expense for the current trip.
-    5. System shows the updated expenses for the trip.
+    5. E.T. shows the updated expenses for the trip.
 Use case ends.
 
 Extensions:
-    3a. The expense is empty
-        3a1. System shows an empty page.
+    3a. The expense list is empty
+        3a1. E.T. shows an empty page.
         Use case resumes at step 4.
 
     4a. Incomplete details are given.
-        4a1. System shows an error message.
-        Use case resumes at step 4.
+        4a1. E.T. shows an error message.
+        Use case ends.
     4b. Expenses are entered by the user in the foreign country’s currency when the conversion rate is not set.
-        4b1. System shows an error message.
-        Use Case resumes at step 4.</pre>
+        4b1. E.T. shows an error message.
+        Use case ends.</pre>
 </div>
 </div>
-<h3 id="pre-trip" class="discrete">Pre Trip</h3>
+<h3 id="accommodation" class="discrete">Accommodation</h3>
 <div class="listingblock">
 <div class="content">
 <pre>UC06: Add accommodation into a trip
@@ -1978,25 +1978,25 @@ Extensions:
 System: E.T.
 Actor: User
 
-Preconditions: A trip must be opened
+Preconditions: A trip must be existing
 Guarantees:
     - Accommodation will be added into a list upon successful command.
 
 MSS:
-    1. User requests to create a new accommodation booking.
-    2. User navigates to the pre-trip tab.
-    3. System shows the existing list of accommodations for the current trip.
-    4. User adds a new accommodation booking for the current trip.
-    5. System shows an updated list of accommodations.
+    1. User navigates to the accommodation tab.
+    2. UI shows the accommodation tab and list
+    3. User requests to create a new accommodation booking.
+    4. E.T. shows the successful addition to the accommodation list.
+    5. E.T. shows an updated list of accommodations.
 Use case ends
 
 Extensions:
     3a. The is no accommodation booking
-	    3a1. System show an empty list
+	    3a1. E.T. show an empty list
 	    Use case resumes at step 4
     4a. Incomplete details are given.
-        4a1. System shows an error message.
-        Use case resumes at step 4.</pre>
+        4a1. E.T. shows an error message.
+        Use case ends.</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2013,10 +2013,7 @@ Extensions:
 <p>Application should work on any <a href="#mainstream-os">mainstream OS</a> as long as it has Java 11 or above installed.</p>
 </li>
 <li>
-<p>Application should be able to hold up to 20 trips no longer than 1 month each without a noticeable sluggishness in performance for typical usage.</p>
-</li>
-<li>
-<p>Application should respond within 2 seconds of the client&#8217;s query.</p>
+<p>Application should be able to one month’s worth of trip data without any noticeable sluggishness in performance for typical usage.</p>
 </li>
 <li>
 <p>A user with above-average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
@@ -2052,9 +2049,49 @@ Extensions:
 <dd>
 <p>An abbreviation for Easy Travel, the name of the application.</p>
 </dd>
-<dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
+<dt class="hdlist1"><a id="crud"></a> CRUD</dt>
+<dd>
+<p>In computer programming, create, read, update, and delete are the four basic functions of persistent storage</p>
+</dd>
+<dt class="hdlist1"><a id="cli"></a> Command Line Interface</dt>
 <dd>
 <p>Windows, Linux, Unix, macOS.</p>
+</dd>
+<dt class="hdlist1"><a id="command-pattern"></a> Command Pattern</dt>
+<dd>
+<p>It is a Design Pattern that lets you encapsulate actions within Java classes. Of which, each class has an "execute()" method which is declared in the Command interface the class implements.</p>
+</dd>
+<dt class="hdlist1"><a id="facade-pattern"></a> Facade Pattern</dt>
+<dd>
+<p>Facade Pattern is a structural design pattern that provides a simplified (but limited) interface to a complex system of classes, library or framework. While decreasing the overall complexity of the application, it also helps to move unwanted dependencies to one place.</p>
+</dd>
+<dt class="hdlist1"><a id="generics"></a> Generics</dt>
+<dd>
+<p>Java&#8217;s type system to allow "a type or method to operate on objects of various types while providing compile-time type safety".</p>
+</dd>
+<dt class="hdlist1"><a id="gui"></a> Graphical User Interface</dt>
+<dd>
+<p>A visual display shown on the screen.</p>
+</dd>
+<dt class="hdlist1"><a id="javafx"></a> JavaFX</dt>
+<dd>
+<p>is a software platform for creating and delivering desktop applications, as well as rich Internet applications (RIAs) that can run across a wide variety of devices.</p>
+</dd>
+<dt class="hdlist1"><a id="java-script-object"></a> JavaScript Object Notation</dt>
+<dd>
+<p>A lightweight data-interchange format which is easily readable and writable.</p>
+</dd>
+<dt class="hdlist1"><a id="json"></a> JavaScript Object Notation</dt>
+<dd>
+<p>A lightweight data-interchange format which is easily readable and writable.</p>
+</dd>
+<dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
+<dd>
+<p>Windows, Linux, Unix, macOS</p>
+</dd>
+<dt class="hdlist1"><a id="oop"></a> Object Oriented Programming</dt>
+<dd>
+<p>A type of computer programming (software design) in which programmers define the data type of a data structure, and also the types of operations (functions) that can be applied to the data structure.</p>
 </dd>
 <dt class="hdlist1"><a id="prefix"></a> Prefix</dt>
 <dd>
@@ -2064,17 +2101,9 @@ Extensions:
 <dd>
 <p>The word that comes before ‘/’ in the prefix. For example, the prefix name in country/COUNTRY is country/.</p>
 </dd>
-<dt class="hdlist1"><a id="cli"></a> Command Line Interface</dt>
+<dt class="hdlist1"><a id="stream"></a> Stream</dt>
 <dd>
-<p>An interface where the user interacts with the application through the command box.</p>
-</dd>
-<dt class="hdlist1"><a id="gui"></a> Graphical User Interface</dt>
-<dd>
-<p>A visual display shown on the screen.</p>
-</dd>
-<dt class="hdlist1"><a id="json"></a> JavaScript Object Notation</dt>
-<dd>
-<p>A lightweight data-interchange format which is easily readable and writable.</p>
+<p>A stream is a sequence of objects that supports various methods which can be pipelined to produce the desired result.</p>
 </dd>
 </dl>
 </div>
@@ -2147,8 +2176,8 @@ These instructions only provide a starting point for testers to work on; testers
 <p>Download the jar file and copy into an empty folder</p>
 </li>
 <li>
-<p>Double-click the jar file<br>
-Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.</p>
+<p>Double-click the jar file
+Expected: Shows the <em>GUI</em> with a set of schedules. The window size may not be optimum.</p>
 </li>
 </ol>
 </div>
@@ -2161,7 +2190,7 @@ Expected: Shows the GUI with a set of sample contacts. The window size may not b
 <p>Resize the window to an optimum size. Move the window to a different location. Close the window.</p>
 </li>
 <li>
-<p>Re-launch the app by double-clicking the jar file.<br>
+<p>Re-launch the app by double-clicking the jar file.
 Expected: The most recent window size and location is retained.</p>
 </li>
 </ol>
@@ -2169,61 +2198,392 @@ Expected: The most recent window size and location is retained.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">G.2. Deleting a person</a></h3>
+<h3 id="adding-setting"><a class="link" href="#adding-setting">G.2. Adding/Setting</a></h3>
+<div class="sect3">
+<h4 id="adding-activities"><a class="link" href="#adding-activities">G.2.1. Adding Activities</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Add a new activity to <strong>E.T.</strong></p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Deleting a person while all persons are listed</p>
+<p>Prerequisites: Arguments are valid and compulsory parameters are provided.
+Test case: <code>addactivity title/Osaka Castle View duration/1 location/Osaka tag/expensive tag/sightseeing</code></p>
+</li>
+<li>
+<p>Expected: Adds an activity with title of “Osaka Castle View”, with duration of 1 hour, a location of “Osaka” and tags of “expensive” and “sightseeing”</p>
+</li>
+<li>
+<p>Test case `addactivity title/Osaka Castle</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+<p>Expected: No activity is added. Error details shown in feedback display.</p>
+</li>
+</ol>
+</div>
 </li>
 <li>
-<p>Test case: <code>delete 1</code><br>
-Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
-</li>
+<p>Other incorrect add commands to try: addactivity duration/1, addactivity location/Singapore, addactivity tag/testing</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
-<p>Test case: <code>delete 0</code><br>
-Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
-</li>
-<li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
-Expected: Similar to previous.</p>
+<p>Expected: Similar to previous test case.</p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
+</li>
+</ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">G.3. Saving data</a></h3>
+<div class="sect3">
+<h4 id="setting-trip"><a class="link" href="#setting-trip">G.2.2. Setting Trip</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Sets a new trip to Easy Travel</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Dealing with missing/corrupted data files</p>
+<p>Prerequisites: Arguments are valid and compulsory parameters are provided.</p>
+</li>
+<li>
+<p>Test case: <code>settrip title/Graduation Trip budget/5000 exchangerate/1.03 startdate/28-09-2020 enddate/05-10-2020</code></p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
+<p>Expected: Sets a trip with title <code>Graduation Trip</code>, with budget of <code>5000</code>, exchange rate of <code>1.03</code>, startdate of <code>28-09-2020</code> and enddate of <code>05-10-2020</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case <code>settrip title/Graduation Trip</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Expected: No Trip is set. Error details shown in the feedback display.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Other incorrect set commands to try: <code>settrip budget/5000</code>, <code>settrip exchangerate/1.03</code>, <code>settrip startdate/28-09-2020</code>, <code>settrip enddate/05-10-2020</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Expected: Similar to point 3</p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-accommodation"><a class="link" href="#adding-accommodation">G.2.3. Adding Accommodation</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Adds a new accommodation to Easy Travel</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Prerequisites: Arguments are valid and compulsory parameters are provided.</p>
+</li>
+<li>
+<p>Test case: <code>addacc name/JW Marriott Hotel loc/KL startday/2 endday/4 remark/Check-in at 3pm.</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Expected: Adds an accommodation with name <code>JW Marriott Hotel</code> location <code>KL</code>,  startday <code>2</code>, endday`4` and remark of <code>Check-in at 3pm</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case <code>addacc name/JW Marriott Hotel</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Expected: No Accommodation is set. Error details shown in the feedback display.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Other incorrect set commands to try: <code>addacc loc/KL</code>, <code>addacc startday/2</code>, <code>addacc endday/4</code>, <code>addacc remark/Check-in at 3pm.</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Expected: Similar to point 3</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-transportation"><a class="link" href="#adding-transportation">G.2.4. Adding Transportation</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Adds a new transportation to Easy Travel</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Prerequisites: Arguments are valid and compulsory parameters are provided.</p>
+</li>
+<li>
+<p>Test case: <code>addtransport mode/plane startloc/Singapore endloc/Japan starttime/20-03-2020 17:00 endtime/21-03-2020 00:00</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Expected: Adds an transportation with mode <code>plane</code>, startloc as <code>Singapore</code>, endloc as <code>Japan</code>, starttime as <code>20-03-2020 17:00</code> and endtime as <code>21-03-2020 00:00</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case <code>addtransport mode/plane</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Expected: No Transportation is set. Error details shown in the feedback display.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Other incorrect set commands to try: <code>addtransport startloc/Singapore</code>, <code>addtransport endloc/Japan</code>, <code>addtransport starttime/20-03-2020 17:00</code>, <code>addtransport endtime/21-03-2020 00:00</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Expected: Similar to point 3</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-item-in-packing-list"><a class="link" href="#adding-item-in-packing-list">G.2.5. Adding Item in Packing List</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Adds a new Item to Easy Travel</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Prerequisites: Arguments are valid and compulsory parameters are provided.</p>
+</li>
+<li>
+<p>Test case: <code>additem name/Tshirts quantity/5 category/clothes</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Expected: Adds an item with name <code>Tshirts</code> quantity <code>5</code>, category <code>clothes</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case <code>additem name/Tshirts</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Expected: No Item is set. Error details shown in the feedback display.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Other incorrect set commands to try: <code>addacc loc/KL</code>, <code>additem quantity/5</code>, <code>addacc category/basics</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Expected: Similar to point 3</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-preset-in-packing-list"><a class="link" href="#adding-preset-in-packing-list">G.2.6. Adding Preset in Packing List</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Adds a new Preset to Easy Travel</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Prerequisites: Arguments are valid and compulsory parameters are provided.</p>
+</li>
+<li>
+<p>Test case: <code>addpreset swimming</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Expected: Adds a new preset of <code>swimming</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case <code>addpreset Tshirts</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Expected: No preset is set. Error details shown in the feedback display.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-fixed-expense-in-fixed-expense-list"><a class="link" href="#adding-fixed-expense-in-fixed-expense-list">G.2.7. Adding Fixed Expense in Fixed Expense List</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Adds a new Fixed Expense to Easy Travel</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Prerequisites: Arguments are valid and compulsory parameters are provided.</p>
+</li>
+<li>
+<p>Test case: <code>addexpense amount/1500 currency/sgd description/Plane Tickets category/transport</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Expected: Adds a fixed expense with amount <code>1500</code> currency <code>sgd</code>, description <code>Plane Tickets</code> and of category <code>transport</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case <code>addexpense amount/1500</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Expected: No Fixed Expense is set. Error details shown in the feedback display.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Other incorrect set commands to try: <code>addexpense currency/sgd</code>, <code>addexpense description/Plane Tickets</code>, <code>addexpense category/transport</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Expected: Similar to point 3</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 18:34:00 UTC</div></div></div></body></html>
+<div class="sect2">
+<h3 id="editing"><a class="link" href="#editing">G.3. Editing</a></h3>
+<div class="sect3">
+<h4 id="editing-activity"><a class="link" href="#editing-activity">G.3.1. Editing Activity</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Edits a current Activity in Easy Travel</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Prerequisites: Arguments are valid, compulsory parameters are provided and activity must exist in the Activity List.</p>
+</li>
+<li>
+<p>Test case: <code>editactivity 1 title/Shopping duration/2</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Expected: Edits an activity in index <code>1</code> of the Activity List with title <code>Shopping</code> currency <code>sgd</code>, description <code>SQ Flight</code> and of category `transport</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Other incorrect set commands to try: <code>editactivity 1000000000 title/Shopping</code> Expected: No Activity is edited. Error details shown in feedback display.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-fixed-expense"><a class="link" href="#editing-fixed-expense">G.3.2. Editing Fixed Expense</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Edits a current Fixed Expense in Easy Travel</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Prerequisites: Arguments are valid,  compulsory parameters are provided and fixed expense must exist in the Fixed Expense List.</p>
+</li>
+<li>
+<p>Test case: <code>editexpense 1 amount/3000 currency/sgd description/SQ Flight category/transport</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Expected: Edits a fixed expense in index <code>1</code> of the Fixed Expense List with amount <code>3000</code> currency <code>sgd</code>, description <code>SQ Flight</code> and of category <code>transport</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Other incorrect set commands to try: <code>editactivity 1 category`testing</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Expected: No Fixed Expense is edited. Error details shown in feedback display.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 18:52:55 UTC</div></div></div></body></html>
