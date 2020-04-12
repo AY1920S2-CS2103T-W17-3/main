@@ -65,10 +65,13 @@
 </li>
 <li><a href="#accommodation-booking">4.4. Accommodation Booking</a>
 <ul class="sectlevel3">
-<li><a href="#add-a-new-accommodation-booking-code-addacc-code">4.4.1. Add a new accommodation booking: <code>addacc</code></a></li>
-<li><a href="#edit-an-existing-accommodation-booking-code-editacc-code">4.4.2. Edit an existing accommodation booking: <code>editacc</code></a></li>
-<li><a href="#delete-an-existing-accommodation-booking-code-deleteacc-code">4.4.3. Delete an existing accommodation booking: <code>deleteacc</code></a></li>
-<li><a href="#clear-all-accommodation-bookings-code-clearacc-code">4.4.4. Clear all accommodation bookings: <code>clearacc</code></a></li>
+<li><a href="#accommodation-booking-management-command-parameters">4.4.1. Accommodation Booking Management Command Parameters</a></li>
+<li><a href="#list-all-accommodation-bookings-code-listacc-code">4.4.2. List all accommodation bookings: <code>listacc</code></a></li>
+<li><a href="#add-a-new-accommodation-booking-code-addacc-code">4.4.3. Add a new accommodation booking: <code>addacc</code></a></li>
+<li><a href="#edit-an-existing-accommodation-booking-code-editacc-code">4.4.4. Edit an existing accommodation booking: <code>editacc</code></a></li>
+<li><a href="#delete-an-existing-accommodation-booking-code-deleteacc-code">4.4.5. Delete an existing accommodation booking: <code>deleteacc</code></a></li>
+<li><a href="#sort-the-accommodation-booking-list-code-sortacc-code">4.4.6. Sort the accommodation booking list: <code>sortacc</code></a></li>
+<li><a href="#clear-all-accommodation-bookings-code-clearacc-code">4.4.7. Clear all accommodation bookings: <code>clearacc</code></a></li>
 </ul>
 </li>
 <li><a href="#packing-list">4.5. Packing List</a>
@@ -611,6 +614,8 @@ This example means <code>05 October 2020</code>.</p></td>
 <div class="paragraph">
 <p>If you are all ready to start planning for your trip and you want to set a trip to get started, follow these steps below. You will learn how to set a graduation trip that starts on <strong>28 September 2020</strong> and ends on <strong>5 October 2020</strong> with a budget of <strong>$5000</strong> and an exchange rate of <strong>76.7</strong>.</p>
 </div>
+<div class="sidebarblock">
+<div class="content">
 <div class="paragraph">
 <p>Setting a new trip:</p>
 </div>
@@ -620,20 +625,24 @@ This example means <code>05 October 2020</code>.</p></td>
 <p>Type <code>settrip title/Graduation Trip budget/5000 exchangerate/76.6 startdate/28-09-2020 enddate/05-10-2020</code> into the <em>Command Box</em>.</p>
 </li>
 <li>
-<p>Press <code>Enter</code> to execute.
-Outcome:</p>
-<div class="ulist">
-<ul>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>The <em>Result Display</em> will show a success message.</p>
 </li>
 <li>
 <p>You can now see your trip information on the <em>Trip Information Panel</em>.</p>
 </li>
-</ul>
-</div>
-</li>
 </ol>
+</div>
+</div>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -685,6 +694,8 @@ Ensure that your date is correct as E.T. does not allow editing of dates once se
 <div class="paragraph">
 <p>Assume that you have accidentally titled the trip wrongly to <strong>Craduation Trip</strong> instead of <strong>Graduation Trip</strong>, you can do the following steps.</p>
 </div>
+<div class="sidebarblock">
+<div class="content">
 <div class="paragraph">
 <p>Renaming the trip:</p>
 </div>
@@ -694,20 +705,24 @@ Ensure that your date is correct as E.T. does not allow editing of dates once se
 <p>Type rename <code>Graduation Trip</code> into the <em>Command Box</em>.</p>
 </li>
 <li>
-<p>Press <code>Enter</code> to execute.
-Outcome:</p>
-<div class="ulist">
-<ul>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>The <em>Result Display</em> will show a success message.</p>
 </li>
 <li>
 <p>You can now see your updated trip title on the <em>Trip Information Panel</em>.</p>
 </li>
-</ul>
-</div>
-</li>
 </ol>
+</div>
+</div>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -754,6 +769,8 @@ Outcome:</p>
 <div class="paragraph">
 <p>Let’s say after planning your expenses, you realised that you would want to increase your budget to $6000. Follow the following steps to do that.</p>
 </div>
+<div class="sidebarblock">
+<div class="content">
 <div class="paragraph">
 <p>Editing the trip budget:</p>
 </div>
@@ -770,15 +787,17 @@ Outcome:</p>
 <div class="paragraph">
 <p>Outcome:</p>
 </div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>The <em>Result Display</em> will show a success message.</p>
 </li>
 <li>
 <p>You can now see your updated trip budget on the <em>Trip Information Panel</em>.</p>
 </li>
-</ul>
+</ol>
+</div>
+</div>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -830,9 +849,17 @@ Deleting the trip will clear all your data from the app! Think twice before you 
 </ol>
 </div>
 <div class="paragraph">
-<p>Outcome:
-* The <em>Result Display</em> will show a success message.
-* You can now see that no trip is set on the <em>Trip Information Panel</em>.</p>
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p>You can now see that no trip is set on the <em>Trip Information Panel</em>.</p>
+</li>
+</ol>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -870,6 +897,8 @@ Deleting the trip will clear all your data from the app! Think twice before you 
 <p><strong>Example:</strong>
 If you are planning for your trip halfway and feel lost, you can check your progress using the following steps. It can remind you of what you have to do next.</p>
 </div>
+<div class="sidebarblock">
+<div class="content">
 <div class="paragraph">
 <p>Deleting the current trip:</p>
 </div>
@@ -884,9 +913,19 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 </ol>
 </div>
 <div class="paragraph">
-<p>Outcome:
-* The <em>Result Display</em> will show the message “Progress checker window is opened.”.
-* You will now see the following window.</p>
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show the message “Progress checker window is opened.”.</p>
+</li>
+<li>
+<p>You will now see the following window.</p>
+</li>
+</ol>
+</div>
+</div>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1032,24 +1071,26 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 <div class="paragraph">
 <p>If you are in another tab and wish to look at your list of activities, you can follow these instructions.</p>
 </div>
+<div class="sidebarblock">
+<div class="content">
 <div class="paragraph">
 <p>Listing all your activities:</p>
 </div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>Type <code>listactivity</code> into the <em>Command Box</em>.</p>
 </li>
 <li>
 <p>Press <code>Enter</code> to execute.</p>
 </li>
-</ul>
+</ol>
 </div>
 <div class="paragraph">
 <p>Outcome:</p>
 </div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>The Result Display will show a success message.</p>
 </li>
@@ -1059,7 +1100,9 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 <li>
 <p>You can now see all your activities.</p>
 </li>
-</ul>
+</ol>
+</div>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -1123,6 +1166,8 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 </tr>
 </tbody>
 </table>
+<div class="sidebarblock">
+<div class="content">
 <div class="paragraph">
 <p>Adding the above activity:</p>
 </div>
@@ -1139,8 +1184,8 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 <div class="paragraph">
 <p>Outcome:</p>
 </div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>The Result Display will show a success message.</p>
 </li>
@@ -1150,7 +1195,9 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 <li>
 <p>You can now see all your activities including the newly added activity.</p>
 </li>
-</ul>
+</ol>
+</div>
+</div>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1206,6 +1253,8 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 <div class="paragraph">
 <p>Assume you have accidentally made a mistake in the spelling of the title of the <strong>second</strong> activity in the displayed list and wish to change it to “<strong>Skiing</strong>”. You do perform the following steps.</p>
 </div>
+<div class="sidebarblock">
+<div class="content">
 <div class="paragraph">
 <p>Editing the activity:</p>
 </div>
@@ -1222,8 +1271,8 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 <div class="paragraph">
 <p>Outcome:</p>
 </div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>The Result Display will show a success message.</p>
 </li>
@@ -1233,7 +1282,9 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 <li>
 <p>You can now see all your activities including the edited activity.</p>
 </li>
-</ul>
+</ol>
+</div>
+</div>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1277,6 +1328,8 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 <div class="paragraph">
 <p>If you change your mind and decide to remove the <strong>first</strong> activity in the displayed list from your plan, you can perform the steps below.</p>
 </div>
+<div class="sidebarblock">
+<div class="content">
 <div class="paragraph">
 <p>Deleting the activity:</p>
 </div>
@@ -1293,8 +1346,8 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 <div class="paragraph">
 <p>Outcome:</p>
 </div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>The Result Display will show a success message.</p>
 </li>
@@ -1304,7 +1357,9 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 <li>
 <p>You can now see the deleted activity no longer exists.</p>
 </li>
-</ul>
+</ol>
+</div>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -1342,24 +1397,26 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 <div class="paragraph">
 <p>If you want to sort your list of activities in descending order of duration, to help you in your planning, you can do the following.</p>
 </div>
+<div class="sidebarblock">
+<div class="content">
 <div class="paragraph">
 <p>Sorting activities:</p>
 </div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>Type <code>sortactivity</code> duration des into the Command Box.</p>
 </li>
 <li>
 <p>Press <code>Enter</code> to execute.</p>
 </li>
-</ul>
+</ol>
 </div>
 <div class="paragraph">
 <p>Outcome:</p>
 </div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>The Result Display will show a success message.</p>
 </li>
@@ -1369,7 +1426,9 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 <li>
 <p>You can see a list of sorted activities being displayed.</p>
 </li>
-</ul>
+</ol>
+</div>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -1410,6 +1469,8 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 <div class="paragraph">
 <p>Let say your list has a bunch of activities and you want to search for a specific one about shopping. You can do so as follows.</p>
 </div>
+<div class="sidebarblock">
+<div class="content">
 <div class="paragraph">
 <p>Finding activities:</p>
 </div>
@@ -1426,8 +1487,8 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 <div class="paragraph">
 <p>Outcome:</p>
 </div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>The <em>Result Display</em> will show a success message.</p>
 </li>
@@ -1437,7 +1498,9 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 <li>
 <p>You can see a list of activities with the keyword being displayed.</p>
 </li>
-</ul>
+</ol>
+</div>
+</div>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1499,16 +1562,26 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 <div class="paragraph">
 <p>In the case that you want to restart your activity planning from scratch, you can do the following.</p>
 </div>
+<div class="sidebarblock">
+<div class="content">
 <div class="paragraph">
-<p>Clearing the activity list:
-. Type <code>clearactivity</code> into the Command Box.
-. Press Enter to execute.</p>
+<p>Clearing the activity list:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>clearactivity</code> into the Command Box.</p>
+</li>
+<li>
+<p>Press Enter to execute.</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p>Outcome:</p>
 </div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>The Result Display will show a success message.</p>
 </li>
@@ -1518,7 +1591,9 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 <li>
 <p>You can see that the list is now empty.</p>
 </li>
-</ul>
+</ol>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -2046,12 +2121,110 @@ This example means 30 September 2020 at 1:00 PM.</p>
 <div class="sect2">
 <h3 id="accommodation-booking"><a class="link" href="#accommodation-booking">4.4. Accommodation Booking</a></h3>
 <div class="paragraph">
-<p>The following sections [4.4.1 to 4.4.3] allows the user to set and modify accommodation bookings in the trip.</p>
+<p>The following feature allows you to manage all  accommodation bookings.</p>
 </div>
 <div class="sect3">
-<h4 id="add-a-new-accommodation-booking-code-addacc-code"><a class="link" href="#add-a-new-accommodation-booking-code-addacc-code">4.4.1. Add a new accommodation booking: <code>addacc</code></a></h4>
+<h4 id="accommodation-booking-management-command-parameters"><a class="link" href="#accommodation-booking-management-command-parameters">4.4.1. Accommodation Booking Management Command Parameters</a></h4>
 <div class="paragraph">
-<p>If you have made an accommodation booking, you can use this command to store it into a list and be able to keep track of it.</p>
+<p>Before you jump right into using this feature, you may want to learn about all the common command parameters used in this feature. The table below shows the list of common command parameters that will be used for this feature.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the accommodation booking</p>
+<p class="tableblock">It must be alphanumeric words not more than 50 characters long.</p>
+<p class="tableblock">E.g. <code>Ritz Carlton</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>LOCATION</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The location of the accommodation booking</p>
+<p class="tableblock">It must be alphanumeric words not more than 50 characters long.</p>
+<p class="tableblock">E.g. <code>KL</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>START_DAY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The start day of the accommodation booking</p>
+<p class="tableblock">It must be a positive integer and it cannot be a number larger than <code>END_DAY</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>END_DAY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The end day of the accommodation booking</p>
+<p class="tableblock">It must be a positive integer and cannot exceed the length of the trip</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>REMARK</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The remark of the accommodation booking</p>
+<p class="tableblock">It cannot be more than 150 characters long.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The index number of the accommodation booking in the displayed list. The first entry of the list has an index number of <code>1</code> and all the entries are listed in increasing index numbers.</p>
+<p class="tableblock">It must be a valid index number.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="list-all-accommodation-bookings-code-listacc-code"><a class="link" href="#list-all-accommodation-bookings-code-listacc-code">4.4.2. List all accommodation bookings: <code>listacc</code></a></h4>
+<div class="paragraph">
+<p>You can use this command to navigate to the <em>Accommodation Tab</em> and display all your activities in <strong>E.T.</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>listacc</code></p>
+</div>
+<div class="paragraph">
+<p>Example:
+If you are in another tab and wish to look at your list of accommodation bookings, you can follow these instructions.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Listing all your activities:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>listacc</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the <em>Accommodation Tab</em>.</p>
+</li>
+<li>
+<p>You can now see all your accommodation bookings.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="add-a-new-accommodation-booking-code-addacc-code"><a class="link" href="#add-a-new-accommodation-booking-code-addacc-code">4.4.3. Add a new accommodation booking: <code>addacc</code></a></h4>
+<div class="paragraph">
+<p>This command would add a new accommodation booking into your list of accommodations.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>addacc name/NAME loc/LOCATION startday/START_DAY endday/END_DAY [remark/REMARK]</code></p>
@@ -2063,25 +2236,7 @@ This example means 30 September 2020 at 1:00 PM.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p><code>NAME</code> and <code>LOCATION</code> must be made of alphanumeric characters, and it must be less than 50 characters long</p>
-</li>
-<li>
-<p><code>START_DAY</code> and <code>END_DAY</code> needs to be positive integers</p>
-</li>
-<li>
-<p><code>START_DAY</code> refers to the day that you check in</p>
-</li>
-<li>
-<p><code>END_DAY</code> refers to the day that you check out</p>
-</li>
-<li>
-<p><code>REMARK</code> must be less than 150 characters long</p>
-</li>
-</ul>
-</div>
+Refer to <a href="#accommodation-booking-management-command-parameters">Section 4.4.1 Trip Management Command Parameters</a> for more detail about each parameter.
 </td>
 </tr>
 </table>
@@ -2090,10 +2245,70 @@ This example means 30 September 2020 at 1:00 PM.</p>
 <p>Examples:</p>
 </div>
 <div class="paragraph">
-<p><code>addacc name/JW Marriott Hotel loc/KL startday/2 endday/4</code></p>
+<p>Let’s say you have secured a booking of the accommodation “JW Marriott Hotel” at the location “KL”. You can run the following command to record this into your list of accommodations.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Accommodation Booking</th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JW Marriott Hotel</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Location</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">KL</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start Day</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">End Day</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Adding the above activity:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>addacc name/JW Marriott Hotel loc/KL startday/2 endday/4</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p>If you have a new accommodation booking for JW Marriott Hotel at KL on the 2nd day to the 4th day, you can create it using the <code>addacc</code> command</p>
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>*E.T.</strong> *will switch to the <em>Accommodation Tab</em>.</p>
+</li>
+<li>
+<p>You can now see all your accommodation bookings including the newly added accommodation booking.</p>
+</li>
+</ol>
+</div>
+</div>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2103,9 +2318,9 @@ This example means 30 September 2020 at 1:00 PM.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="edit-an-existing-accommodation-booking-code-editacc-code"><a class="link" href="#edit-an-existing-accommodation-booking-code-editacc-code">4.4.2. Edit an existing accommodation booking: <code>editacc</code></a></h4>
+<h4 id="edit-an-existing-accommodation-booking-code-editacc-code"><a class="link" href="#edit-an-existing-accommodation-booking-code-editacc-code">4.4.4. Edit an existing accommodation booking: <code>editacc</code></a></h4>
 <div class="paragraph">
-<p>If you have to adjust the details of the accommodation booking and you wish to make changes, you can use this command to edit the necessary information.</p>
+<p>This command will edit any mistakes made in the details of the accommodation booking using the specified <code>INDEX</code>.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>editacc INDEX [name/NAME] [loc/LOCATION] [startday/START_DAY] [endday/END_DAY] [remark/REMARK]</code></p>
@@ -2117,28 +2332,7 @@ This example means 30 September 2020 at 1:00 PM.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p><code>INDEX</code> refers to the index number shown in the displayed transport booking list. <code>INDEX</code> <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-<li>
-<p><code>NAME</code> and <code>LOCATION</code> must be made of alphanumeric characters, and it must be less than 50 characters long</p>
-</li>
-<li>
-<p><code>START_DAY</code> and <code>END_DAY</code> needs to be positive integers</p>
-</li>
-<li>
-<p><code>START_DAY</code> refers to the day that you check in</p>
-</li>
-<li>
-<p><code>END_DAY</code> refers to the day that you check out</p>
-</li>
-<li>
-<p><code>REMARK</code> must be less than 150 characters long</p>
-</li>
-</ul>
-</div>
+Refer to <a href="#accommodation-booking-management-command-parameters">Section 4.4.1 Trip Management Command Parameters</a> for more detail about each parameter.
 </td>
 </tr>
 </table>
@@ -2147,10 +2341,40 @@ This example means 30 September 2020 at 1:00 PM.</p>
 <p>Examples:</p>
 </div>
 <div class="paragraph">
-<p><code>editacc 2 startday/4 endday/6</code></p>
+<p>Let’s say you decided to change the accommodation booking you have input earlier to have a check in day of 4 and check out day of 6.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Editing the accommodation booking:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>editacc 2 startday/4 endday/6</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p>In the case that you want to change the start day and end day of the 2nd accommodation, you can use <code>editacc</code> command.</p>
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>*E.T.</strong> *will switch to the <em>Accommodation Tab</em>.</p>
+</li>
+<li>
+<p>You can now see all your accommodation bookings including the edited accommodation booking.</p>
+</li>
+</ol>
+</div>
+</div>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2158,23 +2382,11 @@ This example means 30 September 2020 at 1:00 PM.</p>
 </div>
 <div class="title">Figure 18. After edit accommodation booking command</div>
 </div>
-<div class="paragraph">
-<p><code>editacc 3 address/Hilton KL remark/Check-in at 2pm</code></p>
-</div>
-<div class="paragraph">
-<p>You can also use this command to change the third accommodation booking in the list to Hilton, set the location to KL and change the remark to check in at 2pm.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/user-guide/EditAccommodationBooking2.png" alt="EditAccommodationBooking2">
-</div>
-<div class="title">Figure 19. After edit accommodation booking command</div>
-</div>
 </div>
 <div class="sect3">
-<h4 id="delete-an-existing-accommodation-booking-code-deleteacc-code"><a class="link" href="#delete-an-existing-accommodation-booking-code-deleteacc-code">4.4.3. Delete an existing accommodation booking: <code>deleteacc</code></a></h4>
+<h4 id="delete-an-existing-accommodation-booking-code-deleteacc-code"><a class="link" href="#delete-an-existing-accommodation-booking-code-deleteacc-code">4.4.5. Delete an existing accommodation booking: <code>deleteacc</code></a></h4>
 <div class="paragraph">
-<p>Assuming you have another accommodation booking and plan to delete the previous one that you set on the same days, you can use this command to remove it.</p>
+<p>This command would delete the accommodation booking you have added earlier using the specified <code>INDEX</code></p>
 </div>
 <div class="paragraph">
 <p>Format: <code>deleteacc INDEX</code></p>
@@ -2186,7 +2398,7 @@ This example means 30 September 2020 at 1:00 PM.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<code>INDEX</code> refers to the index number shown in the displayed transport booking list. <code>INDEX</code> <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;
+Refer to <a href="#accommodation-booking-management-command-parameters">Section 4.4.1 Trip Management Command Parameters</a> for more detail about each parameter.
 </td>
 </tr>
 </table>
@@ -2195,34 +2407,63 @@ This example means 30 September 2020 at 1:00 PM.</p>
 <p>Examples:</p>
 </div>
 <div class="paragraph">
-<p><code>deleteacc 2</code></p>
+<p>Let’s say you decided to cancel on the accommodation booking that you have made earlier. The accommodation booking that you want to cancel is stored in <code>INDEX</code> 2 of <strong>E.T.</strong> , thus running the following command would delete the accommodation booking entry.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Deleting the activity:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>deleteactivity 1</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p>You can use <code>deleteacc</code> to delete the second accommodation booking.</p>
+<p>Outcome:</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/user-guide/DeleteAccommodationBooking.png" alt="DeleteAccommodationBooking">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>*E.T.</strong> *will switch to the <em>Accommodation Tab</em>.</p>
+</li>
+<li>
+<p>You can now see the deleted accommodation booking no longer exists.</p>
+</li>
+</ol>
 </div>
-<div class="title">Figure 20. After delete accommodation booking command</div>
+</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="clear-all-accommodation-bookings-code-clearacc-code"><a class="link" href="#clear-all-accommodation-bookings-code-clearacc-code">4.4.4. Clear all accommodation bookings: <code>clearacc</code></a></h4>
+<h4 id="sort-the-accommodation-booking-list-code-sortacc-code"><a class="link" href="#sort-the-accommodation-booking-list-code-sortacc-code">4.4.6. Sort the accommodation booking list: <code>sortacc</code></a></h4>
 <div class="paragraph">
-<p>If you want to remove all the accommodation bookings that you have made, this command will return an empty list for you to start working with again.</p>
+<p>You can use this command to sort the displayed list of accommodation bookings.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>clearacc</code></p>
+<p>Format: <code>sortacc CRITERIA ORDER</code></p>
 </div>
-<div class="admonitionblock important">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-important" title="Important"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-This command will remove all the accommodation bookings that is in your current list
+<div class="paragraph">
+<p><code>CRITERIA</code> refers to the criteria to sort the list of accommodation bookings by. It can take the following values: <code>name</code>, <code>location</code>, <code>day</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>ORDER</code> refers to the order to sort the list of accommodation bookings by. It can take the value of <code>ascending</code> or <code>asc</code> to sort in ascending order and <code>descending</code> or <code>des</code> to sort in descending order.</p>
+</div>
 </td>
 </tr>
 </table>
@@ -2230,19 +2471,89 @@ This command will remove all the accommodation bookings that is in your current 
 <div class="paragraph">
 <p>Example:</p>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>clearacc</pre>
+<div class="paragraph">
+<p>If you want to sort your list of accommodation bookings in ascending order of name, to help you in your planning, you can do the following.</p>
 </div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Sorting activities:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>sortacc name asc</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press Enter to execute.</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p>You can use <code>clearacc</code> to clear all accommodation bookings in the list</p>
+<p>Outcome:</p>
 </div>
-<div class="imageblock">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>*E.T.</strong> *will switch to the <em>Accommodation Tab</em>.</p>
+</li>
+<li>
+<p>You can see a list of sorted accommodation bookings being displayed.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clear-all-accommodation-bookings-code-clearacc-code"><a class="link" href="#clear-all-accommodation-bookings-code-clearacc-code">4.4.7. Clear all accommodation bookings: <code>clearacc</code></a></h4>
+<div class="paragraph">
+<p>This command allows you to clear all accommodation booking you have made previously.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>clearacc</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p>Let’s say you decided to delete all accommodation bookings you have created without deleting the trip. Running this command would clear all prior accommodation booking created and let you start on a clean slate.</p>
+</div>
+<div class="sidebarblock">
 <div class="content">
-<img src="images/user-guide/ClearAccommodationBooking.png" alt="ClearAccommodationBooking">
+<div class="paragraph">
+<p>Clearing the accommodation booking list:</p>
 </div>
-<div class="title">Figure 21. After clear accommodation booking command</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>clearacc</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>*E.T.</strong> *will switch to the <em>Accommodation Tab</em>.</p>
+</li>
+<li>
+<p>You can see that the list is now empty.</p>
+</li>
+</ol>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -2407,7 +2718,7 @@ This command will remove all the accommodation bookings that is in your current 
 <div class="content">
 <img src="images/user-guide/ListItem.png" alt="ListItem">
 </div>
-<div class="title">Figure 22. After the list item command</div>
+<div class="title">Figure 19. After the list item command</div>
 </div>
 </div>
 <div class="sect3">
@@ -2505,7 +2816,7 @@ This command will remove all the accommodation bookings that is in your current 
 <div class="content">
 <img src="images/user-guide/AddItem.png" alt="AddItem">
 </div>
-<div class="title">Figure 23. After add item command</div>
+<div class="title">Figure 20. After add item command</div>
 </div>
 </div>
 <div class="sect3">
@@ -2583,7 +2894,7 @@ This command will remove all the accommodation bookings that is in your current 
 <div class="content">
 <img src="images/user-guide/EditItem%201.png" alt="EditItem 1">
 </div>
-<div class="title">Figure 24. After edit item command</div>
+<div class="title">Figure 21. After edit item command</div>
 </div>
 <div class="paragraph">
 <p><code>edititem 5 item/boxer quantity/3 category/essentials</code><br></p>
@@ -2662,7 +2973,7 @@ This command will remove all the accommodation bookings that is in your current 
 <div class="content">
 <img src="images/user-guide/EditItem%202.png" alt="EditItem 2">
 </div>
-<div class="title">Figure 25. After edit item command</div>
+<div class="title">Figure 22. After edit item command</div>
 </div>
 </div>
 <div class="sect3">
@@ -2737,13 +3048,13 @@ This command will remove all the accommodation bookings that is in your current 
 <div class="content">
 <img src="images/user-guide/DeleteItem%201.png" alt="DeleteItem 1">
 </div>
-<div class="title">Figure 26. Before delete item command</div>
+<div class="title">Figure 23. Before delete item command</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/user-guide/DeleteItem%202.png" alt="DeleteItem 2">
 </div>
-<div class="title">Figure 27. After delete item command</div>
+<div class="title">Figure 24. After delete item command</div>
 </div>
 </div>
 <div class="sect3">
@@ -2833,13 +3144,13 @@ This command will remove all the accommodation bookings that is in your current 
 <div class="content">
 <img src="images/user-guide/CheckItem%202.png" alt="CheckItem 2">
 </div>
-<div class="title">Figure 28. After check item command part 1</div>
+<div class="title">Figure 25. After check item command part 1</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/user-guide/CheckItem%203.png" alt="CheckItem 3">
 </div>
-<div class="title">Figure 29. After check item command part 2</div>
+<div class="title">Figure 26. After check item command part 2</div>
 </div>
 </div>
 <div class="sect3">
@@ -2929,19 +3240,19 @@ This command will remove all the accommodation bookings that is in your current 
 <div class="content">
 <img src="images/user-guide/UncheckItem%202.png" alt="UncheckItem 2">
 </div>
-<div class="title">Figure 30. After uncheck item command part 1</div>
+<div class="title">Figure 27. After uncheck item command part 1</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/user-guide/UncheckItem%203.png" alt="UncheckItem 3">
 </div>
-<div class="title">Figure 31. After uncheck item command part 2</div>
+<div class="title">Figure 28. After uncheck item command part 2</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/user-guide/UncheckItem%204.png" alt="UncheckItem 4">
 </div>
-<div class="title">Figure 32. After uncheck item command part 3</div>
+<div class="title">Figure 29. After uncheck item command part 3</div>
 </div>
 </div>
 <div class="sect3">
@@ -3022,13 +3333,13 @@ This command will remove all the accommodation bookings that is in your current 
 <div class="content">
 <img src="images/user-guide/SortItem%201.png" alt="SortItem 1">
 </div>
-<div class="title">Figure 33. After sort item command part 1</div>
+<div class="title">Figure 30. After sort item command part 1</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/user-guide/SortItem%202.png" alt="SortItem 2">
 </div>
-<div class="title">Figure 34. After sort item command part 2</div>
+<div class="title">Figure 31. After sort item command part 2</div>
 </div>
 </div>
 <div class="sect3">
@@ -3115,7 +3426,7 @@ This command will remove all the accommodation bookings that is in your current 
 <div class="content">
 <img src="images/user-guide/FindItem.png" alt="FindItem">
 </div>
-<div class="title">Figure 35. After find item command</div>
+<div class="title">Figure 32. After find item command</div>
 </div>
 </div>
 <div class="sect3">
@@ -3202,7 +3513,7 @@ This command will remove all the accommodation bookings that is in your current 
 <div class="content">
 <img src="images/user-guide/FindItemCategory.png" alt="FindItemCategory">
 </div>
-<div class="title">Figure 36. After find item category command</div>
+<div class="title">Figure 33. After find item category command</div>
 </div>
 </div>
 <div class="sect3">
@@ -3259,7 +3570,7 @@ This command will remove all the accommodation bookings that is in your current 
 <div class="content">
 <img src="images/user-guide/ClearItem.png" alt="ClearItem">
 </div>
-<div class="title">Figure 37. After the clear item command</div>
+<div class="title">Figure 34. After the clear item command</div>
 </div>
 </div>
 <div class="sect3">
@@ -3344,7 +3655,7 @@ This command will remove all the accommodation bookings that is in your current 
 <div class="content">
 <img src="images/user-guide/AddPreset.png" alt="AddPreset">
 </div>
-<div class="title">Figure 38. After add preset command</div>
+<div class="title">Figure 35. After add preset command</div>
 </div>
 </div>
 <div class="sect3">
@@ -3423,7 +3734,7 @@ This command will remove all the accommodation bookings that is in your current 
 <div class="content">
 <img src="images/user-guide/ListPreset.png" alt="ListPreset">
 </div>
-<div class="title">Figure 39. After list preset command</div>
+<div class="title">Figure 36. After list preset command</div>
 </div>
 </div>
 </div>
@@ -3517,7 +3828,7 @@ Alternatively, you can click on the Fixed Expense tab highlighted in Figure 40.<
 <div class="content">
 <img src="images/user-guide/ListExpense.png" alt="ListExpense">
 </div>
-<div class="title">Figure 40. Accessing Fixed Expense Manager</div>
+<div class="title">Figure 37. Accessing Fixed Expense Manager</div>
 </div>
 <div class="paragraph">
 <p>After successfully entering the fixed expense manager, you will see the screen shown in Figure 41 below.</p>
@@ -3526,7 +3837,7 @@ Alternatively, you can click on the Fixed Expense tab highlighted in Figure 40.<
 <div class="content">
 <img src="images/user-guide/FixedExpenseManager.png" alt="FixedExpenseManager">
 </div>
-<div class="title">Figure 41. Fixed Expense Manager</div>
+<div class="title">Figure 38. Fixed Expense Manager</div>
 </div>
 <div class="paragraph">
 <p>Thereafter, you will be able to add and subsequently modify your fixed expenses.
@@ -3644,7 +3955,7 @@ field, the amount will be automatically converted to SGD using the exchange rate
 <div class="content">
 <img src="images/user-guide/AddFixedExpense.png" alt="AddFixedExpense">
 </div>
-<div class="title">Figure 42. After successfully adding a fixed expense</div>
+<div class="title">Figure 39. After successfully adding a fixed expense</div>
 </div>
 </div>
 <div class="sect4">
@@ -3781,7 +4092,7 @@ and SGD 1500 respectively.</p>
 <div class="content">
 <img src="images/user-guide/EditFixedExpense.png" alt="EditFixedExpense">
 </div>
-<div class="title">Figure 43. After successfully editing a fixed expense</div>
+<div class="title">Figure 40. After successfully editing a fixed expense</div>
 </div>
 </div>
 <div class="sect4">
@@ -3853,7 +4164,7 @@ and SGD 1500 respectively.</p>
 <div class="content">
 <img src="images/user-guide/DeleteFixedExpense.png" alt="DeleteFixedExpense">
 </div>
-<div class="title">Figure 44. After successfully deleting a fixed expense</div>
+<div class="title">Figure 41. After successfully deleting a fixed expense</div>
 </div>
 </div>
 <div class="sect4">
@@ -3908,7 +4219,7 @@ Instead of deleting every single Fixed Expense, you could clear the list.</p>
 <div class="content">
 <img src="images/user-guide/ClearFixedExpense.png" alt="ClearFixedExpense">
 </div>
-<div class="title">Figure 45. After successfully clearing all fixed expense</div>
+<div class="title">Figure 42. After successfully clearing all fixed expense</div>
 </div>
 </div>
 <div class="sect4">
@@ -3991,7 +4302,7 @@ In this example, we would be sorting the fixed expense according to the amount i
 <div class="content">
 <img src="images/user-guide/SortFixedExpense.png" alt="SortFixedExpense">
 </div>
-<div class="title">Figure 46. After successful sorting of fixed expense</div>
+<div class="title">Figure 43. After successful sorting of fixed expense</div>
 </div>
 </div>
 </div>
@@ -4351,4 +4662,4 @@ Recommend ways to save money on certain items.</p>
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 10:14:35 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 10:32:45 UTC</div></div></div></body></html>
