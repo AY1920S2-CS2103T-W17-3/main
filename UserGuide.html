@@ -2612,6 +2612,9 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <li>
 <p><strong>E.T.</strong> will automatically capitalise the first letter of the NAME. For example, if the user types in name/high heels, it will display “High Heels” in the packing list. However, it will not make the rest of the words in the name to lowercase.For example, if the user types in name/unDErwear, it will display “UnDErwear” in the packing list</p>
 </li>
+<li>
+<p>E.g. high heels</p>
+</li>
 </ul>
 </div></div></td>
 </tr>
@@ -2624,6 +2627,9 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <ul>
 <li>
 <p>It must be a positive integer 1,2,3… and up to 100000</p>
+</li>
+<li>
+<p>E.g. 5</p>
 </li>
 </ul>
 </div></div></td>
@@ -2647,6 +2653,9 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <li>
 <p>If it is not in the available presets (see section 4.5.13), then the default icon will be placed next to the packing list item’s name. Else, the category icon will be placed next to the packing list item’s name instead.</p>
 </li>
+<li>
+<p>E.g. essentials</p>
+</li>
 </ul>
 </div></div></td>
 </tr>
@@ -2659,6 +2668,9 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <ul>
 <li>
 <p>It must be a positive integer 1,2,3…</p>
+</li>
+<li>
+<p>E.g. 1</p>
 </li>
 </ul>
 </div></div></td>
@@ -2761,6 +2773,12 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <col style="width: 33.3333%;">
 <col style="width: 66.6667%;">
 </colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Packing List Item</th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>NAME</code></p></td>
@@ -2852,51 +2870,6 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <p>Examples:</p>
 </div>
 <div class="paragraph">
-<p><code>edititem 5 item/boxer</code><br></p>
-</div>
-<div class="paragraph">
-<p>Let’s say initially, the item at index 5 is underwear and you want to change it to boxer. You can follow these instructions:</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>Editing the packing list item:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Type <code>edititem 5 name/boxer</code> into the <em>Command Box</em>.</p>
-</li>
-<li>
-<p>Press <code>Enter</code> to execute.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>Outcome:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The <em>Result Display</em> will show a success message.</p>
-</li>
-<li>
-<p><strong>E.T.</strong> will switch to the <em>Packing List Tab</em>.</p>
-</li>
-<li>
-<p>You can now see your edited item.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/user-guide/EditItem%201.png" alt="EditItem 1">
-</div>
-<div class="title">Figure 21. After edit item command</div>
-</div>
-<div class="paragraph">
 <p><code>edititem 5 item/boxer quantity/3 category/essentials</code><br></p>
 </div>
 <div class="paragraph">
@@ -2911,8 +2884,8 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top"></th>
-<th class="tableblock halign-left valign-top">Initial</th>
-<th class="tableblock halign-left valign-top">Final</th>
+<th class="tableblock halign-left valign-top">Current</th>
+<th class="tableblock halign-left valign-top">Edited</th>
 </tr>
 </thead>
 <tbody>
@@ -2971,9 +2944,9 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/user-guide/EditItem%202.png" alt="EditItem 2">
+<img src="images/user-guide/EditItem.png" alt="EditItem">
 </div>
-<div class="title">Figure 22. After edit item command</div>
+<div class="title">Figure 21. After edit item command</div>
 </div>
 </div>
 <div class="sect3">
@@ -3048,13 +3021,13 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <div class="content">
 <img src="images/user-guide/DeleteItem%201.png" alt="DeleteItem 1">
 </div>
-<div class="title">Figure 23. Before delete item command</div>
+<div class="title">Figure 22. Before delete item command</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/user-guide/DeleteItem%202.png" alt="DeleteItem 2">
 </div>
-<div class="title">Figure 24. After delete item command</div>
+<div class="title">Figure 23. After delete item command</div>
 </div>
 </div>
 <div class="sect3">
@@ -3102,7 +3075,7 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <p>Examples:</p>
 </div>
 <div class="paragraph">
-<p><code>checkitem 1 3 5 6</code><br></p>
+<p><code>checkitem 1 3 14 17</code><br></p>
 </div>
 <div class="paragraph">
 <p>Let’s assume you want to mark the first, third, fifth and sixth items in the packing list as packed. You can follow these instructions.</p>
@@ -3115,7 +3088,7 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Type <code>checkitem 1 3 5 6</code> into the command box into the <em>Command Box</em>.</p>
+<p>Type <code>checkitem 1 3 14 17</code> into the command box into the <em>Command Box</em>.</p>
 </li>
 <li>
 <p>Press <code>Enter</code> to execute.</p>
@@ -3142,15 +3115,15 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/user-guide/CheckItem%202.png" alt="CheckItem 2">
+<img src="images/user-guide/CheckItem%201.png" alt="CheckItem 1">
 </div>
-<div class="title">Figure 25. After check item command part 1</div>
+<div class="title">Figure 24. After check item command part 1</div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/user-guide/CheckItem%203.png" alt="CheckItem 3">
+<img src="images/user-guide/CheckItem%202.png" alt="CheckItem 2">
 </div>
-<div class="title">Figure 26. After check item command part 2</div>
+<div class="title">Figure 25. After check item command part 2</div>
 </div>
 </div>
 <div class="sect3">
@@ -3186,7 +3159,7 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <p>If there is one invalid index given in the command, for example <code>uncheckitem 1 3 1000 5</code>, and 1000 is the invalid index, then the items at index 1, 3 and 5 will be marked as unpacked, but not 1000.</p>
 </li>
 <li>
-<p>However, if a negative index is given, such as   <code>uncheckitem 1 3 -2 5</code>, no matter the position of the negative index, the whole command will be deemed as invalid, and every item at the indicated indexes will remain as checked.</p>
+<p>However, if a negative index is given, such as <code>uncheckitem 1 3 -2 5</code>, no matter the position of the negative index, the whole command will be deemed as invalid, and every item at the indicated indexes will remain as checked.</p>
 </li>
 </ul>
 </div>
@@ -3238,21 +3211,21 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 </div>
 <div class="imageblock">
 <div class="content">
+<img src="images/user-guide/UncheckItem%201.png" alt="UncheckItem 1">
+</div>
+<div class="title">Figure 26. After uncheck item command part 1</div>
+</div>
+<div class="imageblock">
+<div class="content">
 <img src="images/user-guide/UncheckItem%202.png" alt="UncheckItem 2">
 </div>
-<div class="title">Figure 27. After uncheck item command part 1</div>
+<div class="title">Figure 27. After uncheck item command part 2</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/user-guide/UncheckItem%203.png" alt="UncheckItem 3">
 </div>
-<div class="title">Figure 28. After uncheck item command part 2</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/user-guide/UncheckItem%204.png" alt="UncheckItem 4">
-</div>
-<div class="title">Figure 29. After uncheck item command part 3</div>
+<div class="title">Figure 28. After uncheck item command part 3</div>
 </div>
 </div>
 <div class="sect3">
@@ -3304,7 +3277,7 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Type <code>sortitem asc criteria/alphabet</code> into the command box into the <em>Command Box</em>.</p>
+<p>Type <code>sortitem name asc</code> into the command box into the <em>Command Box</em>.</p>
 </li>
 <li>
 <p>Press <code>Enter</code> to execute.</p>
@@ -3333,13 +3306,13 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <div class="content">
 <img src="images/user-guide/SortItem%201.png" alt="SortItem 1">
 </div>
-<div class="title">Figure 30. After sort item command part 1</div>
+<div class="title">Figure 29. After sort item command part 1</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/user-guide/SortItem%202.png" alt="SortItem 2">
 </div>
-<div class="title">Figure 31. After sort item command part 2</div>
+<div class="title">Figure 30. After sort item command part 2</div>
 </div>
 </div>
 <div class="sect3">
@@ -3384,7 +3357,7 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <p>Examples:</p>
 </div>
 <div class="paragraph">
-<p><code>finditem shampoo hairbrush</code><br></p>
+<p><code>finditem shampoo dress</code><br></p>
 </div>
 <div class="paragraph">
 <p>Suppose you want to find items that contain either shampoo or dress in its name in the packing list. You can follow these instructions.</p>
@@ -3426,7 +3399,7 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <div class="content">
 <img src="images/user-guide/FindItem.png" alt="FindItem">
 </div>
-<div class="title">Figure 32. After find item command</div>
+<div class="title">Figure 31. After find item command</div>
 </div>
 </div>
 <div class="sect3">
@@ -3513,7 +3486,7 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <div class="content">
 <img src="images/user-guide/FindItemCategory.png" alt="FindItemCategory">
 </div>
-<div class="title">Figure 33. After find item category command</div>
+<div class="title">Figure 32. After find item category command</div>
 </div>
 </div>
 <div class="sect3">
@@ -3570,7 +3543,7 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <div class="content">
 <img src="images/user-guide/ClearItem.png" alt="ClearItem">
 </div>
-<div class="title">Figure 34. After the clear item command</div>
+<div class="title">Figure 33. After the clear item command</div>
 </div>
 </div>
 <div class="sect3">
@@ -3655,7 +3628,7 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <div class="content">
 <img src="images/user-guide/AddPreset.png" alt="AddPreset">
 </div>
-<div class="title">Figure 35. After add preset command</div>
+<div class="title">Figure 34. After add preset command</div>
 </div>
 </div>
 <div class="sect3">
@@ -3734,7 +3707,7 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <div class="content">
 <img src="images/user-guide/ListPreset.png" alt="ListPreset">
 </div>
-<div class="title">Figure 36. After list preset command</div>
+<div class="title">Figure 35. After list preset command</div>
 </div>
 </div>
 </div>
@@ -3828,7 +3801,7 @@ Alternatively, you can click on the Fixed Expense tab highlighted in Figure 40.<
 <div class="content">
 <img src="images/user-guide/ListExpense.png" alt="ListExpense">
 </div>
-<div class="title">Figure 37. Accessing Fixed Expense Manager</div>
+<div class="title">Figure 36. Accessing Fixed Expense Manager</div>
 </div>
 <div class="paragraph">
 <p>After successfully entering the fixed expense manager, you will see the screen shown in Figure 41 below.</p>
@@ -3837,7 +3810,7 @@ Alternatively, you can click on the Fixed Expense tab highlighted in Figure 40.<
 <div class="content">
 <img src="images/user-guide/FixedExpenseManager.png" alt="FixedExpenseManager">
 </div>
-<div class="title">Figure 38. Fixed Expense Manager</div>
+<div class="title">Figure 37. Fixed Expense Manager</div>
 </div>
 <div class="paragraph">
 <p>Thereafter, you will be able to add and subsequently modify your fixed expenses.
@@ -3955,7 +3928,7 @@ field, the amount will be automatically converted to SGD using the exchange rate
 <div class="content">
 <img src="images/user-guide/AddFixedExpense.png" alt="AddFixedExpense">
 </div>
-<div class="title">Figure 39. After successfully adding a fixed expense</div>
+<div class="title">Figure 38. After successfully adding a fixed expense</div>
 </div>
 </div>
 <div class="sect4">
@@ -4092,7 +4065,7 @@ and SGD 1500 respectively.</p>
 <div class="content">
 <img src="images/user-guide/EditFixedExpense.png" alt="EditFixedExpense">
 </div>
-<div class="title">Figure 40. After successfully editing a fixed expense</div>
+<div class="title">Figure 39. After successfully editing a fixed expense</div>
 </div>
 </div>
 <div class="sect4">
@@ -4164,7 +4137,7 @@ and SGD 1500 respectively.</p>
 <div class="content">
 <img src="images/user-guide/DeleteFixedExpense.png" alt="DeleteFixedExpense">
 </div>
-<div class="title">Figure 41. After successfully deleting a fixed expense</div>
+<div class="title">Figure 40. After successfully deleting a fixed expense</div>
 </div>
 </div>
 <div class="sect4">
@@ -4219,7 +4192,7 @@ Instead of deleting every single Fixed Expense, you could clear the list.</p>
 <div class="content">
 <img src="images/user-guide/ClearFixedExpense.png" alt="ClearFixedExpense">
 </div>
-<div class="title">Figure 42. After successfully clearing all fixed expense</div>
+<div class="title">Figure 41. After successfully clearing all fixed expense</div>
 </div>
 </div>
 <div class="sect4">
@@ -4302,7 +4275,7 @@ In this example, we would be sorting the fixed expense according to the amount i
 <div class="content">
 <img src="images/user-guide/SortFixedExpense.png" alt="SortFixedExpense">
 </div>
-<div class="title">Figure 43. After successful sorting of fixed expense</div>
+<div class="title">Figure 42. After successful sorting of fixed expense</div>
 </div>
 </div>
 </div>
@@ -4662,4 +4635,4 @@ Recommend ways to save money on certain items.</p>
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 10:49:48 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 11:02:08 UTC</div></div></div></body></html>
