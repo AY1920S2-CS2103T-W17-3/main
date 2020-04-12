@@ -24,22 +24,17 @@
 </ul>
 </li>
 <li><a href="#Features">4. <strong>Features</strong></a>
-<ul class="sectlevel2">
-<li><a href="#trip-planner">4.1. Trip Planner</a>
 <ul class="sectlevel3">
-<li><a href="#trip-management">4.1.1. Trip Management</a>
+<li><a href="#trip-management">4.1. Trip Management</a>
 <ul class="sectlevel4">
-<li><a href="#create-your-brand-new-trip-code-settrip-code">4.1.1.1. Create your brand new trip: <code>settrip</code></a></li>
-<li><a href="#rename-your-trip-code-rename-code">4.1.1.2. Rename your trip: <code>rename</code></a></li>
-<li><a href="#editing-your-trip-s-budget-code-editbudget-code">4.1.1.3. Editing your  trip’s budget: <code>editbudget</code></a></li>
-<li><a href="#delete-your-trip-code-deletetrip-code">4.1.1.4. Delete your trip: <code>deletetrip</code></a></li>
-</ul>
-</li>
-<li><a href="#scheduler-after-opening-a-trip">4.1.2. Scheduler (after opening a trip)</a>
-<ul class="sectlevel4">
-<li><a href="#check-how-prepared-you-are-code-status-code">4.1.2.1. Check how prepared you are: <code>status</code></a></li>
-</ul>
-</li>
+<li><a href="#trip-management-command-parameters">4.1.1. Trip Management Command Parameters</a></li>
+<li><a href="#set-a-new-trip">4.1.2. Set a new trip: <code>settrip</code></a></li>
+<li><a href="#rename-the-trip-code-rename-code">4.1.3. Rename the trip: <code>rename</code></a></li>
+<li><a href="#editing-the-trip-s-budget-code-editbudget-code">4.1.4. Editing the trip’s budget: <code>editbudget</code></a></li>
+<li><a href="#delete-the-current-trip-code-deletetrip-code">4.1.5. Delete the current trip: <code>deletetrip</code></a></li>
+<li><a href="#check-your-progress-code-status-code">4.1.6. Check your progress: <code>status</code></a></li>
+<li><a href="#scheduling-the-activity">4.1.7. Scheduling the activity</a></li>
+<li><a href="#view-all-itinerary-code-listschedule-code">4.1.8. View all itinerary: <code>listschedule</code></a></li>
 </ul>
 </li>
 <li><a href="#activity-management">4.2. Activity Management</a>
@@ -501,17 +496,7 @@ Words in the upper case are the parameters to be supplied by you.</p>
 <h2 id="Features"><a class="link" href="#Features">4. <strong>Features</strong></a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This section contains all the information you need to know about the features of E.T.. To use each feature or sub-feature, you will need to enter a command into the Command Box.</p>
-</div>
-<div class="sect2">
-<h3 id="trip-planner"><a class="link" href="#trip-planner">4.1. Trip Planner</a></h3>
-<div class="paragraph">
-<p>The main feature of the app. Handles all trip and activity management.</p>
-</div>
-<div class="sect3">
-<h4 id="trip-management"><a class="link" href="#trip-management">4.1.1. Trip Management</a></h4>
-<div class="paragraph">
-<p>This section contains the commands for the Trip Planner.</p>
+<p>This section contains all the information you need to know about the features of <strong>E.T.</strong>. To use each feature or sub-feature, you will need to enter the command into the <em>Command Box</em>.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -520,15 +505,85 @@ Words in the upper case are the parameters to be supplied by you.</p>
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-A trip is required to be set before other features are unlocked
+You are required to set a trip before other features are unlocked. <a href="#set-a-new-trip">See Section 4.1.2 Set a new trip</a>  to learn how to set a trip.
 </td>
 </tr>
 </table>
 </div>
-<div class="sect4">
-<h5 id="create-your-brand-new-trip-code-settrip-code"><a class="link" href="#create-your-brand-new-trip-code-settrip-code">4.1.1.1. Create your brand new trip: <code>settrip</code></a></h5>
+<div class="sect3">
+<h4 id="trip-management"><a class="link" href="#trip-management">4.1. Trip Management</a></h4>
 <div class="paragraph">
-<p>Format: <code>settrip title/TITLE start/START_DATE end/END_DATE budget/BUDGET exchangerate/EXCHANGERATE</code></p>
+<p>This feature allows you to manage your trip. You can record the following information about your trip:
+* Title
+* Budget
+* Exchange rate
+* Start date
+* End date</p>
+</div>
+<div class="sect4">
+<h5 id="trip-management-command-parameters"><a class="link" href="#trip-management-command-parameters">4.1.1. Trip Management Command Parameters</a></h5>
+<div class="paragraph">
+<p>Before you jump right into using this feature, you may want to learn about all the common command parameters used in this feature. The table below shows the list of common command parameters that will be used for this feature.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Parameter Name</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TITLE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The title of your trip.</p>
+<p class="tableblock">It must be alphanumeric words not more than 50 characters long.</p>
+<p class="tableblock">E.g. <code>Graduation Trip</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BUDGET</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The budget of your trip.</p>
+<p class="tableblock">It must be a whole number not more than 1 000 000 000.</p>
+<p class="tableblock">E.g. <code>5000</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>EXCHANGE_RATE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The exchange rate for your country of visit.</p>
+<p class="tableblock">It must be a number greater than 0 and not more than 100.</p>
+<p class="tableblock">E.g. <code>76.3</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>START_DATE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The starting date of your trip.</p>
+<p class="tableblock">It must be in the format of <code>dd-MM-yyyy HH:mm</code>.
+It must not be later than the <code>END_DATE</code>.</p>
+<p class="tableblock">E.g. <code>28-09-2020</code>
+This example means 28 September 2020.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>END_DATE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ending date of your trip.</p>
+<p class="tableblock">It must be in the format of <code>dd-MM-yyyy HH:mm</code>.
+It must not be earlier than the START_DATE.</p>
+<p class="tableblock">E.g. <code>05-10-2020</code>
+This example means <code>05 October 2020</code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="set-a-new-trip"><a class="link" href="#set-a-new-trip">4.1.2. Set a new trip: <code>settrip</code></a></h5>
+<div class="paragraph">
+<p>You can use this command to set a new trip that you want to plan for.</p>
+</div>
+<div class="paragraph">
+<p><strong>Format:</strong></p>
+</div>
+<div class="paragraph">
+<p><code>settrip title/TITLE budget/BUDGET exchangerate/EXCHANGE_RATE startdate/START_DATE enddate/END_DATE</code></p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -537,52 +592,48 @@ A trip is required to be set before other features are unlocked
 <i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>There must not be a pre-existing trip set.</p>
-</li>
-<li>
-<p>Start and end dates must be a valid date.</p>
-</li>
-<li>
-<p>Title cannot exceed 50 characters.</p>
-</li>
-<li>
-<p>Trip must be within 30 days</p>
-</li>
-<li>
-<p>Budget must be a valid positive Integer from 0 to 1,000,000</p>
-</li>
-<li>
-<p>Exchange Rate must be a valid positive double from 0 to 100.</p>
-</li>
-<li>
-<p>Date must include the departure and arrival date.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>Refer to <a href="#trip-management-command-parameters">Section 4.1.1 Trip Management Command Parameters</a> for more detail about each parameter.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Let’s say you have an upcoming Graduation Trip and you are planning for it. You can execute a command as shown in the example below:</p>
+<p><strong>Example:</strong></p>
 </div>
 <div class="paragraph">
-<p><code>settrip title/Graduation Trip start/28-09-2020 end/28-10-2020 budget/5000 exchangerate/1.03</code></p>
+<p>If you are all ready to start planning for your trip and you want to set a trip to get started, follow these steps below. You will learn how to set a graduation trip that starts on <strong>28 September 2020</strong> and ends on <strong>5 October 2020</strong> with a budget of <strong>$5000</strong> and an exchange rate of <strong>76.7</strong>.</p>
 </div>
 <div class="paragraph">
-<p>This would create a trip titled “Graduation trip” with a start day of 28 September 2020 to 28 October 2020. The budget set is $5000 with the exchangerate of 1.03</p>
+<p>Setting a new trip:</p>
 </div>
-<div class="paragraph">
-<p>After successfully setting a trip, you would see as shown in figure X below.</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>settrip title/Graduation Trip budget/5000 exchangerate/76.6 startdate/28-09-2020 enddate/05-10-2020</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.
+Outcome:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p>You can now see your trip information on the <em>Trip Information Panel</em>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/user-guide/SetTrip.png" alt="SetTrip">
 </div>
-<div class="title">Figure 3. Message after successfully setting a trip</div>
+<div class="title">Figure 3. Outcome of a successful settrip command</div>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -598,40 +649,77 @@ Ensure that your date is correct as E.T. does not allow editing of dates once se
 </div>
 </div>
 <div class="sect4">
-<h5 id="rename-your-trip-code-rename-code"><a class="link" href="#rename-your-trip-code-rename-code">4.1.1.2. Rename your trip: <code>rename</code></a></h5>
+<h5 id="rename-the-trip-code-rename-code"><a class="link" href="#rename-the-trip-code-rename-code">4.1.3. Rename the trip: <code>rename</code></a></h5>
 <div class="paragraph">
-<p>Assume that you have accidentally titled the trip wrongly, you can execute the rename command to reverse any damages done as shown below</p>
+<p>You can use this command to change the title of the trip.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>rename TITLE</code></p>
+<p><strong>Format: </strong></p>
 </div>
 <div class="paragraph">
-<p>Example:</p>
+<p><code>rename TITLE</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Refer to <a href="#trip-management-command-parameters">Section 4.1.1 Trip Management Command Parameters</a> for more detail about each parameter.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p><code>rename Not a graduation trip.</code></p>
+<p><strong>Example:</strong></p>
 </div>
 <div class="paragraph">
-<p>This changes the name of the trip to “Not a graduation trip” as shown in the figure below.</p>
+<p>Assume that you have accidentally titled the trip wrongly to <strong>Craduation Trip</strong> instead of <strong>Graduation Trip</strong>, you can do the following steps.</p>
 </div>
 <div class="paragraph">
-<p>Expected output:
-<code>Trip has been named: Not a graduation trip</code></p>
+<p>Renaming the trip:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type rename <code>Graduation Trip</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.
+Outcome:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p>You can now see your updated trip title on the <em>Trip Information Panel</em>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/user-guide/RenameTrip.png" alt="RenameTrip">
 </div>
-<div class="title">Figure 4. After renaming the trip</div>
+<div class="title">Figure 4. Outcome of a successful rename</div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="editing-your-trip-s-budget-code-editbudget-code"><a class="link" href="#editing-your-trip-s-budget-code-editbudget-code">4.1.1.3. Editing your  trip’s budget: <code>editbudget</code></a></h5>
+<h5 id="editing-the-trip-s-budget-code-editbudget-code"><a class="link" href="#editing-the-trip-s-budget-code-editbudget-code">4.1.4. Editing the trip’s budget: <code>editbudget</code></a></h5>
 <div class="paragraph">
-<p>Let’s say after planning your expenses, you realised that you would want to change the amount of money used for the trip. Using the editbudget command, you can edit the overall budget for your trip</p>
+<p>You can use this command to change the budget of the trip.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>editbudget AMOUNT</code></p>
+<p><strong>Format:</strong></p>
+</div>
+<div class="paragraph">
+<p><code>editbudget AMOUNT</code></p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -643,10 +731,10 @@ Ensure that your date is correct as E.T. does not allow editing of dates once se
 <div class="ulist">
 <ul>
 <li>
-<p>There must be a pre-existing trip set.</p>
+<p>The new amount set cannot be lower than your total expenses.</p>
 </li>
 <li>
-<p>The budget set must not be lesser than your total expenses.</p>
+<p>Refer to <a href="#trip-management-command-parameters">Section 4.1.1 Trip Management Command Parameters</a> for more detail about each parameter.</p>
 </li>
 </ul>
 </div>
@@ -655,54 +743,162 @@ Ensure that your date is correct as E.T. does not allow editing of dates once se
 </table>
 </div>
 <div class="paragraph">
-<p>For example, we want to decrease the budget for this trip from $5000 to $3000.</p>
+<p><strong>Example: </strong></p>
 </div>
 <div class="paragraph">
-<p>Example:</p>
+<p>Let’s say after planning your expenses, you realised that you would want to increase your budget to $6000. Follow the following steps to do that.</p>
 </div>
 <div class="paragraph">
-<p><code>editbudget 3000</code></p>
+<p>Editing the trip budget:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>editbudget 6000</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p>E.T. will reflect the new budget in the trip info as shown in the figure below.</p>
+<p>Outcome:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p>You can now see your updated trip budget on the <em>Trip Information Panel</em>.</p>
+</li>
+</ul>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/user-guide/EditBudget.png" alt="EditBudget">
 </div>
-<div class="title">Figure 5. After editing budget to 3000</div>
+<div class="title">Figure 5. Outcome of a successful editbudget</div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="delete-your-trip-code-deletetrip-code"><a class="link" href="#delete-your-trip-code-deletetrip-code">4.1.1.4. Delete your trip: <code>deletetrip</code></a></h5>
+<h5 id="delete-the-current-trip-code-deletetrip-code"><a class="link" href="#delete-the-current-trip-code-deletetrip-code">4.1.5. Delete the current trip: <code>deletetrip</code></a></h5>
 <div class="paragraph">
-<p>Assuming that you have finished with your trip and would like to start planning for a new one, executing the deletetrip command would remove all traces of your previous trip and set a new clean space for you to start planning for the next one.</p>
+<p>You can use this command to delete the current trip.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Deleting the trip will clear all your data from the app! Think twice before you do so.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>Format: <code>deletetrip</code></p>
+<p><strong>Format:</strong></p>
 </div>
 <div class="paragraph">
-<p>Example:
-<code>deletetrip</code></p>
+<p><code>deletetrip</code></p>
 </div>
 <div class="paragraph">
-<p>Expected output:
-<code>Trip has been deleted. All lists have been cleared!</code></p>
+<p><strong>Example:</strong></p>
 </div>
 <div class="paragraph">
-<p>Deleting the trip would result in E.T. showing an empty screen as shown in figure 3. Execute the settrip to start another trip.</p>
+<p>Assuming that you have finished planning for your trip and would like to start planning for a new one, follow these steps.</p>
+</div>
+<div class="paragraph">
+<p>Deleting the current trip:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>deletetrip</code> into the <em>Command Box.</em></p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:
+* The <em>Result Display</em> will show a success message.
+* You can now see that no trip is set on the <em>Trip Information Panel</em>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/user-guide/deletetrip.png" alt="deletetrip">
+</div>
+<div class="title">Figure 6. Outcome of a successful deletetrip command</div>
 </div>
 </div>
+<div class="sect4">
+<h5 id="check-your-progress-code-status-code"><a class="link" href="#check-your-progress-code-status-code">4.1.6. Check your progress: <code>status</code></a></h5>
+<div class="paragraph">
+<p>You can use this command to check the progress of your planning. This command will open a window which shows you the following information:</p>
 </div>
-<div class="sect3">
-<h4 id="scheduler-after-opening-a-trip"><a class="link" href="#scheduler-after-opening-a-trip">4.1.2. Scheduler (after opening a trip)</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Schedule - If there are any overlapping programs.</p>
+</li>
+<li>
+<p>Packing list - Number of items packed and left to pack.</p>
+</li>
+<li>
+<p>Expense - Remaining budget.</p>
+</li>
+<li>
+<p>Accommodation - The nights without accommodation bookings.
+<strong>Format:</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>status</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong>
+If you are planning for your trip halfway and feel lost, you can check your progress using the following steps. It can remind you of what you have to do next.</p>
+</div>
+<div class="paragraph">
+<p>Deleting the current trip:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>status</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:
+* The <em>Result Display</em> will show the message “Progress checker window is opened.”.
+* You will now see the following window.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/user-guide/status.png" alt="status">
+</div>
+<div class="title">Figure 7. Progress checker window</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="scheduling-the-activity"><a class="link" href="#scheduling-the-activity">4.1.7. Scheduling the activity</a></h5>
 <div class="paragraph">
 <p>Allow users to manage the activities in the trip</p>
 </div>
+</div>
 <div class="sect4">
-<h5 id="check-how-prepared-you-are-code-status-code"><a class="link" href="#check-how-prepared-you-are-code-status-code">4.1.2.1. Check how prepared you are: <code>status</code></a></h5>
+<h5 id="view-all-itinerary-code-listschedule-code"><a class="link" href="#view-all-itinerary-code-listschedule-code">4.1.8. View all itinerary: <code>listschedule</code></a></h5>
 <div class="paragraph">
-<p>Assume you are not sure if you have already fully prepared for the trip, using the status command would confirm any fears and doubts about your preparation as well as warn you if you have any forgotten item that is not taken care of.</p>
+<p>Shows you the entire itinerary.</p>
 </div>
 <div class="paragraph">
 <p>Using the status command would create a pop-up window as shown in figure 4.</p>
@@ -711,7 +907,7 @@ Ensure that your date is correct as E.T. does not allow editing of dates once se
 <div class="content">
 <img src="images/user-guide/Status.png" alt="Status">
 </div>
-<div class="title">Figure 6. The pop-up after using status command</div>
+<div class="title">Figure 8. The pop-up after using status command</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -742,7 +938,6 @@ Ensure that your date is correct as E.T. does not allow editing of dates once se
 </td>
 </tr>
 </table>
-</div>
 </div>
 </div>
 </div>
@@ -954,7 +1149,7 @@ Ensure that your date is correct as E.T. does not allow editing of dates once se
 <div class="content">
 <img src="images/user-guide/addactivity.png" alt="addactivity">
 </div>
-<div class="title">Figure 7. Outcome of a successful addactivity command</div>
+<div class="title">Figure 9. Outcome of a successful addactivity command</div>
 </div>
 </div>
 <div class="sect3">
@@ -1037,7 +1232,7 @@ Ensure that your date is correct as E.T. does not allow editing of dates once se
 <div class="content">
 <img src="images/user-guide/editactivity.png" alt="editactivity">
 </div>
-<div class="title">Figure 8. Outcome of a successful editactivity command</div>
+<div class="title">Figure 10. Outcome of a successful editactivity command</div>
 </div>
 </div>
 <div class="sect3">
@@ -1241,7 +1436,7 @@ Ensure that your date is correct as E.T. does not allow editing of dates once se
 <div class="content">
 <img src="images/user-guide/FindActivity.png" alt="FindActivity">
 </div>
-<div class="title">Figure 9. Outcome of a successful findactivity command</div>
+<div class="title">Figure 11. Outcome of a successful findactivity command</div>
 </div>
 </div>
 <div class="sect3">
@@ -1367,7 +1562,7 @@ Ensure that your date is correct as E.T. does not allow editing of dates once se
 <div class="content">
 <img src="images/user-guide/AddTransportBooking.png" alt="AddTransportBooking">
 </div>
-<div class="title">Figure 10. After add transport booking command</div>
+<div class="title">Figure 12. After add transport booking command</div>
 </div>
 </div>
 <div class="sect3">
@@ -1421,7 +1616,7 @@ Ensure that your date is correct as E.T. does not allow editing of dates once se
 <div class="content">
 <img src="images/user-guide/EditTransportBooking.png" alt="EditTransportBooking">
 </div>
-<div class="title">Figure 11. After edit transport booking command</div>
+<div class="title">Figure 13. After edit transport booking command</div>
 </div>
 <div class="paragraph">
 <p><code>edittransport 4 mode/plane endloc/Italy</code></p>
@@ -1433,7 +1628,7 @@ Ensure that your date is correct as E.T. does not allow editing of dates once se
 <div class="content">
 <img src="images/user-guide/EditTransportBooking2.png" alt="EditTransportBooking2">
 </div>
-<div class="title">Figure 12. After edit transport booking command</div>
+<div class="title">Figure 14. After edit transport booking command</div>
 </div>
 </div>
 <div class="sect3">
@@ -1469,7 +1664,7 @@ Ensure that your date is correct as E.T. does not allow editing of dates once se
 <div class="content">
 <img src="images/user-guide/DeleteTransportBooking.png" alt="DeleteTransportBooking">
 </div>
-<div class="title">Figure 13. After delete transport booking command</div>
+<div class="title">Figure 15. After delete transport booking command</div>
 </div>
 </div>
 <div class="sect3">
@@ -1507,7 +1702,7 @@ This command will remove all the transportation booking that is in your current 
 <div class="content">
 <img src="images/user-guide/ClearTransportBooking.png" alt="ClearTransportBooking">
 </div>
-<div class="title">Figure 14. After edit transport booking command</div>
+<div class="title">Figure 16. After edit transport booking command</div>
 </div>
 </div>
 </div>
@@ -1567,7 +1762,7 @@ This command will remove all the transportation booking that is in your current 
 <div class="content">
 <img src="images/user-guide/AddAccommodationBooking.png" alt="AddAccommodationBooking">
 </div>
-<div class="title">Figure 15. After add accommodation booking command</div>
+<div class="title">Figure 17. After add accommodation booking command</div>
 </div>
 </div>
 <div class="sect3">
@@ -1624,7 +1819,7 @@ This command will remove all the transportation booking that is in your current 
 <div class="content">
 <img src="images/user-guide/EditAccommodationBooking.png" alt="EditAccommodationBooking">
 </div>
-<div class="title">Figure 16. After edit accommodation booking command</div>
+<div class="title">Figure 18. After edit accommodation booking command</div>
 </div>
 <div class="paragraph">
 <p><code>editacc 3 address/Hilton KL remark/Check-in at 2pm</code></p>
@@ -1636,7 +1831,7 @@ This command will remove all the transportation booking that is in your current 
 <div class="content">
 <img src="images/user-guide/EditAccommodationBooking2.png" alt="EditAccommodationBooking2">
 </div>
-<div class="title">Figure 17. After edit accommodation booking command</div>
+<div class="title">Figure 19. After edit accommodation booking command</div>
 </div>
 </div>
 <div class="sect3">
@@ -1672,7 +1867,7 @@ This command will remove all the transportation booking that is in your current 
 <div class="content">
 <img src="images/user-guide/DeleteAccommodationBooking.png" alt="DeleteAccommodationBooking">
 </div>
-<div class="title">Figure 18. After delete accommodation booking command</div>
+<div class="title">Figure 20. After delete accommodation booking command</div>
 </div>
 </div>
 <div class="sect3">
@@ -1710,7 +1905,7 @@ This command will remove all the accommodation bookings that is in your current 
 <div class="content">
 <img src="images/user-guide/ClearAccommodationBooking.png" alt="ClearAccommodationBooking">
 </div>
-<div class="title">Figure 19. After clear accommodation booking command</div>
+<div class="title">Figure 21. After clear accommodation booking command</div>
 </div>
 </div>
 </div>
@@ -1862,7 +2057,7 @@ This command will remove all the accommodation bookings that is in your current 
 <div class="content">
 <img src="images/user-guide/ListItem.png" alt="ListItem">
 </div>
-<div class="title">Figure 20. After the list item command</div>
+<div class="title">Figure 22. After the list item command</div>
 </div>
 </div>
 <div class="sect3">
@@ -1960,7 +2155,7 @@ This command will remove all the accommodation bookings that is in your current 
 <div class="content">
 <img src="images/user-guide/AddItem.png" alt="AddItem">
 </div>
-<div class="title">Figure 21. After add item command</div>
+<div class="title">Figure 23. After add item command</div>
 </div>
 </div>
 <div class="sect3">
@@ -2038,7 +2233,7 @@ This command will remove all the accommodation bookings that is in your current 
 <div class="content">
 <img src="images/user-guide/EditItem%201.png" alt="EditItem 1">
 </div>
-<div class="title">Figure 22. After edit item command</div>
+<div class="title">Figure 24. After edit item command</div>
 </div>
 <div class="paragraph">
 <p><code>edititem 5 item/boxer quantity/3 category/essentials</code><br></p>
@@ -2117,7 +2312,7 @@ This command will remove all the accommodation bookings that is in your current 
 <div class="content">
 <img src="images/user-guide/EditItem%202.png" alt="EditItem 2">
 </div>
-<div class="title">Figure 23. After edit item command</div>
+<div class="title">Figure 25. After edit item command</div>
 </div>
 </div>
 <div class="sect3">
@@ -2192,13 +2387,13 @@ This command will remove all the accommodation bookings that is in your current 
 <div class="content">
 <img src="images/user-guide/DeleteItem%201.png" alt="DeleteItem 1">
 </div>
-<div class="title">Figure 24. Before delete item command</div>
+<div class="title">Figure 26. Before delete item command</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/user-guide/DeleteItem%202.png" alt="DeleteItem 2">
 </div>
-<div class="title">Figure 25. After delete item command</div>
+<div class="title">Figure 27. After delete item command</div>
 </div>
 </div>
 <div class="sect3">
@@ -2288,13 +2483,13 @@ This command will remove all the accommodation bookings that is in your current 
 <div class="content">
 <img src="images/user-guide/CheckItem%202.png" alt="CheckItem 2">
 </div>
-<div class="title">Figure 26. After check item command part 1</div>
+<div class="title">Figure 28. After check item command part 1</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/user-guide/CheckItem%203.png" alt="CheckItem 3">
 </div>
-<div class="title">Figure 27. After check item command part 2</div>
+<div class="title">Figure 29. After check item command part 2</div>
 </div>
 </div>
 <div class="sect3">
@@ -2384,19 +2579,19 @@ This command will remove all the accommodation bookings that is in your current 
 <div class="content">
 <img src="images/user-guide/UncheckItem%202.png" alt="UncheckItem 2">
 </div>
-<div class="title">Figure 28. After uncheck item command part 1</div>
+<div class="title">Figure 30. After uncheck item command part 1</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/user-guide/UncheckItem%203.png" alt="UncheckItem 3">
 </div>
-<div class="title">Figure 29. After uncheck item command part 2</div>
+<div class="title">Figure 31. After uncheck item command part 2</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/user-guide/UncheckItem%204.png" alt="UncheckItem 4">
 </div>
-<div class="title">Figure 30. After uncheck item command part 3</div>
+<div class="title">Figure 32. After uncheck item command part 3</div>
 </div>
 </div>
 <div class="sect3">
@@ -2477,13 +2672,13 @@ This command will remove all the accommodation bookings that is in your current 
 <div class="content">
 <img src="images/user-guide/SortItem%201.png" alt="SortItem 1">
 </div>
-<div class="title">Figure 31. After sort item command part 1</div>
+<div class="title">Figure 33. After sort item command part 1</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/user-guide/SortItem%202.png" alt="SortItem 2">
 </div>
-<div class="title">Figure 32. After sort item command part 2</div>
+<div class="title">Figure 34. After sort item command part 2</div>
 </div>
 </div>
 <div class="sect3">
@@ -2570,7 +2765,7 @@ This command will remove all the accommodation bookings that is in your current 
 <div class="content">
 <img src="images/user-guide/FindItem.png" alt="FindItem">
 </div>
-<div class="title">Figure 33. After find item command</div>
+<div class="title">Figure 35. After find item command</div>
 </div>
 </div>
 <div class="sect3">
@@ -2654,7 +2849,7 @@ This command will remove all the accommodation bookings that is in your current 
 <div class="content">
 <img src="images/user-guide/FindItemCategory.png" alt="FindItemCategory">
 </div>
-<div class="title">Figure 34. After find item category command</div>
+<div class="title">Figure 36. After find item category command</div>
 </div>
 </div>
 <div class="sect3">
@@ -2711,7 +2906,7 @@ This command will remove all the accommodation bookings that is in your current 
 <div class="content">
 <img src="images/user-guide/ClearItem.png" alt="ClearItem">
 </div>
-<div class="title">Figure 35. After the clear item command</div>
+<div class="title">Figure 37. After the clear item command</div>
 </div>
 </div>
 <div class="sect3">
@@ -2796,7 +2991,7 @@ This command will remove all the accommodation bookings that is in your current 
 <div class="content">
 <img src="images/user-guide/AddPreset.png" alt="AddPreset">
 </div>
-<div class="title">Figure 36. After add preset command</div>
+<div class="title">Figure 38. After add preset command</div>
 </div>
 </div>
 <div class="sect3">
@@ -2875,7 +3070,7 @@ This command will remove all the accommodation bookings that is in your current 
 <div class="content">
 <img src="images/user-guide/ListPreset.png" alt="ListPreset">
 </div>
-<div class="title">Figure 37. After list preset command</div>
+<div class="title">Figure 39. After list preset command</div>
 </div>
 </div>
 </div>
@@ -2986,7 +3181,7 @@ Your budget left is now 3500</code></p>
 <div class="content">
 <img src="images/user-guide/AddFixedExpense.png" alt="AddFixedExpense">
 </div>
-<div class="title">Figure 38. After successfully adding a fixed expense</div>
+<div class="title">Figure 40. After successfully adding a fixed expense</div>
 </div>
 </div>
 <div class="sect4">
@@ -3063,7 +3258,7 @@ Your current budget left is 5000</code></p>
 <div class="content">
 <img src="images/user-guide/EditFixedExpense.png" alt="EditFixedExpense">
 </div>
-<div class="title">Figure 39. After successfully editing a fixed expense</div>
+<div class="title">Figure 41. After successfully editing a fixed expense</div>
 </div>
 </div>
 <div class="sect4">
@@ -3110,7 +3305,7 @@ Your remaining budget is 3500</code></p>
 <div class="content">
 <img src="images/user-guide/DeleteFixedExpense.png" alt="DeleteFixedExpense">
 </div>
-<div class="title">Figure 40. After successfully deleting a fixed expense</div>
+<div class="title">Figure 42. After successfully deleting a fixed expense</div>
 </div>
 </div>
 <div class="sect4">
@@ -3138,7 +3333,7 @@ Clears the fixed expense in the list</p>
 <div class="content">
 <img src="images/user-guide/ClearFixedExpense.png" alt="ClearFixedExpense">
 </div>
-<div class="title">Figure 41. After successfully clearing all fixed expense</div>
+<div class="title">Figure 43. After successfully clearing all fixed expense</div>
 </div>
 </div>
 <div class="sect4">
@@ -3204,7 +3399,7 @@ Sorts all fixed expense in lexicographical order.</p>
 <div class="content">
 <img src="images/user-guide/SortFixedExpense.png" alt="SortFixedExpense">
 </div>
-<div class="title">Figure 42. After successful sorting of fixed expense</div>
+<div class="title">Figure 44. After successful sorting of fixed expense</div>
 </div>
 </div>
 </div>
@@ -3559,4 +3754,4 @@ description/DESCRIPTION category/CATEGORY</code></p></td>
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 05:13:28 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 05:18:50 UTC</div></div></div></body></html>
