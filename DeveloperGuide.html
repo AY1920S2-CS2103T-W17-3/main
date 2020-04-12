@@ -1371,7 +1371,7 @@ Combine both option 1 and 2</p></td>
 <div class="title">Figure 23. Workflow of the <code>addexpense</code> command..</div>
 </div>
 <div class="paragraph">
-<p>When a user enters the <code>addexpense</code> command, the <code>Logic</code> Component parses the user input and creates an <code>AddExpeseCommand</code> object. <a href="#logic-component">(See Section 2.3 Logic Component)</a></p>
+<p>When a user enters the <code>addexpense</code> command, the <code>Logic</code> Component parses the user input and creates an <code>AddExpenseCommand</code> object. <a href="#logic-component">(See Section 2.3 Logic Component)</a></p>
 </div>
 <div class="paragraph">
 <p>The following steps describes the execution of the AddFixedExpenseCommand:</p>
@@ -1379,7 +1379,7 @@ Combine both option 1 and 2</p></td>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>When <code>execute()</code> of the <code>AddExpeseCommand</code> is called, the current exchange rate is obtained from <code>TripManager</code> through <code>ModelManager</code>.</p>
+<p>When <code>execute()</code> of the <code>AddExpenseCommand</code> is called, the current exchange rate is obtained from <code>TripManager</code> through <code>ModelManager</code>.</p>
 </li>
 <li>
 <p>A new <code>FixedExpense</code> object is created. The amount will be converted to SGD if it is in foreign currency.</p>
@@ -1402,7 +1402,7 @@ Combine both option 1 and 2</p></td>
 </ol>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram describes the execution of the <code>AddExpeseCommand</code> when its <code>execute()</code> method is called.</p>
+<p>The following sequence diagram describes the execution of the <code>AddExpenseCommand</code> when its <code>execute()</code> method is called.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2077,10 +2077,6 @@ Extensions:
 <dd>
 <p>is a software platform for creating and delivering desktop applications, as well as rich Internet applications (RIAs) that can run across a wide variety of devices.</p>
 </dd>
-<dt class="hdlist1"><a id="java-script-object"></a> JavaScript Object Notation</dt>
-<dd>
-<p>A lightweight data-interchange format which is easily readable and writable.</p>
-</dd>
 <dt class="hdlist1"><a id="json"></a> JavaScript Object Notation</dt>
 <dd>
 <p>A lightweight data-interchange format which is easily readable and writable.</p>
@@ -2586,4 +2582,4 @@ Test case: <code>addactivity title/Osaka Castle View duration/1 location/Osaka t
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 05:41:10 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 07:03:01 UTC</div></div></div></body></html>
