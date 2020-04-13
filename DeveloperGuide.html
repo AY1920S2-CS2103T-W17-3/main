@@ -1341,16 +1341,17 @@ Combine both option 1 and 2</p></td>
 <div class="sect2">
 <h3 id="fixed-expense-manager"><a class="link" href="#fixed-expense-manager">3.8. Fixed Expense Manager</a></h3>
 <div class="paragraph">
+<p>(Contributed by Joshua Lay)</p>
+</div>
+<div class="paragraph">
 <p><strong>E.T.</strong> allows the user to keep track of their fixed expenses for his/her trip. The fixed expense manager is one of the <code>ListManager</code>s (See <a href="#List-Manager">[List-Manager]</a>). On top of the basic operations provided by a <code>ListManager</code>, it also allows the user to set a budget for the trip and automatically converts any fixed expenses entered in foreign currency into Singapore Dollars (SGD).</p>
 </div>
 <div class="sect3">
 <h4 id="rationale-8"><a class="link" href="#rationale-8">3.8.1. Rationale</a></h4>
 <div class="paragraph">
-<p>The fixed expense manager is an important feature to have because many travellers would want to manage their expense for an overseas trip. We also found out that most accommodations are commonly charged in a foreign currency instead of SGD. This prevented travelers from having a clearer picture of how much they have spent on these big ticket items before their trip. Thus, we decided to create a transport booking manager as one of the <code>ListManager</code>s with an automatic conversion feature.</p>
+<p>The fixed expense manager is an important feature to have because many travellers would want to manage their expense for an overseas trip. We also found out that most accommodations are commonly charged in a foreign currency instead of SGD. This prevented travelers from having a clearer picture of how much they have spent on these big ticket items before their trip. Thus, we decided to create a transport booking manager as one of the <code>ListManager</code>s with an automatic conversion feature.
+==== Current Implementation</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">3.8.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Currently, the information on the trip’s budget and the exchange rate is stored as fields in the <code>Trip</code> class which is managed by the <code>TripManager</code>. All fixed expenses, on the other hand, is managed by the <code>FixedExpenseManager</code>.</p>
 </div>
@@ -1431,7 +1432,7 @@ Combine both option 1 and 2</p></td>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-7"><a class="link" href="#design-consideration-7">3.8.3. Design Consideration</a></h4>
+<h4 id="design-consideration-7"><a class="link" href="#design-consideration-7">3.8.2. Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect-which-class-to-store-the-trip-s-budget-and-fixed-expense"><a class="link" href="#aspect-which-class-to-store-the-trip-s-budget-and-fixed-expense">Aspect: Which class to store the trip’s budget and fixed expense</a></h5>
 <table class="tableblock frame-all grid-all spread">
@@ -1482,6 +1483,9 @@ Easy to access and manipulate budget and exchange rate data. Especially when cal
 <div class="sect2">
 <h3 id="progress-checker"><a class="link" href="#progress-checker">3.9. Progress Checker</a></h3>
 <div class="paragraph">
+<p>(Contributed by Joshua Lay)</p>
+</div>
+<div class="paragraph">
 <p>This feature allows the user to keep track of the progress of his/her planning. It integrates multiple features to show the user what has been done and what needs to be done for his/her trip. The command to check the current progress is <code>status</code>. The following aspect of the trip will be shown to the user:</p>
 </div>
 <div class="ulist">
@@ -1507,7 +1511,7 @@ Easy to access and manipulate budget and exchange rate data. Especially when cal
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-9"><a class="link" href="#current-implementation-9">3.9.2. Current Implementation</a></h4>
+<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">3.9.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The following <em>Activity Diagram</em> summarizes what happens when a user enters the <code>status</code> command.</p>
 </div>
@@ -2102,6 +2106,9 @@ Extensions:
 <h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
+<p>(Contributed by Joshua Lay)</p>
+</div>
+<div class="paragraph">
 <p>Given below are instructions to test the app manually.</p>
 </div>
 <div class="admonitionblock note">
@@ -2162,11 +2169,17 @@ Expected: The most recent window size and location is retained.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Prerequisites: Arguments are valid and compulsory parameters are provided.
-Test case: <code>addactivity title/Osaka Castle View duration/1 location/Osaka tag/expensive tag/sightseeing</code></p>
+<p>Prerequisites: Arguments are valid and compulsory parameters are provided. The Activity added must be within the time frame of the trip.</p>
 </li>
 <li>
+<p>Test case: <code>addactivity title/Osaka Castle View duration/1 location/Osaka tag/expensive tag/sightseeing</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
 <p>Expected: Adds an activity with title of <code>Osaka Castle View</code>, with duration of <code>1</code> hour, a location of <code>Osaka</code> and tags of <code>expensive</code> and <code>sightseeing</code>.</p>
+</li>
+</ol>
+</div>
 </li>
 <li>
 <p>Test case <code>addactivity title/Osaka Castle</code></p>
@@ -2250,7 +2263,7 @@ Test case: <code>addactivity title/Osaka Castle View duration/1 location/Osaka t
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Prerequisites: Arguments are valid and compulsory parameters are provided.</p>
+<p>Prerequisites: Arguments are valid, compulsory parameters are provided. The Accommodation added must be within the time frame of the trip.</p>
 </li>
 <li>
 <p>Test case: <code>addacc name/JW Marriott Hotel loc/KL startday/2 endday/4 remark/Check-in at 3pm.</code></p>
@@ -2297,7 +2310,7 @@ Test case: <code>addactivity title/Osaka Castle View duration/1 location/Osaka t
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Prerequisites: Arguments are valid and compulsory parameters are provided.</p>
+<p>Prerequisites: Arguments are valid, compulsory parameters are provided. The Transportation added must be within the time frame of the trip.</p>
 </li>
 <li>
 <p>Test case: <code>addtransport mode/plane startloc/Singapore endloc/Japan starttime/20-03-2020 17:00 endtime/21-03-2020 00:00</code></p>
@@ -2478,7 +2491,7 @@ Test case: <code>addactivity title/Osaka Castle View duration/1 location/Osaka t
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Prerequisites: Arguments are valid, compulsory parameters are provided and activity must exist in the activity list.</p>
+<p>Prerequisites: Arguments are valid, compulsory parameters are provided and activity must exist in the activity list. The Activity edited must be within the time frame of the trip.</p>
 </li>
 <li>
 <p>Test case: <code>editactivity 1 title/Shopping duration/2</code></p>
@@ -2606,4 +2619,4 @@ We decided to prevent the user from editing the start and end dates of the trip.
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 13:54:55 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 14:04:06 UTC</div></div></div></body></html>
