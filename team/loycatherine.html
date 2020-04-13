@@ -122,7 +122,7 @@ Accommodation Booking, the Schedule and the Budget.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Reviewed Pull Requests with non-trivial comments (Pull Request <a href="https://github.com/AY1920S2-CS2103T-W17-3/main/pull/363">#363</a>)</p>
+<p>Reviewed Pull Requests with non-trivial comments (Pull Requests <a href="https://github.com/AY1920S2-CS2103T-W17-3/main/pull/363">#363</a> <a href="https://github.com/AY1920S2-CS2103T-W17-3/main/pull/397">#397</a>)</p>
 </li>
 <li>
 <p>Reported bugs and offered suggestions for <a href="https://github.com/AY1920S2-CS2103T-W16-3/main">StudyBuddy</a>, another AddressBook3-based application.</p>
@@ -203,7 +203,7 @@ Accommodation Booking, the Schedule and the Budget.</p>
 <p><strong>E.T.</strong> will automatically capitalise the first letter of the <code>NAME</code>. For example, if you type in <code>name/high heels</code>, it will display “High Heels” in the packing list. However, it will not make the rest of the words in the name to lowercase. For example, if you type in <code>name/unDErwear</code>, it will display “UnDErwear” in the packing list.</p>
 </li>
 <li>
-<p>E.g. high heels</p>
+<p>E.g. <code>high heels</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -214,8 +214,14 @@ Accommodation Booking, the Schedule and the Budget.</p>
 <p>The quantity of the item.</p>
 </div>
 <div class="paragraph">
-<p>It must be a positive integer not more than 100000.
-* E.g. 5</p>
+<p>It must be a positive integer not more than 100000.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>E.g. <code>5</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
@@ -251,7 +257,7 @@ Accommodation Booking, the Schedule and the Budget.</p>
 <p>It must be a positive integer 1,2,3…</p>
 </li>
 <li>
-<p>E.g. 1</p>
+<p>E.g. <code>1</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -456,7 +462,7 @@ Accommodation Booking, the Schedule and the Budget.</p>
 <p>Examples:</p>
 </div>
 <div class="paragraph">
-<p><code>edititem 5 item/boxer quantity/3 category/essentials</code><br></p>
+<p><code>edititem 5 name/boxer quantity/3 category/essentials</code><br></p>
 </div>
 <div class="paragraph">
 <p>Let’s say you want to edit the item at index 5 to the following information:</p>
@@ -1302,618 +1308,6 @@ Accommodation Booking, the Schedule and the Budget.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="fixed-expense-management"><a class="link" href="#fixed-expense-management">Fixed Expense Management</a></h3>
-<div class="paragraph">
-<p>The Fixed Expense Manager comprises a list which allows you to set your fixed expenses before your trip. This would help you plan a suitable budget for your upcoming trip.</p>
-</div>
-<div class="paragraph">
-<p>Examples of Fixed Expenses that you can include are as follows,</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Flight Tickets</p>
-</li>
-<li>
-<p>Hotel Accommodation Bookings</p>
-</li>
-<li>
-<p>Transportation Tickets</p>
-</li>
-<li>
-<p>Cost of admission tickets to theme parks</p>
-</li>
-<li>
-<p>Or any other fixed miscellaneous costs known to you before the trip.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="expense-param"><a class="link" href="#expense-param">Fixed Expense Management Command Parameters</a></h4>
-<div class="paragraph">
-<p>Before jumping into the various features the Fixed Expense Manager offers,
-it might be beneficial to take some time looking at the common command parameters
-that are used in this feature. This is shown in the table below.</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AMOUNT</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The amount of money for your fixed expense.</p>
-<p class="tableblock">It must be a positive number with at most 2 decimal places. It must also be less than 1,000,000,000.</p>
-<p class="tableblock">Example: <code>1.30</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CURRENCY</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Currency the fixed expense is in.</p>
-<p class="tableblock">It can only take the value of <code>sgd</code> or <code>other</code><br>
-(<code>sgd</code> or SGD stands for Singapore Dollars)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DESCRIPTION</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The description of the fixed expense.</p>
-<p class="tableblock">It must be words made up of alphanumeric characters not more than 50 characters long.</p>
-<p class="tableblock">Example: Plane Tickets</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CATEGORY</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The category of the fixed expense.</p>
-<p class="tableblock">It can take the value of <code>accommodations</code>, <code>others</code>, <code>transport</code>, <code>activities</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The index number of the fixed expense entry in the displayed list.
-The first entry of the list has an index of <code>1</code> and all subsequent entries are listed in ascending order.</p>
-<p class="tableblock">It must be a valid index.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="list-your-fixed-expenses-listexpense"><a class="link" href="#list-your-fixed-expenses-listexpense">List your fixed expenses: listexpense</a></h4>
-<div class="paragraph">
-<p>You can use the <code>listexpense</code> command to navigate to the Fixed Expenses Tab and list all fixed expenses entries.</p>
-</div>
-<div class="paragraph">
-<p>Format:</p>
-</div>
-<div class="paragraph">
-<p><code>listexpense</code></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/user-guide/ListExpense.png" alt="ListExpense">
-</div>
-<div class="title">Figure 18. Accessing <em>Fixed Expenses Tab</em></div>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="paragraph">
-<p>If you are in another tab and wish to navigate to the <em>Fixed Expenses Tab</em> to view all your fixed expense entries, you can follow these steps.</p>
-</div>
-<div class="paragraph">
-<p>Listing all fixed expense entries:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Type <code>listexpnese</code> into the <em>Command Box</em>.</p>
-</li>
-<li>
-<p>Press <code>Enter</code> to execute.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>Outcome:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The <em>Result Display</em> will show a success message.</p>
-</li>
-<li>
-<p><strong>E.T.</strong> will switch to the <em>Fixed Expenses Tab</em>.</p>
-</li>
-<li>
-<p>You can now see all your fixed expense entries.</p>
-</li>
-</ol>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/user-guide/FixedExpenseManager.png" alt="FixedExpenseManager">
-</div>
-<div class="title">Figure 19. After the <code>listexpense</code> command</div>
-</div>
-<div class="paragraph">
-<p>Thereafter, you will be able to add and subsequently modify your fixed expenses.
-This would be further elaborated in <a href="#addexpense">Adding a new fixed expense entry: <code>addexpense</code></a> onwards.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="addexpense"><a class="link" href="#addexpense">Adding a new fixed expense entry: <code>addexpense</code></a></h4>
-<div class="paragraph">
-<p>You can use this command to add a new fixed expense into the Fixed Expense Manager.</p>
-</div>
-<div class="paragraph">
-<p>Format:</p>
-</div>
-<div class="paragraph">
-<p><code>addexpense amount/AMOUNT currency/CURRENCY description/DESCRIPTION category/CATEGORY</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>If you set <code>CURRENCY</code> as <code>other</code>, the <code>AMOUNT</code> will be automatically converted to SGD using the trip exchange rate (See <a href="#settrip">[settrip]</a>).</p>
-</li>
-<li>
-<p>Refer to <a href="#expense-param">Fixed Expense Management Command Parameters</a> for more detail about each parameter.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="paragraph">
-<p>Let’s say you wish to include a fixed expense entry with the following information and wish to add it in the Fixed Expense Manager.</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Amount</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1100</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Currency</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SGD</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Description</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Plane Tickets</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Category</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Transport</p></td>
-</tr>
-</tbody>
-</table>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>Adding the above fixed expense entry:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Type <code>addexpense amount/1100 currency/SGD description/Plane Tickets category/Transport</code> into the <em>Command Box</em>.</p>
-</li>
-<li>
-<p>Press <code>Enter</code> to execute.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>Outcome:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The <em>Result Display</em> will show a success message.</p>
-</li>
-<li>
-<p><strong>E.T.</strong> will switch to the <em>Fixed Expenses Tab</em>.</p>
-</li>
-<li>
-<p>You can now see your newly added Fixed Expense.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/user-guide/AddFixedExpense.png" alt="AddFixedExpense">
-</div>
-<div class="title">Figure 20. After successfully adding a fixed expense</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="edit-a-fixed-expense-entry-editexpense"><a class="link" href="#edit-a-fixed-expense-entry-editexpense">Edit a fixed expense entry: editexpense</a></h4>
-<div class="paragraph">
-<p>This command allows you to edit any mistakes that you might have accidentally included into the fixed expense manager. You can edit the details of an existing fixed expense entry based on the <code>INDEX</code> you have specified.</p>
-</div>
-<div class="paragraph">
-<p>Format:</p>
-</div>
-<div class="paragraph">
-<p><code>editexpense INDEX [amount/AMOUNT] [currency/CURRENCY]  [description/DESCRIPTION] [category/CATEGORY]</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>At least one of the optional fields must be provided.</p>
-</li>
-<li>
-<p>Existing values will be updated to the input values.</p>
-</li>
-<li>
-<p>Both <code>CURRENCY</code> and <code>AMOUNT</code> fields must exist together for a successful edit if you wish to change the <code>AMOUNT</code> of a fixed expense.</p>
-</li>
-<li>
-<p>If you set <code>CURRENCY</code> as <code>other</code>, the <code>AMOUNT</code> will be automatically converted to SGD using the trip exchange rate (See <a href="#settrip">[settrip]</a>).</p>
-</li>
-<li>
-<p><strong>E.T.</strong> will warn you when you overshot your budget.</p>
-</li>
-<li>
-<p>Refer to <a href="#expense-param">Fixed Expense Management Command Parameters</a> for more detail about each parameter.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="paragraph">
-<p>Let&#8217;s say you wish to edit the fixed expense entry at index 1 to have a description of “editedtransport"
-and SGD 1500 respectively.</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top"></th>
-<th class="tableblock halign-left valign-top">Current</th>
-<th class="tableblock halign-left valign-top">Edited</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AMOUNT</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1000</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1500*</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CURRENCY</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">other</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SGD</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DESCRIPTION</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">WrongTransport</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">editedtransport</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CATEGORY</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">activity</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">transport</p></td>
-</tr>
-</tbody>
-</table>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>Editing the above fixed expense entry:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Type <code>editexpense 1 amount/1500 currency/SGD description/editedtransport category/transport</code> into the <em>Command Box</em>.</p>
-</li>
-<li>
-<p>Press <code>Enter</code> to execute</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>Outcome:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The <em>Result Display</em> will show a success message.</p>
-</li>
-<li>
-<p><strong>E.T.</strong> will switch to the <em>Fixed Expenses Tab</em>.</p>
-</li>
-<li>
-<p>You can now see your newly edited Fixed Expense.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/user-guide/EditFixedExpense.png" alt="EditFixedExpense">
-</div>
-<div class="title">Figure 21. After successfully editing a fixed expense</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="deleting-a-fixed-expense-entry-code-deleteexpense-code"><a class="link" href="#deleting-a-fixed-expense-entry-code-deleteexpense-code">Deleting a fixed expense entry: <code>deleteexpense</code></a></h4>
-<div class="paragraph">
-<p>This command allows you to delete an existing fixed expense entry.</p>
-</div>
-<div class="paragraph">
-<p>Format:</p>
-</div>
-<div class="paragraph">
-<p><code>deleteexpense INDEX</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Refer to <a href="#expense-param">Fixed Expense Management Command Parameters</a> for more detail about the parameter.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="paragraph">
-<p>Assuming you wish to delete the <strong><em>first</em></strong> fixed expense.</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>Deleting the fixed expense entry:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Type <code>deleteexpense 1</code> into the <em>Command Box</em>.</p>
-</li>
-<li>
-<p>Press <code>Enter</code> to execute.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>Outcome:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The <em>Result Display</em> will show a success message.</p>
-</li>
-<li>
-<p><strong>E.T.</strong> will switch to the <em>Fixed Expenses Tab</em>.</p>
-</li>
-<li>
-<p>You can now see that the Fixed Expense is deleted from your Fixed Expense Manager.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/user-guide/DeleteFixedExpense.png" alt="DeleteFixedExpense">
-</div>
-<div class="title">Figure 22. After successfully deleting a fixed expense</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="sort-fixed-expenses-code-sortexpense-code"><a class="link" href="#sort-fixed-expenses-code-sortexpense-code">Sort fixed expenses: <code>sortexpense</code></a></h4>
-<div class="paragraph">
-<p>This command allows you to sort all your fixed expenses in the list.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>sortexpense CRITERIA ORDER</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p><code>ORDER</code> refers to the order to sort the Fixed Expenses by. It can take the value of <code>ascending</code> or <code>asc</code> to sort in ascending order or <code>descending</code> or <code>des</code> to sort in descending order.</p>
-</li>
-<li>
-<p><code>CRITERIA</code> refers to the criteria to sort the Fixed Expenses by. It can take these values, <code>[AMOUNT]</code> <code>[DESCRIPTION]</code> <code>[CATEGORY]</code>.</p>
-</li>
-<li>
-<p>Only <em>one</em> criteria can be included in the command.</p>
-</li>
-<li>
-<p>The list must not be empty.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="paragraph">
-<p>Assuming you have a lot of fixed expenses and wish to group them by category.
-In this example, we would be sorting the fixed expense according to the amount in descending order.</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>You could sort the fixed expenses by category through these steps.</p>
-</div>
-<div class="paragraph">
-<p>Sorting fixed expense entries:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Type <code>sortexpense amount des</code> into the <em>command box</em></p>
-</li>
-<li>
-<p>Press <code>Enter</code> to execute</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>Outcome:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The <em>Result Display</em> will show a success message.</p>
-</li>
-<li>
-<p><strong>E.T.</strong> will switch to the <em>Fixed Expenses Tab</em>.</p>
-</li>
-<li>
-<p>You can now see that your Fixed Expenses are sorted according to descending amount.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/user-guide/SortFixedExpense.png" alt="SortFixedExpense">
-</div>
-<div class="title">Figure 23. After successful sorting of fixed expense</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="clearing-a-fixed-expense-code-clearexpense-code"><a class="link" href="#clearing-a-fixed-expense-code-clearexpense-code">Clearing a fixed expense: <code>clearexpense</code></a></h4>
-<div class="paragraph">
-<p>This command allows you to clear all Fixed Expenses in the list.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>clearexpense</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p><code>ORDER</code> refers to the order to sort the Fixed Expenses by. It can take the value of <code>ascending</code> or <code>asc</code> to sort in ascending order or <code>descending</code> or <code>des</code> to sort in descending order.</p>
-</li>
-<li>
-<p><code>CRITERIA</code> refers to the criteria to sort the Fixed Expenses by. It can take these values, <code>AMOUNT</code> <code>DESCRIPTION</code> <code>CATEGORY</code>.</p>
-</li>
-<li>
-<p>Only <em>one</em> criteria can be included in the command.</p>
-</li>
-<li>
-<p>The list must not be empty.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="paragraph">
-<p>Assuming that you wish to clear all your fixed expenses entries, you can clear the whole list by following these steps.</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>Clearing all fixed expenses entries:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Type <code>clearexpense</code> in your <em>Command Box</em>.</p>
-</li>
-<li>
-<p>Press <code>Enter</code> to execute</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>Outcome:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The <em>Result Display</em> will show a success message.</p>
-</li>
-<li>
-<p><strong>E.T.</strong> will switch to the <em>Fixed Expenses Tab</em>.</p>
-</li>
-<li>
-<p>You will now see an empty Fixed Expense Manager.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/user-guide/ClearFixedExpense.png" alt="ClearFixedExpense">
-</div>
-<div class="title">Figure 24. After successfully clearing all fixed expense</div>
-</div>
-</div>
-</div>
-<div class="sect2">
 <h3 id="features-coming-in-version-2-0"><a class="link" href="#features-coming-in-version-2-0">Features coming in Version 2.0</a></h3>
 <div class="paragraph">
 <p>This section will describe the various features that are planned for Version 2.0 of <strong>E.T.</strong></p>
@@ -1946,7 +1340,7 @@ The motivation behind it is to allow you to share your packing lists with your f
 </div>
 </div>
 <div class="sect2">
-<h3 id="fixed-expense-management-2"><a class="link" href="#fixed-expense-management-2">Fixed Expense Management</a></h3>
+<h3 id="fixed-expense-management"><a class="link" href="#fixed-expense-management">Fixed Expense Management</a></h3>
 <div class="paragraph">
 <p>The Fixed Expense Management will also be getting brand new functionalities that will take your financial management to the next level.</p>
 </div>
@@ -1980,247 +1374,6 @@ The motivation behind it is to allow you to share your packing lists with your f
 <p>This feature will allow you to import and export your trip data in different formats such as the <code>.ics</code> calendar format.</p>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="strong-faq-strong"><a class="link" href="#strong-faq-strong"><strong>FAQ</strong></a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Q</strong>: How many trips am I able to set in <strong>E.T.</strong>?</p>
-</div>
-<div class="paragraph">
-<p><strong>A</strong>: You can only set 1 trip in <strong>E.T.</strong>.</p>
-</div>
-<div class="paragraph">
-<p><strong>Q</strong>: Why aren&#8217;t I allowed to edit my date for the trip?</p>
-</div>
-<div class="paragraph">
-<p><strong>A</strong>: Editing the date would cause conflicts in your schedule if you try to change the date to one that is earlier. However, we are working on a feature that will allow you to resolve these conflicts in the upcoming version of <strong>E.T.</strong>.</p>
-</div>
-<div class="paragraph">
-<p><strong>Q</strong>: What do I do if I want to change my trip&#8217;s date since I cannot edit the date?</p>
-</div>
-<div class="paragraph">
-<p><strong>A</strong>: Unfortunately, you have to delete the trip.</p>
-</div>
-<div class="paragraph">
-<p><strong>Q</strong>: What happens if 2 of my activities are scheduled on the same date and time? Will <strong>E.T.</strong> detect it?</p>
-</div>
-<div class="paragraph">
-<p><strong>A</strong>: <strong>E.T.</strong> will allow you to schedule activities that overlap in timing. However, when you check your progress using the <code>status</code> command, <strong>E.T.</strong> will notify you of this conflict in timing and the day index that you can find it.</p>
-</div>
-<div class="paragraph">
-<p><strong>Q</strong>: How do I transfer my data to another computer?</p>
-</div>
-<div class="paragraph">
-<p><strong>A</strong>: By default, <strong>E.T.</strong> saves all your data in a folder named <code>data</code> in the same directory as the application. You can copy and transfer the <code>data</code> folder into the same directory as <strong>E.T.</strong> on your other computer and <strong>E.T.</strong> will automatically load your data upon launching <strong>E.T.</strong>.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="strong-command-summary-strong"><a class="link" href="#strong-command-summary-strong"><strong>Command Summary</strong></a></h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="trip-management-commands"><a class="link" href="#trip-management-commands">Trip Management Commands</a></h3>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Command</th>
-<th class="tableblock halign-left valign-top">Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Set Trip</strong> : <code>settrip title/TITLE startdate/START_DATE enddate/END_DATE budget/BUDGET exchangerate/EXCHANGERATE</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>settrip title/Graduation Trip startdate/28-09-2020 enddate/26-10-2020 budget/1000 exchangerate/1.40</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Rename a Trip</strong> : <code>rename</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rename Not a Graduation Trip</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Budget for Trip</strong> : <code>editbudget AMOUNT</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>editbudget 10000</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete Trip</strong> : <code>deletetrip</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletetrip</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Check Progress</strong> : <code>status</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Vieww Itineary</strong>: <code>listschedule</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listschedule</code></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="activity-commands"><a class="link" href="#activity-commands">Activity Commands</a></h3>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Command</th>
-<th class="tableblock halign-left valign-top">Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List Activities</strong>: <code>listactivity</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listactivity</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Activity</strong>: <code>addactivity title/TITLE duration/DURATION location/LOCATION [tag/TAG]&#8230;&#8203;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addactivity title/Going to the beach duration/4 location/Hakone tag/sea tag/outdoor</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Activity</strong>: <code>editactivity index [title/TITLE] [duration/DURATION] [location/LOCATION] [tag/TAG]&#8230;&#8203;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>editactivity 1 title/Go to an aquarium</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete Activity</strong>: <code>deleteactivity INDEX</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deleteactivity 1</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sort Activities</strong>: <code>sortactivity CRITERIA ORDER</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sortactivity title ascending</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Find Activities by Keywords</strong>: <code>findactivity TITLE [MORE_TITLES]&#8230;&#8203;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>findactivity sightseeing carnival</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Find Activities by Tag</strong>: <code>findactivitytag TAG_NAME [MORE_TAG_NAMES]&#8230;&#8203;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>findactivitytag outdoor</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear Activities</strong>: <code>clearactivity</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clearactivity</code></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="activity-scheduling-commands"><a class="link" href="#activity-scheduling-commands">Activity Scheduling Commands</a></h3>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Command</th>
-<th class="tableblock halign-left valign-top">Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List Schedule</strong>: <code>listschedule</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listschedule</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Schedule Activity</strong>: <code>schedule ACTIVITY_INDEX day/DAY_INDEX time/TIME</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>schedule 1 day/1 time/10:00</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Unschedule Activity</strong>: <code>unschedule ACTIVITY_INDEX day/DAY_INDEX</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>unschedule 1 day/2</code></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="transportation-booking-management-commands"><a class="link" href="#transportation-booking-management-commands">Transportation Booking Management Commands</a></h3>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Command</th>
-<th class="tableblock halign-left valign-top">Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List Transport Bookings</strong>: <code>listtransport</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listtransport</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Transport Booking</strong>: <code>addtransport mode/MODE startloc/START_LOCATION endloc/END_LOCATION starttime/START_TIME endtime/END_TIME</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addtransport mode/plane startloc/Singapore endloc/Japan starttime/28-09-2020 00:00 endtime/28-09-2020 07:00</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Transport Booking</strong>: <code>edittransport INDEX [mode/MODE] [startloc/START_LOCATION] [endloc/END_LOCATION] [starttime/START_TIME] [endtime/END_TIME]</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edittransport 1 endloc/Italy</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete Transport Booking</strong>: <code>deletetransport INDEX</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletetransport 1</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sort Transport Bookings</strong>: <code>sorttransport CRITERIA ORDER</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sorttransport mode ascending</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear Transport Bookings</strong>: <code>cleartransport</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cleartransport</code></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="accommodation-booking-management-commands"><a class="link" href="#accommodation-booking-management-commands">Accommodation Booking Management Commands</a></h3>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Command</th>
-<th class="tableblock halign-left valign-top">Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List Accommodation Bookings</strong>: <code>listacc</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listacc</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Accommodation Booking</strong>: <code>addacc name/NAME loc/LOCATION startday/START_DAY endday/END_DAY [remark/REMARK]</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addacc name/JW Marriott Hotel loc/KL startday/2 endday/4 remark/Check-in at 3pm.</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Accommodation Booking</strong>: <code>editacc INDEX [name/NAME] [loc/LOCATION] [startday/START_DAY] [endday/END_DAY] [remark/REMARK]</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>editacc 1 name/Casa del Rio loc/Malacca</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete Accommodation Booking</strong>: <code>deleteacc INDEX</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deleteacc 1</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sort Accommodation Bookings</strong>: <code>sortacc CRITERIA ORDER</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sortacc name ascending</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear Accommodation Bookings</strong>: <code>clearacc</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clearacc</code></p></td>
-</tr>
-</tbody>
-</table>
 </div>
 <div class="sect2">
 <h3 id="packing-list-management-commands"><a class="link" href="#packing-list-management-commands">Packing List Management Commands</a></h3>
@@ -2283,47 +1436,6 @@ The motivation behind it is to allow you to share your packing lists with your f
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List all Presets in Packing List</strong>: <code>listpreset</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>listpreset</code></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="fixed-expense-commands"><a class="link" href="#fixed-expense-commands">Fixed Expense Commands</a></h3>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Command</th>
-<th class="tableblock halign-left valign-top">Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>*List Fixed Expenses</strong>: <code>listexpense</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listexpense</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Fixed Expense</strong>: <code>addexpense amount/AMOUNT currency/CURRENCY description/DESCRIPTION category/CATEGORY</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addexpense amount/1100 currency/sgd description/Plane Tickets category/Transport</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Fixed Expense</strong>: <code>editexpense INDEX [amount/AMOUNT] [currency/CURRENCY]  [description/DESCRIPTION] [category/CATEGORY]</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>editexpense 1 amount/1500 currency/sgd description/editedtransport category/transport</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete Fixed Expense</strong>: <code>deleteexpense INDEX</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deleteexpense 1</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sort Fixed Expenses</strong>: <code>sortexpense CRITERIA ORDER</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sortexpense amount des</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear Fixed Expenses</strong>: <code>clearexpense</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clearexpense</code></p></td>
 </tr>
 </tbody>
 </table>
@@ -2405,7 +1517,7 @@ The motivation behind it is to allow you to share your packing lists with your f
 <div class="content">
 <img src="../images/developer-guide/list-managers/ListManagerClassDiagram.png" alt="ListManagerClassDiagram">
 </div>
-<div class="title">Figure 25. Structure of <code>ActivityManager</code></div>
+<div class="title">Figure 18. Structure of <code>ActivityManager</code></div>
 </div>
 <div class="paragraph">
 <p>The following paragraphs will describe what happens when the user performs an operation on a <code>ListManager</code> through commands. <code>XYZCommand</code> here will refer to a command described above for the 5 <code>ListManager</code> s. (e.g. <code>AddActivityCommand</code>, <code>EditTransportBookingCommand</code>).</p>
@@ -2426,7 +1538,7 @@ The motivation behind it is to allow you to share your packing lists with your f
 <div class="content">
 <img src="../images/developer-guide/list-managers/AddActivitySequenceDiagram.png" alt="Schedule Activity Command Execution">
 </div>
-<div class="title">Figure 26. Execution of the <code>AddActivityCommand</code></div>
+<div class="title">Figure 19. Execution of the <code>AddActivityCommand</code></div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2559,7 +1671,7 @@ Do not extract any common operations and functionalities</p></td>
 <div class="content">
 <img src="../images/developer-guide/packing-list/AddPackingListActivityDiagram.png" alt="AddPackingListActivityDiagram">
 </div>
-<div class="title">Figure 27. Workflow of the <code>addpreset</code> command</div>
+<div class="title">Figure 20. Workflow of the <code>addpreset</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -2620,4 +1732,45 @@ Combine both option 1 and 2</p></td>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 09:54:36 UTC</div></div></div></body></html>
+</div>
+<div class="sect1">
+<h2 id="effort"><a class="link" href="#effort">Appendix A: Effort</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>(Contributed by Catherine)</p>
+</div>
+<div class="paragraph">
+<p>Creating <strong>Easy Travel</strong> was fairly difficult and required much effort from all the team members. We <strong>communicated</strong> a lot as a team,  which was difficult due to the quarantine measures that resulted from the on-going COVID-19 situation. However, we persevered through, and thanks to technology, we were still able to communicate through regular online meetings. Through our consistent communication, we were able to come up with our product, <strong>Easy Travel</strong>. In addition, we managed to accumulate <strong>32,000 lines of code</strong> combined. This showcases our hard work and effort put into producing <strong>Easy Travel</strong>.</p>
+</div>
+<div class="paragraph">
+<p>While AB3 deals with only one entity, <strong>Easy Travel</strong> deals with <strong>multiple entities</strong>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>AB3</strong> contains only <code>Person</code>. While we were able to refactor some aspects of <code>Person</code> into <code>Trip</code>, we had to create
+<code>Activity</code>, <code>Accommodation Booking</code>, <code>Transportation Booking</code>, <code>Packing List Item</code>, <code>Fixed Expense</code> and <code>Schedule</code> from scratch.</p>
+</li>
+<li>
+<p>The <code>UI</code> of <strong>AB3</strong> only contains one <code>ListPanel</code>. On the other hand, <strong>Easy Travel</strong> has <strong>5 <code>ListPanels</code></strong> spread out in 7 views -
+the <strong>ScheduleView</strong>, <strong>ActivityView</strong>, <strong>AccommodationView</strong>, <strong>TransportView</strong>, <strong>PackingListView</strong>, <strong>FixedExpenseView</strong> and lastly, the <strong>HelpView</strong>. This is a big change from <strong>AB3’s</strong>  <code>UI</code>. In addition, <strong>FixedExpenseView</strong> contains a Pie Chart, which gives the user a better visual of the amount of money spent.</p>
+</li>
+<li>
+<p>In addition, we have a <code>StatusWindow</code> and a <code>ListPresetWindow</code>. The <code>StatusWindow</code> is used to show the progress of the planning of the trip, and the <code>ListPresetWindow</code> is used to show the available built-in list of items the user can add into their packing list.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Furthermore, <strong>Easy Travel&#8217;s</strong> additional features such as <code>status</code>, <code>automated tab switching</code>, <code>sorting</code>, and <code>schedule</code> meant that our app varies greatly from what <strong>AB3</strong> has to offer in terms of user experience. These carefully thought out features were <em>designed primarily with the user’s needs in mind</em>, to provide the user with a platform that would ease the pain of planning for a trip. Furthermore, it keeps track of the user&#8217;s planning progress, to ensure that he/she will not forget to plan anything, to ensure a smooth sailing trip.</p>
+</div>
+<div class="paragraph">
+<p>Initially, we wanted to allow the user to edit the dates of the trip, once the trip is set. However, if we allowed the user to do so, there will be complications for the <strong>Schedule</strong>, <strong>Accommodation Bookings</strong> and <strong>Transportation Bookings</strong>. All three features depends on the start and end date set by the trip. Hence, if we allowed the user to edit the dates of the trip, we would have many bugs and dependency issues. Hence, we decided to prevent the user from editing the start and end dates of the trip. The user will have to delete the trip and start again with the new dates.</p>
+</div>
+<div class="paragraph">
+<p>Another challenge we faced was that we were refactoring from a base code. While having a base code gave us a place to start from, it was difficult for our team to fully understand the base code. It took us some time to understand the base code, and to be able to work from there. In the end, we managed to overcome this challenge to develop <strong>Easy Travel</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Overall, we managed to achieve our goal, which was to create an application that can help ease the pain of planning for a trip. We created an all-in-one trip manager, a user interface that is neat and organised, and implemented features that are user-focused.</p>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 10:33:37 UTC</div></div></div></body></html>
