@@ -1383,13 +1383,6 @@ The first entry of the list has an index of <code>1</code> and all subsequent en
 <div class="paragraph">
 <p><code>listexpense</code></p>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>You can also click on the <em>Fixed Expenses Tab</em> on the <em>Tab bar</em> to navigate there.</p>
-</div>
-</div>
-</div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/user-guide/ListExpense.png" alt="ListExpense">
@@ -1462,9 +1455,6 @@ This would be further elaborated in <a href="#addexpense">Adding a new fixed exp
 <td class="content">
 <div class="ulist">
 <ul>
-<li>
-<p>The <code>CATEGORY</code> field only accepts <code>transport</code>, <code>accommodations</code>, <code>others</code>, <code>activities</code></p>
-</li>
 <li>
 <p>If you set <code>CURRENCY</code> as <code>other</code>, the <code>AMOUNT</code> will be automatically converted to SGD using the trip exchange rate (See <a href="#settrip">[settrip]</a>).</p>
 </li>
@@ -1574,7 +1564,7 @@ This would be further elaborated in <a href="#addexpense">Adding a new fixed exp
 <p>Existing values will be updated to the input values.</p>
 </li>
 <li>
-<p>Both currency and amount fields must exist for a successful edit.</p>
+<p>Both <code>CURRENCY</code> and <code>AMOUNT</code> fields must exist together for a successful edit if you wish to change the <code>AMOUNT</code> of a fixed expense.</p>
 </li>
 <li>
 <p>If you set <code>CURRENCY</code> as <code>other</code>, the <code>AMOUNT</code> will be automatically converted to SGD using the trip exchange rate (See <a href="#settrip">[settrip]</a>).</p>
@@ -1614,8 +1604,8 @@ and SGD 1500 respectively.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>AMOUNT</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>1000</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>1500</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1500*</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>CURRENCY</code></p></td>
@@ -1836,10 +1826,34 @@ In this example, we would be sorting the fixed expense according to the amount i
 <p>This command allows you to clear all Fixed Expenses in the list.</p>
 </div>
 <div class="paragraph">
-<p>Format:</p>
+<p>Format: <code>clearexpense</code></p>
 </div>
-<div class="paragraph">
-<p><code>clearexpense</code></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>ORDER</code> refers to the order to sort the Fixed Expenses by. It can take the value of <code>ascending</code> or <code>asc</code> to sort in ascending order or <code>descending</code> or <code>des</code> to sort in descending order.</p>
+</li>
+<li>
+<p><code>CRITERIA</code> refers to the criteria to sort the Fixed Expenses by. It can take these values, <code>AMOUNT</code> <code>DESCRIPTION</code> <code>CATEGORY</code>.</p>
+</li>
+<li>
+<p>Only <em>one</em> criteria can be included in the command.</p>
+</li>
+<li>
+<p>The list must not be empty.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -2019,7 +2033,7 @@ The motivation behind it is to allow you to share your packing lists with your f
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>rename Not a Graduation Trip</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Budget for Trip</strong> : <code>editbudget BUDGET</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Budget for Trip</strong> : <code>editbudget AMOUNT</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>editbudget 10000</code></p></td>
 </tr>
 <tr>
@@ -2029,6 +2043,10 @@ The motivation behind it is to allow you to share your packing lists with your f
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Check Progress</strong> : <code>status</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>status</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Vieww Itineary</strong>: <code>listschedule</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listschedule</code></p></td>
 </tr>
 </tbody>
 </table>
@@ -2064,11 +2082,11 @@ The motivation behind it is to allow you to share your packing lists with your f
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>deleteactivity 1</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sort Activities</strong>: <code>sortactivity CRITERIA  ORDER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sort Activities</strong>: <code>sortactivity CRITERIA ORDER</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>sortactivity title ascending</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Find Activities by Keywords</strong>: <code>findactivity KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Find Activities by Keywords</strong>: <code>findactivity TITLE [MORE_TITLES]&#8230;&#8203;</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>findactivity sightseeing carnival</code></p></td>
 </tr>
 <tr>
@@ -2175,7 +2193,7 @@ The motivation behind it is to allow you to share your packing lists with your f
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>addacc name/JW Marriott Hotel loc/KL startday/2 endday/4 remark/Check-in at 3pm.</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Accommodation Booking</strong>: <code>editacc INDEX [name/NAME] [loc/LOCATION] [startday/START_DAY] [endday/END_DAY] [remark/REMARK] [endtime/END_TIME]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Accommodation Booking</strong>: <code>editacc INDEX [name/NAME] [loc/LOCATION] [startday/START_DAY] [endday/END_DAY] [remark/REMARK]</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>editacc 1 name/Casa del Rio loc/Malacca</code></p></td>
 </tr>
 <tr>
@@ -2232,15 +2250,15 @@ The motivation behind it is to allow you to share your packing lists with your f
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>uncheckitem 1 4 7 13 16</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sort Packing List</strong>: <code>sortitem CRITERIA ORDER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sort Items in Packing List</strong>: <code>sortitem CRITERIA ORDER</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>sortitem name asc</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Find Packing List Items by Name</strong>: <code>finditem KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Find Packing List Items by Name</strong>: <code>finditem NAME [MORE_NAMES]&#8230;&#8203;</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>finditem car shampoo</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Find Packing List Items by Category</strong>: <code>finditemcategory KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Find Packing List Items by Category</strong>: <code>finditemcategory CATEGORY [MORE_CATEGORIES]&#8230;&#8203;</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>finditemcategory swimming clothes</code></p></td>
 </tr>
 <tr>
@@ -2248,7 +2266,7 @@ The motivation behind it is to allow you to share your packing lists with your f
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>clearitem</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Preset</strong>: <code>addpreset CATEGORY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Preset</strong>: <code>addpreset PRESET_NAME</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>addpreset beach</code></p></td>
 </tr>
 <tr>
@@ -2591,4 +2609,4 @@ Combine both option 1 and 2</p></td>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 06:01:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 07:31:47 UTC</div></div></div></body></html>
