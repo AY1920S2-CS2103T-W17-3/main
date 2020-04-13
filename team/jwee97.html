@@ -3,13 +3,26 @@
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">E.T.</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-W17-3/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Joshua Wee - Project Portfolio</h1></div><div id="content"><div class="sect1">
 <h2 id="project-easytravel"><a class="link" href="#project-easytravel">PROJECT: EasyTravel</a></h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>The purpose of this document is to document my contribution I have made to the project.</p>
+</div>
+<div class="paragraph">
+<p><strong><em>EasyTravel</em></strong> Github link: <a href="https://ay1920s2-cs2103t-w17-3.github.io/main/" class="bare">https://ay1920s2-cs2103t-w17-3.github.io/main/</a></p>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>EasyTravel is a desktop travel planning application done by me and 4 other software engineering students for students who are planning for an overseas trip.</p>
+</div>
+<div class="paragraph">
+<p>EasyTravel helps to reduce the amount of stress when planning for a trip by providing 5 main list: activity, transport booking, accommodation booking, packing list and fixed expense.</p>
+</div>
+<div class="paragraph">
+<p>EasyTravel has a GUI created with JavaFX and user can interact with it through a CLI (Command Line Interface). It is written in Java and has about 10 kLoC</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -18,10 +31,46 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>:</p>
+<p><strong>Major enhancement</strong>: Implemented Accommodation Booking Tab and commands</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: The accommodation booking feature allows the user to keep track of all the accommodation bookings made before a trip. User can input details of the accommodation as well as the start and end day of the booking.</p>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>:</p>
+<p>Justification: This feature is useful in allowing users to keep track of the accommodations they have booked.</p>
+</li>
+<li>
+<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: Find overlaps in accommodation bookings</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: Prevent users from entering multiple accommodation bookings that overlaps one another.</p>
+</li>
+<li>
+<p>Justification: To prevent users from booking overlapping accommodations or to prevent them from recording an accommodation that overlaps with other accommodations.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: Status check for missing accommodation days</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: List down to the user the days that has missing accommodations.</p>
+</li>
+<li>
+<p>Justification: To give users an idea of the days that are missing accommodations so they can book it before going on the trip.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p><strong>Code contributed</strong>: [<a href="https://github.com/AY1920S2-CS2103T-W17-3/main/commits?author=jwee97">All commits</a>] [<a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#=undefined&amp;search=jwee97">Project Code Dashboard</a>]</p>
@@ -31,20 +80,34 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Project management:</p>
-</li>
-<li>
 <p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Wrote test for existing feature to improve coverage</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Contributed to the User Guide and Developer Guide for this project. See below for more details.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Community:</p>
-</li>
+<div class="ulist">
+<ul>
 <li>
-<p>Tools:
-_</p>
+<p>Over 30 <a href="https://github.com/AY1920S2-CS2103T-W17-3/main/pulls?q=is%3Apr+is%3Aclosed+author%3Ajwee97">Pull Requests</a> on Github</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -66,6 +129,476 @@ _</p>
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="accommodation-booking"><a class="link" href="#accommodation-booking">Accommodation Booking</a></h3>
+<div class="paragraph">
+<p>Accommodation is something you can miss out on planning and this feature is for you to plan for your accommodation and record them down. You can record the following information about your transport bookings:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Name of the accommodation</p>
+</li>
+<li>
+<p>The location or address</p>
+</li>
+<li>
+<p>The first day when you check-in</p>
+</li>
+<li>
+<p>The last day when you check-out</p>
+</li>
+<li>
+<p>Remarks you want to note for an accommodation booking</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="acc-param"><a class="link" href="#acc-param">Accommodation Booking Management Command Parameters</a></h4>
+<div class="paragraph">
+<p>Before you jump right into using this feature, you may want to learn about all the common command parameters used in this feature. The table below shows the list of common command parameters that will be used for this feature.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the accommodation booking</p>
+<p class="tableblock">It must be alphanumeric words not more than 50 characters long.</p>
+<p class="tableblock">E.g. <code>Ritz Carlton</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>LOCATION</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The location or address of the accommodation booking</p>
+<p class="tableblock">It must be alphanumeric words not more than 50 characters long.</p>
+<p class="tableblock">E.g. <code>KL</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>START_DAY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The first day of the accommodation booking, in terms of the day index.</p>
+<p class="tableblock">It must be a valid day index number. The day index number represents the number of days from the first day of your trip. The first day of your trip is index <code>1</code>, the second day is index <code>2</code> and so on, until the last day.<br>
+It must be later than <code>END_DAY</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>END_DAY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The last day of the accommodation booking, in terms of the day index.</p>
+<p class="tableblock">It must be a valid day index number. The day index number represents the number of days from the first day of your trip. The first day of your trip is index <code>1</code>, the second day is index <code>2</code> and so on, until the last day.
+It must be later than <code>START_DAY</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>REMARK</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The remark you want to note for your accommodation booking.</p>
+<p class="tableblock">It must not be more than 150 characters (punctuations allowed) long.</p>
+<p class="tableblock">E.g. <code>Remember to check-in before 3pm!</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The index number of the accommodation booking in the displayed list. The first entry of the list has an index number of <code>1</code> and all the entries are listed in increasing index numbers.</p>
+<p class="tableblock">It must be a valid index number.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="list-all-accommodation-bookings-code-listacc-code"><a class="link" href="#list-all-accommodation-bookings-code-listacc-code">List all accommodation bookings: <code>listacc</code></a></h4>
+<div class="paragraph">
+<p>You can use this command to navigate to the <em>Accommodation Tab</em> and display all your activities in <strong>E.T.</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>listacc</code></p>
+</div>
+<div class="paragraph">
+<p>Example:
+If you are in another tab and wish to look at your list of accommodation bookings, you can follow these instructions.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Listing all your activities:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>listacc</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the <em>Accommodation Tab</em>.</p>
+</li>
+<li>
+<p>You can now see all your accommodation bookings.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="add-a-new-accommodation-booking-code-addacc-code"><a class="link" href="#add-a-new-accommodation-booking-code-addacc-code">Add a new accommodation booking: <code>addacc</code></a></h4>
+<div class="paragraph">
+<p>This command would add a new accommodation booking into your list of accommodations.</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>addacc name/NAME loc/LOCATION startday/START_DAY endday/END_DAY [remark/REMARK]</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Refer to <a href="#acc-param">Accommodation Booking Management Command Parameters</a> for more detail about each parameter.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p>Let’s say you have secured a booking of the accommodation with the following details. You can follow the following steps to record this into your list of accommodations.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JW Marriott Hotel</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Location</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">KL</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start Day</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">End Day</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Adding the above accommodation booking:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>addacc name/JW Marriott Hotel loc/KL startday/2 endday/4</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the <em>Accommodation Tab</em>.</p>
+</li>
+<li>
+<p>You can now see all your accommodation bookings including the newly added accommodation booking.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/AddAccommodationBooking.png" alt="AddAccommodationBooking">
+</div>
+<div class="title">Figure 1. After <code>addacc</code> command</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="edit-an-existing-accommodation-booking-code-editacc-code"><a class="link" href="#edit-an-existing-accommodation-booking-code-editacc-code">Edit an existing accommodation booking: <code>editacc</code></a></h4>
+<div class="paragraph">
+<p>This command will edit any mistakes made in the details of the accommodation booking using the specified <code>INDEX</code>.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>editacc INDEX [name/NAME] [loc/LOCATION] [startday/START_DAY] [endday/END_DAY] [remark/REMARK]</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Refer to <a href="#acc-param">Accommodation Booking Management Command Parameters</a> for more detail about each parameter.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p>Let’s say you decided to change the <strong>second</strong> accommodation booking to check in on <strong>day 4</strong> and check out on <strong>day 6</strong>.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Editing the accommodation booking:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>editacc 2 startday/4 endday/6</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the <em>Accommodation Tab</em>.</p>
+</li>
+<li>
+<p>You can now see all your accommodation bookings including the edited accommodation booking.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/EditAccommodationBooking.png" alt="EditAccommodationBooking">
+</div>
+<div class="title">Figure 2. After <code>editacc</code> command</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-an-existing-accommodation-booking-code-deleteacc-code"><a class="link" href="#delete-an-existing-accommodation-booking-code-deleteacc-code">Delete an existing accommodation booking: <code>deleteacc</code></a></h4>
+<div class="paragraph">
+<p>This command would delete the accommodation booking you have added earlier using the specified <code>INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>deleteacc INDEX</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Refer to <a href="#acc-param">Accommodation Booking Management Command Parameters</a> for more detail about the parameter.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p>Let’s say you decided to cancel on the accommodation booking that you have made earlier. The accommodation booking that you want to cancel is stored at <code>INDEX</code> 2 of <strong>E.T.</strong> , running the following command would delete the accommodation booking entry.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Deleting the activity:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>deleteactivity 1</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>*E.T.</strong> *will switch to the <em>Accommodation Tab</em>.</p>
+</li>
+<li>
+<p>You can now see that the deleted accommodation booking no longer exists.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="sort-the-accommodation-booking-list-code-sortacc-code"><a class="link" href="#sort-the-accommodation-booking-list-code-sortacc-code">Sort the accommodation booking list: <code>sortacc</code></a></h4>
+<div class="paragraph">
+<p>You can use this command to sort the displayed list of accommodation bookings.</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>sortacc CRITERIA ORDER</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>CRITERIA</code> refers to the criteria to sort the list of accommodation bookings by. It can take the following values: <code>name</code>, <code>location</code>, <code>day</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>ORDER</code> refers to the order to sort the list of accommodation bookings by. It can take the value of <code>ascending</code> or <code>asc</code> to sort in ascending order and <code>descending</code> or <code>des</code> to sort in descending order.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p>If you want to sort your list of accommodation bookings in <strong>ascending order of name</strong>, to help you in your planning, you can do the following.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Sorting activities:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>sortacc name asc</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press Enter to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the <em>Accommodation Tab</em>.</p>
+</li>
+<li>
+<p>You can see a list of sorted accommodation bookings being displayed.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clear-all-accommodation-bookings-code-clearacc-code"><a class="link" href="#clear-all-accommodation-bookings-code-clearacc-code">Clear all accommodation bookings: <code>clearacc</code></a></h4>
+<div class="paragraph">
+<p>This command allows you to clear all accommodation bookings you have made previously.</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>clearacc</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p>Let’s say you decided to delete all accommodation bookings you have created without deleting the trip. Running this command would clear all prior accommodation booking created and let you start on a clean slate.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Clearing the accommodation booking list:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>clearacc</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>*E.T.</strong> *will switch to the <em>Accommodation Tab</em>.</p>
+</li>
+<li>
+<p>You can see that the list is now empty.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -81,5 +614,115 @@ _</p>
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="accommodation-booking-feature"><a class="link" href="#accommodation-booking-feature">Accommodation Booking feature</a></h3>
+<div class="paragraph">
+<p><strong>E.T.</strong> allows the user to keep track of their accommodation bookings for his/her trip. The accommodation booking manager is one of the <code>ListManager</code>s (See <a href="#List-Manager">[List-Manager]</a>). On top of the basic operations provided by a <code>ListManager</code>, it also prevents the user from having overlapping accommodation bookings.</p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 07:31:47 UTC</div></div></div></body></html>
+<div class="sect3">
+<h4 id="rationale"><a class="link" href="#rationale">Rationale</a></h4>
+<div class="paragraph">
+<p>The transport booking manager is an important feature to have because any oversea trip of more than one day will require some form of accommodation. Thus, we decided to create an accommodation booking manager as one of the <code>ListManager</code>s.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>When a user adds an accommodation booking, the <code>Logic</code> Component parses the user input and creates an <code>AddAccommodationBookingCommand</code> object (See <a href="#Design-Logic">[Design-Logic]</a>). When the <code>execute()</code> method of <code>AddAccommodationBookingCommand</code> is called, the execution will check if the new accommodation booking overlaps with any other other current bookings.</p>
+</div>
+<div class="paragraph">
+<p>Using a Java’s <a href="#stream"><em>stream</em></a>, the new accommodation booking will be checked against all other bookings in the list to look for any overlaps.
+We used an interval overlap detection algorithm to check for overlap between 2 accommodation bookings. If the total duration of the 2 accommodation bookings is within the <em>acceptable duration</em> of the algorithm, then there is no overlap.
+<em>acceptable duration</em> = latest end day - earliest start day</p>
+</div>
+<div class="paragraph">
+<p>The following diagram gives a visual explanation on this interval overlap detection algorithm.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/developer-guide/accommodation-booking/OverlappingIntervalAlgorithm.png" alt="OverlappingIntervalAlgorithm">
+</div>
+<div class="title">Figure 3. Visual explanation on the interval overlap detection algorithm</div>
+</div>
+<div class="paragraph">
+<p>The following steps describe the flow of an overlap check between 2 accommodation bookings:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The start day and end day of both bookings are retrieved using <code>getStartDay()</code> and <code>getEndDay()</code> methods of the <code>AccommodationBooking</code> object.</p>
+</li>
+<li>
+<p>The total duration of both accommodation bookings is calculated.</p>
+</li>
+<li>
+<p>The latest end day and earliest start day is obtained.</p>
+</li>
+<li>
+<p>The <em>acceptable duration</em> is calculated.</p>
+</li>
+<li>
+<p>If the <em>acceptable duration</em> is greater than the total duration of both bookings, there is no overlap. The overlap check will continue for the next accommodation booking until the last.
+If there is an overlap, the check will stop and the user will receive a message that informs them that the new accommodation booking will overlap with another booking.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The <em>Activity Diagram</em> below summaries the above steps.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/developer-guide/accommodation-booking/FindOverlapActivityDiagram.png" alt="FindOverlapActivityDiagram">
+</div>
+<div class="title">Figure 4. Workflow of an overlap check between 2 accommodation bookings</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration"><a class="link" href="#design-consideration">Design Consideration</a></h4>
+<div class="sect4">
+<h5 id="aspect-calculating-overlap-of-the-new-accommodation-booking-with-the-other-accommodation-bookings-in-the-list"><a class="link" href="#aspect-calculating-overlap-of-the-new-accommodation-booking-with-the-other-accommodation-bookings-in-the-list">Aspect: Calculating overlap of the new accommodation booking with the other accommodation bookings in the list</a></h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Option 1 (Current)</strong><br>
+Use an interval overlap detection algorithm.</p>
+<p class="tableblock">In the worst case, the checking for overlap against all accommodation booking takes O(n) time where n is the number of accommodation bookings</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Simple and easy to implement.</p>
+<p class="tableblock">Only require constant space to calculate overlaps between 2 intervals.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Requires some calculation.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Option 2</strong><br>
+Use a hashtable to store the days that have been accounted for.</p>
+<p class="tableblock">In the worst case, the checking for overlap against all accommodation booking takes O(d) time where d is the number of days.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Simple and easy to implement.</p>
+<p class="tableblock">Checking for any particular day takes constant time.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Require a large amount of storage space to save the hashtable data.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Reason for choosing option 1:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Both options are simple and easy to implement. However, option 2 has a larger overhead due to the hashtable it uses. Thus, we decided option 1 is better.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 07:43:28 UTC</div></div></div></body></html>
