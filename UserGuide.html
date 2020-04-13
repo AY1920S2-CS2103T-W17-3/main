@@ -10,15 +10,15 @@
 <div id="toctitle"></div>
 <ul class="sectlevel1">
 <li><a href="#strong-introduction-strong">1. <strong>Introduction</strong></a></li>
-<li><a href="#strong-quick-start-strong">2. <strong>Quick Start</strong></a></li>
+<li><a href="#Quick-Start">2. <strong>Quick Start</strong></a></li>
 <li><a href="#strong-about-strong">3. <strong>About</strong></a>
 <ul class="sectlevel2">
 <li><a href="#structure-of-this-document">3.1. Structure of this document</a></li>
-<li><a href="#reading-this-document">3.2. Reading this Document</a>
+<li><a href="#Reading">3.2. Reading this Document</a>
 <ul class="sectlevel3">
-<li><a href="#terminology-related-to-the-gui">3.2.1. Terminology related to the GUI.</a></li>
+<li><a href="#Terminology-GUI">3.2.1. Terminology related to the GUI.</a></li>
 <li><a href="#general-symbols-and-syntax">3.2.2. General Symbols and Syntax</a></li>
-<li><a href="#command-syntaxes-and-usages">3.2.3. Command Syntaxes and Usages</a></li>
+<li><a href="#Command-Syntax">3.2.3. Command Syntax and Usage</a></li>
 </ul>
 </li>
 </ul>
@@ -29,13 +29,11 @@
 <ul class="sectlevel3">
 <li><a href="#trip-management-command-parameters">4.1.1. Trip Management Command Parameters</a>
 <ul class="sectlevel4">
-<li><a href="#set-a-new-trip">4.1.1.1. Set a new trip: <code>settrip</code></a></li>
+<li><a href="#settrip">4.1.1.1. Set a new trip: <code>settrip</code></a></li>
 <li><a href="#rename-the-trip-code-rename-code">4.1.1.2. Rename the trip: <code>rename</code></a></li>
 <li><a href="#edit-the-trip-s-budget-code-editbudget-code">4.1.1.3. Edit the trip’s budget: <code>editbudget</code></a></li>
 <li><a href="#delete-the-current-trip-code-deletetrip-code">4.1.1.4. Delete the current trip: <code>deletetrip</code></a></li>
 <li><a href="#check-your-progress-code-status-code">4.1.1.5. Check your progress: <code>status</code></a></li>
-<li><a href="#scheduling-the-activity">4.1.1.6. Scheduling the activity</a></li>
-<li><a href="#view-all-itinerary-code-listschedule-code">4.1.1.7. View all itinerary: <code>listschedule</code></a></li>
 </ul>
 </li>
 </ul>
@@ -48,81 +46,89 @@
 <li><a href="#edit-an-existing-activity-code-editactivity-code">4.2.4. Edit an existing activity: <code>editactivity</code></a></li>
 <li><a href="#delete-an-existing-activity-code-deleteactivity-code">4.2.5. Delete an existing activity: <code>deleteactivity</code></a></li>
 <li><a href="#sort-the-activity-list-code-sortactivity-code">4.2.6. Sort the activity list: <code>sortactivity</code></a></li>
-<li><a href="#find-activities-by-title-code-findactivity-code">4.2.7. Find activities by title: <code>findactivity</code></a></li>
+<li><a href="#find-activities-by-keyword-code-findactivity-code">4.2.7. Find activities by keyword: <code>findactivity</code></a></li>
 <li><a href="#find-activities-by-tag-code-findactivitytag-code">4.2.8. Find activities by tag: <code>findactivitytag</code></a></li>
 <li><a href="#clear-all-activities-code-clearactivity-code">4.2.9. Clear all activities: <code>clearactivity</code></a></li>
 </ul>
 </li>
-<li><a href="#transportation-booking-management">4.3. Transportation Booking Management</a>
+<li><a href="#activity-scheduling">4.3. Activity Scheduling</a>
 <ul class="sectlevel3">
-<li><a href="#transport-booking-management-command-parameters">4.3.1. Transport Booking Management Command Parameters</a></li>
-<li><a href="#list-all-transport-bookings-code-listtransport-code">4.3.2. List all transport bookings: <code>listtransport</code></a></li>
-<li><a href="#add-a-new-transport-booking-code-addtransport-code">4.3.3. Add a new transport booking: <code>addtransport</code></a></li>
-<li><a href="#edit-an-existing-packing-list-transport-code-edittransport-code">4.3.4. Edit an existing packing list transport: <code>edittransport</code></a></li>
-<li><a href="#delete-an-existing-transportation-booking-code-deletetransport-code">4.3.5. Delete an existing transportation booking: <code>deletetransport</code></a></li>
-<li><a href="#clear-all-transportation-bookings-code-cleartransport-code">4.3.6. Clear all transportation bookings: <code>cleartransport</code></a></li>
+<li><a href="#schedule-param">4.3.1. Activity Scheduling Command Parameters</a></li>
+<li><a href="#list-all-scheduled-programs-code-listschedule-code">4.3.2. List all scheduled programs: <code>listschedule</code></a></li>
+<li><a href="#add-an-existing-activity-to-the-schedule-code-schedule-code">4.3.3. Add an existing activity to the schedule: <code>schedule</code></a></li>
+<li><a href="#remove-an-activity-from-the-schedule-code-unschedule-code">4.3.4. Remove an activity from the schedule: <code>unschedule</code></a></li>
 </ul>
 </li>
-<li><a href="#accommodation-booking">4.4. Accommodation Booking</a>
+<li><a href="#transportation-booking-management">4.4. Transportation Booking Management</a>
 <ul class="sectlevel3">
-<li><a href="#accommodation-booking-management-command-parameters">4.4.1. Accommodation Booking Management Command Parameters</a></li>
-<li><a href="#list-all-accommodation-bookings-code-listacc-code">4.4.2. List all accommodation bookings: <code>listacc</code></a></li>
-<li><a href="#add-a-new-accommodation-booking-code-addacc-code">4.4.3. Add a new accommodation booking: <code>addacc</code></a></li>
-<li><a href="#edit-an-existing-accommodation-booking-code-editacc-code">4.4.4. Edit an existing accommodation booking: <code>editacc</code></a></li>
-<li><a href="#delete-an-existing-accommodation-booking-code-deleteacc-code">4.4.5. Delete an existing accommodation booking: <code>deleteacc</code></a></li>
-<li><a href="#sort-the-accommodation-booking-list-code-sortacc-code">4.4.6. Sort the accommodation booking list: <code>sortacc</code></a></li>
-<li><a href="#clear-all-accommodation-bookings-code-clearacc-code">4.4.7. Clear all accommodation bookings: <code>clearacc</code></a></li>
+<li><a href="#transport-param">4.4.1. Transport Booking Management Command Parameters</a></li>
+<li><a href="#list-all-transport-bookings-code-listtransport-code">4.4.2. List all transport bookings: <code>listtransport</code></a></li>
+<li><a href="#add-a-new-transport-booking-code-addtransport-code">4.4.3. Add a new transport booking: <code>addtransport</code></a></li>
+<li><a href="#edit-an-existing-transportation-booking-code-edittransport-code">4.4.4. Edit an existing transportation booking: <code>edittransport</code></a></li>
+<li><a href="#delete-an-existing-transportation-booking-code-deletetransport-code">4.4.5. Delete an existing transportation booking: <code>deletetransport</code></a></li>
+<li><a href="#sort-the-transport-booking-list-code-sorttransport-code">4.4.6. Sort the transport booking list: <code>sorttransport</code></a></li>
+<li><a href="#clear-all-transportation-bookings-code-cleartransport-code">4.4.7. Clear all transportation bookings: <code>cleartransport</code></a></li>
 </ul>
 </li>
-<li><a href="#packing-list">4.5. Packing List</a>
+<li><a href="#accommodation-booking">4.5. Accommodation Booking</a>
 <ul class="sectlevel3">
-<li><a href="#packing-list-item-management-command-parameters">4.5.1. Packing List Item Management Command Parameters</a></li>
-<li><a href="#list-all-packing-list-items-code-listitem-code">4.5.2. List all packing list items: <code>listitem</code></a></li>
-<li><a href="#add-a-new-packing-list-item-code-additem-code">4.5.3. Add a new packing list item: <code>additem</code></a></li>
-<li><a href="#edit-an-existing-packing-list-item-code-edititem-code">4.5.4. Edit an existing packing list item: <code>edititem</code></a></li>
-<li><a href="#delete-an-existing-packing-list-item-code-deleteitem-code">4.5.5. Delete an existing packing list item: <code>deleteitem</code></a></li>
-<li><a href="#mark-an-existing-packing-list-item-as-packed-code-checkitem-code">4.5.6. Mark an existing packing list item as packed: <code>checkitem</code></a></li>
-<li><a href="#mark-an-existing-packing-list-item-as-unpacked-code-uncheckitem-code">4.5.7. Mark an existing packing list item as unpacked: <code>uncheckitem</code></a></li>
-<li><a href="#sort-the-packing-list-code-sortitem-code">4.5.8. Sort the packing list: <code>sortitem</code></a></li>
-<li><a href="#find-packing-list-items-by-name-code-finditem-code">4.5.9. Find packing list items by name: <code>finditem</code></a></li>
-<li><a href="#find-packing-list-items-by-category-code-finditemcategory-code">4.5.10. Find packing list items by category: <code>finditemcategory</code></a></li>
-<li><a href="#clear-all-packing-list-items-code-clearitem-code">4.5.11. Clear all packing list items: <code>clearitem</code></a></li>
-<li><a href="#add-a-new-preset-category-code-addpreset-code">4.5.12. Add a new preset category: <code>addpreset</code></a></li>
-<li><a href="#list-all-presets-code-listpreset-code">4.5.13. List all presets: <code>listpreset</code></a></li>
+<li><a href="#acc-param">4.5.1. Accommodation Booking Management Command Parameters</a></li>
+<li><a href="#list-all-accommodation-bookings-code-listacc-code">4.5.2. List all accommodation bookings: <code>listacc</code></a></li>
+<li><a href="#add-a-new-accommodation-booking-code-addacc-code">4.5.3. Add a new accommodation booking: <code>addacc</code></a></li>
+<li><a href="#edit-an-existing-accommodation-booking-code-editacc-code">4.5.4. Edit an existing accommodation booking: <code>editacc</code></a></li>
+<li><a href="#delete-an-existing-accommodation-booking-code-deleteacc-code">4.5.5. Delete an existing accommodation booking: <code>deleteacc</code></a></li>
+<li><a href="#sort-the-accommodation-booking-list-code-sortacc-code">4.5.6. Sort the accommodation booking list: <code>sortacc</code></a></li>
+<li><a href="#clear-all-accommodation-bookings-code-clearacc-code">4.5.7. Clear all accommodation bookings: <code>clearacc</code></a></li>
 </ul>
 </li>
-<li><a href="#fixed-expense-manager">4.6. Fixed Expense Manager</a>
+<li><a href="#packing-list">4.6. Packing List</a>
 <ul class="sectlevel3">
-<li><a href="#parameters-associated-with-fixed-expense-manager">4.6.1. Parameters associated with Fixed Expense Manager</a></li>
-<li><a href="#list-your-fixed-expenses-listexpense">4.6.2. List your Fixed Expenses: listexpense</a></li>
-<li><a href="#adding-a-new-fixed-expense-code-addexpense-code">4.6.3. Adding a new fixed expense: <code>addexpense</code></a></li>
-<li><a href="#edit-your-fixed-expense-editexpense">4.6.4. Edit your fixed expense: editexpense</a></li>
-<li><a href="#deleting-a-fixed-expense-code-deleteexpense-code">4.6.5. Deleting a fixed expense: <code>deleteexpense</code></a></li>
-<li><a href="#clearing-a-fixed-expense-code-clearexpense-code">4.6.6. Clearing a fixed expense: <code>clearexpense</code></a></li>
-<li><a href="#sort-fixed-expenses-according-to-amount-spent-code-sortexpense-code">4.6.7. Sort fixed expenses according to amount spent: <code>sortexpense</code></a></li>
+<li><a href="#packing-param">4.6.1. Packing List Item Management Command Parameters</a></li>
+<li><a href="#list-all-packing-list-items-code-listitem-code">4.6.2. List all packing list items: <code>listitem</code></a></li>
+<li><a href="#add-a-new-packing-list-item-code-additem-code">4.6.3. Add a new packing list item: <code>additem</code></a></li>
+<li><a href="#edit-an-existing-packing-list-item-code-edititem-code">4.6.4. Edit an existing packing list item: <code>edititem</code></a></li>
+<li><a href="#delete-an-existing-packing-list-item-code-deleteitem-code">4.6.5. Delete an existing packing list item: <code>deleteitem</code></a></li>
+<li><a href="#mark-an-existing-packing-list-item-as-packed-code-checkitem-code">4.6.6. Mark an existing packing list item as packed: <code>checkitem</code></a></li>
+<li><a href="#mark-an-existing-packing-list-item-as-not-packed-code-uncheckitem-code">4.6.7. Mark an existing packing list item as not packed: <code>uncheckitem</code></a></li>
+<li><a href="#sort-the-packing-list-code-sortitem-code">4.6.8. Sort the packing list: <code>sortitem</code></a></li>
+<li><a href="#find-packing-list-items-by-name-code-finditem-code">4.6.9. Find packing list items by name: <code>finditem</code></a></li>
+<li><a href="#find-packing-list-items-by-category-code-finditemcategory-code">4.6.10. Find packing list items by category: <code>finditemcategory</code></a></li>
+<li><a href="#clear-all-packing-list-items-code-clearitem-code">4.6.11. Clear all packing list items: <code>clearitem</code></a></li>
+<li><a href="#addpreset">4.6.12. Add a new preset (built-in list): <code>addpreset</code></a></li>
+<li><a href="#listpreset">4.6.13. List all presets: <code>listpreset</code></a></li>
 </ul>
 </li>
-<li><a href="#features-coming-in-version-2-0">4.7. Features coming in Version 2.0</a>
+<li><a href="#fixed-expense-management">4.7. Fixed Expense Management</a>
 <ul class="sectlevel3">
-<li><a href="#packing-list-manager">4.7.1. Packing List Manager</a>
+<li><a href="#expense-param">4.7.1. Fixed Expense Management Command Parameters</a></li>
+<li><a href="#list-your-fixed-expenses-listexpense">4.7.2. List your fixed expenses: listexpense</a></li>
+<li><a href="#addexpense">4.7.3. Adding a new fixed expense entry: <code>addexpense</code></a></li>
+<li><a href="#edit-a-fixed-expense-entry-editexpense">4.7.4. Edit a fixed expense entry: editexpense</a></li>
+<li><a href="#deleting-a-fixed-expense-entry-code-deleteexpense-code">4.7.5. Deleting a fixed expense entry: <code>deleteexpense</code></a></li>
+<li><a href="#sort-fixed-expenses-code-sortexpense-code">4.7.6. Sort fixed expenses: <code>sortexpense</code></a></li>
+<li><a href="#clearing-a-fixed-expense-code-clearexpense-code">4.7.7. Clearing a fixed expense: <code>clearexpense</code></a></li>
+</ul>
+</li>
+<li><a href="#features-coming-in-version-2-0">4.8. Features coming in Version 2.0</a>
+<ul class="sectlevel3">
+<li><a href="#packing-list-management">4.8.1. Packing List Management</a>
 <ul class="sectlevel4">
-<li><a href="#create-a-smart-packing-list-code-createlist-code">4.7.1.1. Create a smart packing list: <code>createlist</code></a></li>
+<li><a href="#create-a-smart-packing-list-code-createlist-code">4.8.1.1. Create a smart packing list: <code>createlist</code></a></li>
 </ul>
 </li>
-<li><a href="#export-the-packing-list-as-a-text-file-code-export-code">4.7.2. Export the packing list as a text file: <code>export</code></a></li>
+<li><a href="#export-the-packing-list-as-a-text-file-code-export-code">4.8.2. Export the packing list as a text file: <code>export</code></a></li>
 </ul>
 </li>
-<li><a href="#fixed-expense-manager-2">4.8. Fixed Expense Manager</a>
+<li><a href="#fixed-expense-management-2">4.9. Fixed Expense Management</a>
 <ul class="sectlevel3">
-<li><a href="#recommend-ways-to-save-money-based-on-prevailing-usage">4.8.1. Recommend ways to save money based on prevailing usage</a></li>
-<li><a href="#automatically-keep-track-of-expenses">4.8.2. Automatically keep track of expenses</a></li>
+<li><a href="#recommend-ways-to-save-money-based-on-prevailing-usage">4.9.1. Recommend ways to save money based on prevailing usage</a></li>
 </ul>
 </li>
-<li><a href="#improvements-to-e-t-interface">4.9. Improvements to E.T. Interface</a>
+<li><a href="#enhancing-your-experience-with-e-t">4.10. Enhancing your experience with E.T.</a>
 <ul class="sectlevel3">
-<li><a href="#auto-complete">4.9.1. Auto-Complete</a></li>
-<li><a href="#undo-redo">4.9.2. Undo/Redo</a></li>
-<li><a href="#import-and-export-of-entire-pre-trip-data">4.9.3. Import and export of entire pre-trip data</a></li>
+<li><a href="#auto-complete">4.10.1. Auto-Complete</a></li>
+<li><a href="#undo-redo">4.10.2. Undo/Redo</a></li>
+<li><a href="#import-and-export-of-data">4.10.3. Import and export of data</a></li>
 </ul>
 </li>
 </ul>
@@ -130,11 +136,13 @@
 <li><a href="#strong-faq-strong">5. <strong>FAQ</strong></a></li>
 <li><a href="#strong-command-summary-strong">6. <strong>Command Summary</strong></a>
 <ul class="sectlevel2">
-<li><a href="#trip-commands">6.1. Trip Commands</a></li>
-<li><a href="#activity-command">6.2. Activity Command</a></li>
-<li><a href="#transportation-booking-command">6.3. Transportation Booking Command</a></li>
-<li><a href="#packing-list-commands">6.4. Packing List Commands</a></li>
-<li><a href="#fixed-expense-commands">6.5. Fixed Expense Commands</a></li>
+<li><a href="#trip-management-commands">6.1. Trip Management Commands</a></li>
+<li><a href="#activity-commands">6.2. Activity Commands</a></li>
+<li><a href="#activity-scheduling-commands">6.3. Activity Scheduling Commands</a></li>
+<li><a href="#transportation-booking-management-commands">6.4. Transportation Booking Management Commands</a></li>
+<li><a href="#accommodation-booking-management-commands">6.5. Accommodation Booking Management Commands</a></li>
+<li><a href="#packing-list-management-commands">6.6. Packing List Management Commands</a></li>
+<li><a href="#fixed-expense-commands">6.7. Fixed Expense Commands</a></li>
 </ul>
 </li>
 </ul>
@@ -147,15 +155,15 @@
 <p>Welcome to the User Guide of <strong>Easy Travel (E.T.)</strong>!</p>
 </div>
 <div class="paragraph">
-<p>Do you enjoy going on overseas trips, but dislike or have trouble planning for it? Fret not, our application, <strong>E.T.</strong>, will help reduce the amount of stress and anxiety when planning for a trip. <strong>E.T.</strong> is a desktop application that helps travellers <strong>manage and plan for their trips</strong>. This application uses a Command Line Interface (CLI); this means that you operate the application by typing commands into a Command Box. If you are fast at typing, you can manage your trips faster than other Graphical User Interface (GUI) applications; GUI applications allow users to interact with the application through graphical icons such as buttons.</p>
+<p>Do you enjoy going on overseas trips, but dislike or have trouble planning for it? Fret not, our application, <strong>E.T.</strong>, will help reduce the amount of stress and anxiety when planning for a trip. <strong>E.T.</strong> is a desktop application that helps travellers <strong>manage and plan for their trips</strong>. This application uses a <em>Command Line Interface (CLI)</em>; this means that you operate the application by typing commands into a Command Box. If you are fast at typing, you can manage your trips faster than other <em>Graphical User Interface (GUI)</em> applications; <em>GUI</em> applications allow users to interact with the application through graphical icons such as buttons.</p>
 </div>
 <div class="paragraph">
-<p>The purpose of this user guide is to provide you with in-depth documentation on how to install and use our application. What are you waiting for? Head on to <u>Section 2 - Quick Start to get started</u>.</p>
+<p>The purpose of this user guide is to provide you with in-depth documentation on how to install and use our application. What are you waiting for? Head on to <a href="#Quick-Start">Section 2, &#8220;<strong>Quick Start</strong>&#8221;</a>.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="strong-quick-start-strong"><a class="link" href="#strong-quick-start-strong">2. <strong>Quick Start</strong></a></h2>
+<h2 id="Quick-Start"><a class="link" href="#Quick-Start">2. <strong>Quick Start</strong></a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>To get started with using <strong>E.T.</strong>, you can follow these steps:</p>
@@ -178,18 +186,21 @@
 <p>You are now on the main page of <strong>E.T.</strong>.</p>
 </li>
 <li>
-<p>At the bottom of the screen, type your command in the Command Box (label in <u>Figure 1</u>) and press &lt;Enter&gt; on your keyboard to execute it. E.g. typing <code>help</code> and pressing &lt;Enter&gt; will open the help window.</p>
+<p>At the bottom of the screen, type your command in the Command Box (See <a href="#Terminology-GUI">Section 3.2.1, &#8220;Terminology related to the GUI.&#8221;</a>) and press <code>Enter</code> on your keyboard to execute it. E.g. typing <code>help</code> and pressing <code>Enter</code> will open the help tab.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>Refer to <u>Section 3.2.3 - Command Syntaxes and Usages</u> on how to use commands and <u>Section 4 - Features</u> on the commands you can use for each feature.</p>
+<p>Refer to <a href="#Command-Syntax">Section 3.2.3, &#8220;Command Syntax and Usage&#8221;</a> on how to use commands and <u>Section 4 - Features</u> on the commands you can use for each feature.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/user-guide/MainUI.png" alt="MainUI">
+<img src="images/Ui.png" alt="Ui">
 </div>
-<div class="title">Figure 1. Main UI</div>
+<div class="title">Figure 1. GUI of <strong>E.T.</strong></div>
+</div>
+<div class="paragraph">
+<p>Refer to <a href="#Command-Syntax">Section 3.2.3, &#8220;Command Syntax and Usage&#8221;</a> on how to use commands and <a href="#Features">Section 4, &#8220;<strong>Features</strong>&#8221;</a> on the commands you can use for each feature.</p>
 </div>
 </div>
 </div>
@@ -199,55 +210,55 @@
 <div class="sect2">
 <h3 id="structure-of-this-document"><a class="link" href="#structure-of-this-document">3.1. Structure of this document</a></h3>
 <div class="paragraph">
-<p>There are many things you can do with <strong>E.T.</strong>. Thus, we have structured this User Guide in such a way that you can easily find what you need. In the next subsection, <u>Section 3.2 Reading this Document</u>, you will find useful tips on reading this document. It is then followed by <u>Section 4 - Features</u> where the seven main features of E.T. and their commands are documented:</p>
+<p>There are many things you can do with <strong>E.T.</strong>. Thus, we have structured this User Guide in such a way that you can easily find what you need. In the next subsection, <a href="#Reading">Section 3.2, &#8220;Reading this Document&#8221;</a>, you will find useful tips on reading this document. It is then followed by <a href="#Features">Section 4, &#8220;<strong>Features</strong>&#8221;</a> where the seven main features of <strong>E.T.</strong> and their commands are documented:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Trip Planner</p>
+<p>Trip Management</p>
 </li>
 <li>
-<p>Scheduler</p>
+<p>Activity Scheduling</p>
 </li>
 <li>
-<p>Activity manager</p>
+<p>Activity Management</p>
 </li>
 <li>
-<p>Transportation Booking Manager</p>
+<p>Transportation Booking Management</p>
 </li>
 <li>
-<p>Accommodation Booking Manager</p>
+<p>Accommodation Booking Management</p>
 </li>
 <li>
-<p>Packing list Manager</p>
+<p>Packing List Management</p>
 </li>
 <li>
-<p>Fixed Expense Manager</p>
+<p>Fixed Expense Management</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="reading-this-document"><a class="link" href="#reading-this-document">3.2. Reading this Document</a></h3>
+<h3 id="Reading"><a class="link" href="#Reading">3.2. Reading this Document</a></h3>
 <div class="paragraph">
 <p>However, before moving on to the next section, you may want to familiarise yourself with some technical terms, symbols and syntax that are used throughout the document. In this subsection, you can find all the information you need to know when reading this document.</p>
 </div>
 <div class="sect3">
-<h4 id="terminology-related-to-the-gui"><a class="link" href="#terminology-related-to-the-gui">3.2.1. Terminology related to the GUI.</a></h4>
+<h4 id="Terminology-GUI"><a class="link" href="#Terminology-GUI">3.2.1. Terminology related to the GUI.</a></h4>
 <div class="paragraph">
-<p>The following figure shows how E.T. looks like.</p>
+<p>The following figure shows the <em>GUI</em> of <strong>E.T.</strong>. It is annotated with the name of the <em>GUI</em> components.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/user-guide/MainPage.png" alt="MainPage">
+<img src="images/user-guide/others/gui-annotated.png" alt="gui annotated">
 </div>
-<div class="title">Figure 2. Main page of E.T</div>
+<div class="title">Figure 2. Annotated <em>GUI</em> of <strong>E.T.</strong></div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="general-symbols-and-syntax"><a class="link" href="#general-symbols-and-syntax">3.2.2. General Symbols and Syntax</a></h4>
 <div class="paragraph">
-<p>Table 1 below explains the general symbols and syntax used throughout the document.</p>
+<p>The table below explains the general symbols and syntax used throughout the document.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -263,7 +274,7 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>italics</em>,</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Italicised text indicates that the text has a definition that is specific to the application. Look out for the definitions of these words in the same paragraph or in the glossary.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Italicised text indicates that the text has a definition that is specific to the application. Look out for the definitions of these words in the same paragraph or the glossary.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>command</code></p></td>
@@ -279,17 +290,14 @@
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>Table 1. General symbols and syntax</p>
-</div>
 </div>
 <div class="sect3">
-<h4 id="command-syntaxes-and-usages"><a class="link" href="#command-syntaxes-and-usages">3.2.3. Command Syntaxes and Usages</a></h4>
+<h4 id="Command-Syntax"><a class="link" href="#Command-Syntax">3.2.3. Command Syntax and Usage</a></h4>
 <div class="paragraph">
-<p>Since <strong>E.T.</strong> is a CLI application, knowing how to use commands is very important. The following subsection will teach you how to read and use commands in <strong>E.T.</strong>. All commands in <strong>E.T.</strong> follow similar formats as described below and examples will be provided to help you understand their usage. Examples of commands and their formats will be written in <code>code-blocks</code>.</p>
+<p>Since <strong>E.T.</strong> is a <em>CLI</em> application, knowing how to use commands is very important. The following subsection will teach you how to read and use commands in <strong>E.T.</strong>. All commands in <strong>E.T.</strong> follow similar formats as described below and examples will be provided to help you understand their usage. Examples of commands and their formats will be written in <code>code-blocks</code>.</p>
 </div>
 <div class="paragraph">
-<p>Table 2 below explains some important technical terms. An example will be provided to help you visualize these terms.</p>
+<p>The table below explains some important technical terms. An example will be provided to help you visualize these terms.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -305,7 +313,7 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Command word</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The first word of a command. It determines the action that E.T. should perform.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The first word of a command. It determines the action that <strong>E.T.</strong> should perform.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Parameter</p></td>
@@ -317,9 +325,6 @@
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>Table 2. Commands technical terms</p>
-</div>
 <div class="paragraph">
 <p>Example:</p>
 </div>
@@ -341,158 +346,73 @@
 <p><strong>Prefix</strong> -  <code>name/</code>, <code>quantity/</code>, <code>category/</code></p>
 </div>
 <div class="paragraph">
-<p>The following points explain how you can use a command with the provided format. More examples will be provided for each command in <u>Section 4 - Features</u>.
+<p>The following 4 points explain how you can use a command with the provided format. More examples will be provided for each command in <a href="#Features">Section 4, &#8220;<strong>Features</strong>&#8221;</a>.
 Words in the upper case are the parameters to be supplied by you.</p>
 </div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Words in the upper case are the parameters to be supplied by you.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Words in the <strong>upper case</strong> are the parameters to be supplied by you.</p>
+<p>Format given: <code>deletetransport INDEX</code></p>
+</li>
+<li>
+<p>Acceptable input: <code>deletetransport 1</code></p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Format given</th>
-<th class="tableblock halign-left valign-top">Example of user input</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletetransport INDEX</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletetransport 1</code></p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p><code>INDEX</code> is a parameter that you supply.</p>
-</div>
-<div class="paragraph">
-<p>In this example, the user supplied <code>1</code> as the <code>INDEX</code>.</p>
-</div>
+</li>
+<li>
+<p>Items in square brackets are optional.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Items in <strong>square brackets</strong> are optional.</p>
+<p>Format given: <code>edititem INDEX [name/NAME] [quantity/QUANTITY] [category/CATEGORY]</code></p>
+</li>
+<li>
+<p>Acceptable input: <code>edititem 1 quantity/5</code></p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Format given</th>
-<th class="tableblock halign-left valign-top">Example of user input</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edititem INDEX [name/NAME] [quantity/QUANTITY] [category/CATEGORY]</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edititem 1 quantity/5</code></p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p><code>INDEX</code> is compulsory as it is not in a pair of <strong>square brackets</strong>.</p>
-</div>
-<div class="paragraph">
-<p><code>[name/NAME]</code> on the other hand is optional as it is in a pair of <strong>square brackets</strong>.</p>
-</div>
-<div class="paragraph">
-<p>The same rule applies to the rest of the parameters.</p>
-</div>
-<div class="paragraph">
-<p>In the example above, the user supplied the compulsory parameter <code>INDEX</code> and only one optional parameter <code>[quantity/QUANTITY]</code>.</p>
-</div>
+</li>
+<li>
+<p>Items with <code>…</code> after them can be used zero or multiple times.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Items with <code>&#8230;&#8203;</code> after them can be used zero or multiple times.</p>
+<p>Format given: <code>addactivity title/TITLE location/LOCATION duration/DURATION tag/TAG…</code></p>
+</li>
+<li>
+<p>Acceptable input 1 (two <code>tag/TAG</code>): <code>addactivity title/Shopping location/Treasure Factory duration/2 tag/shopping tag/tokyo</code></p>
+</li>
+<li>
+<p>Acceptable input 2 (no <code>tag/TAG</code>): <code>addactivity title/Osaka Castle View location/Treasure Factory duration/2 duration/1</code></p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Format given</th>
-<th class="tableblock halign-left valign-top">Example of user input</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addactivity title/TITLE location/LOCATION duration/DURATION tag/TAG&#8230;&#8203;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addactivity title/Shopping location/Treasure Factory duration/2 tag/shopping tag/tokyo</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Same as above</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addactivity title/Osaka Castle View location/Treasure Factory duration/2 duration/1</code></p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>In the first example above, the user supplied 2 <code>tag/TAG</code> parameters.</p>
-</div>
-<div class="paragraph">
-<p>In the second example above, the user did not supply any <code>tag/TAG</code> parameters.</p>
-</div>
+</li>
+<li>
+<p>Parameters with prefixes can be supplied in any order.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Parameters can be supplied in any order</p>
+<p>Format given: <code>addactivity title/TITLE location/LOCATION duration/DURATION tag/TAG…</code></p>
+</li>
+<li>
+<p>Acceptable input (same order as given format): <code>addactivity title/Shopping location/Treasure Factory duration/2 tag/shopping tag/tokyo</code></p>
+</li>
+<li>
+<p>Acceptable input (different order as given format): <code>addactivity duration/2 tag/shopping location/Treasure Factory tag/tokyo title/Shopping</code></p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Format given</th>
-<th class="tableblock halign-left valign-top">Example of user input</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">`addactivity title/TITLE location/LOCATION duration/DURATION tag/TAG&#8230;&#8203; `</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addactivity title/Shopping location/Treasure Factory duration/2 tag/shopping tag/tokyo</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Same as above</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addactivity duration/2 tag/shopping location/Treasure Factory tag/tokyo title/Shopping</code></p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>The above user input command examples are equivalent even though the order of the parameters supplied are different.</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p>With the above information, you can now move on to Section 5 - Feature to learn all the features of the application and start using the commands.</p>
+<p>With the above information, you can now move on to Section 4 - Feature to learn all the features of the application and start using the commands.</p>
 </div>
 </div>
 </div>
@@ -511,7 +431,7 @@ Words in the upper case are the parameters to be supplied by you.</p>
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-You are required to set a trip before other features are unlocked. <a href="#set-a-new-trip">See Section 4.1.2 Set a new trip</a>  to learn how to set a trip.
+You are required to set a trip before other features are unlocked. See <a href="#settrip">Section 4.1.1.1, &#8220;Set a new trip: <code>settrip</code>&#8221;</a> to learn how to set a trip.
 </td>
 </tr>
 </table>
@@ -564,7 +484,7 @@ You are required to set a trip before other features are unlocked. <a href="#set
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>START_DATE</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The starting date of your trip.</p>
-<p class="tableblock">It must be in the format of <code>dd-MM-yyyy HH:mm</code>.
+<p class="tableblock">It must be in the format of <code>dd-MM-yyyy HH:mm</code>.<br>
 It must not be later than the <code>END_DATE</code>.</p>
 <p class="tableblock">E.g. <code>28-09-2020</code>
 This example means 28 September 2020.</p></td>
@@ -572,15 +492,16 @@ This example means 28 September 2020.</p></td>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>END_DATE</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The ending date of your trip.</p>
-<p class="tableblock">It must be in the format of <code>dd-MM-yyyy HH:mm</code>.
-It must not be earlier than the START_DATE.</p>
+<p class="tableblock">It must be in the format of <code>dd-MM-yyyy HH:mm</code>.<br>
+It must not be earlier than the <code>START_DATE</code>.<br>
+It must not be more than 30 days apart from <code>START_DATE</code>.</p>
 <p class="tableblock">E.g. <code>05-10-2020</code>
 This example means <code>05 October 2020</code>.</p></td>
 </tr>
 </tbody>
 </table>
 <div class="sect4">
-<h5 id="set-a-new-trip"><a class="link" href="#set-a-new-trip">4.1.1.1. Set a new trip: <code>settrip</code></a></h5>
+<h5 id="settrip"><a class="link" href="#settrip">4.1.1.1. Set a new trip: <code>settrip</code></a></h5>
 <div class="paragraph">
 <p>You can use this command to set a new trip that you want to plan for.</p>
 </div>
@@ -590,16 +511,28 @@ This example means <code>05 October 2020</code>.</p></td>
 <div class="paragraph">
 <p><code>settrip title/TITLE budget/BUDGET exchangerate/EXCHANGE_RATE startdate/START_DATE enddate/END_DATE</code></p>
 </div>
-<div class="admonitionblock important">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-important" title="Important"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Refer to <a href="#trip-management-command-parameters">Section 4.1.1 Trip Management Command Parameters</a> for more detail about each parameter.</p>
+<p>Refer to <a href="#trip-management-command-parameters">Section 4.1.1, &#8220;Trip Management Command Parameters&#8221;</a> for more detail about each parameter.</p>
 </div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Ensure that your date is correct as <strong>E.T.</strong> does not allow editing of dates once set.
 </td>
 </tr>
 </table>
@@ -642,21 +575,9 @@ This example means <code>05 October 2020</code>.</p></td>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/user-guide/SetTrip.png" alt="SetTrip">
+<img src="images/user-guide/trip-management/outcome-settrip.png" alt="outcome settrip">
 </div>
-<div class="title">Figure 3. Outcome of a successful settrip command</div>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-Ensure that your date is correct as E.T. does not allow editing of dates once set.
-</td>
-</tr>
-</table>
+<div class="title">Figure 3. Outcome of a successful <code>settrip</code> command</div>
 </div>
 </div>
 <div class="sect4">
@@ -678,7 +599,7 @@ Ensure that your date is correct as E.T. does not allow editing of dates once se
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Refer to <a href="#trip-management-command-parameters">Section 4.1.1 Trip Management Command Parameters</a> for more detail about each parameter.</p>
+<p>Refer to <a href="#trip-management-command-parameters">Section 4.1.1, &#8220;Trip Management Command Parameters&#8221;</a> for more detail about each parameter.</p>
 </div>
 </td>
 </tr>
@@ -722,9 +643,9 @@ Ensure that your date is correct as E.T. does not allow editing of dates once se
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/user-guide/RenameTrip.png" alt="RenameTrip">
+<img src="images/user-guide/trip-management/outcome-rename.png" alt="outcome rename">
 </div>
-<div class="title">Figure 4. Outcome of a successful rename</div>
+<div class="title">Figure 4. Outcome of a successful <code>rename</code> command</div>
 </div>
 </div>
 <div class="sect4">
@@ -738,11 +659,11 @@ Ensure that your date is correct as E.T. does not allow editing of dates once se
 <div class="paragraph">
 <p><code>editbudget AMOUNT</code></p>
 </div>
-<div class="admonitionblock important">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-important" title="Important"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 <div class="ulist">
@@ -751,7 +672,7 @@ Ensure that your date is correct as E.T. does not allow editing of dates once se
 <p>The new amount set cannot be lower than your total expenses.</p>
 </li>
 <li>
-<p>Refer to <a href="#trip-management-command-parameters">Section 4.1.1 Trip Management Command Parameters</a> for more detail about each parameter.</p>
+<p>Refer to <a href="#trip-management-command-parameters">Section 4.1.1, &#8220;Trip Management Command Parameters&#8221;</a> for more detail about each parameter.</p>
 </li>
 </ul>
 </div>
@@ -797,9 +718,9 @@ Ensure that your date is correct as E.T. does not allow editing of dates once se
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/user-guide/EditBudget.png" alt="EditBudget">
+<img src="images/user-guide/trip-management/outcome-editbudget.png" alt="outcome editbudget">
 </div>
-<div class="title">Figure 5. Outcome of a successful editbudget</div>
+<div class="title">Figure 5. Outcome of a successful <code>editbudget</code> command</div>
 </div>
 </div>
 <div class="sect4">
@@ -859,9 +780,9 @@ Deleting the trip will clear all your data from the app! Think twice before you 
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/user-guide/deletetrip.png" alt="deletetrip">
+<img src="images/user-guide/trip-management/outcome-deletetrip.png" alt="outcome deletetrip">
 </div>
-<div class="title">Figure 6. Outcome of a successful deletetrip command</div>
+<div class="title">Figure 6. Outcome of a successful <code>deletetrip</code> command</div>
 </div>
 </div>
 <div class="sect4">
@@ -925,60 +846,9 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/user-guide/status.png" alt="status">
+<img src="images/user-guide/trip-management/outcome-status.png" alt="outcome status">
 </div>
 <div class="title">Figure 7. Progress checker window</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="scheduling-the-activity"><a class="link" href="#scheduling-the-activity">4.1.1.6. Scheduling the activity</a></h5>
-<div class="paragraph">
-<p>Allow users to manage the activities in the trip</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="view-all-itinerary-code-listschedule-code"><a class="link" href="#view-all-itinerary-code-listschedule-code">4.1.1.7. View all itinerary: <code>listschedule</code></a></h5>
-<div class="paragraph">
-<p>Shows you the entire itinerary.</p>
-</div>
-<div class="paragraph">
-<p>Using the status command would create a pop-up window as shown in figure 4.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/user-guide/Status.png" alt="Status">
-</div>
-<div class="title">Figure 8. The pop-up after using status command</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>The pop-up would show you major warnings such as</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>No expense/packing list item set</p>
-</li>
-<li>
-<p>Collisions in activities</p>
-</li>
-<li>
-<p>Over expenditure on budget</p>
-</li>
-<li>
-<p>Unchecked items in packing list</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
 </div>
 </div>
 </div>
@@ -986,7 +856,7 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 <div class="sect2">
 <h3 id="activity-management"><a class="link" href="#activity-management">4.2. Activity Management</a></h3>
 <div class="paragraph">
-<p>This feature allows you to manage your activities for the trip. You can record the following information about your activities:</p>
+<p>If you are planning what to do for your trip, you will find this feature useful. This feature allows you to manage your activities for the trip. You can record the following information about your activities:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1104,7 +974,7 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 <div class="sect3">
 <h4 id="add-a-new-activity-code-addactivity-code"><a class="link" href="#add-a-new-activity-code-addactivity-code">4.2.3. Add a new activity: <code>addactivity</code></a></h4>
 <div class="paragraph">
-<p>You can use this command to add a new activity to E.T.</p>
+<p>You can use this command to add a new activity to <strong>E.T..</strong></p>
 </div>
 <div class="paragraph">
 <p><strong>Format:</strong></p>
@@ -1120,7 +990,7 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Refer to <a href="#activity-management-command-parameters">Section 4.2.1 Activity Management Command Parameters</a> for more detail about each parameter.</p>
+<p>Refer to <a href="#activity-management-command-parameters">Section 4.2.1, &#8220;Activity Management Command Parameters&#8221;</a> for more detail about each parameter.</p>
 </div>
 </td>
 </tr>
@@ -1197,15 +1067,15 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/user-guide/addactivity.png" alt="addactivity">
+<img src="images/user-guide/activity-management/outcome-addactivity.png" alt="outcome addactivity">
 </div>
-<div class="title">Figure 9. Outcome of a successful addactivity command</div>
+<div class="title">Figure 8. Outcome of a successful <code>addactivity</code> command</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="edit-an-existing-activity-code-editactivity-code"><a class="link" href="#edit-an-existing-activity-code-editactivity-code">4.2.4. Edit an existing activity: <code>editactivity</code></a></h4>
 <div class="paragraph">
-<p>You can use this command to edit an existing activity in <code>E.T.</code></p>
+<p>You can use this command to edit an existing activity in <strong>E.T.</strong>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Format:</strong></p>
@@ -1232,7 +1102,7 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 <p>If <code>tag/TAG</code> is supplied, it will overwrite the existing tags. Hence, you can supply an empty tag to clear the existing tags.</p>
 </li>
 <li>
-<p>Refer to <a href="#activity-management-command-parameters">Section 4.2.1 Activity Management Command Parameters</a> for more detail about each parameter.</p>
+<p>Refer to <a href="#activity-management-command-parameters">Section 4.2.1, &#8220;Activity Management Command Parameters&#8221;</a> for more detail about each parameter.</p>
 </li>
 </ul>
 </div>
@@ -1284,9 +1154,9 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/user-guide/editactivity.png" alt="editactivity">
+<img src="images/user-guide/activity-management/outcome-editactivity.png" alt="outcome editactivity">
 </div>
-<div class="title">Figure 10. Outcome of a successful editactivity command</div>
+<div class="title">Figure 9. Outcome of a successful <code>editactivity</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -1310,7 +1180,7 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 <div class="ulist">
 <ul>
 <li>
-<p>Refer to <a href="#activity-management-command-parameters">Section 4.2.1 Activity Management Command Parameters</a> for more detail about each parameter.</p>
+<p>Refer to <a href="#activity-management-command-parameters">Section 4.2.1, &#8220;Activity Management Command Parameters&#8221;</a> for more detail about each parameter.</p>
 </li>
 </ul>
 </div>
@@ -1351,7 +1221,7 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 <p><strong>E.T.</strong> will switch to the Activities Tab.</p>
 </li>
 <li>
-<p>You can now see the deleted activity no longer exists.</p>
+<p>You can now see that the deleted activity no longer exists.</p>
 </li>
 </ol>
 </div>
@@ -1428,7 +1298,7 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 </div>
 </div>
 <div class="sect3">
-<h4 id="find-activities-by-title-code-findactivity-code"><a class="link" href="#find-activities-by-title-code-findactivity-code">4.2.7. Find activities by title: <code>findactivity</code></a></h4>
+<h4 id="find-activities-by-keyword-code-findactivity-code"><a class="link" href="#find-activities-by-keyword-code-findactivity-code">4.2.7. Find activities by keyword: <code>findactivity</code></a></h4>
 <div class="paragraph">
 <p>You can use this command to find activities by keywords.</p>
 </div>
@@ -1448,7 +1318,7 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 <div class="ulist">
 <ul>
 <li>
-<p>The keyword is case-in sensitive</p>
+<p>The <code>KEYWORD</code> is case-insensitive</p>
 </li>
 <li>
 <p>All the activities that contain at least one of the keywords will be shown.</p>
@@ -1500,9 +1370,9 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/user-guide/FindActivity.png" alt="FindActivity">
+<img src="images/user-guide/activity-management/outcome-findactivity.png" alt="outcome findactivity">
 </div>
-<div class="title">Figure 11. Outcome of a successful findactivity command</div>
+<div class="title">Figure 10. Outcome of a successful <code>findactivity</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -1514,7 +1384,7 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 <p><strong>Format:</strong></p>
 </div>
 <div class="paragraph">
-<p><code>findactivitytag KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
+<p><code>findactivitytag TAG_NAME [MORE_TAG_NAMES]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1526,13 +1396,13 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 <div class="ulist">
 <ul>
 <li>
-<p>The keyword is case-in sensitive</p>
+<p>The <code>TAG_NAME</code> is case-insensitive</p>
 </li>
 <li>
 <p>All the activities that contain at least one of the tags will be shown.</p>
 </li>
 <li>
-<p>This command is very similar to the <code>findactivity</code> command. You can refer to <a href="#activity-management-command-parameters">Section 4.2.1 Activity Management Command Parameters</a> for an example.</p>
+<p>This command is very similar to the <code>findactivity</code> command. You can refer to <a href="#activity-management-command-parameters">Section 4.2.1, &#8220;Activity Management Command Parameters&#8221;</a> for an example.</p>
 </li>
 </ul>
 </div>
@@ -1594,9 +1464,249 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 </div>
 </div>
 <div class="sect2">
-<h3 id="transportation-booking-management"><a class="link" href="#transportation-booking-management">4.3. Transportation Booking Management</a></h3>
+<h3 id="activity-scheduling"><a class="link" href="#activity-scheduling">4.3. Activity Scheduling</a></h3>
 <div class="paragraph">
-<p>This feature allows you to manage your transportation bookings for the trip. You can record the following information about your transport bookings:</p>
+<p>After brainstorming a bunch of activities to do, do you want to add them to your schedule? This feature will help you do that. In this feature, you can add and remove activities from your schedule. Just tell <strong>E.T.</strong> which activity to schedule at what time and it will be added to the <em>Schedule Tab</em>.</p>
+</div>
+<div class="sect3">
+<h4 id="schedule-param"><a class="link" href="#schedule-param">4.3.1. Activity Scheduling Command Parameters</a></h4>
+<div class="paragraph">
+<p>Before you jump right into using this feature, you may want to learn about all the common command parameters used in this feature. The table below shows the list of common command parameters that will be used for this feature.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ACTIVITY_INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The index number of the activity in the displayed list found in the Activities Tab. The first entry of the list has an index number of <code>1</code> and all the entries are listed in increasing index numbers.</p>
+<p class="tableblock">It must be a valid index number.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DAY_INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The index number of the day Schedule Tab. It represents the day number of your trip. The first day of your trip is index <code>1</code>, the second day is index <code>2</code> and so on, until the last day.</p>
+<p class="tableblock">It must be a valid index number.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TIME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The time to schedule the activity.</p>
+<p class="tableblock">It must be in the format of <code>HH:mm</code> where <code>HH:mm</code> is the 24hr format time.</p>
+<p class="tableblock">E.g. <code>13:00</code>
+This example means 1:00 PM</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="list-all-scheduled-programs-code-listschedule-code"><a class="link" href="#list-all-scheduled-programs-code-listschedule-code">4.3.2. List all scheduled programs: <code>listschedule</code></a></h4>
+<div class="paragraph">
+<p>You can use this command to navigate to the Schedule Tab and display all your scheduled programs in <strong>E.T.</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>listschedule</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p>If you are in another tab and wish to look at your schedule, you can follow these instructions.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Listing your scheduled programs:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>listschedule</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the <em>Schedule Tab</em>.</p>
+</li>
+<li>
+<p>You can now see your schedule.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/user-guide/schedule/outcome-listschedule.png" alt="outcome listschedule">
+</div>
+<div class="title">Figure 11. Outcome of the <code>listschedule</code> command</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="add-an-existing-activity-to-the-schedule-code-schedule-code"><a class="link" href="#add-an-existing-activity-to-the-schedule-code-schedule-code">4.3.3. Add an existing activity to the schedule: <code>schedule</code></a></h4>
+<div class="paragraph">
+<p>You can use this command to add an activity to your schedule in E.T..</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>schedule ACTIVITY_INDEX day/DAY_INDEX time/TIME</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Refer to <a href="#schedule-param">Section 4.3.1, &#8220;Activity Scheduling Command Parameters&#8221;</a> for detail about each parameter.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p>Let’s say you want to add the <strong>first</strong> activity in the Activities Tab to the <strong>third</strong> day of your schedule at <strong>10 AM</strong>. You can do the following.</p>
+</div>
+<div class="paragraph">
+<p>Adding the activity to your schedule:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>schedule 1 day/3 time/10:00</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the <em>Schedule Tab</em>.</p>
+</li>
+<li>
+<p>You can now see all your scheduled programs including the newly added activity.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/user-guide/schedule/outcome-schedule.png" alt="outcome schedule">
+</div>
+<div class="title">Figure 12. Outcome of a successful <code>schedule</code> command</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="remove-an-activity-from-the-schedule-code-unschedule-code"><a class="link" href="#remove-an-activity-from-the-schedule-code-unschedule-code">4.3.4. Remove an activity from the schedule: <code>unschedule</code></a></h4>
+<div class="paragraph">
+<p>You can use this command to remove an activity from your schedule in E.T..</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+You cannot remove a transport booking entry from your schedule. Refer to Section 4.4.5 Delete and existing transport booking for instructions on how to remove a transport booking entry.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>unschedule ACTIVITY_INDEX day/DAY_INDEX</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Refer to <a href="#schedule-param">Section 4.3.1, &#8220;Activity Scheduling Command Parameters&#8221;</a> for detail about each parameter.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p>In case you want to remove the first activity of the third day because you have other plans at that time. You can do the following.</p>
+</div>
+<div class="paragraph">
+<p>Removing the activity from your schedule:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>unschedule 1 day/3</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the <em>Schedule Tab</em>.</p>
+</li>
+<li>
+<p>You can now see that the unscheduled activity is removed from your schedule.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="transportation-booking-management"><a class="link" href="#transportation-booking-management">4.4. Transportation Booking Management</a></h3>
+<div class="paragraph">
+<p>If you want to be prepared, you have to book transportation for every overseas trip. Thus, if you want to manage your transportation bookings for the trip, you can use this feature. What’s more is that your transport bookings are automatically added to your schedule, unlike the manual scheduling you have to do with activities. You can record the following information about your transport bookings:</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -1622,7 +1732,7 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 </div>
 </div>
 <div class="sect3">
-<h4 id="transport-booking-management-command-parameters"><a class="link" href="#transport-booking-management-command-parameters">4.3.1. Transport Booking Management Command Parameters</a></h4>
+<h4 id="transport-param"><a class="link" href="#transport-param">4.4.1. Transport Booking Management Command Parameters</a></h4>
 <div class="paragraph">
 <p>Before you jump right in to use this feature, you may want to learn about all the common command parameters used in this feature. The table below shows the list of common command parameters that will be used for this feature.</p>
 </div>
@@ -1641,7 +1751,7 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>MODE</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>The mode of transport</p>
+<p>The mode of transport.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1657,7 +1767,7 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>START_LOCATION</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>The starting location</p>
+<p>The starting location.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1673,7 +1783,7 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>END_LOCATION</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>The destination</p>
+<p>The destination.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1689,12 +1799,12 @@ If you are planning for your trip halfway and feel lost, you can check your prog
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>START_TIME</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>The time of departure</p>
+<p>The time of departure.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>It must be in the format of dd-MM-yyyy HH:mm where HH:mm is the 24hr format time.</p>
+<p>It must be in the format of <code>dd-MM-yyyy HH:mm</code> where <code>HH:mm</code> is the 24hr format time.</p>
 </li>
 <li>
 <p>It must fall within the time frame of the trip and must not be later than the <code>END_TIME</code>.</p>
@@ -1709,12 +1819,12 @@ This example means 28 September 2020 at 1:00 PM.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>END_TIME</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>The time of arrival</p>
+<p>The time of arrival.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>It must be in the format of dd-MM-yyyy HH:mm where HH:mm is the 24hr format time.</p>
+<p>It must be in the format of <code>dd-MM-yyyy HH:mm</code> where <code>HH:mm</code> is the 24hr format time.</p>
 </li>
 <li>
 <p>It must fall within the time frame of the trip and must not be earlier than the <code>START_TIME</code>.</p>
@@ -1729,7 +1839,7 @@ This example means 30 September 2020 at 1:00 PM.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>The index number of the transport booking entry in the displayed list. The first entry of the list has an index number of 1 and all the entries are listed in increasing index numbers.</p>
+<p>The index number of the transport booking entry in the displayed list. The first entry of the list has an index number of <code>1</code> and all the entries are listed in increasing index numbers.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1743,16 +1853,18 @@ This example means 30 September 2020 at 1:00 PM.</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="list-all-transport-bookings-code-listtransport-code"><a class="link" href="#list-all-transport-bookings-code-listtransport-code">4.3.2. List all transport bookings: <code>listtransport</code></a></h4>
+<h4 id="list-all-transport-bookings-code-listtransport-code"><a class="link" href="#list-all-transport-bookings-code-listtransport-code">4.4.2. List all transport bookings: <code>listtransport</code></a></h4>
 <div class="paragraph">
-<p>You can use this command to navigate to the Transportation Tab and display all your transport bookings in E.T..</p>
+<p>You can use this command to navigate to the <em>Transportation Tab</em> and display all your transport bookings in <strong>E.T.</strong>.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>listtransport</code></p>
+<p>Format:</p>
 </div>
 <div class="paragraph">
-<p>Examples:
-<code>listtransport</code><br></p>
+<p><code>listtransport</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
 </div>
 <div class="paragraph">
 <p>If you are in another tab and wish to look at your list of transport bookings, you can follow these instructions.</p>
@@ -1760,7 +1872,7 @@ This example means 30 September 2020 at 1:00 PM.</p>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>Listing your packing list:</p>
+<p>Listing your transport bookings:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1781,7 +1893,7 @@ This example means 30 September 2020 at 1:00 PM.</p>
 <p>The <em>Result Display</em> will show a success message.</p>
 </li>
 <li>
-<p><strong>E.T.</strong> will switch to the <em>Packing List Tab</em>.</p>
+<p><strong>E.T.</strong> will switch to the <em>Transportation Tab</em>.</p>
 </li>
 <li>
 <p>You can now see your transport bookings.</p>
@@ -1792,18 +1904,21 @@ This example means 30 September 2020 at 1:00 PM.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/user-guide/ListTransport.png" alt="ListTransport">
+<img src="images/user-guide/transport-management/outcome-listtransport.png" alt="outcome listtransport">
 </div>
-<div class="title">Figure 12. After the list transport command</div>
+<div class="title">Figure 13. Outcome of a successful <code>listransport</code> command</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="add-a-new-transport-booking-code-addtransport-code"><a class="link" href="#add-a-new-transport-booking-code-addtransport-code">4.3.3. Add a new transport booking: <code>addtransport</code></a></h4>
+<h4 id="add-a-new-transport-booking-code-addtransport-code"><a class="link" href="#add-a-new-transport-booking-code-addtransport-code">4.4.3. Add a new transport booking: <code>addtransport</code></a></h4>
 <div class="paragraph">
 <p>You can use this command to add a new transport booking to <strong>E.T.</strong></p>
 </div>
 <div class="paragraph">
-<p>Format: <code>addtransport name/NAME quantity/QUANTITY category/CATEGORY</code></p>
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>addtransport mode/MODE startloc/START_LOCATION endloc/END_LOCATION starttime/START_TIME endtime/END_TIME</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1815,10 +1930,13 @@ This example means 30 September 2020 at 1:00 PM.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>If a duplicated transport is added, it will let the user know that the transport is already in the list.</p>
+<p>Adding a transport booking will also automatically add it to your schedule</p>
 </li>
 <li>
-<p>Refer to Section 4.3.1 Transport Booking Management Command Parameters for detail about each parameter.</p>
+<p><strong>E.T.</strong> will notify you if a duplicate transport booking is already added to the list.</p>
+</li>
+<li>
+<p>Refer to <a href="#transport-param">Section 4.4.1, &#8220;Transport Booking Management Command Parameters&#8221;</a> for detail about each parameter.</p>
 </li>
 </ul>
 </div>
@@ -1828,9 +1946,6 @@ This example means 30 September 2020 at 1:00 PM.</p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
-</div>
-<div class="paragraph">
-<p><code>addtransport name/underwear quantity/5 category/clothes</code><br></p>
 </div>
 <div class="paragraph">
 <p>Let’s say you have a transport booking with the following information and wish to record it in <strong>E.T.</strong></p>
@@ -1901,18 +2016,21 @@ This example means 30 September 2020 at 1:00 PM.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/user-guide/AddTransportBooking.png" alt="AddTransportBooking">
+<img src="images/user-guide/transport-management/outcome-addtransport.png" alt="outcome addtransport">
 </div>
-<div class="title">Figure 13. After add transport command</div>
+<div class="title">Figure 14. Outcome of a successful <code>addtransport</code> command</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="edit-an-existing-packing-list-transport-code-edittransport-code"><a class="link" href="#edit-an-existing-packing-list-transport-code-edittransport-code">4.3.4. Edit an existing packing list transport: <code>edittransport</code></a></h4>
+<h4 id="edit-an-existing-transportation-booking-code-edittransport-code"><a class="link" href="#edit-an-existing-transportation-booking-code-edittransport-code">4.4.4. Edit an existing transportation booking: <code>edittransport</code></a></h4>
 <div class="paragraph">
-<p>You can use this command to edit an existing transport booking in <strong>E.T.</strong></p>
+<p>You can use this command to edit an existing transport booking in <strong>E.T.</strong>.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>edittransport INDEX [name/NAME] [quantity/QUANTITY] [category/CATEGORY]</code></p>
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>edittransport INDEX [mode/MODE] [startloc/START_LOCATION] [endloc/END_LOCATION] [starttime/START_TIME] [endtime/END_TIME]</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1924,13 +2042,13 @@ This example means 30 September 2020 at 1:00 PM.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Existing values will be updated to the input values.</p>
+<p>Existing values will be updated to the new values.</p>
 </li>
 <li>
 <p>You must supply at least one optional parameter.</p>
 </li>
 <li>
-<p>Refer to Section 4.3.1 Transport Booking Management Command Parameters for more detail about each parameter.</p>
+<p>Refer to <a href="#transport-param">Section 4.4.1, &#8220;Transport Booking Management Command Parameters&#8221;</a> for more detail about each parameter.</p>
 </li>
 </ul>
 </div>
@@ -1942,10 +2060,7 @@ This example means 30 September 2020 at 1:00 PM.</p>
 <p>Examples:</p>
 </div>
 <div class="paragraph">
-<p><code>edittransport 5 transport/boxer</code><br></p>
-</div>
-<div class="paragraph">
-<p>Assuming that you have entered the wrong time of departure for the second transport booking and want to change it to <code>28 September 2020, 10:00 AM</code>.</p>
+<p>Assuming that you have entered the wrong time of departure for the second transport booking and want to change it to <strong>28 September 2020, 10:00 AM</strong>.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -1955,7 +2070,7 @@ This example means 30 September 2020 at 1:00 PM.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Type <code>edittransport 2 starttime/28-09-2021 10:00</code> into the <em>Command Box</em>.</p>
+<p>Type <code>edittransport 2 starttime/28-09-2020 10:00</code> into the <em>Command Box</em>.</p>
 </li>
 <li>
 <p>Press <code>Enter</code> to execute.</p>
@@ -1982,18 +2097,21 @@ This example means 30 September 2020 at 1:00 PM.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/user-guide/EditTransportBooking.png" alt="EditTransportBooking">
+<img src="images/user-guide/transport-management/outcome-edittransport.png" alt="outcome edittransport">
 </div>
-<div class="title">Figure 14. After edit transport command</div>
+<div class="title">Figure 15. Outcome of a successful <code>edittransport</code> command</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-an-existing-transportation-booking-code-deletetransport-code"><a class="link" href="#delete-an-existing-transportation-booking-code-deletetransport-code">4.3.5. Delete an existing transportation booking: <code>deletetransport</code></a></h4>
+<h4 id="delete-an-existing-transportation-booking-code-deletetransport-code"><a class="link" href="#delete-an-existing-transportation-booking-code-deletetransport-code">4.4.5. Delete an existing transportation booking: <code>deletetransport</code></a></h4>
 <div class="paragraph">
-<p>This command would delete the transport booking at the <code>INDEX</code> that you specified. The <code>INDEX</code> should be corresponding to the index shown in the transport booking list.</p>
+<p>You can use this command to delete an existing transport booking in E.T..</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>deletetransport INDEX</code></p>
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>deletetransport INDEX</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2002,7 +2120,16 @@ This example means 30 September 2020 at 1:00 PM.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<code>INDEX</code> refers to the index number shown in the displayed transport booking list. <code>INDEX</code> <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;
+<div class="ulist">
+<ul>
+<li>
+<p>Deleting a transport booking will also remove it from your schedule automatically.</p>
+</li>
+<li>
+<p>Refer to <a href="#transport-param">Section 4.4.1, &#8220;Transport Booking Management Command Parameters&#8221;</a> for more detail about the parameter.</p>
+</li>
+</ul>
+</div>
 </td>
 </tr>
 </table>
@@ -2011,10 +2138,7 @@ This example means 30 September 2020 at 1:00 PM.</p>
 <p>Examples:</p>
 </div>
 <div class="paragraph">
-<p><code>deletetransport 1</code></p>
-</div>
-<div class="paragraph">
-<p>Suppose you decided to cancel the flight you had booked previously. In <strong>E.T.</strong>, the flight that you have entered is stored at <code>INDEX</code> 1. You can follow the instructions below.</p>
+<p>Suppose you cancelled the flight you booked previously and this flight is stored at index 1 in <strong>E.T.</strong>. You can follow the instructions below to delete this transport booking from <strong>E.T.</strong>.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -2043,35 +2167,101 @@ This example means 30 September 2020 at 1:00 PM.</p>
 <p><strong>E.T.</strong> will switch to the <em>Transportation Tab</em>.</p>
 </li>
 <li>
-<p>You can now see that <strong>E.T.</strong> has deleted the flight at <code>INDEX</code> 1</p>
+<p>You can now see that <strong>E.T.</strong> has deleted the transport booking entry at index 1</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/user-guide/DeleteTransportBooking.png" alt="DeleteTransportBooking">
-</div>
-<div class="title">Figure 15. After delete transport booking command</div>
-</div>
 </div>
 <div class="sect3">
-<h4 id="clear-all-transportation-bookings-code-cleartransport-code"><a class="link" href="#clear-all-transportation-bookings-code-cleartransport-code">4.3.6. Clear all transportation bookings: <code>cleartransport</code></a></h4>
+<h4 id="sort-the-transport-booking-list-code-sorttransport-code"><a class="link" href="#sort-the-transport-booking-list-code-sorttransport-code">4.4.6. Sort the transport booking list: <code>sorttransport</code></a></h4>
 <div class="paragraph">
-<p>This command will clear every transport booking you have made.</p>
+<p>You can use this command to sort the displayed list of transport bookings.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>cleartransport</code></p>
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>sorttransport CRITERIA ORDER</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>CRITERIA</code> refers to the criteria to sort the list of transport bookings by. It can take the following values: <code>mode</code>, <code>startloc</code>, <code>endloc</code>, <code>starttime</code>, <code>endtime</code>.</p>
+</li>
+<li>
+<p><code>ORDER</code> refers to the order to sort the list of activities by. It can take the value of <code>ascending</code> or <code>asc</code> to sort in ascending order and <code>descending</code> or <code>des</code> to sort in descending order.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Example:</p>
 </div>
 <div class="paragraph">
-<p><code>cleartransport</code><br></p>
+<p>If you want to look at your list of transport bookings in <strong>chronological order</strong> of <strong>departure time</strong>, you can do the following.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Sorting transport bookings:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>sorttransport starttime asc</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p>Assume you decided to cancel all your bookings at once but you do not want to delete the entire trip. You can use this command to easily wipe all traces of previous transportation booking entries and start on a clean slate.</p>
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the <em>Transportation Tab</em>.</p>
+</li>
+<li>
+<p>You can now see that <strong>E.T.</strong> has sorted your transport bookings.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clear-all-transportation-bookings-code-cleartransport-code"><a class="link" href="#clear-all-transportation-bookings-code-cleartransport-code">4.4.7. Clear all transportation bookings: <code>cleartransport</code></a></h4>
+<div class="paragraph">
+<p>You can use this command to clear and delete the whole list of transport bookings in E.T..</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>cleartransport</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p>Assume you decided to cancel all your bookings at once but you do not want to delete the entire trip. You can use this command to easily wipe all traces of previous transportation booking entries and start on a clean slate by doing the following steps.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -2100,7 +2290,7 @@ This example means 30 September 2020 at 1:00 PM.</p>
 <p><strong>E.T.</strong> will switch to the <em>Transportation Tab</em>.</p>
 </li>
 <li>
-<p>You can now see that <strong>E.T.</strong> has cleared all your transport bookings.</p>
+<p>You can now see that <strong>E.T.</strong> has cleared all your transport bookings list and your list is empty.</p>
 </li>
 </ol>
 </div>
@@ -2108,19 +2298,38 @@ This example means 30 September 2020 at 1:00 PM.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/user-guide/ClearTransportBooking.png" alt="ClearTransportBooking">
+<img src="images/user-guide/transport-management/outcome-cleartransport.png" alt="outcome cleartransport">
 </div>
-<div class="title">Figure 16. After clear transport booking command</div>
+<div class="title">Figure 16. Outcome of a successful <code>cleartransport</code> command</div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="accommodation-booking"><a class="link" href="#accommodation-booking">4.4. Accommodation Booking</a></h3>
+<h3 id="accommodation-booking"><a class="link" href="#accommodation-booking">4.5. Accommodation Booking</a></h3>
 <div class="paragraph">
-<p>The following feature allows you to manage all  accommodation bookings.</p>
+<p>Accommodation is something you can miss out on planning and this feature is for you to plan for your accommodation and record them down. You can record the following information about your transport bookings:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Name of the accommodation</p>
+</li>
+<li>
+<p>The location or address</p>
+</li>
+<li>
+<p>The first day when you check-in</p>
+</li>
+<li>
+<p>The last day when you check-out</p>
+</li>
+<li>
+<p>Remarks you want to note for an accommodation booking</p>
+</li>
+</ul>
 </div>
 <div class="sect3">
-<h4 id="accommodation-booking-management-command-parameters"><a class="link" href="#accommodation-booking-management-command-parameters">4.4.1. Accommodation Booking Management Command Parameters</a></h4>
+<h4 id="acc-param"><a class="link" href="#acc-param">4.5.1. Accommodation Booking Management Command Parameters</a></h4>
 <div class="paragraph">
 <p>Before you jump right into using this feature, you may want to learn about all the common command parameters used in this feature. The table below shows the list of common command parameters that will be used for this feature.</p>
 </div>
@@ -2144,24 +2353,27 @@ This example means 30 September 2020 at 1:00 PM.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>LOCATION</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The location of the accommodation booking</p>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The location or address of the accommodation booking</p>
 <p class="tableblock">It must be alphanumeric words not more than 50 characters long.</p>
 <p class="tableblock">E.g. <code>KL</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>START_DAY</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The start day of the accommodation booking</p>
-<p class="tableblock">It must be a positive integer and it cannot be a number larger than <code>END_DAY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The first day of the accommodation booking, in terms of the day index.</p>
+<p class="tableblock">It must be a valid day index number. The day index number represents the number of days from the first day of your trip. The first day of your trip is index <code>1</code>, the second day is index <code>2</code> and so on, until the last day.<br>
+It must be later than <code>END_DAY</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>END_DAY</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The end day of the accommodation booking</p>
-<p class="tableblock">It must be a positive integer and cannot exceed the length of the trip</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The last day of the accommodation booking, in terms of the day index.</p>
+<p class="tableblock">It must be a valid day index number. The day index number represents the number of days from the first day of your trip. The first day of your trip is index <code>1</code>, the second day is index <code>2</code> and so on, until the last day.
+It must be later than <code>START_DAY</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>REMARK</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The remark of the accommodation booking</p>
-<p class="tableblock">It cannot be more than 150 characters long.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The remark you want to note for your accommodation booking.</p>
+<p class="tableblock">It must not be more than 150 characters (punctuations allowed) long.</p>
+<p class="tableblock">E.g. <code>Remember to check-in before 3pm!</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code></p></td>
@@ -2172,12 +2384,15 @@ This example means 30 September 2020 at 1:00 PM.</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="list-all-accommodation-bookings-code-listacc-code"><a class="link" href="#list-all-accommodation-bookings-code-listacc-code">4.4.2. List all accommodation bookings: <code>listacc</code></a></h4>
+<h4 id="list-all-accommodation-bookings-code-listacc-code"><a class="link" href="#list-all-accommodation-bookings-code-listacc-code">4.5.2. List all accommodation bookings: <code>listacc</code></a></h4>
 <div class="paragraph">
 <p>You can use this command to navigate to the <em>Accommodation Tab</em> and display all your activities in <strong>E.T.</strong>.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>listacc</code></p>
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>listacc</code></p>
 </div>
 <div class="paragraph">
 <p>Example:
@@ -2218,12 +2433,15 @@ If you are in another tab and wish to look at your list of accommodation booking
 </div>
 </div>
 <div class="sect3">
-<h4 id="add-a-new-accommodation-booking-code-addacc-code"><a class="link" href="#add-a-new-accommodation-booking-code-addacc-code">4.4.3. Add a new accommodation booking: <code>addacc</code></a></h4>
+<h4 id="add-a-new-accommodation-booking-code-addacc-code"><a class="link" href="#add-a-new-accommodation-booking-code-addacc-code">4.5.3. Add a new accommodation booking: <code>addacc</code></a></h4>
 <div class="paragraph">
 <p>This command would add a new accommodation booking into your list of accommodations.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>addacc name/NAME loc/LOCATION startday/START_DAY endday/END_DAY [remark/REMARK]</code></p>
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>addacc name/NAME loc/LOCATION startday/START_DAY endday/END_DAY [remark/REMARK]</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2232,7 +2450,7 @@ If you are in another tab and wish to look at your list of accommodation booking
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Refer to <a href="#accommodation-booking-management-command-parameters">Section 4.4.1 Trip Management Command Parameters</a> for more detail about each parameter.
+Refer to <a href="#acc-param">Section 4.5.1, &#8220;Accommodation Booking Management Command Parameters&#8221;</a> for more detail about each parameter.
 </td>
 </tr>
 </table>
@@ -2241,19 +2459,13 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <p>Examples:</p>
 </div>
 <div class="paragraph">
-<p>Let’s say you have secured a booking of the accommodation “JW Marriott Hotel” at the location “KL”. You can run the following command to record this into your list of accommodations.</p>
+<p>Let’s say you have secured a booking of the accommodation with the following details. You can follow the following steps to record this into your list of accommodations.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
 </colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Accommodation Booking</th>
-<th class="tableblock halign-left valign-top"></th>
-</tr>
-</thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
@@ -2276,7 +2488,7 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>Adding the above activity:</p>
+<p>Adding the above accommodation booking:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -2297,7 +2509,7 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <p>The <em>Result Display</em> will show a success message.</p>
 </li>
 <li>
-<p><strong>*E.T.</strong> *will switch to the <em>Accommodation Tab</em>.</p>
+<p><strong>E.T.</strong> will switch to the <em>Accommodation Tab</em>.</p>
 </li>
 <li>
 <p>You can now see all your accommodation bookings including the newly added accommodation booking.</p>
@@ -2310,11 +2522,11 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <div class="content">
 <img src="images/user-guide/AddAccommodationBooking.png" alt="AddAccommodationBooking">
 </div>
-<div class="title">Figure 17. After add accommodation booking command</div>
+<div class="title">Figure 17. After <code>addacc</code> command</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="edit-an-existing-accommodation-booking-code-editacc-code"><a class="link" href="#edit-an-existing-accommodation-booking-code-editacc-code">4.4.4. Edit an existing accommodation booking: <code>editacc</code></a></h4>
+<h4 id="edit-an-existing-accommodation-booking-code-editacc-code"><a class="link" href="#edit-an-existing-accommodation-booking-code-editacc-code">4.5.4. Edit an existing accommodation booking: <code>editacc</code></a></h4>
 <div class="paragraph">
 <p>This command will edit any mistakes made in the details of the accommodation booking using the specified <code>INDEX</code>.</p>
 </div>
@@ -2328,7 +2540,7 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Refer to <a href="#accommodation-booking-management-command-parameters">Section 4.4.1 Trip Management Command Parameters</a> for more detail about each parameter.
+Refer to <a href="#acc-param">Section 4.5.1, &#8220;Accommodation Booking Management Command Parameters&#8221;</a> for more detail about each parameter.
 </td>
 </tr>
 </table>
@@ -2337,7 +2549,7 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <p>Examples:</p>
 </div>
 <div class="paragraph">
-<p>Let’s say you decided to change the accommodation booking you have input earlier to have a check in day of 4 and check out day of 6.</p>
+<p>Let’s say you decided to change the <strong>second</strong> accommodation booking to check in on <strong>day 4</strong> and check out on <strong>day 6</strong>.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -2363,7 +2575,7 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <p>The <em>Result Display</em> will show a success message.</p>
 </li>
 <li>
-<p><strong>*E.T.</strong> *will switch to the <em>Accommodation Tab</em>.</p>
+<p><strong>E.T.</strong> will switch to the <em>Accommodation Tab</em>.</p>
 </li>
 <li>
 <p>You can now see all your accommodation bookings including the edited accommodation booking.</p>
@@ -2376,16 +2588,19 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <div class="content">
 <img src="images/user-guide/EditAccommodationBooking.png" alt="EditAccommodationBooking">
 </div>
-<div class="title">Figure 18. After edit accommodation booking command</div>
+<div class="title">Figure 18. After <code>editacc</code> command</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-an-existing-accommodation-booking-code-deleteacc-code"><a class="link" href="#delete-an-existing-accommodation-booking-code-deleteacc-code">4.4.5. Delete an existing accommodation booking: <code>deleteacc</code></a></h4>
+<h4 id="delete-an-existing-accommodation-booking-code-deleteacc-code"><a class="link" href="#delete-an-existing-accommodation-booking-code-deleteacc-code">4.5.5. Delete an existing accommodation booking: <code>deleteacc</code></a></h4>
 <div class="paragraph">
 <p>This command would delete the accommodation booking you have added earlier using the specified <code>INDEX</code></p>
 </div>
 <div class="paragraph">
-<p>Format: <code>deleteacc INDEX</code></p>
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>deleteacc INDEX</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2394,7 +2609,7 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Refer to <a href="#accommodation-booking-management-command-parameters">Section 4.4.1 Trip Management Command Parameters</a> for more detail about each parameter.
+Refer to <a href="#acc-param">Section 4.5.1, &#8220;Accommodation Booking Management Command Parameters&#8221;</a> for more detail about the parameter.
 </td>
 </tr>
 </table>
@@ -2403,7 +2618,7 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <p>Examples:</p>
 </div>
 <div class="paragraph">
-<p>Let’s say you decided to cancel on the accommodation booking that you have made earlier. The accommodation booking that you want to cancel is stored in <code>INDEX</code> 2 of <strong>E.T.</strong> , thus running the following command would delete the accommodation booking entry.</p>
+<p>Let’s say you decided to cancel on the accommodation booking that you have made earlier. The accommodation booking that you want to cancel is stored at <code>INDEX</code> 2 of <strong>E.T.</strong> , running the following command would delete the accommodation booking entry.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -2432,7 +2647,7 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <p><strong>*E.T.</strong> *will switch to the <em>Accommodation Tab</em>.</p>
 </li>
 <li>
-<p>You can now see the deleted accommodation booking no longer exists.</p>
+<p>You can now see that the deleted accommodation booking no longer exists.</p>
 </li>
 </ol>
 </div>
@@ -2440,12 +2655,15 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 </div>
 </div>
 <div class="sect3">
-<h4 id="sort-the-accommodation-booking-list-code-sortacc-code"><a class="link" href="#sort-the-accommodation-booking-list-code-sortacc-code">4.4.6. Sort the accommodation booking list: <code>sortacc</code></a></h4>
+<h4 id="sort-the-accommodation-booking-list-code-sortacc-code"><a class="link" href="#sort-the-accommodation-booking-list-code-sortacc-code">4.5.6. Sort the accommodation booking list: <code>sortacc</code></a></h4>
 <div class="paragraph">
 <p>You can use this command to sort the displayed list of accommodation bookings.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>sortacc CRITERIA ORDER</code></p>
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>sortacc CRITERIA ORDER</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2468,7 +2686,7 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <p>Example:</p>
 </div>
 <div class="paragraph">
-<p>If you want to sort your list of accommodation bookings in ascending order of name, to help you in your planning, you can do the following.</p>
+<p>If you want to sort your list of accommodation bookings in <strong>ascending order of name</strong>, to help you in your planning, you can do the following.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -2494,7 +2712,7 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <p>The <em>Result Display</em> will show a success message.</p>
 </li>
 <li>
-<p><strong>*E.T.</strong> *will switch to the <em>Accommodation Tab</em>.</p>
+<p><strong>E.T.</strong> will switch to the <em>Accommodation Tab</em>.</p>
 </li>
 <li>
 <p>You can see a list of sorted accommodation bookings being displayed.</p>
@@ -2505,12 +2723,15 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 </div>
 </div>
 <div class="sect3">
-<h4 id="clear-all-accommodation-bookings-code-clearacc-code"><a class="link" href="#clear-all-accommodation-bookings-code-clearacc-code">4.4.7. Clear all accommodation bookings: <code>clearacc</code></a></h4>
+<h4 id="clear-all-accommodation-bookings-code-clearacc-code"><a class="link" href="#clear-all-accommodation-bookings-code-clearacc-code">4.5.7. Clear all accommodation bookings: <code>clearacc</code></a></h4>
 <div class="paragraph">
-<p>This command allows you to clear all accommodation booking you have made previously.</p>
+<p>This command allows you to clear all accommodation bookings you have made previously.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>clearacc</code></p>
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>clearacc</code></p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -2554,9 +2775,9 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 </div>
 </div>
 <div class="sect2">
-<h3 id="packing-list"><a class="link" href="#packing-list">4.5. Packing List</a></h3>
+<h3 id="packing-list"><a class="link" href="#packing-list">4.6. Packing List</a></h3>
 <div class="paragraph">
-<p>This feature allows you to manage your packing list for the trip. You can record the following information about your packing list items:</p>
+<p>If you are a forgetful person, this feature will be ideal for you. This feature allows you to manage your packing list for the trip. You can record the following information about your packing list items:</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -2576,7 +2797,7 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 </div>
 </div>
 <div class="sect3">
-<h4 id="packing-list-item-management-command-parameters"><a class="link" href="#packing-list-item-management-command-parameters">4.5.1. Packing List Item Management Command Parameters</a></h4>
+<h4 id="packing-param"><a class="link" href="#packing-param">4.6.1. Packing List Item Management Command Parameters</a></h4>
 <div class="paragraph">
 <p>Before you jump right in to use this feature, you may want to learn about all the common command parameters used in this feature. The table below shows the list of common command parameters that will be used for this feature.</p>
 </div>
@@ -2595,18 +2816,15 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>NAME</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>The name of the packing list item</p>
+<p>The name of the packing list item.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>It must be made of alphanumeric characters, and it must be less than 30 characters long</p>
+<p>It must be alphanumeric words not more than 30 characters long.</p>
 </li>
 <li>
-<p>It can be made up of multiple words</p>
-</li>
-<li>
-<p><strong>E.T.</strong> will automatically capitalise the first letter of the NAME. For example, if the user types in name/high heels, it will display “High Heels” in the packing list. However, it will not make the rest of the words in the name to lowercase.For example, if the user types in name/unDErwear, it will display “UnDErwear” in the packing list</p>
+<p><strong>E.T.</strong> will automatically capitalise the first letter of the <code>NAME</code>. For example, if you type in <code>name/high heels</code>, it will display “High Heels” in the packing list. However, it will not make the rest of the words in the name to lowercase. For example, if you type in <code>name/unDErwear</code>, it will display “UnDErwear” in the packing list.</p>
 </li>
 <li>
 <p>E.g. high heels</p>
@@ -2617,31 +2835,22 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>QUANTITY</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>The quantity of the item</p>
+<p>The quantity of the item.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>It must be a positive integer 1,2,3… and up to 100000</p>
-</li>
-<li>
-<p>E.g. 5</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>It must be a positive integer not more than 100000.
+* E.g. 5</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>CATEGORY</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>The category that the item is classified in</p>
+<p>The category that the item is classified in.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>It must be made of alphanumeric characters, and it must be less than 30 characters long</p>
-</li>
-<li>
-<p>It can be made up of multiple words</p>
+<p>It must be alphanumeric words not more than 30 characters long.</p>
 </li>
 <li>
 <p><strong>E.T.</strong> will automatically make the category lowercase</p>
@@ -2650,7 +2859,7 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <p><strong>E.T.</strong>’s GUI will attach a category icon to the name of your packing list item. There are many recognised categories with relevant icons. However, if an unrecognised category is entered by you, the default icon will be used instead.</p>
 </li>
 <li>
-<p>E.g. essentials</p>
+<p>E.g. <code>essentials</code> (a recognised category)</p>
 </li>
 </ul>
 </div></div></td>
@@ -2658,7 +2867,7 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>The index number of the packing list item in the displayed list. The first entry of the list has an index number of 1 and all the entries are listed in increasing index numbers.</p>
+<p>The index number of the packing list item in the displayed list. The first entry of the list has an index number of <code>1</code> and all the entries are listed in increasing index numbers.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2675,16 +2884,18 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 </table>
 </div>
 <div class="sect3">
-<h4 id="list-all-packing-list-items-code-listitem-code"><a class="link" href="#list-all-packing-list-items-code-listitem-code">4.5.2. List all packing list items: <code>listitem</code></a></h4>
+<h4 id="list-all-packing-list-items-code-listitem-code"><a class="link" href="#list-all-packing-list-items-code-listitem-code">4.6.2. List all packing list items: <code>listitem</code></a></h4>
 <div class="paragraph">
-<p>You can use this command to navigate to the <em>Packing List Tab</em> and display your packing list in <strong>E.T.</strong></p>
+<p>You can use this command to navigate to the <em>Packing List Tab</em> and display your packing list in <strong>E.T.</strong>.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>listitem</code></p>
+<p>Format:</p>
 </div>
 <div class="paragraph">
-<p>Examples:
-<code>listitem</code><br></p>
+<p><code>listitem</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
 </div>
 <div class="paragraph">
 <p>If you are in another tab and wish to look at your packing list, you can follow these instructions.</p>
@@ -2726,16 +2937,19 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <div class="content">
 <img src="images/user-guide/ListItem.png" alt="ListItem">
 </div>
-<div class="title">Figure 19. After the list item command</div>
+<div class="title">Figure 19. After the <code>listitem</code> command</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="add-a-new-packing-list-item-code-additem-code"><a class="link" href="#add-a-new-packing-list-item-code-additem-code">4.5.3. Add a new packing list item: <code>additem</code></a></h4>
+<h4 id="add-a-new-packing-list-item-code-additem-code"><a class="link" href="#add-a-new-packing-list-item-code-additem-code">4.6.3. Add a new packing list item: <code>additem</code></a></h4>
 <div class="paragraph">
 <p>This command allows you to add a new item into your packing list.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>additem name/NAME quantity/QUANTITY category/CATEGORY</code></p>
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>additem name/NAME quantity/QUANTITY category/CATEGORY</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2748,6 +2962,9 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <ul>
 <li>
 <p>If there is already an item in the packing list with the same name, then it will notify you of it.</p>
+</li>
+<li>
+<p>Refer to <a href="#packing-param">Section 4.6.1, &#8220;Packing List Item Management Command Parameters&#8221;</a> for detail about each parameter.</p>
 </li>
 </ul>
 </div>
@@ -2762,19 +2979,13 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <p><code>additem name/underwear quantity/5 category/clothes</code><br></p>
 </div>
 <div class="paragraph">
-<p>Suppose you want to add a new item with the following information and wish to record it in <strong>E.T.</strong></p>
+<p>Suppose you want to add a new item with the following information and wish to record it in <strong>E.T.</strong>.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 66.6667%;">
 </colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Packing List Item</th>
-<th class="tableblock halign-left valign-top"></th>
-</tr>
-</thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>NAME</code></p></td>
@@ -2820,7 +3031,7 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <p><strong>E.T.</strong> will switch to the <em>Packing List Tab</em>.</p>
 </li>
 <li>
-<p>You can now see your newly added packing list item</p>
+<p>You can now see your newly added item.</p>
 </li>
 </ol>
 </div>
@@ -2830,11 +3041,11 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <div class="content">
 <img src="images/user-guide/AddItem.png" alt="AddItem">
 </div>
-<div class="title">Figure 20. After add item command</div>
+<div class="title">Figure 20. After <code>additem</code> command</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="edit-an-existing-packing-list-item-code-edititem-code"><a class="link" href="#edit-an-existing-packing-list-item-code-edititem-code">4.5.4. Edit an existing packing list item: <code>edititem</code></a></h4>
+<h4 id="edit-an-existing-packing-list-item-code-edititem-code"><a class="link" href="#edit-an-existing-packing-list-item-code-edititem-code">4.6.4. Edit an existing packing list item: <code>edititem</code></a></h4>
 <div class="paragraph">
 <p>This command allows you to edit any mistake made in the details of an existing item.</p>
 </div>
@@ -2854,7 +3065,10 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <p>Existing values will be updated to the input values.</p>
 </li>
 <li>
-<p>Command can only be used if an item has been added.</p>
+<p>This command can only be used if an item has been added.</p>
+</li>
+<li>
+<p>Refer to <a href="#packing-param">Section 4.6.1, &#8220;Packing List Item Management Command Parameters&#8221;</a> for detail about each parameter.</p>
 </li>
 </ul>
 </div>
@@ -2942,16 +3156,19 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <div class="content">
 <img src="images/user-guide/EditItem.png" alt="EditItem">
 </div>
-<div class="title">Figure 21. After edit item command</div>
+<div class="title">Figure 21. After <code>edititem</code> command</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-an-existing-packing-list-item-code-deleteitem-code"><a class="link" href="#delete-an-existing-packing-list-item-code-deleteitem-code">4.5.5. Delete an existing packing list item: <code>deleteitem</code></a></h4>
+<h4 id="delete-an-existing-packing-list-item-code-deleteitem-code"><a class="link" href="#delete-an-existing-packing-list-item-code-deleteitem-code">4.6.5. Delete an existing packing list item: <code>deleteitem</code></a></h4>
 <div class="paragraph">
 <p>This command would delete the packing list item at the <code>INDEX</code> that you specified. The <code>INDEX</code> should be corresponding to the index shown in the packing list.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>deleteitem INDEX</code></p>
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>deleteitem INDEX</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2963,7 +3180,7 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <div class="ulist">
 <ul>
 <li>
-<p>Command can only be used if there is at least 1 item in the packing list</p>
+<p>This command can only be used if there is at least 1 item in the packing list</p>
 </li>
 </ul>
 </div>
@@ -2973,9 +3190,6 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 </div>
 <div class="paragraph">
 <p>Examples:</p>
-</div>
-<div class="paragraph">
-<p><code>deleteitem 1</code><br></p>
 </div>
 <div class="paragraph">
 <p>Let’s say you want to delete the first item in the packing list. You can follow these instructions:</p>
@@ -3017,22 +3231,25 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <div class="content">
 <img src="images/user-guide/DeleteItem%201.png" alt="DeleteItem 1">
 </div>
-<div class="title">Figure 22. Before delete item command</div>
+<div class="title">Figure 22. Before <code>deleteitem</code> command</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/user-guide/DeleteItem%202.png" alt="DeleteItem 2">
 </div>
-<div class="title">Figure 23. After delete item command</div>
+<div class="title">Figure 23. After <code>deleteitem</code> command</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="mark-an-existing-packing-list-item-as-packed-code-checkitem-code"><a class="link" href="#mark-an-existing-packing-list-item-as-packed-code-checkitem-code">4.5.6. Mark an existing packing list item as packed: <code>checkitem</code></a></h4>
+<h4 id="mark-an-existing-packing-list-item-as-packed-code-checkitem-code"><a class="link" href="#mark-an-existing-packing-list-item-as-packed-code-checkitem-code">4.6.6. Mark an existing packing list item as packed: <code>checkitem</code></a></h4>
 <div class="paragraph">
 <p>This command marks an item as packed in your packing list.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>checkitem INDEX [MORE_INDEXES]&#8230;&#8203;</code></p>
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>checkitem INDEX [MORE_INDEXES]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -3044,19 +3261,19 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <div class="ulist">
 <ul>
 <li>
-<p>Command can only be used if there is at least 1 item in the packing list</p>
+<p>This command can only be used if there is at least 1 item in the packing list.</p>
 </li>
 <li>
 <p>If item is already packed, then it will just remain packed</p>
 </li>
 <li>
-<p>The result box will display the checked item(s)</p>
+<p>The result box will display the checked item(s).</p>
 </li>
 <li>
-<p>You are able to mark multiple items as packed in one command</p>
+<p>You can mark multiple items as packed in one command.</p>
 </li>
 <li>
-<p>If there is one invalid index given in the command, for example <code>checkitem 1 3 1000 5</code>, and 1000 is the invalid index, then the items at index 1, 3 and 5 will be marked as packed, but not 1000.</p>
+<p>If there is one invalid index given in the command, for example, <code>checkitem 1 3 1000 5</code>, and 1000 is the invalid index, then the items at index 1, 3 and 5 will be marked as packed, but not 1000.</p>
 </li>
 <li>
 <p>However, if a negative index is given, such as <code>checkitem 1 3 -2 5</code>, no matter the position of the negative index, the whole command will be deemed as invalid, and every item at the indicated indexes will remain as unchecked.</p>
@@ -3113,22 +3330,25 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <div class="content">
 <img src="images/user-guide/CheckItem%201.png" alt="CheckItem 1">
 </div>
-<div class="title">Figure 24. After check item command part 1</div>
+<div class="title">Figure 24. After the <code>checkitem</code> command part 1</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/user-guide/CheckItem%202.png" alt="CheckItem 2">
 </div>
-<div class="title">Figure 25. After check item command part 2</div>
+<div class="title">Figure 25. After the <code>checkitem</code> command part 2</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="mark-an-existing-packing-list-item-as-unpacked-code-uncheckitem-code"><a class="link" href="#mark-an-existing-packing-list-item-as-unpacked-code-uncheckitem-code">4.5.7. Mark an existing packing list item as unpacked: <code>uncheckitem</code></a></h4>
+<h4 id="mark-an-existing-packing-list-item-as-not-packed-code-uncheckitem-code"><a class="link" href="#mark-an-existing-packing-list-item-as-not-packed-code-uncheckitem-code">4.6.7. Mark an existing packing list item as not packed: <code>uncheckitem</code></a></h4>
 <div class="paragraph">
-<p>This command marks an item as unpacked in your packing list.</p>
+<p>This command marks an item as not packed in your packing list.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>uncheckitem INDEX [MORE_INDEXES]&#8230;&#8203;</code></p>
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>uncheckitem INDEX [MORE_INDEXES]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -3140,19 +3360,19 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <div class="ulist">
 <ul>
 <li>
-<p>Command can only be used if there is at least 1 item in the packing list</p>
+<p>This command can only be used if there is at least 1 item in the packing list.</p>
 </li>
 <li>
-<p>If item is already unpacked, then it will just remain unpacked</p>
+<p>If the item is already not packed, then it will just remain not packed.</p>
 </li>
 <li>
-<p>The result box will display the unchecked item(s)</p>
+<p>The result box will display the unchecked item(s).</p>
 </li>
 <li>
-<p>You are able to mark multiple items as unpacked in one command</p>
+<p>You can mark multiple items as not packed in one command.</p>
 </li>
 <li>
-<p>If there is one invalid index given in the command, for example <code>uncheckitem 1 3 1000 5</code>, and 1000 is the invalid index, then the items at index 1, 3 and 5 will be marked as unpacked, but not 1000.</p>
+<p>If there is one invalid index given in the command, for example <code>uncheckitem 1 3 1000 5</code>, and 1000 is the invalid index, then the items at index 1, 3 and 5 will be marked as not packed, but not 1000.</p>
 </li>
 <li>
 <p>However, if a negative index is given, such as <code>uncheckitem 1 3 -2 5</code>, no matter the position of the negative index, the whole command will be deemed as invalid, and every item at the indicated indexes will remain as checked.</p>
@@ -3170,12 +3390,12 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <p><code>uncheckitem 1 4 7 13 16</code><br></p>
 </div>
 <div class="paragraph">
-<p>Imagine you want to mark the first, fourth, seventh, thirteenth and sixteenth items in the packing list as unpacked. You can follow these instructions.</p>
+<p>Imagine you want to mark the first, fourth, seventh, thirteenth and sixteenth items in the packing list as not packed. You can follow these instructions.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>Marking the packing list items as unpacked:</p>
+<p>Marking the packing list items as not packed:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -3209,28 +3429,31 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <div class="content">
 <img src="images/user-guide/UncheckItem%201.png" alt="UncheckItem 1">
 </div>
-<div class="title">Figure 26. After uncheck item command part 1</div>
+<div class="title">Figure 26. After <code>uncheckitem</code> command part 1</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/user-guide/UncheckItem%202.png" alt="UncheckItem 2">
 </div>
-<div class="title">Figure 27. After uncheck item command part 2</div>
+<div class="title">Figure 27. After <code>uncheckitem</code> command part 2</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/user-guide/UncheckItem%203.png" alt="UncheckItem 3">
 </div>
-<div class="title">Figure 28. After uncheck item command part 3</div>
+<div class="title">Figure 28. After <code>uncheckitem</code> command part 3</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="sort-the-packing-list-code-sortitem-code"><a class="link" href="#sort-the-packing-list-code-sortitem-code">4.5.8. Sort the packing list: <code>sortitem</code></a></h4>
+<h4 id="sort-the-packing-list-code-sortitem-code"><a class="link" href="#sort-the-packing-list-code-sortitem-code">4.6.8. Sort the packing list: <code>sortitem</code></a></h4>
 <div class="paragraph">
-<p>This command sorts your items in the packing list according to an order and a criteria you specify.</p>
+<p>You can sort your packing list using this command.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>sortitem CRTIERIA ORDER</code></p>
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>sortitem CRTIERIA ORDER</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -3242,13 +3465,13 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <div class="ulist">
 <ul>
 <li>
-<p>Criteria can be only name <code>name</code> , quantity <code>quantity</code> or category <code>category</code></p>
+<p>Criteria can be only name <code>name</code>, quantity <code>quantity</code> or category <code>category</code></p>
 </li>
 <li>
 <p>Order can only be ascending <code>asc</code> or descending <code>des</code></p>
 </li>
 <li>
-<p>Command can only be used if at least 1 item has been added.</p>
+<p>This command can only be used if at least 1 item has been added.</p>
 </li>
 </ul>
 </div>
@@ -3302,17 +3525,17 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <div class="content">
 <img src="images/user-guide/SortItem%201.png" alt="SortItem 1">
 </div>
-<div class="title">Figure 29. After sort item command part 1</div>
+<div class="title">Figure 29. After the <code>sortitem</code> command part 1</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/user-guide/SortItem%202.png" alt="SortItem 2">
 </div>
-<div class="title">Figure 30. After sort item command part 2</div>
+<div class="title">Figure 30. After the <code>sortitem</code> command part 2</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="find-packing-list-items-by-name-code-finditem-code"><a class="link" href="#find-packing-list-items-by-name-code-finditem-code">4.5.9. Find packing list items by name: <code>finditem</code></a></h4>
+<h4 id="find-packing-list-items-by-name-code-finditem-code"><a class="link" href="#find-packing-list-items-by-name-code-finditem-code">4.6.9. Find packing list items by name: <code>finditem</code></a></h4>
 <div class="paragraph">
 <p>This command finds items in your packing list according to keywords specified by you.</p>
 </div>
@@ -3329,16 +3552,16 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <div class="ulist">
 <ul>
 <li>
-<p>Command can only be used if there is at least 1 item in the packing list.</p>
+<p>This command can only be used if there is at least 1 item in the packing list.</p>
 </li>
 <li>
-<p>If packing list does not contain any of the keywords, then it will display an empty list.</p>
+<p>If the packing list does not contain any of the keywords, then it will display an empty list.</p>
 </li>
 <li>
 <p>If you want to return to the packing list after using the <code>finditem</code> command, use the <code>listitem</code> command. (see Section 4.5.2)</p>
 </li>
 <li>
-<p>The result box will display the number of items that contains the keyword(s).</p>
+<p>The result box will display the number of items that contain the keyword(s).</p>
 </li>
 <li>
 <p>The <code>finditem</code> command will only search through the titles of the items</p>
@@ -3399,9 +3622,9 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 </div>
 </div>
 <div class="sect3">
-<h4 id="find-packing-list-items-by-category-code-finditemcategory-code"><a class="link" href="#find-packing-list-items-by-category-code-finditemcategory-code">4.5.10. Find packing list items by category: <code>finditemcategory</code></a></h4>
+<h4 id="find-packing-list-items-by-category-code-finditemcategory-code"><a class="link" href="#find-packing-list-items-by-category-code-finditemcategory-code">4.6.10. Find packing list items by category: <code>finditemcategory</code></a></h4>
 <div class="paragraph">
-<p>This command find items in your packing list according to keywords keywords specified by you that are categories</p>
+<p>This command find items in your packing list according to keywords specified by you that are categories</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>finditemcategory KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
@@ -3416,16 +3639,16 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <div class="ulist">
 <ul>
 <li>
-<p>Command can only be used if there is at least 1 item in the packing list.</p>
+<p>This command can only be used if there is at least 1 item in the packing list.</p>
 </li>
 <li>
-<p>If packing list does not contain any of the keywords, then it will display an empty list</p>
+<p>If the packing list does not contain any of the keywords, then it will display an empty list</p>
 </li>
 <li>
 <p>If you want to return to the packing list after using the <code>finditemcategory</code> command, use the <code>listitem</code> command. (see Section 4.5.2)</p>
 </li>
 <li>
-<p>The result box will display the number of items that is in the categories of the given keyword(s).</p>
+<p>The result box will display the number of items that are in the categories of the given keyword(s).</p>
 </li>
 <li>
 <p>The <code>finditemcategory</code> command will only search through the categories of the items</p>
@@ -3482,16 +3705,19 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <div class="content">
 <img src="images/user-guide/FindItemCategory.png" alt="FindItemCategory">
 </div>
-<div class="title">Figure 32. After find item category command</div>
+<div class="title">Figure 32. After the <code>finditemcategory</code> command</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="clear-all-packing-list-items-code-clearitem-code"><a class="link" href="#clear-all-packing-list-items-code-clearitem-code">4.5.11. Clear all packing list items: <code>clearitem</code></a></h4>
+<h4 id="clear-all-packing-list-items-code-clearitem-code"><a class="link" href="#clear-all-packing-list-items-code-clearitem-code">4.6.11. Clear all packing list items: <code>clearitem</code></a></h4>
 <div class="paragraph">
 <p>This command clears all items in your packing list.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>clearitem</code></p>
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>clearitem</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -3539,16 +3765,19 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <div class="content">
 <img src="images/user-guide/ClearItem.png" alt="ClearItem">
 </div>
-<div class="title">Figure 33. After the clear item command</div>
+<div class="title">Figure 33. After the <code>clearitem</code> command</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="add-a-new-preset-category-code-addpreset-code"><a class="link" href="#add-a-new-preset-category-code-addpreset-code">4.5.12. Add a new preset category: <code>addpreset</code></a></h4>
+<h4 id="addpreset"><a class="link" href="#addpreset">4.6.12. Add a new preset (built-in list): <code>addpreset</code></a></h4>
 <div class="paragraph">
-<p>This command adds a pre-existing list of items under a category into your packing list.</p>
+<p><strong>E.T.</strong> contains some basic built-in list of items, grouped by categories. This is to enhance your planning experience as you can add many common items just by one command. The term <em>preset</em> will be used to describe these lists of items. You can use this command to add <em>presets</em> by their category name. Refer to <a href="#listpreset">Section 4.6.13, &#8220;List all presets: <code>listpreset</code>&#8221;</a> to find out what are some <em>presets</em> you can use.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>addpreset PRESET_NAME</code></p>
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>addpreset CATEGORY</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -3560,13 +3789,13 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <div class="ulist">
 <ul>
 <li>
-<p>If the preset contains an item that is already in the packing list, it will not add that item in. It will add the rest of the items in the preset into the packing list.</p>
+<p>If the <em>preset</em> contains an item that is already in the packing list, it will not add that item in. It will add the rest of the items in the <em>preset</em> into the packing list.</p>
 </li>
 <li>
-<p>You can only add in pre-existing presets. If you add in other presets, then you will receive the message, "Sorry! This preset does not exist."</p>
+<p>You can only add in pre-existing <em>presets</em>. If you add in other <em>presets</em>, then you will receive the message, "Sorry! This <em>preset</em> does not exist."</p>
 </li>
 <li>
-<p>To see all the available presets, use the <code>listpreset</code> command. (see Section 4.5.13)</p>
+<p>To see all the available <em>presets</em>, use the <code>listpreset</code> command. (See <a href="#listpreset">Section 4.6.13, &#8220;List all presets: <code>listpreset</code>&#8221;</a>)</p>
 </li>
 </ul>
 </div>
@@ -3577,20 +3806,13 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <div class="paragraph">
 <p>Examples:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>addpreset beach</code><br></p>
-</li>
-</ul>
-</div>
 <div class="paragraph">
 <p>Assuming you will be going to the beach during your trip, but you are too lazy to add a packing list item one-by-one. You will like to add all the items in the beach category into your packing list. You can follow these instructions.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>Adding a pre-existing beach preset into your packing list:</p>
+<p>Adding a beach <em>preset</em> into your packing list:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -3614,7 +3836,7 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <p><strong>E.T.</strong> will switch to the <em>Packing List Tab</em>.</p>
 </li>
 <li>
-<p>You can now see the items in the beach preset added into your packing list.</p>
+<p>You can now see the items in the beach <em>preset</em> added into your packing list.</p>
 </li>
 </ol>
 </div>
@@ -3624,16 +3846,19 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <div class="content">
 <img src="images/user-guide/AddPreset.png" alt="AddPreset">
 </div>
-<div class="title">Figure 34. After add preset command</div>
+<div class="title">Figure 34. After the <code>addpreset</code> command</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-all-presets-code-listpreset-code"><a class="link" href="#list-all-presets-code-listpreset-code">4.5.13. List all presets: <code>listpreset</code></a></h4>
+<h4 id="listpreset"><a class="link" href="#listpreset">4.6.13. List all presets: <code>listpreset</code></a></h4>
 <div class="paragraph">
-<p>This command lists all the default presets available for you to use.</p>
+<p>This command lists all the default <em>presets</em> available for you to use. (See <a href="#addpreset">Section 4.6.12, &#8220;Add a new preset (built-in list): <code>addpreset</code>&#8221;</a> for more information about <em>presets</em>.)</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>listpreset</code></p>
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>listpreset</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -3645,10 +3870,10 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <div class="ulist">
 <ul>
 <li>
-<p>The list will be shown in a pop up window.</p>
+<p>The list will be shown in a pop-up window.</p>
 </li>
 <li>
-<p>The pop up window will only contain the icons and names of the presets, not the items inside the preset.</p>
+<p>The pop-up window will only contain the icons and names of the presets, not the items inside the preset.</p>
 </li>
 </ul>
 </div>
@@ -3658,13 +3883,6 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 </div>
 <div class="paragraph">
 <p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>listpreset</code><br></p>
-</li>
-</ul>
 </div>
 <div class="paragraph">
 <p>In the case that you want to add a list of items under a pre-existing category, but you are not sure of the available presets you can use. You can follow these instructions.</p>
@@ -3703,12 +3921,12 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <div class="content">
 <img src="images/user-guide/ListPreset.png" alt="ListPreset">
 </div>
-<div class="title">Figure 35. After list preset command</div>
+<div class="title">Figure 35. After the <code>listpreset</code> command</div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="fixed-expense-manager"><a class="link" href="#fixed-expense-manager">4.6. Fixed Expense Manager</a></h3>
+<h3 id="fixed-expense-management"><a class="link" href="#fixed-expense-management">4.7. Fixed Expense Management</a></h3>
 <div class="paragraph">
 <p>The Fixed Expense Manager comprises a list which allows you to set your fixed expenses before your trip. This would help you plan a suitable budget for your upcoming trip.</p>
 </div>
@@ -3732,14 +3950,14 @@ Refer to <a href="#accommodation-booking-management-command-parameters">Section 
 <p>Cost of admission tickets to theme parks</p>
 </li>
 <li>
-<p>Or any other fixed miscellaneous costs known to the user before the trip.</p>
+<p>Or any other fixed miscellaneous costs known to you before the trip.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="parameters-associated-with-fixed-expense-manager"><a class="link" href="#parameters-associated-with-fixed-expense-manager">4.6.1. Parameters associated with Fixed Expense Manager</a></h4>
+<h4 id="expense-param"><a class="link" href="#expense-param">4.7.1. Fixed Expense Management Command Parameters</a></h4>
 <div class="paragraph">
 <p>Before jumping into the various features the Fixed Expense Manager offers,
 it might be beneficial to take some time looking at the common command parameters
@@ -3758,20 +3976,21 @@ that are used in this feature. This is shown in the table below.</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Amount</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AMOUNT</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The amount of money for your fixed expense.</p>
-<p class="tableblock">Amount must be a valid number with at most 2 decimal places.</p>
-<p class="tableblock">Example: 1.30</p></td>
+<p class="tableblock">It must be a positive number with at most 2 decimal places. It must also be less than 1,000,000,000.</p>
+<p class="tableblock">Example: <code>1.30</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>CURRENCY</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Currency the fixed expense is in.</p>
-<p class="tableblock">It can only take the value of <code>sgd</code> or <code>other</code></p></td>
+<p class="tableblock">It can only take the value of <code>sgd</code> or <code>other</code><br>
+(<code>sgd</code> or SGD stands for Singapore Dollars)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>DESCRIPTION</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The description of the fixed expense.</p>
-<p class="tableblock">It must be words made up of alphanumeric characters less than 50 characters long.</p>
+<p class="tableblock">It must be words made up of alphanumeric characters not more than 50 characters long.</p>
 <p class="tableblock">Example: Plane Tickets</p></td>
 </tr>
 <tr>
@@ -3782,44 +4001,92 @@ that are used in this feature. This is shown in the table below.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The index number of the fixed expense entry in the displayed list.
-The first entry of the list has an index of <code>1</code> and all subsequent entries are listed in ascending order.</p></td>
+The first entry of the list has an index of <code>1</code> and all subsequent entries are listed in ascending order.</p>
+<p class="tableblock">It must be a valid index.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="list-your-fixed-expenses-listexpense"><a class="link" href="#list-your-fixed-expenses-listexpense">4.6.2. List your Fixed Expenses: listexpense</a></h4>
+<h4 id="list-your-fixed-expenses-listexpense"><a class="link" href="#list-your-fixed-expenses-listexpense">4.7.2. List your fixed expenses: listexpense</a></h4>
 <div class="paragraph">
-<p>You can use the <code>listexpense</code> command to navigate to the Fixed Expense Manager.
-Alternatively, you can click on the Fixed Expense tab.</p>
+<p>You can use the <code>listexpense</code> command to navigate to the Fixed Expenses Tab and list all fixed expenses entries.</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>listexpense</code></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>You can also click on the <em>Fixed Expenses Tab</em> on the <em>Tab bar</em> to navigate there.</p>
+</div>
+</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/user-guide/ListExpense.png" alt="ListExpense">
 </div>
-<div class="title">Figure 36. Accessing Fixed Expense Manager</div>
+<div class="title">Figure 36. Accessing <em>Fixed Expenses Tab</em></div>
 </div>
 <div class="paragraph">
-<p>After successfully entering the fixed expense manager, you will see the screen shown in Figure 41 below.</p>
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p>If you are in another tab and wish to navigate to the <em>Fixed Expenses Tab</em> to view all your fixed expense entries, you can follow these steps.</p>
+</div>
+<div class="paragraph">
+<p>Listing all fixed expense entries:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>listexpnese</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the <em>Fixed Expenses Tab</em>.</p>
+</li>
+<li>
+<p>You can now see all your fixed expense entries.</p>
+</li>
+</ol>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/user-guide/FixedExpenseManager.png" alt="FixedExpenseManager">
 </div>
-<div class="title">Figure 37. Fixed Expense Manager</div>
+<div class="title">Figure 37. After the <code>listexpense</code> command</div>
 </div>
 <div class="paragraph">
 <p>Thereafter, you will be able to add and subsequently modify your fixed expenses.
-This would be further elaborated in sections 4.6.3 - 4.6.7 below.</p>
+This would be further elaborated in <a href="#addexpense">Section 4.7.3, &#8220;Adding a new fixed expense entry: <code>addexpense</code>&#8221;</a> onwards.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="adding-a-new-fixed-expense-code-addexpense-code"><a class="link" href="#adding-a-new-fixed-expense-code-addexpense-code">4.6.3. Adding a new fixed expense: <code>addexpense</code></a></h4>
+<h4 id="addexpense"><a class="link" href="#addexpense">4.7.3. Adding a new fixed expense entry: <code>addexpense</code></a></h4>
 <div class="paragraph">
 <p>You can use this command to add a new fixed expense into the Fixed Expense Manager.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>addexpense amount/AMOUNT currency/CURRENCY description/DESCRIPTION category/CATEGORY</code></p>
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>addexpense amount/AMOUNT currency/CURRENCY description/DESCRIPTION category/CATEGORY</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -3831,20 +4098,13 @@ This would be further elaborated in sections 4.6.3 - 4.6.7 below.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Adds a new fixed expense for the upcoming trip.</p>
-</li>
-<li>
-<p>The <code>AMOUNT</code> entered <strong>must be a positive integer</strong></p>
-</li>
-<li>
-<p>The <code>DESCRIPTION</code> field must be alphanumeric words and contain 50 characters.</p>
-</li>
-<li>
 <p>The <code>CATEGORY</code> field only accepts <code>transport</code>, <code>accommodations</code>, <code>others</code>, <code>activities</code></p>
 </li>
 <li>
-<p>If the user enters the expense in other currency, which is identified through typing <code>OTHER</code> in the <code>CURRENCY</code>
-field, the amount will be automatically converted to SGD using the exchange rate provided by you.</p>
+<p>If you set <code>CURRENCY</code> as <code>other</code>, the <code>AMOUNT</code> will be automatically converted to SGD using the trip exchange rate (See <a href="#settrip">Section 4.1.1.1, &#8220;Set a new trip: <code>settrip</code>&#8221;</a>).</p>
+</li>
+<li>
+<p>Refer to <a href="#expense-param">Section 4.7.1, &#8220;Fixed Expense Management Command Parameters&#8221;</a> for more detail about each parameter.</p>
 </li>
 </ul>
 </div>
@@ -3856,7 +4116,7 @@ field, the amount will be automatically converted to SGD using the exchange rate
 <p>Example:</p>
 </div>
 <div class="paragraph">
-<p>Let’s say you wish to include an fixed expense entry with the following information and wish to add it in the Fixed Expense Manager.</p>
+<p>Let’s say you wish to include a fixed expense entry with the following information and wish to add it in the Fixed Expense Manager.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -3885,12 +4145,12 @@ field, the amount will be automatically converted to SGD using the exchange rate
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>To add the Fixed Expense mentioned above,</p>
+<p>Adding the above fixed expense entry:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Type <code>addexpense amount/1100 currency/SGD description/Plane Tickets category/Transport</code> into the Command Box.</p>
+<p>Type <code>addexpense amount/1100 currency/SGD description/Plane Tickets category/Transport</code> into the <em>Command Box</em>.</p>
 </li>
 <li>
 <p>Press <code>Enter</code> to execute.</p>
@@ -3906,7 +4166,7 @@ field, the amount will be automatically converted to SGD using the exchange rate
 <p>The <em>Result Display</em> will show a success message.</p>
 </li>
 <li>
-<p><strong>E.T.</strong> will switch to the <em>Fixed Expense Tab</em>.</p>
+<p><strong>E.T.</strong> will switch to the <em>Fixed Expenses Tab</em>.</p>
 </li>
 <li>
 <p>You can now see your newly added Fixed Expense.</p>
@@ -3923,12 +4183,15 @@ field, the amount will be automatically converted to SGD using the exchange rate
 </div>
 </div>
 <div class="sect3">
-<h4 id="edit-your-fixed-expense-editexpense"><a class="link" href="#edit-your-fixed-expense-editexpense">4.6.4. Edit your fixed expense: editexpense</a></h4>
+<h4 id="edit-a-fixed-expense-entry-editexpense"><a class="link" href="#edit-a-fixed-expense-entry-editexpense">4.7.4. Edit a fixed expense entry: editexpense</a></h4>
 <div class="paragraph">
 <p>This command allows you to edit any mistakes that you might have accidentally included into the fixed expense manager. You can edit the details of an existing fixed expense entry based on the <code>INDEX</code> you have specified.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>editexpense INDEX [amount/AMOUNT] [currency/CURRENCY]  [description/DESCRIPTION] [category/CATEGORY]</code></p>
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>editexpense INDEX [amount/AMOUNT] [currency/CURRENCY]  [description/DESCRIPTION] [category/CATEGORY]</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -3940,28 +4203,22 @@ field, the amount will be automatically converted to SGD using the exchange rate
 <div class="ulist">
 <ul>
 <li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-<li>
 <p>At least one of the optional fields must be provided.</p>
 </li>
 <li>
 <p>Existing values will be updated to the input values.</p>
 </li>
 <li>
-<p>The <code>DESCRIPTION</code> field must only contain alphanumeric words and contain 50 characters.</p>
-</li>
-<li>
-<p>The <code>CATEGORY</code> field only accepts <code>transport</code>, <code>accommodations</code>, <code>others</code>, <code>activities</code></p>
-</li>
-<li>
 <p>Both currency and amount fields must exist for a successful edit.</p>
 </li>
 <li>
-<p>If the user enters the expense in other currency, the amount will be automatically converted to SGD using the exchange rate provided.</p>
+<p>If you set <code>CURRENCY</code> as <code>other</code>, the <code>AMOUNT</code> will be automatically converted to SGD using the trip exchange rate (See <a href="#settrip">Section 4.1.1.1, &#8220;Set a new trip: <code>settrip</code>&#8221;</a>).</p>
 </li>
 <li>
-<p>A <strong>warning</strong> will be shown to you if you have edited an expense such that you have overshot your budget.</p>
+<p><strong>E.T.</strong> will warn you when you overshot your budget.</p>
+</li>
+<li>
+<p>Refer to <a href="#expense-param">Section 4.7.1, &#8220;Fixed Expense Management Command Parameters&#8221;</a> for more detail about each parameter.</p>
 </li>
 </ul>
 </div>
@@ -3973,7 +4230,7 @@ field, the amount will be automatically converted to SGD using the exchange rate
 <p>Example:</p>
 </div>
 <div class="paragraph">
-<p>Let&#8217;s say you wish to edit the fixed expense entry at <code>INDEX</code> 1 to have a description of “editedtransport"
+<p>Let&#8217;s say you wish to edit the fixed expense entry at index 1 to have a description of “editedtransport"
 and SGD 1500 respectively.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
@@ -3991,22 +4248,22 @@ and SGD 1500 respectively.</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Amount</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AMOUNT</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>1000</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>1500</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Currency</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CURRENCY</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">other</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SGD</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Description</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DESCRIPTION</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">WrongTransport</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">editedtransport</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Category</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CATEGORY</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">activity</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">transport</p></td>
 </tr>
@@ -4015,12 +4272,12 @@ and SGD 1500 respectively.</p>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>To do so, follow these steps</p>
+<p>Editing the above fixed expense entry:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Type <code>editexpense 1 amount/1500 currency/SGD description/editedtransport category/transport</code> into the Command Box.</p>
+<p>Type <code>editexpense 1 amount/1500 currency/SGD description/editedtransport category/transport</code> into the <em>Command Box</em>.</p>
 </li>
 <li>
 <p>Press <code>Enter</code> to execute</p>
@@ -4036,7 +4293,7 @@ and SGD 1500 respectively.</p>
 <p>The <em>Result Display</em> will show a success message.</p>
 </li>
 <li>
-<p><strong>E.T.</strong> will switch to the <em>Fixed Expense Tab</em>.</p>
+<p><strong>E.T.</strong> will switch to the <em>Fixed Expenses Tab</em>.</p>
 </li>
 <li>
 <p>You can now see your newly edited Fixed Expense.</p>
@@ -4053,12 +4310,15 @@ and SGD 1500 respectively.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-fixed-expense-code-deleteexpense-code"><a class="link" href="#deleting-a-fixed-expense-code-deleteexpense-code">4.6.5. Deleting a fixed expense: <code>deleteexpense</code></a></h4>
+<h4 id="deleting-a-fixed-expense-entry-code-deleteexpense-code"><a class="link" href="#deleting-a-fixed-expense-entry-code-deleteexpense-code">4.7.5. Deleting a fixed expense entry: <code>deleteexpense</code></a></h4>
 <div class="paragraph">
 <p>This command allows you to delete an existing fixed expense entry.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>deleteexpense INDEX</code></p>
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>deleteexpense INDEX</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -4067,12 +4327,8 @@ and SGD 1500 respectively.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>You must include an index equivalent to the number of fixed expenses in the list.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>Refer to <a href="#expense-param">Section 4.7.1, &#8220;Fixed Expense Management Command Parameters&#8221;</a> for more detail about the parameter.</p>
 </div>
 </td>
 </tr>
@@ -4087,12 +4343,12 @@ and SGD 1500 respectively.</p>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>To do so, follow these steps:</p>
+<p>Deleting the fixed expense entry:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Type <code>deleteexpense 1</code> into the Command Box.</p>
+<p>Type <code>deleteexpense 1</code> into the <em>Command Box</em>.</p>
 </li>
 <li>
 <p>Press <code>Enter</code> to execute.</p>
@@ -4108,7 +4364,7 @@ and SGD 1500 respectively.</p>
 <p>The <em>Result Display</em> will show a success message.</p>
 </li>
 <li>
-<p><strong>E.T.</strong> will switch to the <em>Fixed Expense Tab</em>.</p>
+<p><strong>E.T.</strong> will switch to the <em>Fixed Expenses Tab</em>.</p>
 </li>
 <li>
 <p>You can now see that the Fixed Expense is deleted from your Fixed Expense Manager.</p>
@@ -4125,61 +4381,7 @@ and SGD 1500 respectively.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="clearing-a-fixed-expense-code-clearexpense-code"><a class="link" href="#clearing-a-fixed-expense-code-clearexpense-code">4.6.6. Clearing a fixed expense: <code>clearexpense</code></a></h4>
-<div class="paragraph">
-<p>This command allows you to clear all Fixed Expenses in the list.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>clearexpense</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="paragraph">
-<p>Assuming that you wish to clear all your fixed expenses as you are planning for a new trip. You could clear the fixed expense manager using the <code>clearexpense</code> command instead of deleting every single fixed expense from your previous trip.</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>To do so, follow these steps:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Type <code>clearexpense</code> in your Command Box.</p>
-</li>
-<li>
-<p>Press <code>Enter</code> to execute</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>Outcome:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The <em>Result Display</em> will show a success message.</p>
-</li>
-<li>
-<p><strong>E.T.</strong> will switch to the <em>Fixed Expense Tab</em>.</p>
-</li>
-<li>
-<p>You will now see an empty Fixed Expense Manager.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/user-guide/ClearFixedExpense.png" alt="ClearFixedExpense">
-</div>
-<div class="title">Figure 41. After successfully clearing all fixed expense</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="sort-fixed-expenses-according-to-amount-spent-code-sortexpense-code"><a class="link" href="#sort-fixed-expenses-according-to-amount-spent-code-sortexpense-code">4.6.7. Sort fixed expenses according to amount spent: <code>sortexpense</code></a></h4>
+<h4 id="sort-fixed-expenses-code-sortexpense-code"><a class="link" href="#sort-fixed-expenses-code-sortexpense-code">4.7.6. Sort fixed expenses: <code>sortexpense</code></a></h4>
 <div class="paragraph">
 <p>This command allows you to sort all your fixed expenses in the list.</p>
 </div>
@@ -4223,12 +4425,15 @@ In this example, we would be sorting the fixed expense according to the amount i
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>You could sort the fixed expenses by category through these steps:</p>
+<p>You could sort the fixed expenses by category through these steps.</p>
+</div>
+<div class="paragraph">
+<p>Sorting fixed expense entries:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Type <code>sortexpense amount des</code> into the command box</p>
+<p>Type <code>sortexpense amount des</code> into the <em>command box</em></p>
 </li>
 <li>
 <p>Press <code>Enter</code> to execute</p>
@@ -4244,7 +4449,7 @@ In this example, we would be sorting the fixed expense according to the amount i
 <p>The <em>Result Display</em> will show a success message.</p>
 </li>
 <li>
-<p><strong>E.T.</strong> will switch to the <em>Fixed Expense Tab</em>.</p>
+<p><strong>E.T.</strong> will switch to the <em>Fixed Expenses Tab</em>.</p>
 </li>
 <li>
 <p>You can now see that your Fixed Expenses are sorted according to descending amount.</p>
@@ -4257,113 +4462,132 @@ In this example, we would be sorting the fixed expense according to the amount i
 <div class="content">
 <img src="images/user-guide/SortFixedExpense.png" alt="SortFixedExpense">
 </div>
-<div class="title">Figure 42. After successful sorting of fixed expense</div>
+<div class="title">Figure 41. After successful sorting of fixed expense</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clearing-a-fixed-expense-code-clearexpense-code"><a class="link" href="#clearing-a-fixed-expense-code-clearexpense-code">4.7.7. Clearing a fixed expense: <code>clearexpense</code></a></h4>
+<div class="paragraph">
+<p>This command allows you to clear all Fixed Expenses in the list.</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>clearexpense</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p>Assuming that you wish to clear all your fixed expenses entries, you can clear the whole list by following these steps.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Clearing all fixed expenses entries:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>clearexpense</code> in your <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the <em>Fixed Expenses Tab</em>.</p>
+</li>
+<li>
+<p>You will now see an empty Fixed Expense Manager.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/user-guide/ClearFixedExpense.png" alt="ClearFixedExpense">
+</div>
+<div class="title">Figure 42. After successfully clearing all fixed expense</div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="features-coming-in-version-2-0"><a class="link" href="#features-coming-in-version-2-0">4.7. Features coming in Version 2.0</a></h3>
+<h3 id="features-coming-in-version-2-0"><a class="link" href="#features-coming-in-version-2-0">4.8. Features coming in Version 2.0</a></h3>
 <div class="paragraph">
-<p>The following sections [4.7.1 - 4.7.3] describes the various features that will be implemented in Version 2.0 of E.T.</p>
+<p>This section will describe the various features that are planned for Version 2.0 of <strong>E.T.</strong></p>
 </div>
 <div class="sect3">
-<h4 id="packing-list-manager"><a class="link" href="#packing-list-manager">4.7.1. Packing List Manager</a></h4>
+<h4 id="packing-list-management"><a class="link" href="#packing-list-management">4.8.1. Packing List Management</a></h4>
 <div class="paragraph">
-<p>The following sections [4.7.1.1 - 4.7.1.2] describes the additional features which would be added to the <strong>Packing List Manager</strong> in version 2.0 of E.T.</p>
+<p>The Packing List Management feature has some exciting updates that will help you better manage your packing list.</p>
 </div>
 <div class="sect4">
-<h5 id="create-a-smart-packing-list-code-createlist-code"><a class="link" href="#create-a-smart-packing-list-code-createlist-code">4.7.1.1. Create a smart packing list: <code>createlist</code></a></h5>
+<h5 id="create-a-smart-packing-list-code-createlist-code"><a class="link" href="#create-a-smart-packing-list-code-createlist-code">4.8.1.1. Create a smart packing list: <code>createlist</code></a></h5>
 <div class="paragraph">
-<p>This feature will allow you to create a smart packing list. The motivation behind it is to help inexperienced users with their packing list.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Creates a list based on the information given by the user.</p>
-</li>
-<li>
-<p>Useful for inexperienced users, as they do not know what to pack or the quantity to pack.</p>
-</li>
-<li>
-<p><code>DAYS</code>, <code>ADULT</code>, <code>CHILDREN</code> must be a positive integer <strong>1,2,3&#8230;&#8203;.</strong>.</p>
-</li>
-<li>
-<p><code>SEASON</code> must be in <code>Spring</code>, <code>Summer</code>, <code>Autumn</code>, <code>Winter</code>.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
+<p>This feature will allow you to create a smart packing list. The packing list will recommend you the quantity to pack for your trip based on the information provided.</p>
 </div>
 <div class="paragraph">
-<p>Examples:<br>
+<p>For example, if you are planning a trip is 7 days, with 1 male and 1 female, you can use a single command to help you create a packing list that contains 7 sets of adult and child summer clothing will be added into the packing list, along with toys for the children.</p>
+</div>
+<div class="paragraph">
+<p>An example of the command would be:<br>
 <code>createlist d/7, m/1, f/1, c/2, s/Summer</code></p>
 </div>
-<div class="paragraph">
-<p>If you are planning a trip is 7 days, with 1 male and 1 female,
-this command will create a packing list based on the information provided.
-7 sets of adult and child summer clothing will be added into the packing list, along with toys for the children.</p>
-</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="export-the-packing-list-as-a-text-file-code-export-code"><a class="link" href="#export-the-packing-list-as-a-text-file-code-export-code">4.7.2. Export the packing list as a text file: <code>export</code></a></h4>
+<h4 id="export-the-packing-list-as-a-text-file-code-export-code"><a class="link" href="#export-the-packing-list-as-a-text-file-code-export-code">4.8.2. Export the packing list as a text file: <code>export</code></a></h4>
 <div class="paragraph">
-<p>This feature would you to export their existing packing list into a formatted text file.
-The motivation behind it is to allow you to share your packing lists among each other freely.
-This will give inexperienced users a template to refer to while planning for their upcoming trips.</p>
+<p>This feature allows you to export your existing packing list into a formatted text file.
+The motivation behind it is to allow you to share your packing lists with your friends easily.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="fixed-expense-manager-2"><a class="link" href="#fixed-expense-manager-2">4.8. Fixed Expense Manager</a></h3>
+<h3 id="fixed-expense-management-2"><a class="link" href="#fixed-expense-management-2">4.9. Fixed Expense Management</a></h3>
 <div class="paragraph">
-<p>The following sections [4.8.1 - 4.8.2] describes the additional features which would be added to the packing list manager
-in Version 2.0 of E.T.</p>
+<p>The Fixed Expense Management will also be getting brand new functionalities that will take your financial management to the next level.</p>
 </div>
 <div class="sect3">
-<h4 id="recommend-ways-to-save-money-based-on-prevailing-usage"><a class="link" href="#recommend-ways-to-save-money-based-on-prevailing-usage">4.8.1. Recommend ways to save money based on prevailing usage</a></h4>
+<h4 id="recommend-ways-to-save-money-based-on-prevailing-usage"><a class="link" href="#recommend-ways-to-save-money-based-on-prevailing-usage">4.9.1. Recommend ways to save money based on prevailing usage</a></h4>
 <div class="paragraph">
-<p>Use complex algorithms to monitor and track your spending habits.
-Recommend ways to save money on certain items.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="automatically-keep-track-of-expenses"><a class="link" href="#automatically-keep-track-of-expenses">4.8.2. Automatically keep track of expenses</a></h4>
-<div class="paragraph">
-<p>Allow you to automatically keep track of your expenses and avoid entering your expenses on the application. Instead, all your expenses will be automatically entered into E.T.</p>
+<p><strong>E.T.</strong> will be able to use complex algorithms to monitor and track your spending habits and recommend ways to save money on certain items.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="improvements-to-e-t-interface"><a class="link" href="#improvements-to-e-t-interface">4.9. Improvements to E.T. Interface</a></h3>
+<h3 id="enhancing-your-experience-with-e-t"><a class="link" href="#enhancing-your-experience-with-e-t">4.10. Enhancing your experience with E.T.</a></h3>
 <div class="paragraph">
-<p>The following sections [4.9.1 - 4.9.2] describes the additional features which would be added to the general E.T. interface to make E.T. more user friendly.</p>
+<p>After gathering all your feedback, we have plans to upgrade <strong>E.T.</strong>'s to provide you with better user experience.</p>
 </div>
 <div class="sect3">
-<h4 id="auto-complete"><a class="link" href="#auto-complete">4.9.1. Auto-Complete</a></h4>
+<h4 id="auto-complete"><a class="link" href="#auto-complete">4.10.1. Auto-Complete</a></h4>
 <div class="paragraph">
-<p>This feature would allow you who might be unfamiliar with E.T to type part of a command instead of the whole command.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="undo-redo"><a class="link" href="#undo-redo">4.9.2. Undo/Redo</a></h4>
-<div class="paragraph">
-<p>This feature would allow you to undo or redo certain commands which are accidentally done.</p>
+<p>This feature will allow you to press <code>Tab</code> to complete the command.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="import-and-export-of-entire-pre-trip-data"><a class="link" href="#import-and-export-of-entire-pre-trip-data">4.9.3. Import and export of entire pre-trip data</a></h4>
+<h4 id="undo-redo"><a class="link" href="#undo-redo">4.10.2. Undo/Redo</a></h4>
 <div class="paragraph">
-<p>This feature would allow you to import and export your trip data to be freely shared with other uses of E.T.</p>
+<p>This feature will allow you to undo or redo certain commands.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="import-and-export-of-data"><a class="link" href="#import-and-export-of-data">4.10.3. Import and export of data</a></h4>
+<div class="paragraph">
+<p>This feature will allow you to import and export your trip data in different formats such as the <code>.ics</code> calendar format.</p>
 </div>
 </div>
 </div>
@@ -4373,37 +4597,34 @@ Recommend ways to save money on certain items.</p>
 <h2 id="strong-faq-strong"><a class="link" href="#strong-faq-strong">5. <strong>FAQ</strong></a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong><u>TO BE EDITED</u></strong></p>
+<p><strong>Q</strong>: How many trips am I able to set in <strong>E.T.</strong>?</p>
 </div>
 <div class="paragraph">
-<p><strong>Q</strong>: How many trips am I able to set in E.T.?</p>
-</div>
-<div class="paragraph">
-<p><strong>A</strong>: Users are only able to set 1 trip in E.T.</p>
+<p><strong>A</strong>: You can only set 1 trip in <strong>E.T.</strong>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Q</strong>: Why aren&#8217;t I allowed to edit my date for the trip?</p>
 </div>
 <div class="paragraph">
-<p><strong>A</strong>: Editing the date would cause conflicts if there were any plans before hand</p>
+<p><strong>A</strong>: Editing the date would cause conflicts in your schedule if you try to change the date to one that is earlier. However, we are working on a feature that will allow you to resolve these conflicts in the upcoming version of <strong>E.T.</strong>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Q</strong>: What do I do if I want to change my date?</p>
+<p><strong>Q</strong>: What do I do if I want to change my trip&#8217;s date since I cannot edit the date?</p>
 </div>
 <div class="paragraph">
-<p><strong>A</strong>: Unfortunately, you would have to delete the trip and restart planning.</p>
+<p><strong>A</strong>: Unfortunately, you have to delete the trip.</p>
 </div>
 <div class="paragraph">
-<p><strong>Q</strong>: What happens if 2 of my activities clash? Will E.T detect it?</p>
+<p><strong>Q</strong>: What happens if 2 of my activities are scheduled on the same date and time? Will <strong>E.T.</strong> detect it?</p>
 </div>
 <div class="paragraph">
-<p><strong>A</strong>: E.T. will allow the scheduling of overlapping activities. However, when you check the status of your plan using the status command, E.T. will notify you the days of the trip with clashes in timings.</p>
+<p><strong>A</strong>: <strong>E.T.</strong> will allow you to schedule activities that overlap in timing. However, when you check your progress using the <code>status</code> command, <strong>E.T.</strong> will notify you of this conflict in timing and the day index that you can find it.</p>
 </div>
 <div class="paragraph">
-<p><strong>Q</strong>: How do I transfer my data to another Computer?</p>
+<p><strong>Q</strong>: How do I transfer my data to another computer?</p>
 </div>
 <div class="paragraph">
-<p><strong>A</strong>: By default, E.T. save all your data in a folder named data in the same directory as the application. You can copy and transfer the data folder into the same directory as E.T. on your other computer and E.T. will automatically load your data when you open the application.</p>
+<p><strong>A</strong>: By default, <strong>E.T.</strong> saves all your data in a folder named <code>data</code> in the same directory as the application. You can copy and transfer the <code>data</code> folder into the same directory as <strong>E.T.</strong> on your other computer and <strong>E.T.</strong> will automatically load your data upon launching <strong>E.T.</strong>.</p>
 </div>
 </div>
 </div>
@@ -4411,7 +4632,7 @@ Recommend ways to save money on certain items.</p>
 <h2 id="strong-command-summary-strong"><a class="link" href="#strong-command-summary-strong">6. <strong>Command Summary</strong></a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="trip-commands"><a class="link" href="#trip-commands">6.1. Trip Commands</a></h3>
+<h3 id="trip-management-commands"><a class="link" href="#trip-management-commands">6.1. Trip Management Commands</a></h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -4426,33 +4647,29 @@ Recommend ways to save money on certain items.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Set Trip</strong> : <code>settrip title/TITLE startdate/START_DATE enddate/END_DATE budget/BUDGET exchangerate/EXCHANGERATE</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>settrip title/Graduation Trip start/28-09-2020 end/28-10-2020 budget/1000 exchangerate/1.40</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>settrip title/Graduation Trip startdate/28-09-2020 enddate/26-10-2020 budget/1000 exchangerate/1.40</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Rename a Trip</strong> : <code>rename</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rename Not a Graduation Trip</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Budget for Trip</strong> : <code>editbudget BUDGET</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>editbudget 10000</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete Trip</strong> : <code>deletetrip</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletetrip</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Rename a Trip</strong> : <code>rename</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rename Not a graduation Trip</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>Edit Budget for Trip</strong> : editbudget BUDGET</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>editbudget 1000</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>View Itinerary</strong> : <code>view</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Check Preparation</strong> : <code>status</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Check Progress</strong> : <code>status</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>status</code></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="activity-command"><a class="link" href="#activity-command">6.2. Activity Command</a></h3>
+<h3 id="activity-commands"><a class="link" href="#activity-commands">6.2. Activity Commands</a></h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -4466,26 +4683,42 @@ Recommend ways to save money on certain items.</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Activity</strong> : <code>addactivity title/TITLE duration/DURATION location/LOCATION [tag/TAG]&#8230;&#8203;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addactivity title/Going to the beach duration/4 location/Hakone tag/sea tag/ocean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List Activities</strong>: <code>listactivity</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listactivity</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Activity</strong> : <code>editactivity index [title/NAME] [duration/DURATION] [location/LOCATION] [t/tag]</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>editactivity 1 name/Go to an aquarium</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Activity</strong>: <code>addactivity title/TITLE duration/DURATION location/LOCATION [tag/TAG]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addactivity title/Going to the beach duration/4 location/Hakone tag/sea tag/outdoor</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete Activity</strong> : <code>deleteactivity index</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Activity</strong>: <code>editactivity index [title/TITLE] [duration/DURATION] [location/LOCATION] [tag/TAG]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>editactivity 1 title/Go to an aquarium</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete Activity</strong>: <code>deleteactivity INDEX</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>deleteactivity 1</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear Activity</strong> : <code>clearactivity</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sort Activities</strong>: <code>sortactivity CRITERIA  ORDER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sortactivity title ascending</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Find Activities by Keywords</strong>: <code>findactivity KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>findactivity sightseeing carnival</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Find Activities by Tag</strong>: <code>findactivitytag TAG_NAME [MORE_TAG_NAMES]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>findactivitytag outdoor</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear Activities</strong>: <code>clearactivity</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>clearactivity</code></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="transportation-booking-command"><a class="link" href="#transportation-booking-command">6.3. Transportation Booking Command</a></h3>
+<h3 id="activity-scheduling-commands"><a class="link" href="#activity-scheduling-commands">6.3. Activity Scheduling Commands</a></h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -4499,70 +4732,150 @@ Recommend ways to save money on certain items.</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Transport Booking</strong> : <code>addtransport mode/MODE startloc/START_LOCATION endloc/END_LOCATION starttime/DATE_TIME_OF_DEPARTURE endtime/DATE_TIME_OF_ARRIVAL</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addtransport mode/plane startloc/Singapore endloc/Japan starttime/22-04-2021 09:00 endtime/22-04-2021 16:00</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List Schedule</strong>: <code>listschedule</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listschedule</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Transportation Booking</strong> : <code>edittransport INDEX [mode/MODE] [startloc/START_LOCATION] [endloc/END_LOCATION] [starttime/DATE_TIME_OF_DEPARTURE] [endtime/DATE_TIME_OF_ARRIVAL]</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edittransport 2 starttime/22-04-2021 10:00</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Schedule Activity</strong>: <code>schedule ACTIVITY_INDEX day/DAY_INDEX time/TIME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>schedule 1 day/1 time/10:00</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete transportation Booking</strong> : <code>deletetransport INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Unschedule Activity</strong>: <code>unschedule ACTIVITY_INDEX day/DAY_INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>unschedule 1 day/2</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="transportation-booking-management-commands"><a class="link" href="#transportation-booking-management-commands">6.4. Transportation Booking Management Commands</a></h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List Transport Bookings</strong>: <code>listtransport</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listtransport</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Transport Booking</strong>: <code>addtransport mode/MODE startloc/START_LOCATION endloc/END_LOCATION starttime/START_TIME endtime/END_TIME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addtransport mode/plane startloc/Singapore endloc/Japan starttime/28-09-2020 00:00 endtime/28-09-2020 07:00</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Transport Booking</strong>: <code>edittransport INDEX [mode/MODE] [startloc/START_LOCATION] [endloc/END_LOCATION] [starttime/START_TIME] [endtime/END_TIME]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edittransport 1 endloc/Italy</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete Transport Booking</strong>: <code>deletetransport INDEX</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletetransport 1</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear Transportation Bookings</strong> : <code>cleartransport</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sort Transport Bookings</strong>: <code>sorttransport CRITERIA ORDER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sorttransport mode ascending</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear Transport Bookings</strong>: <code>cleartransport</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cleartransport</code></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="packing-list-commands"><a class="link" href="#packing-list-commands">6.4. Packing List Commands</a></h3>
+<h3 id="accommodation-booking-management-commands"><a class="link" href="#accommodation-booking-management-commands">6.5. Accommodation Booking Management Commands</a></h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
 </colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Command</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Example</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List Accommodation Bookings</strong>: <code>listacc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listacc</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List Item</strong> : <code>listitem</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Accommodation Booking</strong>: <code>addacc name/NAME loc/LOCATION startday/START_DAY endday/END_DAY [remark/REMARK]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addacc name/JW Marriott Hotel loc/KL startday/2 endday/4 remark/Check-in at 3pm.</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Accommodation Booking</strong>: <code>editacc INDEX [name/NAME] [loc/LOCATION] [startday/START_DAY] [endday/END_DAY] [remark/REMARK] [endtime/END_TIME]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>editacc 1 name/Casa del Rio loc/Malacca</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete Accommodation Booking</strong>: <code>deleteacc INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deleteacc 1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sort Accommodation Bookings</strong>: <code>sortacc CRITERIA ORDER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sortacc name ascending</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear Accommodation Bookings</strong>: <code>clearacc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clearacc</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="packing-list-management-commands"><a class="link" href="#packing-list-management-commands">6.6. Packing List Management Commands</a></h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List Packing List Items</strong>: <code>listitem</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>listitem</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Packing List Item</strong> : <code>additem name/ITEM quantity/QUANTITY category/CATEGORY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Packing List Item</strong>: <code>additem name/NAME quantity/QUANTITY category/CATEGORY</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>additem name/underwear quantity/5 category/clothes</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Packing List Item</strong> : <code>edititem INDEX [name/NAME] [quantity/QUANTITY] [category/CATEGORY]</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edititem 1 name/shirt quantity/5 category/essentials</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Packing List Item</strong>: <code>edititem INDEX [name/NAME] [quantity/QUANTITY] [category/CATEGORY]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edititem 1 quantity/5 category/essentials</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete Packing List Item</strong> : <code>deleteitem INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete Packing List Item</strong>: <code>deleteitem INDEX</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>deleteitem 1</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Mark Packing List Item as packed</strong> :  <code>checkitem INDEX [MORE_INDEXES]&#8230;&#8203;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>checkitem 1 3 5 6</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Mark Packing List Item as Packed</strong>:  <code>checkitem INDEX [MORE_INDEXES]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>checkitem 1 3</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Mark Packing List Item as unpacked</strong> : <code>uncheckitem INDEX [MORE_INDEXES]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Mark Packing List Item as Not Packed</strong>: <code>uncheckitem INDEX [MORE_INDEXES]&#8230;&#8203;</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>uncheckitem 1 4 7 13 16</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sort Packing List</strong> : <code>sortitem CRITERIA ORDER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sort Packing List</strong>: <code>sortitem CRITERIA ORDER</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>sortitem name asc</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Find Packing List Items by name</strong>: <code>finditem</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Find Packing List Items by Name</strong>: <code>finditem KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>finditem car shampoo</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Find Packing List Items by category</strong>: <code>finditemcategory</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Find Packing List Items by Category</strong>: <code>finditemcategory KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>finditemcategory swimming clothes</code></p></td>
 </tr>
 <tr>
@@ -4570,18 +4883,18 @@ Recommend ways to save money on certain items.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>clearitem</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Preset</strong> : <code>addpreset preset/PRESET_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Preset</strong>: <code>addpreset CATEGORY</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>addpreset beach</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List all Presets in Packing List</strong>: <code>listpresets</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listpresets</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List all Presets in Packing List</strong>: <code>listpreset</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listpreset</code></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="fixed-expense-commands"><a class="link" href="#fixed-expense-commands">6.5. Fixed Expense Commands</a></h3>
+<h3 id="fixed-expense-commands"><a class="link" href="#fixed-expense-commands">6.7. Fixed Expense Commands</a></h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -4599,27 +4912,27 @@ Recommend ways to save money on certain items.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>listexpense</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Fixed Expense</strong> :  <code>amount/AMOUNT currency/CURRENCY description/DESCRIPTION category/CATEGORY</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addexpense amount/1100 currency/SGD description/Plane Tickets category/Transport</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Fixed Expense</strong>: <code>addexpense amount/AMOUNT currency/CURRENCY description/DESCRIPTION category/CATEGORY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addexpense amount/1100 currency/sgd description/Plane Tickets category/Transport</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Fixed Expense</strong> : <code>editexpense INDEX [amount/AMOUNT] [currency/CURRENCY]  [description/DESCRIPTION] [category/CATEGORY]</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>editexpense 1 amount/1500 currency/SGD description/editedtransport category/transport</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Fixed Expense</strong>: <code>editexpense INDEX [amount/AMOUNT] [currency/CURRENCY]  [description/DESCRIPTION] [category/CATEGORY]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>editexpense 1 amount/1500 currency/sgd description/editedtransport category/transport</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete Fixed Expense</strong> : <code>deleteexpense INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete Fixed Expense</strong>: <code>deleteexpense INDEX</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>deleteexpense 1</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear Fixed Expenses</strong> : <code>clearexpense</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clearexpense</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sort Fixed Expenses</strong>: <code>sortexpense CRITERIA ORDER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sortexpense amount des</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sort Fixed Expenses</strong> : <code>sortexpense CRITERIA ORDER</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sortexpense amount des</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear Fixed Expenses</strong>: <code>clearexpense</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clearexpense</code></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 21:24:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 02:56:03 UTC</div></div></div></body></html>

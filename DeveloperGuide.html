@@ -65,7 +65,7 @@
 <h2 id="design"><a class="link" href="#design">2. Design</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In this section, you will learn about the general design and structure of <strong>E.T.</strong>. Subsequently, this section will also describe and explain how each component in <strong>E.T.</strong> works individually. <strong>E.T.</strong> is coded using the <em>Object-Oriented Programming</em> paradigm and it follows the <em>Facade Pattern</em> and <em>Command Pattern</em> in software design.</p>
+<p>In this section, you will learn about the general design and structure of <strong>E.T.</strong>. Subsequently, this section will also describe and explain how each component in <strong>E.T.</strong> works individually. <strong>E.T.</strong> is coded using the <a href="#oop"><em>Object-Oriented Programming</em></a> paradigm and it follows the <a href="#facade-pattern"><em>Facade Pattern</em></a> and <a href="#command-pattern"><em>Command Pattern</em></a> in software design.</p>
 </div>
 <div class="sect2">
 <h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">2.1. Architecture</a></h3>
@@ -186,7 +186,7 @@ Refer to the <a href="UsingPlantUml.html">Using PlantUML guide</a> to learn how 
 <p>The <code>Ui</code> component consists of a <code>MainWindow</code> that is made up of smaller parts such as <code>ResultDisplay</code> and <code>CommandBox</code> as shown in the <em>Class Diagram</em> above. All UI parts in the <code>Ui</code> component including <code>MainWindow</code> inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
-<p>The <code>TabPanel</code> is an abstract class that represents a tab in the <em>GUI</em> and each tab will display information on different features of <strong>E.T.</strong>. The following classes inherit from the <code>TabPanel</code> abstract class:</p>
+<p>The <code>TabPanel</code> is an abstract class that represents a tab in the <a href="#gui"><em>GUI</em></a> and each tab will display information on different features of <strong>E.T.</strong>. The following classes inherit from the <code>TabPanel</code> abstract class:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -254,7 +254,7 @@ A generic tab is referred to as an <code>XYZTabPanel</code> while a generic card
 </table>
 </div>
 <div class="paragraph">
-<p>The <code>Ui</code> component uses <em>JavaFX</em> UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S2-CS2103T-W17-3/main/tree/master/src/main/java/team/easytravel/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S2-CS2103T-W17-3/main/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+<p>The <code>Ui</code> component uses <a href="#javafx"><em>JavaFX</em></a> UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S2-CS2103T-W17-3/main/tree/master/src/main/java/team/easytravel/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S2-CS2103T-W17-3/main/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
 </div>
 </div>
 <div class="sect3">
@@ -268,7 +268,7 @@ A generic tab is referred to as an <code>XYZTabPanel</code> while a generic card
 <p>Executes user commands using the <code>Logic</code> component.</p>
 </li>
 <li>
-<p>Listens for changes to <code>Model</code> data so that the <em>GUI</em> can be updated with the modified data.</p>
+<p>Listens for changes to <code>Model</code> data so that the <a href="#gui"><em>GUI</em></a> can be updated with the modified data.</p>
 </li>
 </ul>
 </div>
@@ -388,7 +388,7 @@ The lifelines for the <code>DeleteItemCommandParser</code> and <code>DeleteItemC
 </ul>
 </div>
 <div class="paragraph">
-<p>The <code>ObservableList</code> abstract class is exposed by the <code>Model</code> component for the <code>Ui</code> component to observe and automatically update the <em>GUI</em> when data in the <code>Model</code> component changes. This follows the <em>Observer Pattern</em> in software design.</p>
+<p>The <code>ObservableList</code> abstract class is exposed by the <code>Model</code> component for the <code>Ui</code> component to observe and automatically update the <a href="#gui"><em>GUI</em></a> when data in the <code>Model</code> component changes. This follows the <em>Observer Pattern</em> in software design.</p>
 </div>
 </div>
 <div class="sect3">
@@ -408,7 +408,7 @@ The lifelines for the <code>DeleteItemCommandParser</code> and <code>DeleteItemC
 <p>Does not depend on the <code>Ui</code>, <code>Logic</code> and <code>Storage</code> components.</p>
 </li>
 <li>
-<p>Contains observable data so that the <em>GUI</em> can automatically update upon data changes.</p>
+<p>Contains observable data so that the <a href="#gui"><em>GUI</em></a> can automatically update upon data changes.</p>
 </li>
 </ul>
 </div>
@@ -452,13 +452,13 @@ The lifelines for the <code>DeleteItemCommandParser</code> and <code>DeleteItemC
 <div class="ulist">
 <ul>
 <li>
-<p>Can save the <code>UserPref</code> object in a <em>JSON</em> format.</p>
+<p>Can save the <code>UserPref</code> object in a <a href="#json"><em>JSON</em></a> format.</p>
 </li>
 <li>
 <p>Can parse a <code>json</code> file in the correct format to get the <code>UserPref</code> object.</p>
 </li>
 <li>
-<p>Can save the <code>XYZManager</code> data in a <em>JSON</em> format.</p>
+<p>Can save the <code>XYZManager</code> data in a <a href="#json"><em>JSON</em></a> format.</p>
 </li>
 <li>
 <p>Can parse a <code>json</code> file in the correct format to get the <code>XYZManager</code>’s data.</p>
@@ -666,7 +666,7 @@ Can edit every detail.</p></td>
 * Packing List</p>
 </div>
 <div class="paragraph">
-<p>All these lists are managed by `ListManager`s which support basic <em>CRUD</em> operations and some additional operations for users to manage their list efficiently. The term <em>item</em> will be used to refer to the elements stored in a list.</p>
+<p>All these lists are managed by `ListManager`s which support basic <a href="#crud"><em>CRUD</em></a> operations and some additional operations for users to manage their list efficiently. The term <em>item</em> will be used to refer to the elements stored in a list.</p>
 </div>
 <div class="paragraph">
 <p>Common commands for all `ListManager`s:</p>
@@ -702,10 +702,10 @@ Can edit every detail.</p></td>
 <p>In this section, we will first explain the structure of a typical <code>ListManager</code> also known as an <code>XYZListManager</code>. As mentioned earlier in the overview of this section, the term <em>item</em> will be used to refer to the elements stored in a list.</p>
 </div>
 <div class="paragraph">
-<p>The <code>XYZListManager</code> contains a <code>UniqueList</code> which is a data structure that stores all the <em>items</em> of a list. The <code>UniqueList</code> makes use of Java’s <em>generics</em> and can only contain <em>items</em> that implement the <code>UniqueListElement</code> interface. This is because the uniqueness of an element in the <code>UniqueList</code> is determined by the returned value of the <code>isSame()</code> method of the UniqueListElement interface.</p>
+<p>The <code>XYZListManager</code> contains a <code>UniqueList</code> which is a data structure that stores all the <em>items</em> of a list. The <code>UniqueList</code> makes use of Java’s <a href="#generics"><em>generics</em></a> and can only contain <em>items</em> that implement the <code>UniqueListElement</code> interface. This is because the uniqueness of an element in the <code>UniqueList</code> is determined by the returned value of the <code>isSame()</code> method of the UniqueListElement interface.</p>
 </div>
 <div class="paragraph">
-<p>In addition, the <code>XYZListManager</code> implements the <code>ReadOnlyXYZManager</code> interface. This interface has the <code>getXYZList()</code> method which returns an <code>ObservableList</code> of <em>items</em>. For example, <code>ActivityManager</code> implements <code>ReadOnlyActivityManager</code>. The <code>ObservableList</code> of <em>items</em> allows the <code>Ui</code> model to use the <em>Observer Pattern</em> to update the <em>GUI</em>.</p>
+<p>In addition, the <code>XYZListManager</code> implements the <code>ReadOnlyXYZManager</code> interface. This interface has the <code>getXYZList()</code> method which returns an <code>ObservableList</code> of <em>items</em>. For example, <code>ActivityManager</code> implements <code>ReadOnlyActivityManager</code>. The <code>ObservableList</code> of <em>items</em> allows the <code>Ui</code> model to use the <em>Observer Pattern</em> to update the <a href="#gui"><em>GUI</em></a>.</p>
 </div>
 <div class="paragraph">
 <p>The following <em>Class Diagram</em> describes the aforementioned structure of the <code>ActivityManager</code>.</p>
@@ -847,19 +847,6 @@ Do not extract any common operations and functionalities</p></td>
 <div class="paragraph">
 <p><strong>E.T.</strong> allows the user to keep track of their activities for his/her trip. The activity manager is one of the <code>ListManager</code> s  (See <a href="#List-Manager">[List-Manager]</a>). On top of the basic operations provided by a <code>ListManager</code>, it also allows the user to search for their activities using the <code>findacitivty</code> command. The parameters of the <code>findactivity</code> command are keywords in the activity entries that the user wants to search for. E.g. <code>findactivity sightseeing carnival</code> will search and list all activity entries with <code>sightseeing</code> or <code>carnival</code> in their detail. Another similar command, <code>findactivitytag</code> has the same functionality but only searches for the tags of activity entries.</p>
 </div>
-<div class="paragraph">
-<p><code>ActivityManager</code> has other than the basic CRUD commands, find command provide a find command to assist in activity management such as:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>findactivitytag</code></p>
-</li>
-<li>
-<p><code>findactivity</code></p>
-</li>
-</ul>
-</div>
 <div class="sect3">
 <h4 id="rationale-3"><a class="link" href="#rationale-3">3.3.1. Rationale</a></h4>
 <div class="paragraph">
@@ -898,7 +885,7 @@ Do not extract any common operations and functionalities</p></td>
 <p>The <code>ActivityManager</code> will then update its filtered list of `Activity`s to contain only `Activity`s that fulfil the given predicate.</p>
 </li>
 <li>
-<p>The <code>Ui</code> component will detect this change and update the <em>GUI</em>.</p>
+<p>The <code>Ui</code> component will detect this change and update the <a href="#gui"><em>GUI</em></a>.</p>
 </li>
 <li>
 <p>If the above steps are all successful, the <code>ScheduleCommand</code> will then create a <code>CommandResult</code> object and return the result.</p>
@@ -1094,7 +1081,7 @@ i.e. <code>ActivityManager</code> is in charge of scheduling.</p></td>
 <p>When a user adds an accommodation booking, the <code>Logic</code> Component parses the user input and creates an <code>AddAccommodationBookingCommand</code> object (See <a href="#Design-Logic">[Design-Logic]</a>). When the <code>execute()</code> method of <code>AddAccommodationBookingCommand</code> is called, the execution will check if the new accommodation booking overlaps with any other other current bookings.</p>
 </div>
 <div class="paragraph">
-<p>Using a Java’s <em>stream</em>, the new accommodation booking will be checked against all other bookings in the list to look for any overlaps.
+<p>Using a Java’s <a href="#stream"><em>stream</em></a>, the new accommodation booking will be checked against all other bookings in the list to look for any overlaps.
 We used an interval overlap detection algorithm to check for overlap between 2 accommodation bookings. If the total duration of the 2 accommodation bookings is within the <em>acceptable duration</em> of the algorithm, then there is no overlap.
 <em>acceptable duration</em> = latest end day - earliest start day</p>
 </div>
@@ -1691,7 +1678,7 @@ Easy to access and manipulate budget and exchange rate data. Especially when cal
 <p>prefers typing over mouse input</p>
 </li>
 <li>
-<p>is reasonably comfortable using CLI apps</p>
+<p>is reasonably comfortable using <a href="#cli">[cli]</a> apps</p>
 </li>
 </ul>
 </div>
@@ -1704,7 +1691,7 @@ Easy to access and manipulate budget and exchange rate data. Especially when cal
 <p>An all in one travel planner and manager, that guides the user from head to tail in planning for an overseas trip. Even those who have never planned for a trip before will be able to focus on enjoying their trip while the app guides them in planning and managing the perfect overseas trip.</p>
 </li>
 <li>
-<p>E.T. can manage trips faster than a typical mouse/<em>GUI</em>  driven app.</p>
+<p>E.T. can manage trips faster than a typical mouse/<a href="#gui"><em>GUI</em></a>  driven app.</p>
 </li>
 </ul>
 </div>
@@ -1814,7 +1801,7 @@ Easy to access and manipulate budget and exchange rate data. Especially when cal
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User who likes customization</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Change my application into different colour themes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Make my application’s <em>GUI</em> visually appealing to me</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Make my application’s <a href="#gui"><em>GUI</em></a> visually appealing to me</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
@@ -2084,17 +2071,17 @@ Extensions:
 <dd>
 <p>Windows, Linux, Unix, macOS</p>
 </dd>
-<dt class="hdlist1"><a id="oop"></a> Object Oriented Programming</dt>
+<dt class="hdlist1"><a id="oop"></a> Object-Oriented Programming</dt>
 <dd>
 <p>A type of computer programming (software design) in which programmers define the data type of a data structure, and also the types of operations (functions) that can be applied to the data structure.</p>
 </dd>
 <dt class="hdlist1"><a id="prefix"></a> Prefix</dt>
 <dd>
-<p>The term that comes before each parameter in the command. For example, the prefix in country/COUNTRY is country/.</p>
+<p>The term that comes before each parameter in the command. For example, the prefix in <code>country/COUNTRY</code> is <code>country/</code>.</p>
 </dd>
 <dt class="hdlist1"><a id="prefix-name"></a> Prefix Name</dt>
 <dd>
-<p>The word that comes before ‘/’ in the prefix. For example, the prefix name in country/COUNTRY is country/.</p>
+<p>The word that comes before <code>/</code> in the prefix. For example, the prefix name in <code>country/COUNTRY</code> is <code>country</code>.</p>
 </dd>
 <dt class="hdlist1"><a id="stream"></a> Stream</dt>
 <dd>
@@ -2135,7 +2122,7 @@ These instructions only provide a starting point for testers to work on; testers
 </li>
 <li>
 <p>Double-click the jar file
-Expected: Shows the <em>GUI</em> with a set of schedules. The window size may not be optimum.</p>
+Expected: Shows the <a href="#gui"><em>GUI</em></a> with a set of schedules. The window size may not be optimum.</p>
 </li>
 </ol>
 </div>
@@ -2544,4 +2531,4 @@ Test case: <code>addactivity title/Osaka Castle View duration/1 location/Osaka t
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 21:24:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 02:56:03 UTC</div></div></div></body></html>
