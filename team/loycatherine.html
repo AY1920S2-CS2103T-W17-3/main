@@ -88,10 +88,10 @@ The highlight of my part is the progress checker of the packing list in the stat
 <div class="ulist">
 <ul>
 <li>
-<p>Made the UI nicer by adding icons for all the features.  (Pull requests #33, #34)</p>
+<p>Made the UI nicer by adding icons for all the features. (Pull requests <a href="https://github.com/AY1920S2-CS2103T-W17-3/main/pull/232">#232</a> <a href="https://github.com/AY1920S2-CS2103T-W17-3/main/pull/235">#235</a>,  <a href="https://github.com/AY1920S2-CS2103T-W17-3/main/pull/239">#239</a>, <a href="https://github.com/AY1920S2-CS2103T-W17-3/main/pull/330">#330</a>)</p>
 </li>
 <li>
-<p>Wrote additional tests for existing features to increase the coverage from **% to 92%</p>
+<p>Wrote additional tests for existing features to help increase the coverage from 20% to 50% (Pull requests <a href="https://github.com/AY1920S2-CS2103T-W17-3/main/pull/143">#143</a> <a href="https://github.com/AY1920S2-CS2103T-W17-3/main/pull/359">#359</a> <a href="https://github.com/AY1920S2-CS2103T-W17-3/main/pull/366">#366</a>)</p>
 </li>
 </ul>
 </div>
@@ -111,10 +111,10 @@ The highlight of my part is the progress checker of the packing list in the stat
 <div class="ulist">
 <ul>
 <li>
-<p>Reviewed Pull Requests</p>
+<p>Reviewed Pull Requests with non-trivial comments (Pull Request <a href="https://github.com/AY1920S2-CS2103T-W17-3/main/pull/363">#363</a>)</p>
 </li>
 <li>
-<p>Reported bugs and offered suggestions for other teams in the class (examples: 1, 2, 3)</p>
+<p>Reported bugs and offered suggestions for <a href="https://github.com/AY1920S2-CS2103T-W16-3/main">StudyBuddy</a>, another AddressBook3-based application.</p>
 </li>
 </ul>
 </div>
@@ -125,4 +125,2470 @@ The highlight of my part is the progress checker of the packing list in the stat
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 03:40:04 UTC</div></div></div></body></html>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="packing-list"><a class="link" href="#packing-list">Packing List</a></h3>
+<div class="paragraph">
+<p>If you are a forgetful person, this feature will be ideal for you. This feature allows you to manage your packing list for the trip. You can record the following information about your packing list items:</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Name</p>
+</li>
+<li>
+<p>Quantity</p>
+</li>
+<li>
+<p>Category</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="packing-param"><a class="link" href="#packing-param">Packing List Item Management Command Parameters</a></h4>
+<div class="paragraph">
+<p>Before you jump right in to use this feature, you may want to learn about all the common command parameters used in this feature. The table below shows the list of common command parameters that will be used for this feature.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>The name of the packing list item.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>It must be alphanumeric words not more than 30 characters long.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will automatically capitalise the first letter of the <code>NAME</code>. For example, if you type in <code>name/high heels</code>, it will display “High Heels” in the packing list. However, it will not make the rest of the words in the name to lowercase. For example, if you type in <code>name/unDErwear</code>, it will display “UnDErwear” in the packing list.</p>
+</li>
+<li>
+<p>E.g. high heels</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>QUANTITY</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>The quantity of the item.</p>
+</div>
+<div class="paragraph">
+<p>It must be a positive integer not more than 100000.
+* E.g. 5</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CATEGORY</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>The category that the item is classified in.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>It must be alphanumeric words not more than 30 characters long.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will automatically make the category lowercase</p>
+</li>
+<li>
+<p><strong>E.T.</strong>’s GUI will attach a category icon to the name of your packing list item. There are many recognised categories with relevant icons. However, if an unrecognised category is entered by you, the default icon will be used instead.</p>
+</li>
+<li>
+<p>E.g. <code>essentials</code> (a recognised category)</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>The index number of the packing list item in the displayed list. The first entry of the list has an index number of <code>1</code> and all the entries are listed in increasing index numbers.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>It must be a positive integer 1,2,3…</p>
+</li>
+<li>
+<p>E.g. 1</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="list-all-packing-list-items-code-listitem-code"><a class="link" href="#list-all-packing-list-items-code-listitem-code">List all packing list items: <code>listitem</code></a></h4>
+<div class="paragraph">
+<p>You can use this command to navigate to the <em>Packing List Tab</em> and display your packing list in <strong>E.T.</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>listitem</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p>If you are in another tab and wish to look at your packing list, you can follow these instructions.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Listing your packing list:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>lisitem</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the <em>Packing List Tab</em>.</p>
+</li>
+<li>
+<p>You can now see your packing list.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/ListItem.png" alt="ListItem">
+</div>
+<div class="title">Figure 1. After the <code>listitem</code> command</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="add-a-new-packing-list-item-code-additem-code"><a class="link" href="#add-a-new-packing-list-item-code-additem-code">Add a new packing list item: <code>additem</code></a></h4>
+<div class="paragraph">
+<p>This command allows you to add a new item into your packing list.</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>additem name/NAME quantity/QUANTITY category/CATEGORY</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>If there is already an item in the packing list with the same name, then it will notify you of it.</p>
+</li>
+<li>
+<p>Refer to <a href="#packing-param">Packing List Item Management Command Parameters</a> for detail about each parameter.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p><code>additem name/underwear quantity/5 category/clothes</code><br></p>
+</div>
+<div class="paragraph">
+<p>Suppose you want to add a new item with the following information and wish to record it in <strong>E.T.</strong>.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">underwear</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>QUANTITY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CATEGORY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">clothes</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>You can follow these instructions:</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Adding your packing list item:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>additem name/underwear quantity/5 category/clothes</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the <em>Packing List Tab</em>.</p>
+</li>
+<li>
+<p>You can now see your newly added item.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/AddItem.png" alt="AddItem">
+</div>
+<div class="title">Figure 2. After <code>additem</code> command</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="edit-an-existing-packing-list-item-code-edititem-code"><a class="link" href="#edit-an-existing-packing-list-item-code-edititem-code">Edit an existing packing list item: <code>edititem</code></a></h4>
+<div class="paragraph">
+<p>This command allows you to edit any mistake made in the details of an existing item.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>edititem INDEX [name/NAME] [quantity/QUANTITY] [category/CATEGORY]</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+<li>
+<p>This command can only be used if an item has been added.</p>
+</li>
+<li>
+<p>Refer to <a href="#packing-param">Packing List Item Management Command Parameters</a> for detail about each parameter.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p><code>edititem 5 item/boxer quantity/3 category/essentials</code><br></p>
+</div>
+<div class="paragraph">
+<p>Let’s say you want to edit the item at index 5 to the following information:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 33.3333%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top">Current</th>
+<th class="tableblock halign-left valign-top">Edited</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Underwear</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boxer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>QUANTITY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CATEGORY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">clothes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">essentials</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>You can follow these instructions:</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Editing the packing list item:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>edititem 5 name/boxer quantity/3 category/essentials</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the <em>Packing List Tab</em>.</p>
+</li>
+<li>
+<p>You can now see your edited item.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/EditItem.png" alt="EditItem">
+</div>
+<div class="title">Figure 3. After <code>edititem</code> command</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-an-existing-packing-list-item-code-deleteitem-code"><a class="link" href="#delete-an-existing-packing-list-item-code-deleteitem-code">Delete an existing packing list item: <code>deleteitem</code></a></h4>
+<div class="paragraph">
+<p>This command would delete the packing list item at the <code>INDEX</code> that you specified. The <code>INDEX</code> should be corresponding to the index shown in the packing list.</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>deleteitem INDEX</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>This command can only be used if there is at least 1 item in the packing list</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p>Let’s say you want to delete the first item in the packing list. You can follow these instructions:</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Deleting the packing list item:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>deleteitem 1</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the <em>Packing List Tab</em>.</p>
+</li>
+<li>
+<p>You can now see that the item is deleted from your packing list.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/DeleteItem%201.png" alt="DeleteItem 1">
+</div>
+<div class="title">Figure 4. Before <code>deleteitem</code> command</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/DeleteItem%202.png" alt="DeleteItem 2">
+</div>
+<div class="title">Figure 5. After <code>deleteitem</code> command</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="mark-an-existing-packing-list-item-as-packed-code-checkitem-code"><a class="link" href="#mark-an-existing-packing-list-item-as-packed-code-checkitem-code">Mark an existing packing list item as packed: <code>checkitem</code></a></h4>
+<div class="paragraph">
+<p>This command marks an item as packed in your packing list.</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>checkitem INDEX [MORE_INDEXES]&#8230;&#8203;</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>This command can only be used if there is at least 1 item in the packing list.</p>
+</li>
+<li>
+<p>If item is already packed, then it will just remain packed</p>
+</li>
+<li>
+<p>The result box will display the checked item(s).</p>
+</li>
+<li>
+<p>You can mark multiple items as packed in one command.</p>
+</li>
+<li>
+<p>If there is one invalid index given in the command, for example, <code>checkitem 1 3 1000 5</code>, and 1000 is the invalid index, then the items at index 1, 3 and 5 will be marked as packed, but not 1000.</p>
+</li>
+<li>
+<p>However, if a negative index is given, such as <code>checkitem 1 3 -2 5</code>, no matter the position of the negative index, the whole command will be deemed as invalid, and every item at the indicated indexes will remain as unchecked.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p><code>checkitem 1 3 14 17</code><br></p>
+</div>
+<div class="paragraph">
+<p>Let’s assume you want to mark the first, third, fifth and sixth items in the packing list as packed. You can follow these instructions.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Marking the packing list items as packed:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>checkitem 1 3 14 17</code> into the command box into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the <em>Packing List Tab</em>.</p>
+</li>
+<li>
+<p>You can now see your checked items.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/CheckItem%201.png" alt="CheckItem 1">
+</div>
+<div class="title">Figure 6. After the <code>checkitem</code> command part 1</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/CheckItem%202.png" alt="CheckItem 2">
+</div>
+<div class="title">Figure 7. After the <code>checkitem</code> command part 2</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="mark-an-existing-packing-list-item-as-not-packed-code-uncheckitem-code"><a class="link" href="#mark-an-existing-packing-list-item-as-not-packed-code-uncheckitem-code">Mark an existing packing list item as not packed: <code>uncheckitem</code></a></h4>
+<div class="paragraph">
+<p>This command marks an item as not packed in your packing list.</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>uncheckitem INDEX [MORE_INDEXES]&#8230;&#8203;</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>This command can only be used if there is at least 1 item in the packing list.</p>
+</li>
+<li>
+<p>If the item is already not packed, then it will just remain not packed.</p>
+</li>
+<li>
+<p>The result box will display the unchecked item(s).</p>
+</li>
+<li>
+<p>You can mark multiple items as not packed in one command.</p>
+</li>
+<li>
+<p>If there is one invalid index given in the command, for example <code>uncheckitem 1 3 1000 5</code>, and 1000 is the invalid index, then the items at index 1, 3 and 5 will be marked as not packed, but not 1000.</p>
+</li>
+<li>
+<p>However, if a negative index is given, such as <code>uncheckitem 1 3 -2 5</code>, no matter the position of the negative index, the whole command will be deemed as invalid, and every item at the indicated indexes will remain as checked.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p><code>uncheckitem 1 4 7 13 16</code><br></p>
+</div>
+<div class="paragraph">
+<p>Imagine you want to mark the first, fourth, seventh, thirteenth and sixteenth items in the packing list as not packed. You can follow these instructions.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Marking the packing list items as not packed:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>uncheckitem 1 4 7 13 16</code> into the command box into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the <em>Packing List Tab</em>.</p>
+</li>
+<li>
+<p>You can now see your unchecked items.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/UncheckItem%201.png" alt="UncheckItem 1">
+</div>
+<div class="title">Figure 8. After <code>uncheckitem</code> command part 1</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/UncheckItem%202.png" alt="UncheckItem 2">
+</div>
+<div class="title">Figure 9. After <code>uncheckitem</code> command part 2</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/UncheckItem%203.png" alt="UncheckItem 3">
+</div>
+<div class="title">Figure 10. After <code>uncheckitem</code> command part 3</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="sort-the-packing-list-code-sortitem-code"><a class="link" href="#sort-the-packing-list-code-sortitem-code">Sort the packing list: <code>sortitem</code></a></h4>
+<div class="paragraph">
+<p>You can sort your packing list using this command.</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>sortitem CRTIERIA ORDER</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Criteria can be only name <code>name</code>, quantity <code>quantity</code> or category <code>category</code></p>
+</li>
+<li>
+<p>Order can only be ascending <code>asc</code> or descending <code>des</code></p>
+</li>
+<li>
+<p>This command can only be used if at least 1 item has been added.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p><code>sortitem name asc</code><br></p>
+</div>
+<div class="paragraph">
+<p>In the case where you want to sort the packing list by alphabetical order, and in ascending order. You can follow these instructions.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Sorting the packing list by alphabetical order:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>sortitem name asc</code> into the command box into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the <em>Packing List Tab</em>.</p>
+</li>
+<li>
+<p>You can now see your packing list is sorted according to alphabetical order.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/SortItem%201.png" alt="SortItem 1">
+</div>
+<div class="title">Figure 11. After the <code>sortitem</code> command part 1</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/SortItem%202.png" alt="SortItem 2">
+</div>
+<div class="title">Figure 12. After the <code>sortitem</code> command part 2</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="find-packing-list-items-by-name-code-finditem-code"><a class="link" href="#find-packing-list-items-by-name-code-finditem-code">Find packing list items by name: <code>finditem</code></a></h4>
+<div class="paragraph">
+<p>This command finds items in your packing list according to the item names specified by you.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>finditem NAME [MORE_NAMES]&#8230;&#8203;</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>This command can only be used if there is at least 1 item in the packing list.</p>
+</li>
+<li>
+<p>If the packing list does not contain any of the keywords, then it will display an empty list.</p>
+</li>
+<li>
+<p>If you want to return to the packing list after using the <code>finditem</code> command, use the <code>listitem</code> command. (see Section 4.5.2)</p>
+</li>
+<li>
+<p>The result box will display the number of items that contain the keyword(s).</p>
+</li>
+<li>
+<p>The <code>finditem</code> command will only search through the titles of the items</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p><code>finditem shampoo dress</code><br></p>
+</div>
+<div class="paragraph">
+<p>Suppose you want to find items that contain either shampoo or dress in its name in the packing list. You can follow these instructions.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Find the packing list items that contain shampoo or dress:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>finditem shampoo dress</code> into the command box into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the <em>Packing List Tab</em>.</p>
+</li>
+<li>
+<p>You can now see the items in your packing list that contain either shampoo or dress in its name.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/FindItem.png" alt="FindItem">
+</div>
+<div class="title">Figure 13. After find item command</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="find-packing-list-items-by-category-code-finditemcategory-code"><a class="link" href="#find-packing-list-items-by-category-code-finditemcategory-code">Find packing list items by category: <code>finditemcategory</code></a></h4>
+<div class="paragraph">
+<p>This command find items in your packing list according to the categories specified by you</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>finditemcategory CATEGORY [MORE_CATEGORIES]&#8230;&#8203;</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>This command can only be used if there is at least 1 item in the packing list.</p>
+</li>
+<li>
+<p>If the packing list does not contain any of the keywords, then it will display an empty list</p>
+</li>
+<li>
+<p>If you want to return to the packing list after using the <code>finditemcategory</code> command, use the <code>listitem</code> command. (see Section 4.5.2)</p>
+</li>
+<li>
+<p>The result box will display the number of items that are in the categories of the given keyword(s).</p>
+</li>
+<li>
+<p>The <code>finditemcategory</code> command will only search through the categories of the items</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p><code>finditemcategory international clothes</code><br></p>
+</div>
+<div class="paragraph">
+<p>Presuming you want to find items that are either in the international or clothes category.  You can follow these instructions.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Find the packing list items that are in the international or clothes category:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>finditemcategory international clothes</code> into the command box into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the <em>Packing List Tab</em>.</p>
+</li>
+<li>
+<p>You can now see the items in your packing list that are either in the international or clothes category</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/FindItemCategory.png" alt="FindItemCategory">
+</div>
+<div class="title">Figure 14. After the <code>finditemcategory</code> command</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clear-all-packing-list-items-code-clearitem-code"><a class="link" href="#clear-all-packing-list-items-code-clearitem-code">Clear all packing list items: <code>clearitem</code></a></h4>
+<div class="paragraph">
+<p>This command clears all items in your packing list.</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>clearitem</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p><code>clearitem</code><br></p>
+</div>
+<div class="paragraph">
+<p>In the circumstance that you want to delete all the items in your packing list, to start from an empty packing list. You can follow these instructions.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Clearing your packing list:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>clearitem</code> into the command box into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the <em>Packing List Tab</em>.</p>
+</li>
+<li>
+<p>3. You can now see that <strong>E.T.</strong> has cleared your packing list.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/ClearItem.png" alt="ClearItem">
+</div>
+<div class="title">Figure 15. After the <code>clearitem</code> command</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="addpreset"><a class="link" href="#addpreset">Add a new preset (built-in list): <code>addpreset</code></a></h4>
+<div class="paragraph">
+<p><strong>E.T.</strong> contains some basic built-in list of items, grouped by categories. This is to enhance your planning experience as you can add many common items just by one command. The term <em>preset</em> will be used to describe these lists of items. You can use this command to add <em>presets</em> by their category name. Refer to <a href="#listpreset">List all presets: <code>listpreset</code></a> to find out what are some <em>presets</em> you can use.</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>addpreset CATEGORY</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>If the <em>preset</em> contains an item that is already in the packing list, it will not add that item in. It will add the rest of the items in the <em>preset</em> into the packing list.</p>
+</li>
+<li>
+<p>You can only add in pre-existing <em>presets</em>. If you add in other <em>presets</em>, then you will receive the message, "Sorry! This <em>preset</em> does not exist."</p>
+</li>
+<li>
+<p>To see all the available <em>presets</em>, use the <code>listpreset</code> command. (See <a href="#listpreset">List all presets: <code>listpreset</code></a>)</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p>Assuming you will be going to the beach during your trip, but you are too lazy to add a packing list item one-by-one. You will like to add all the items in the beach category into your packing list. You can follow these instructions.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Adding a beach <em>preset</em> into your packing list:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>addpreset beach</code> into the command box into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the <em>Packing List Tab</em>.</p>
+</li>
+<li>
+<p>You can now see the items in the beach <em>preset</em> added into your packing list.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/AddPreset.png" alt="AddPreset">
+</div>
+<div class="title">Figure 16. After the <code>addpreset</code> command</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listpreset"><a class="link" href="#listpreset">List all presets: <code>listpreset</code></a></h4>
+<div class="paragraph">
+<p>This command lists all the default <em>presets</em> available for you to use. (See <a href="#addpreset">Add a new preset (built-in list): <code>addpreset</code></a> for more information about <em>presets</em>.)</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>listpreset</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The list will be shown in a pop-up window.</p>
+</li>
+<li>
+<p>The pop-up window will only contain the icons and names of the presets, not the items inside the preset.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p>In the case that you want to add a list of items under a pre-existing category, but you are not sure of the available presets you can use. You can follow these instructions.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Listing all the pre-existing presets:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>listpreset</code> into the command box into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p>A pop-up window will appear, showing you all the available presets.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/ListPreset.png" alt="ListPreset">
+</div>
+<div class="title">Figure 17. After the <code>listpreset</code> command</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="fixed-expense-management"><a class="link" href="#fixed-expense-management">Fixed Expense Management</a></h3>
+<div class="paragraph">
+<p>The Fixed Expense Manager comprises a list which allows you to set your fixed expenses before your trip. This would help you plan a suitable budget for your upcoming trip.</p>
+</div>
+<div class="paragraph">
+<p>Examples of Fixed Expenses that you can include are as follows,</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Flight Tickets</p>
+</li>
+<li>
+<p>Hotel Accommodation Bookings</p>
+</li>
+<li>
+<p>Transportation Tickets</p>
+</li>
+<li>
+<p>Cost of admission tickets to theme parks</p>
+</li>
+<li>
+<p>Or any other fixed miscellaneous costs known to you before the trip.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="expense-param"><a class="link" href="#expense-param">Fixed Expense Management Command Parameters</a></h4>
+<div class="paragraph">
+<p>Before jumping into the various features the Fixed Expense Manager offers,
+it might be beneficial to take some time looking at the common command parameters
+that are used in this feature. This is shown in the table below.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AMOUNT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The amount of money for your fixed expense.</p>
+<p class="tableblock">It must be a positive number with at most 2 decimal places. It must also be less than 1,000,000,000.</p>
+<p class="tableblock">Example: <code>1.30</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CURRENCY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Currency the fixed expense is in.</p>
+<p class="tableblock">It can only take the value of <code>sgd</code> or <code>other</code><br>
+(<code>sgd</code> or SGD stands for Singapore Dollars)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DESCRIPTION</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The description of the fixed expense.</p>
+<p class="tableblock">It must be words made up of alphanumeric characters not more than 50 characters long.</p>
+<p class="tableblock">Example: Plane Tickets</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CATEGORY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The category of the fixed expense.</p>
+<p class="tableblock">It can take the value of <code>accommodations</code>, <code>others</code>, <code>transport</code>, <code>activities</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The index number of the fixed expense entry in the displayed list.
+The first entry of the list has an index of <code>1</code> and all subsequent entries are listed in ascending order.</p>
+<p class="tableblock">It must be a valid index.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="list-your-fixed-expenses-listexpense"><a class="link" href="#list-your-fixed-expenses-listexpense">List your fixed expenses: listexpense</a></h4>
+<div class="paragraph">
+<p>You can use the <code>listexpense</code> command to navigate to the Fixed Expenses Tab and list all fixed expenses entries.</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>listexpense</code></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>You can also click on the <em>Fixed Expenses Tab</em> on the <em>Tab bar</em> to navigate there.</p>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/ListExpense.png" alt="ListExpense">
+</div>
+<div class="title">Figure 18. Accessing <em>Fixed Expenses Tab</em></div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p>If you are in another tab and wish to navigate to the <em>Fixed Expenses Tab</em> to view all your fixed expense entries, you can follow these steps.</p>
+</div>
+<div class="paragraph">
+<p>Listing all fixed expense entries:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>listexpnese</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the <em>Fixed Expenses Tab</em>.</p>
+</li>
+<li>
+<p>You can now see all your fixed expense entries.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/FixedExpenseManager.png" alt="FixedExpenseManager">
+</div>
+<div class="title">Figure 19. After the <code>listexpense</code> command</div>
+</div>
+<div class="paragraph">
+<p>Thereafter, you will be able to add and subsequently modify your fixed expenses.
+This would be further elaborated in <a href="#addexpense">Adding a new fixed expense entry: <code>addexpense</code></a> onwards.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="addexpense"><a class="link" href="#addexpense">Adding a new fixed expense entry: <code>addexpense</code></a></h4>
+<div class="paragraph">
+<p>You can use this command to add a new fixed expense into the Fixed Expense Manager.</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>addexpense amount/AMOUNT currency/CURRENCY description/DESCRIPTION category/CATEGORY</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>CATEGORY</code> field only accepts <code>transport</code>, <code>accommodations</code>, <code>others</code>, <code>activities</code></p>
+</li>
+<li>
+<p>If you set <code>CURRENCY</code> as <code>other</code>, the <code>AMOUNT</code> will be automatically converted to SGD using the trip exchange rate (See <a href="#settrip">[settrip]</a>).</p>
+</li>
+<li>
+<p>Refer to <a href="#expense-param">Fixed Expense Management Command Parameters</a> for more detail about each parameter.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p>Let’s say you wish to include a fixed expense entry with the following information and wish to add it in the Fixed Expense Manager.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Amount</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1100</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Currency</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SGD</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Description</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Plane Tickets</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Category</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Transport</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Adding the above fixed expense entry:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>addexpense amount/1100 currency/SGD description/Plane Tickets category/Transport</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the <em>Fixed Expenses Tab</em>.</p>
+</li>
+<li>
+<p>You can now see your newly added Fixed Expense.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/AddFixedExpense.png" alt="AddFixedExpense">
+</div>
+<div class="title">Figure 20. After successfully adding a fixed expense</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="edit-a-fixed-expense-entry-editexpense"><a class="link" href="#edit-a-fixed-expense-entry-editexpense">Edit a fixed expense entry: editexpense</a></h4>
+<div class="paragraph">
+<p>This command allows you to edit any mistakes that you might have accidentally included into the fixed expense manager. You can edit the details of an existing fixed expense entry based on the <code>INDEX</code> you have specified.</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>editexpense INDEX [amount/AMOUNT] [currency/CURRENCY]  [description/DESCRIPTION] [category/CATEGORY]</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+<li>
+<p>Both currency and amount fields must exist for a successful edit.</p>
+</li>
+<li>
+<p>If you set <code>CURRENCY</code> as <code>other</code>, the <code>AMOUNT</code> will be automatically converted to SGD using the trip exchange rate (See <a href="#settrip">[settrip]</a>).</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will warn you when you overshot your budget.</p>
+</li>
+<li>
+<p>Refer to <a href="#expense-param">Fixed Expense Management Command Parameters</a> for more detail about each parameter.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s say you wish to edit the fixed expense entry at index 1 to have a description of “editedtransport"
+and SGD 1500 respectively.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top">Current</th>
+<th class="tableblock halign-left valign-top">Edited</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AMOUNT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>1000</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>1500</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CURRENCY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">other</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SGD</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DESCRIPTION</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WrongTransport</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">editedtransport</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CATEGORY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">activity</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">transport</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Editing the above fixed expense entry:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>editexpense 1 amount/1500 currency/SGD description/editedtransport category/transport</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the <em>Fixed Expenses Tab</em>.</p>
+</li>
+<li>
+<p>You can now see your newly edited Fixed Expense.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/EditFixedExpense.png" alt="EditFixedExpense">
+</div>
+<div class="title">Figure 21. After successfully editing a fixed expense</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-fixed-expense-entry-code-deleteexpense-code"><a class="link" href="#deleting-a-fixed-expense-entry-code-deleteexpense-code">Deleting a fixed expense entry: <code>deleteexpense</code></a></h4>
+<div class="paragraph">
+<p>This command allows you to delete an existing fixed expense entry.</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>deleteexpense INDEX</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Refer to <a href="#expense-param">Fixed Expense Management Command Parameters</a> for more detail about the parameter.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p>Assuming you wish to delete the <strong><em>first</em></strong> fixed expense.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Deleting the fixed expense entry:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>deleteexpense 1</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the <em>Fixed Expenses Tab</em>.</p>
+</li>
+<li>
+<p>You can now see that the Fixed Expense is deleted from your Fixed Expense Manager.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/DeleteFixedExpense.png" alt="DeleteFixedExpense">
+</div>
+<div class="title">Figure 22. After successfully deleting a fixed expense</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="sort-fixed-expenses-code-sortexpense-code"><a class="link" href="#sort-fixed-expenses-code-sortexpense-code">Sort fixed expenses: <code>sortexpense</code></a></h4>
+<div class="paragraph">
+<p>This command allows you to sort all your fixed expenses in the list.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>sortexpense CRITERIA ORDER</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>ORDER</code> refers to the order to sort the Fixed Expenses by. It can take the value of <code>ascending</code> or <code>asc</code> to sort in ascending order or <code>descending</code> or <code>des</code> to sort in descending order.</p>
+</li>
+<li>
+<p><code>CRITERIA</code> refers to the criteria to sort the Fixed Expenses by. It can take these values, <code>[AMOUNT]</code> <code>[DESCRIPTION]</code> <code>[CATEGORY]</code>.</p>
+</li>
+<li>
+<p>Only <em>one</em> criteria can be included in the command.</p>
+</li>
+<li>
+<p>The list must not be empty.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p>Assuming you have a lot of fixed expenses and wish to group them by category.
+In this example, we would be sorting the fixed expense according to the amount in descending order.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>You could sort the fixed expenses by category through these steps.</p>
+</div>
+<div class="paragraph">
+<p>Sorting fixed expense entries:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>sortexpense amount des</code> into the <em>command box</em></p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the <em>Fixed Expenses Tab</em>.</p>
+</li>
+<li>
+<p>You can now see that your Fixed Expenses are sorted according to descending amount.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/SortFixedExpense.png" alt="SortFixedExpense">
+</div>
+<div class="title">Figure 23. After successful sorting of fixed expense</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clearing-a-fixed-expense-code-clearexpense-code"><a class="link" href="#clearing-a-fixed-expense-code-clearexpense-code">Clearing a fixed expense: <code>clearexpense</code></a></h4>
+<div class="paragraph">
+<p>This command allows you to clear all Fixed Expenses in the list.</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="paragraph">
+<p><code>clearexpense</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p>Assuming that you wish to clear all your fixed expenses entries, you can clear the whole list by following these steps.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Clearing all fixed expenses entries:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>clearexpense</code> in your <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the <em>Fixed Expenses Tab</em>.</p>
+</li>
+<li>
+<p>You will now see an empty Fixed Expense Manager.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/ClearFixedExpense.png" alt="ClearFixedExpense">
+</div>
+<div class="title">Figure 24. After successfully clearing all fixed expense</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="features-coming-in-version-2-0"><a class="link" href="#features-coming-in-version-2-0">Features coming in Version 2.0</a></h3>
+<div class="paragraph">
+<p>This section will describe the various features that are planned for Version 2.0 of <strong>E.T.</strong></p>
+</div>
+<div class="sect3">
+<h4 id="packing-list-management"><a class="link" href="#packing-list-management">Packing List Management</a></h4>
+<div class="paragraph">
+<p>The Packing List Management feature has some exciting updates that will help you better manage your packing list.</p>
+</div>
+<div class="sect4">
+<h5 id="create-a-smart-packing-list-code-createlist-code"><a class="link" href="#create-a-smart-packing-list-code-createlist-code">Create a smart packing list: <code>createlist</code></a></h5>
+<div class="paragraph">
+<p>This feature will allow you to create a smart packing list. The packing list will recommend you the quantity to pack for your trip based on the information provided.</p>
+</div>
+<div class="paragraph">
+<p>For example, if you are planning a trip is 7 days, with 1 male and 1 female, you can use a single command to help you create a packing list that contains 7 sets of adult and child summer clothing will be added into the packing list, along with toys for the children.</p>
+</div>
+<div class="paragraph">
+<p>An example of the command would be:<br>
+<code>createlist d/7, m/1, f/1, c/2, s/Summer</code></p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="export-the-packing-list-as-a-text-file-code-export-code"><a class="link" href="#export-the-packing-list-as-a-text-file-code-export-code">Export the packing list as a text file: <code>export</code></a></h4>
+<div class="paragraph">
+<p>This feature allows you to export your existing packing list into a formatted text file.
+The motivation behind it is to allow you to share your packing lists with your friends easily.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="fixed-expense-management-2"><a class="link" href="#fixed-expense-management-2">Fixed Expense Management</a></h3>
+<div class="paragraph">
+<p>The Fixed Expense Management will also be getting brand new functionalities that will take your financial management to the next level.</p>
+</div>
+<div class="sect3">
+<h4 id="recommend-ways-to-save-money-based-on-prevailing-usage"><a class="link" href="#recommend-ways-to-save-money-based-on-prevailing-usage">Recommend ways to save money based on prevailing usage</a></h4>
+<div class="paragraph">
+<p><strong>E.T.</strong> will be able to use complex algorithms to monitor and track your spending habits and recommend ways to save money on certain items.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enhancing-your-experience-with-e-t"><a class="link" href="#enhancing-your-experience-with-e-t">Enhancing your experience with E.T.</a></h3>
+<div class="paragraph">
+<p>After gathering all your feedback, we have plans to upgrade <strong>E.T.</strong>'s to provide you with better user experience.</p>
+</div>
+<div class="sect3">
+<h4 id="auto-complete"><a class="link" href="#auto-complete">Auto-Complete</a></h4>
+<div class="paragraph">
+<p>This feature will allow you to press <code>Tab</code> to complete the command.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="undo-redo"><a class="link" href="#undo-redo">Undo/Redo</a></h4>
+<div class="paragraph">
+<p>This feature will allow you to undo or redo certain commands.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="import-and-export-of-data"><a class="link" href="#import-and-export-of-data">Import and export of data</a></h4>
+<div class="paragraph">
+<p>This feature will allow you to import and export your trip data in different formats such as the <code>.ics</code> calendar format.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="strong-faq-strong"><a class="link" href="#strong-faq-strong"><strong>FAQ</strong></a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Q</strong>: How many trips am I able to set in <strong>E.T.</strong>?</p>
+</div>
+<div class="paragraph">
+<p><strong>A</strong>: You can only set 1 trip in <strong>E.T.</strong>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: Why aren&#8217;t I allowed to edit my date for the trip?</p>
+</div>
+<div class="paragraph">
+<p><strong>A</strong>: Editing the date would cause conflicts in your schedule if you try to change the date to one that is earlier. However, we are working on a feature that will allow you to resolve these conflicts in the upcoming version of <strong>E.T.</strong>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: What do I do if I want to change my trip&#8217;s date since I cannot edit the date?</p>
+</div>
+<div class="paragraph">
+<p><strong>A</strong>: Unfortunately, you have to delete the trip.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: What happens if 2 of my activities are scheduled on the same date and time? Will <strong>E.T.</strong> detect it?</p>
+</div>
+<div class="paragraph">
+<p><strong>A</strong>: <strong>E.T.</strong> will allow you to schedule activities that overlap in timing. However, when you check your progress using the <code>status</code> command, <strong>E.T.</strong> will notify you of this conflict in timing and the day index that you can find it.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: How do I transfer my data to another computer?</p>
+</div>
+<div class="paragraph">
+<p><strong>A</strong>: By default, <strong>E.T.</strong> saves all your data in a folder named <code>data</code> in the same directory as the application. You can copy and transfer the <code>data</code> folder into the same directory as <strong>E.T.</strong> on your other computer and <strong>E.T.</strong> will automatically load your data upon launching <strong>E.T.</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="strong-command-summary-strong"><a class="link" href="#strong-command-summary-strong"><strong>Command Summary</strong></a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="trip-management-commands"><a class="link" href="#trip-management-commands">Trip Management Commands</a></h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Set Trip</strong> : <code>settrip title/TITLE startdate/START_DATE enddate/END_DATE budget/BUDGET exchangerate/EXCHANGERATE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>settrip title/Graduation Trip startdate/28-09-2020 enddate/26-10-2020 budget/1000 exchangerate/1.40</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Rename a Trip</strong> : <code>rename</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rename Not a Graduation Trip</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Budget for Trip</strong> : <code>editbudget BUDGET</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>editbudget 10000</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete Trip</strong> : <code>deletetrip</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletetrip</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Check Progress</strong> : <code>status</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="activity-commands"><a class="link" href="#activity-commands">Activity Commands</a></h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List Activities</strong>: <code>listactivity</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listactivity</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Activity</strong>: <code>addactivity title/TITLE duration/DURATION location/LOCATION [tag/TAG]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addactivity title/Going to the beach duration/4 location/Hakone tag/sea tag/outdoor</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Activity</strong>: <code>editactivity index [title/TITLE] [duration/DURATION] [location/LOCATION] [tag/TAG]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>editactivity 1 title/Go to an aquarium</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete Activity</strong>: <code>deleteactivity INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deleteactivity 1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sort Activities</strong>: <code>sortactivity CRITERIA  ORDER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sortactivity title ascending</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Find Activities by Keywords</strong>: <code>findactivity KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>findactivity sightseeing carnival</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Find Activities by Tag</strong>: <code>findactivitytag TAG_NAME [MORE_TAG_NAMES]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>findactivitytag outdoor</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear Activities</strong>: <code>clearactivity</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clearactivity</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="activity-scheduling-commands"><a class="link" href="#activity-scheduling-commands">Activity Scheduling Commands</a></h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List Schedule</strong>: <code>listschedule</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listschedule</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Schedule Activity</strong>: <code>schedule ACTIVITY_INDEX day/DAY_INDEX time/TIME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>schedule 1 day/1 time/10:00</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Unschedule Activity</strong>: <code>unschedule ACTIVITY_INDEX day/DAY_INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>unschedule 1 day/2</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="transportation-booking-management-commands"><a class="link" href="#transportation-booking-management-commands">Transportation Booking Management Commands</a></h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List Transport Bookings</strong>: <code>listtransport</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listtransport</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Transport Booking</strong>: <code>addtransport mode/MODE startloc/START_LOCATION endloc/END_LOCATION starttime/START_TIME endtime/END_TIME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addtransport mode/plane startloc/Singapore endloc/Japan starttime/28-09-2020 00:00 endtime/28-09-2020 07:00</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Transport Booking</strong>: <code>edittransport INDEX [mode/MODE] [startloc/START_LOCATION] [endloc/END_LOCATION] [starttime/START_TIME] [endtime/END_TIME]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edittransport 1 endloc/Italy</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete Transport Booking</strong>: <code>deletetransport INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletetransport 1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sort Transport Bookings</strong>: <code>sorttransport CRITERIA ORDER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sorttransport mode ascending</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear Transport Bookings</strong>: <code>cleartransport</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cleartransport</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="accommodation-booking-management-commands"><a class="link" href="#accommodation-booking-management-commands">Accommodation Booking Management Commands</a></h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List Accommodation Bookings</strong>: <code>listacc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listacc</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Accommodation Booking</strong>: <code>addacc name/NAME loc/LOCATION startday/START_DAY endday/END_DAY [remark/REMARK]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addacc name/JW Marriott Hotel loc/KL startday/2 endday/4 remark/Check-in at 3pm.</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Accommodation Booking</strong>: <code>editacc INDEX [name/NAME] [loc/LOCATION] [startday/START_DAY] [endday/END_DAY] [remark/REMARK] [endtime/END_TIME]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>editacc 1 name/Casa del Rio loc/Malacca</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete Accommodation Booking</strong>: <code>deleteacc INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deleteacc 1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sort Accommodation Bookings</strong>: <code>sortacc CRITERIA ORDER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sortacc name ascending</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear Accommodation Bookings</strong>: <code>clearacc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clearacc</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="packing-list-management-commands"><a class="link" href="#packing-list-management-commands">Packing List Management Commands</a></h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List Packing List Items</strong>: <code>listitem</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listitem</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Packing List Item</strong>: <code>additem name/NAME quantity/QUANTITY category/CATEGORY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>additem name/underwear quantity/5 category/clothes</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Packing List Item</strong>: <code>edititem INDEX [name/NAME] [quantity/QUANTITY] [category/CATEGORY]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edititem 1 quantity/5 category/essentials</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete Packing List Item</strong>: <code>deleteitem INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deleteitem 1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Mark Packing List Item as Packed</strong>:  <code>checkitem INDEX [MORE_INDEXES]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>checkitem 1 3</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Mark Packing List Item as Not Packed</strong>: <code>uncheckitem INDEX [MORE_INDEXES]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>uncheckitem 1 4 7 13 16</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sort Packing List</strong>: <code>sortitem CRITERIA ORDER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sortitem name asc</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Find Packing List Items by Name</strong>: <code>finditem KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>finditem car shampoo</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Find Packing List Items by Category</strong>: <code>finditemcategory KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>finditemcategory swimming clothes</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear Packing List</strong>: <code>clearitem</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clearitem</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Preset</strong>: <code>addpreset CATEGORY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addpreset beach</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List all Presets in Packing List</strong>: <code>listpreset</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listpreset</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="fixed-expense-commands"><a class="link" href="#fixed-expense-commands">Fixed Expense Commands</a></h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>*List Fixed Expenses</strong>: <code>listexpense</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listexpense</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Fixed Expense</strong>: <code>addexpense amount/AMOUNT currency/CURRENCY description/DESCRIPTION category/CATEGORY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addexpense amount/1100 currency/sgd description/Plane Tickets category/Transport</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Fixed Expense</strong>: <code>editexpense INDEX [amount/AMOUNT] [currency/CURRENCY]  [description/DESCRIPTION] [category/CATEGORY]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>editexpense 1 amount/1500 currency/sgd description/editedtransport category/transport</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete Fixed Expense</strong>: <code>deleteexpense INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deleteexpense 1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sort Fixed Expenses</strong>: <code>sortexpense CRITERIA ORDER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sortexpense amount des</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear Fixed Expenses</strong>: <code>clearexpense</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clearexpense</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="list-manager"><a class="link" href="#list-manager">List Managers</a></h3>
+<div class="paragraph">
+<p><strong>E.T.</strong> allows the user to manage different essential lists for their trip.</p>
+</div>
+<div class="paragraph">
+<p>These list include:<br>
+* Activities
+* Transport Bookings
+* Fix Expenses
+* Accommodation Bookings
+* Packing List</p>
+</div>
+<div class="paragraph">
+<p>All these lists are managed by `ListManager`s which support basic <a href="#crud"><em>CRUD</em></a> operations and some additional operations for users to manage their list efficiently. The term <em>item</em> will be used to refer to the elements stored in a list.</p>
+</div>
+<div class="paragraph">
+<p>Common commands for all `ListManager`s:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add</code> — Creates a new <em>item</em></p>
+</li>
+<li>
+<p><code>delete</code> — Deletes an existing <em>item</em></p>
+</li>
+<li>
+<p><code>edit</code> — Edits an existing <em>item</em></p>
+</li>
+<li>
+<p><code>sort</code> — Sorts the list by the given specification</p>
+</li>
+<li>
+<p><code>list</code> — List all <em>items</em> in the list.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="rationale"><a class="link" href="#rationale">Rationale</a></h4>
+<div class="paragraph">
+<p>When planning for a trip, there are many things that the user may want to keep track of. This is our reason for creating the 5 lists stated above. The `ListManager`s are thus created to help the user manage the 5 lists so that they can plan their trip conveniently and efficiently.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>In this section, we will first explain the structure of a typical <code>ListManager</code> also known as an <code>XYZListManager</code>. As mentioned earlier in the overview of this section, the term <em>item</em> will be used to refer to the elements stored in a list.</p>
+</div>
+<div class="paragraph">
+<p>The <code>XYZListManager</code> contains a <code>UniqueList</code> which is a data structure that stores all the <em>items</em> of a list. The <code>UniqueList</code> makes use of Java’s <a href="#generics"><em>generics</em></a> and can only contain <em>items</em> that implement the <code>UniqueListElement</code> interface. This is because the uniqueness of an element in the <code>UniqueList</code> is determined by the returned value of the <code>isSame()</code> method of the UniqueListElement interface.</p>
+</div>
+<div class="paragraph">
+<p>In addition, the <code>XYZListManager</code> implements the <code>ReadOnlyXYZManager</code> interface. This interface has the <code>getXYZList()</code> method which returns an <code>ObservableList</code> of <em>items</em>. For example, <code>ActivityManager</code> implements <code>ReadOnlyActivityManager</code>. The <code>ObservableList</code> of <em>items</em> allows the <code>Ui</code> model to use the <em>Observer Pattern</em> to update the <a href="#gui"><em>GUI</em></a>.</p>
+</div>
+<div class="paragraph">
+<p>The following <em>Class Diagram</em> describes the aforementioned structure of the <code>ActivityManager</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/developer-guide/list-managers/ListManagerClassDiagram.png" alt="ListManagerClassDiagram">
+</div>
+<div class="title">Figure 25. Structure of <code>ActivityManager</code></div>
+</div>
+<div class="paragraph">
+<p>The following paragraphs will describe what happens when the user performs an operation on a <code>ListManager</code> through commands. <code>XYZCommand</code> here will refer to a command described above for the 5 <code>ListManager</code> s. (e.g. <code>AddActivityCommand</code>, <code>EditTransportBookingCommand</code>).</p>
+</div>
+<div class="paragraph">
+<p>As described in <a href="#Design-Logic">[Design-Logic]</a>, after the user enters a command, the <code>EasyTravelParser</code> will generate an <code>XYZCommandParser</code> which parses the user input parameters and generate an executable <code>XYZCommand</code> that performs an operation on the list.</p>
+</div>
+<div class="paragraph">
+<p>We will describe the execution of an <code>XYZCommand</code>, using <code>AddActivityCommand</code> as an example. All other <code>XYZCommand</code> will be executed in similar ways.</p>
+</div>
+<div class="paragraph">
+<p>When <code>AddActivityCommand</code> is executed, an <code>Activity</code> will be added to the list of activities managed by the <code>ActivityManager</code> in the <code>Model</code> component.</p>
+</div>
+<div class="paragraph">
+<p>The <em>Sequence Diagram</em> below shows the execution of the <code>AddActivityCommand</code>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/developer-guide/list-managers/AddActivitySequenceDiagram.png" alt="Schedule Activity Command Execution">
+</div>
+<div class="title">Figure 26. Execution of the <code>AddActivityCommand</code></div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The lifelines for the <code>AddActivityCommand</code> should end at the destroy marker (X). However, due to a limitation of PlantUML, the lifeline reaches the end of the diagram.</p>
+</div>
+<div class="paragraph">
+<p>This sequence diagram does not take into consideration the possible exceptions which might occur during the <code>AddActivityCommand</code> execution.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration"><a class="link" href="#design-consideration">Design Consideration</a></h4>
+<div class="sect4">
+<h5 id="aspect-separation-between-scheduling-and-activity-management"><a class="link" href="#aspect-separation-between-scheduling-and-activity-management">Aspect: Separation between scheduling and activity management</a></h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top">Pros</th>
+<th class="tableblock halign-left valign-top">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Option 1 (Current)</strong><br>
+Use 5 different list managers to manage the 5 main features</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Keeps everything separate which abide by the Separation of Concerns Principle (SoC) principle.</p>
+<p class="tableblock">Achieves better modularity by separating the code into distinct sections, such that each section addresses a separate concern.</p>
+<p class="tableblock">Allows for different behaviours of each list manager</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tedious to implement as we have many lists to manage.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Option 2</strong><br>
+Use a single manager to handle all the 5 lists</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy to implement as we only need to write one <code>ListManager</code> class.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Violates SoC.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Reason for choosing option 1:</p>
+</div>
+<div class="paragraph">
+<p>Applying SoC limits the ripple effect when changes are introduced to a specific part of the system. Since we are constantly changing our system during development, abiding by SoC will save us time in the long-run as less code is affected when changes to the system are made.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-implementation-behind-a-list-manager"><a class="link" href="#aspect-implementation-behind-a-list-manager">Aspect: Implementation behind a list manager</a></h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top">Pros</th>
+<th class="tableblock halign-left valign-top">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Option 1 (Current)</strong><br>
+Extract the common operations and functionality of the 5 <code>ListManager</code>s into one <code>UniqueList</code> class. All 5 <code>ListManager</code>s will make use of the <code>UniqueList</code> as their internal data structure and build their operations on top of it.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Abide by the Don’t Repeat Yourself (DRY) principle. Minimize repeated code as all <code>ListManager</code>s use the basic functionality of <code>UniqueList</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All <code>ListManager</code>s have dependencies on <code>UniqueList</code>. Thus, <code>UniqueList</code> has to be implemented before starting on any <code>ListManager</code>. This slows down the implementation of all <code>ListManager</code>s.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Option 2</strong><br>
+Do not extract any common operations and functionalities</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Each <code>ListManager</code> can be worked on by different people as there is no dependency on a common data structure that has to be implemented beforehand. Allows each feature to be worked on separately by different developers.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Violates the DRY principle as there will be common operations between <code>ListManager</code>s.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Reason for choosing option 1:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>It is a good coding practice to follow the DRY principle.</p>
+</li>
+<li>
+<p>The implementations of the <code>ListManager</code>s are done quite early on, where our team has more flexibility in terms of deadline. Thus, we can afford to spend more time developing the <code>UniqueList</code> data structure before starting on the implementation of any <code>ListManager</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="packing-list-feature"><a class="link" href="#packing-list-feature">Packing List feature</a></h3>
+<div class="paragraph">
+<p><strong>E.T.</strong> allows the user to keep track of their packing list for his/her trip. The packing list manager is one of the <code>ListManager</code> s (See <a href="#List-Manager">[List-Manager]</a>). On top of the basic operations provided by a <code>ListManager</code>, it also allows the user to add built-in lists of items into his/her current packing list through the <code>addpreset</code> command.</p>
+</div>
+<div class="paragraph">
+<p>E.g. the <code>addpreset swimming</code> will add items related to swimming into the packing list. The term <em>preset</em> will be used to refer to the built-in list of packing list items.</p>
+</div>
+<div class="sect3">
+<h4 id="rationale-2"><a class="link" href="#rationale-2">Rationale</a></h4>
+<div class="paragraph">
+<p>The packing list manager is an important feature to have because there are many things that a traveller wants to bring for his/her oversea trip. The packing list will help the user ensure that he/she did not forget to pack anything for the trip. Thus, we decided to create a packing list manager as one of the `ListManager`s.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
+<div class="paragraph">
+<p>When a user enters the <code>addpreset</code> command, the <code>Logic</code> Component parses the user input and creates an <code>AddPresetCommand</code> object (See <a href="#Design-Logic">[Design-Logic]</a>). When the <code>execute()</code> method of <code>AddPresetCommand</code> is called, the execution of this command will retrieve the target preset specified by the user into the packing list.</p>
+</div>
+<div class="paragraph">
+<p>The <em>Activity Diagram</em> below shows how a preset is added to the packing list.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/developer-guide/packing-list/AddPackingListActivityDiagram.png" alt="AddPackingListActivityDiagram">
+</div>
+<div class="title">Figure 27. Workflow of the <code>addpreset</code> command</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">Design Consideration</a></h4>
+<div class="sect4">
+<h5 id="aspect-customizability-of-the-preset"><a class="link" href="#aspect-customizability-of-the-preset">Aspect: Customizability of the preset</a></h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top">Pros</th>
+<th class="tableblock halign-left valign-top">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Option 1 (Current)</strong>:<br>
+Users can only choose the preset from the built-in lists</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides the user with more convenience as it allows the user to add an existing built-in list into their packing list instead of adding one item at a time.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Restricts the freedom of the user due to lack of customizability</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Option 2:</strong><br>
+Users create their own presets</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gives the user a lot of freedom to customise their presets and packing list, making the application user focused.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Difficult to implement as we would need to introduce more validation rules and checks to ensure the user creates a valid preset.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Option 3:</strong><br>
+Combine both option 1 and 2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides the best user experience as this option gets the benefit of both the previous 2 options.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Complicated and takes a long time to implement.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Reasons for choosing option 1:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Due to time restriction, we only have enough time to implement either option 1 or 2 by <strong>E.T. v1.4</strong>.</p>
+</li>
+<li>
+<p>We want to focus on giving the user the best first time experience when using <strong>E.T.</strong>. Thus, option 1 is more suitable as it provides convenience for the user when he first use <strong>E.T.</strong>.</p>
+</li>
+<li>
+<p>Option 2 is only useful when the user uses <strong>E.T.</strong> for more than one trip and he/she wants to save his previous packing list to add for the next trip.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 04:08:49 UTC</div></div></div></body></html>
