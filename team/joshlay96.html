@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Joshua Lay - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">E.T.</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-W17-3/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Joshua Lay - Project Portfolio</h1></div><div id="content"><div class="sect1">
-<h2 id="project-easytravel"><a class="link" href="#project-easytravel">PROJECT: EasyTravel</a></h2>
+<h2 id="project-easy-travel"><a class="link" href="#project-easy-travel">PROJECT: Easy Travel</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This portfolio aims to document the contributions that I have made to the <strong>E.T. Easy Travel</strong> project.
@@ -868,7 +868,7 @@ The motivation behind it is to allow you to share your packing lists with your f
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="fixed-expense-feature"><a class="link" href="#fixed-expense-feature">Fixed expense feature</a></h3>
+<h3 id="fixed-expense-manager"><a class="link" href="#fixed-expense-manager">Fixed Expense Manager</a></h3>
 <div class="paragraph">
 <p><strong>E.T.</strong> allows the user to keep track of their fixed expenses for his/her trip. The fixed expense manager is one of the <code>ListManager</code>s (See <a href="#List-Manager">[List-Manager]</a>). On top of the basic operations provided by a <code>ListManager</code>, it also allows the user to set a budget for the trip and automatically converts any fixed expenses entered in foreign currency into Singapore Dollars (SGD).</p>
 </div>
@@ -1458,37 +1458,67 @@ Test case: <code>addactivity title/Osaka Castle View duration/1 location/Osaka t
 <p>(Contributed by Catherine)</p>
 </div>
 <div class="paragraph">
-<p>Creating <strong>Easy Travel</strong> was fairly difficult and required much effort from all the team members. We <strong>communicated</strong> a lot as a team,  which was difficult due to the quarantine measures that resulted from the on-going COVID-19 situation. However, we persevered through, and thanks to technology, we were still able to communicate through regular online meetings. Through our consistent communication, we were able to come up with our product, <strong>Easy Travel</strong>. In addition, we managed to accumulate <strong>32,000 lines of code</strong> combined. This showcases our hard work and effort put into producing <strong>Easy Travel</strong>.</p>
+<p>Creating <strong>Easy Travel</strong> was fairly difficult and required much effort from all the team members. We communicated a lot as a team. However, it was difficult because of quarantine measures imposed by the government during this period due to the COVID-19 situation. Nonetheless, we persevered through, and thanks to technology, we were still able to communicate through regular online meetings. Through our consistent communication, we were able to come up with our product, <strong>Easy Travel</strong>. In addition, we managed to accumulate <strong>32,000 lines of code</strong> combined. This showcases our hard work and contributed to into producing <strong>Easy Travel</strong>.</p>
 </div>
+<div class="sect2">
+<h3 id="major-enhancement"><a class="link" href="#major-enhancement">Major Enhancement</a></h3>
 <div class="paragraph">
-<p>While AB3 deals with only one entity, <strong>Easy Travel</strong> deals with <strong>multiple entities</strong>.</p>
+<p><strong>Easy Travel</strong> has many enhancement from <strong>AB3</strong>. This following points will highlight some of the major enhancement that <strong>Easy Travel</strong> has.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>AB3</strong> contains only <code>Person</code>. While we were able to refactor some aspects of <code>Person</code> into <code>Trip</code>, we had to create
-<code>Activity</code>, <code>Accommodation Booking</code>, <code>Transportation Booking</code>, <code>Packing List Item</code>, <code>Fixed Expense</code> and <code>Schedule</code> from scratch.</p>
+<p>From just keeping track of contacts in <strong>AB3</strong>, <strong>Easy Travel</strong> is a major upgrade as it is a all-in-one application that allows the user to keep track of different aspects of planning for a trip. These aspects includes activity, transport bookings, packing list, etc.</p>
 </li>
 <li>
-<p>The <code>UI</code> of <strong>AB3</strong> only contains one <code>ListPanel</code>. On the other hand, <strong>Easy Travel</strong> has <strong>5 <code>ListPanels</code></strong> spread out in 7 views -
-the <strong>ScheduleView</strong>, <strong>ActivityView</strong>, <strong>AccommodationView</strong>, <strong>TransportView</strong>, <strong>PackingListView</strong>, <strong>FixedExpenseView</strong> and lastly, the <strong>HelpView</strong>. This is a big change from <strong>AB3’s</strong>  <code>UI</code>. In addition, <strong>FixedExpenseView</strong> contains a Pie Chart, which gives the user a better visual of the amount of money spent.</p>
+<p>Furthermore, <strong>Easy Travel&#8217;s</strong> has additional features that complements the list management features. Notably, the <strong>status</strong>, <strong>automated tab switching</strong>, <strong>sorting</strong>, and <strong>schedule</strong> features. These features meant that our app varies greatly from what <strong>AB3</strong> has to offer in terms of user experience. We <em>designed these features primarily with the user’s needs in mind</em> to provide the user with a platform that would ease the pain of planning for an overseas trip.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="challenges"><a class="link" href="#challenges">Challenges</a></h3>
+<div class="paragraph">
+<p>Throughout the development of <strong>Easy Travel</strong>, we faced many challenges. The following points will describe these challenges what how did we deal with them.</p>
+</div>
+<div class="paragraph">
+<p><strong>Challenge 1:</strong><br>
+The first challenge we face is the large increase in the number of entities to code and manage.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>While AB3 deals with only one (<code>Person</code>) model object, <strong>Easy Travel</strong> deals with multiple (<code>Trip</code>, <code>Activity</code>, <code>TransportBooking</code>, <code>AccommodationBooking</code>, <code>FixedExpense</code>, <code>PackingListItem</code> and <code>DayScheduleEntry</code>) model objects. Thus, even though we were able to refactor some aspects of <code>Person</code> into <code>Trip</code>, we had to create the rest from scratch.</p>
 </li>
 <li>
-<p>In addition, we have a <code>StatusWindow</code> and a <code>ListPresetWindow</code>. The <code>StatusWindow</code> is used to show the progress of the planning of the trip, and the <code>ListPresetWindow</code> is used to show the available built-in list of items the user can add into their packing list.</p>
+<p>Moreover, The <code>Ui</code> of <strong>AB3</strong> only contains one panel (<code>ListPanel</code>). On the other hand, <strong>Easy Travel</strong> has <strong>7 panels</strong> (<code>ScheduleTabPanel</code>, <code>ActivityTabPanel</code>, <code>AccommodationTabPanel</code>, <code>TransportationTabPanel</code>, <code>PackingListTabPanel</code>, <code>FixedExpenseTabPanel</code>, <code>HelpTabPanel</code>). This is a big change from <strong>AB3’s</strong>  <code>UI</code>. Additionally, <code>FixedExpenseTabPanel</code> contains a <code>PieChart</code>, which gives the user a better visual of their expenses breakdown.</p>
+</li>
+<li>
+<p>Furthermore, we have multiple new windows, the <code>StatusWindow</code> and <code>ListPresetWindow</code>.</p>
+</li>
+<li>
+<p>The copious amount of entities meant that a larger amount of time is necessary to code and implement these entities.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Furthermore, <strong>Easy Travel&#8217;s</strong> additional features such as <code>status</code>, <code>automated tab switching</code>, <code>sorting</code>, and <code>schedule</code> meant that our app varies greatly from what <strong>AB3</strong> has to offer in terms of user experience. These carefully thought out features were <em>designed primarily with the user’s needs in mind</em>, to provide the user with a platform that would ease the pain of planning for a trip. Furthermore, it keeps track of the user&#8217;s planning progress, to ensure that he/she will not forget to plan anything, to ensure a smooth sailing trip.</p>
+<p><strong>How we solve it:</strong><br>
+To overcome this challenge, our team placed heavy emphasis on team communication and efficient division of workload such that we can complete our part in the shortest time possible. In the end, we were able to overcome this challenge due to good team spirit and member contributions. Our effort can be seen from the <strong>32,000 lines of code</strong> that we have completed in less than two months.</p>
 </div>
 <div class="paragraph">
-<p>Initially, we wanted to allow the user to edit the dates of the trip, once the trip is set. However, if we allowed the user to do so, there will be complications for the <strong>Schedule</strong>, <strong>Accommodation Bookings</strong> and <strong>Transportation Bookings</strong>. All three features depends on the start and end date set by the trip. Hence, if we allowed the user to edit the dates of the trip, we would have many bugs and dependency issues. Hence, we decided to prevent the user from editing the start and end dates of the trip. The user will have to delete the trip and start again with the new dates.</p>
+<p><strong>Challenge 2</strong>:<br>
+Initially, we wanted to allow the user to edit the dates of the trip, once the trip is set. However, if we allowed the user to do so, there will be complications for the <strong>Schedule</strong>, <strong>Accommodation Bookings</strong> and <strong>Transportation Bookings</strong> feature. This is because all three features depend on the start and end date set by the trip. Hence, if we allowed the user to edit the dates of the trip, it could result in complicated code and bugs.</p>
 </div>
 <div class="paragraph">
-<p>Another challenge we faced was that we were refactoring from a base code. While having a base code gave us a place to start from, it was difficult for our team to fully understand the base code. It took us some time to understand the base code, and to be able to work from there. In the end, we managed to overcome this challenge to develop <strong>Easy Travel</strong>.</p>
+<p><strong>How we solve it:</strong><br>
+We decided to prevent the user from editing the start and end dates of the trip. If the user wants to edit the trip dates, he/she has to delete the trip and start again with the new dates which as warned in the User Guide. We felt that this decision was justified because we have limited time to complete our project and we want to work on more meaning features instead of this obscure problem.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="conclusion"><a class="link" href="#conclusion">Conclusion</a></h3>
 <div class="paragraph">
-<p>Overall, we managed to achieve our goal, which was to create an application that can help ease the pain of planning for a trip. We created an all-in-one trip manager, a user interface that is neat and organised, and implemented features that are user-focused.</p>
+<p>Overall, we managed to achieve our goal, which was to create an application that can help ease the pain of planning for a trip. We created an all-in-one trip manager, a user interface that is neat and organised, and implemented user-focused features.</p>
+</div>
 </div>
 </div>
 </div>
@@ -1506,4 +1536,4 @@ the <strong>ScheduleView</strong>, <strong>ActivityView</strong>, <strong>Accomm
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 10:33:37 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 10:47:43 UTC</div></div></div></body></html>
