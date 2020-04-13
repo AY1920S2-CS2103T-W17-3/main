@@ -3,14 +3,20 @@
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">E.T.</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-W17-3/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Charlotte Lim - Project Portfolio</h1></div><div id="content"><div class="sect1">
 <h2 id="project-e-t-easy-travel"><a class="link" href="#project-e-t-easy-travel">PROJECT: E.T. Easy Travel</a></h2>
 <div class="sectionbody">
-<hr>
+
 </div>
 </div>
 <div class="sect1">
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
+<p>My team of 4 software engineering students and I were tasked with enhancing a basic command-line interface desktop address book application for our Software Engineering project. We chose to morph it into a travel planning application, called E.T, short for Easy Travel. E.T. will help reduce the amount of stress and anxiety when planning for a trip. E.T. is a desktop application that helps travellers manage and plan for their trips.</p>
+</div>
+<div class="sect2">
+<h3 id="about-e-t"><a class="link" href="#about-e-t">About E.T.</a></h3>
+<div class="paragraph">
 <p>E.T. is a desktop travel planning application to provide a simple an easy way for users to prepare for their trip. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+</div>
 </div>
 </div>
 </div>
@@ -20,26 +26,48 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to undo/redo previous commands</strong></p>
+<p><strong>Major enhancement</strong>:
+I added <strong>the activity manager</strong> feature of Easy Travel.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
+<p>What it does:
+The activity manager feature allows the user to keep track of all the activities planned for their trip. It takes care of the title, duration and location of the activity. Users are also allowed to tag their activities with tags associated with them, such as expensive or sightseeing.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
+<p>Justification: This feature is essential when planning for a trip, as it allows the user to remember all of the activities planned so far.</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
-</li>
-<li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>Highlights: This feature allows the user to find activities based on either the title of the activity, or the tags associated with the activity. Sometimes, a user may want to find a particular activity in the activity list, but if he/she has many activities, it will be difficult to find the activity. Hence, this feature brings convenience to the user, so that he/she does not have to look through the entire list to find an activity.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
+<p><strong>Major enhancement</strong>:
+I added <strong>the trip manager</strong> feature of Easy Travel.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does:
+It allows the user to set a trip, edit a trip, as well as delete a trip.</p>
+</li>
+<li>
+<p>Justification: The trip manager feature is one of the main features of Easy Travel. Without a trip, all the other features in Easy Travel will not be able to function.</p>
+</li>
+<li>
+<p>Highlights: All other features in Easy Travel will not function if a trip is not set by the user. Hence, it is important for the user to set a trip, so that he/she can use the other features in Easy Travel.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>:
+I did the base code for the status feature, so that my team members could work from there.</p>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>:
+I implemented the dashboard UI for Easy Travel. It consists of the information of the trip set by the user, so that the user will have a visual of all the information of the trip at all times. The information consists of the trip&#8217;s title, the start and end date of the trip, the budget set for the trip, as well as the exchange rate of the trip.</p>
 </li>
 <li>
 <p><strong>Code contributed</strong>: [<a href="https://github.com/AY1920S2-CS2103T-W17-3/main/commits?author=Deunitato">All commits</a>] [<a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=deunitato">RepoSense Dashboard</a>]</p>
@@ -53,7 +81,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
+<p>There were a total of 4 releases, from version 1.1 to 1.4. I contributed to all the versions on GitHub.</p>
 </li>
 </ul>
 </div>
@@ -63,10 +91,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
-</li>
-<li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Wrote additional tests for existing features to increase coverage from 20% to 54% (Pull requests <a href="https://github.com/AY1920S2-CS2103T-W17-3/main/pull/356">#356</a>, <a href="https://github.com/AY1920S2-CS2103T-W17-3/main/pull/361">#361</a>, <a href="https://github.com/AY1920S2-CS2103T-W17-3/main/pull/379">#379</a> <a href="https://github.com/AY1920S2-CS2103T-W17-3/main/pull/388">#388</a>)</p>
 </li>
 </ul>
 </div>
@@ -76,7 +101,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Used more 'you' language in the UserGuide so that it will be more reader-friendly. In addition, I added in pictures so that the reader can have visual cues on how the output should look like for each command.</p>
 </li>
 </ul>
 </div>
@@ -86,29 +111,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
+<p>PRs reviewed (with non-trivial review comments):</p>
 </li>
 <li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>Reported bugs and suggestions for other teams in the class:</p>
 </li>
 </ul>
 </div>
@@ -117,9 +123,6 @@
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -136,6 +139,1033 @@
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="activity-management"><a class="link" href="#activity-management">Activity Management</a></h3>
+<div class="paragraph">
+<p>If you are planning what to do for your trip, you will find this feature useful. This feature allows you to manage your activities for the trip. You can record the following information about your activities:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Title</p>
+</li>
+<li>
+<p>Location</p>
+</li>
+<li>
+<p>Duration</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="activity-management-command-parameters"><a class="link" href="#activity-management-command-parameters">Activity Management Command Parameters</a></h4>
+<div class="paragraph">
+<p>Before you jump right into using this feature, you may want to learn about all the common command parameters used in this feature. The table below shows the list of common command parameters that will be used for this feature.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Parameter Name</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TITLE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The title of the activity.</p>
+<p class="tableblock">It must be alphanumeric words not more than 50 characters long.</p>
+<p class="tableblock">E.g. <code>Shopping</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>LOCATION</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The location of the activity.</p>
+<p class="tableblock">It must be alphanumeric words not more than 50 characters long.</p>
+<p class="tableblock">E.g. <code>Tokyo</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DURATION</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The duration of the activity in hours.</p>
+<p class="tableblock">It must be an integer from 1 to 24 (both inclusive).</p>
+<p class="tableblock">E.g. <code>3</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TAG</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The tag you want to attach to an activity.</p>
+<p class="tableblock">It must be a single alphanumeric word not more than 30 characters long.</p>
+<p class="tableblock">E.g. <code>sports</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The index number of the activity in the displayed list. The first entry of the list has an index number of <code>1</code> and all the entries are listed in increasing index numbers.</p>
+<p class="tableblock">It must be a valid index number.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="list-all-activities-code-listactivity-code"><a class="link" href="#list-all-activities-code-listactivity-code">List all activities: <code>listactivity</code></a></h4>
+<div class="paragraph">
+<p>You can use this command to navigate to the Activities Tab and display all your activities in <strong>E.T.</strong>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Format:</strong></p>
+</div>
+<div class="paragraph">
+<p><code>listactivity</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong></p>
+</div>
+<div class="paragraph">
+<p>If you are in another tab and wish to look at your list of activities, you can follow these instructions.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Listing all your activities:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>listactivity</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The Result Display will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the Activities Tab.</p>
+</li>
+<li>
+<p>You can now see all your activities.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="add-a-new-activity-code-addactivity-code"><a class="link" href="#add-a-new-activity-code-addactivity-code">Add a new activity: <code>addactivity</code></a></h4>
+<div class="paragraph">
+<p>You can use this command to add a new activity to <strong>E.T..</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Format:</strong></p>
+</div>
+<div class="paragraph">
+<p><code>addactivity title/TITLE duration/DURATION location/LOCATION [tag/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Refer to <a href="#activity-management-command-parameters">Activity Management Command Parameters</a> for more detail about each parameter.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong></p>
+</div>
+<div class="paragraph">
+<p>Let’s say you have an activity with the following information and wish to record it in <strong>E.T.</strong>.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Activity</th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Title</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">plane</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Location</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Singapore</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Duration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tag</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sea, outdoor</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Adding the above activity:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>addactivity title/Going to the beach duration/4 location/Hakone tag/sea tag/outdoor</code> into the Command Box.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The Result Display will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the Activities Tab.</p>
+</li>
+<li>
+<p>You can now see all your activities including the newly added activity.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/activity-management/outcome-addactivity.png" alt="outcome addactivity">
+</div>
+<div class="title">Figure 1. Outcome of a successful <code>addactivity</code> command</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="edit-an-existing-activity-code-editactivity-code"><a class="link" href="#edit-an-existing-activity-code-editactivity-code">Edit an existing activity: <code>editactivity</code></a></h4>
+<div class="paragraph">
+<p>You can use this command to edit an existing activity in <strong>E.T.</strong>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Format:</strong></p>
+</div>
+<div class="paragraph">
+<p><code>editactivity INDEX [title/NAME] [duration/DURATION] [location/LOCATION] [tag/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>You must supply at least one optional parameter.</p>
+</li>
+<li>
+<p>The existing values will be updated to the new values.</p>
+</li>
+<li>
+<p>If <code>tag/TAG</code> is supplied, it will overwrite the existing tags. Hence, you can supply an empty tag to clear the existing tags.</p>
+</li>
+<li>
+<p>Refer to <a href="#activity-management-command-parameters">Activity Management Command Parameters</a> for more detail about each parameter.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Editing the activity:</p>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong></p>
+</div>
+<div class="paragraph">
+<p>Assume you have accidentally made a mistake in the spelling of the title of the <strong>second</strong> activity in the displayed list and wish to change it to “<strong>Skiing</strong>”. You do perform the following steps.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Editing the activity:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>editactivity 2 title/Skiing into the Command Box.</code></p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The Result Display will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the Activities Tab.</p>
+</li>
+<li>
+<p>You can now see all your activities including the edited activity.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/activity-management/outcome-editactivity.png" alt="outcome editactivity">
+</div>
+<div class="title">Figure 2. Outcome of a successful <code>editactivity</code> command</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-an-existing-activity-code-deleteactivity-code"><a class="link" href="#delete-an-existing-activity-code-deleteactivity-code">Delete an existing activity: <code>deleteactivity</code></a></h4>
+<div class="paragraph">
+<p>You can use this command to delete an existing activity in <strong>E.T.</strong>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Format:</strong></p>
+</div>
+<div class="paragraph">
+<p><code>deleteactivity INDEX</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Refer to <a href="#activity-management-command-parameters">Activity Management Command Parameters</a> for more detail about each parameter.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong></p>
+</div>
+<div class="paragraph">
+<p>If you change your mind and decide to remove the <strong>first</strong> activity in the displayed list from your plan, you can perform the steps below.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Deleting the activity:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>deleteactivity 1</code> into the Command Box.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The Result Display will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the Activities Tab.</p>
+</li>
+<li>
+<p>You can now see that the deleted activity no longer exists.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="sort-the-activity-list-code-sortactivity-code"><a class="link" href="#sort-the-activity-list-code-sortactivity-code">Sort the activity list: <code>sortactivity</code></a></h4>
+<div class="paragraph">
+<p><strong>Format:</strong></p>
+</div>
+<div class="paragraph">
+<p><code>sortactivity CRITERIA ORDER</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>CRITERIA</code> refers to the criteria to sort the list of activities by. It can take the following values: <code>title</code>, <code>location</code>, <code>duration</code>.</p>
+</li>
+<li>
+<p><code>ORDER</code> refers to the order to sort the list of activities by. It can take the value of <code>ascending</code> or <code>asc</code> to sort in <code>ascending</code> order and <code>descending</code> or <code>des</code> to sort in descending order.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong></p>
+</div>
+<div class="paragraph">
+<p>If you want to sort your list of activities in descending order of duration, to help you in your planning, you can do the following.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Sorting activities:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>sortactivity</code> duration des into the Command Box.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The Result Display will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the Activities Tab.</p>
+</li>
+<li>
+<p>You can see a list of sorted activities being displayed.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="find-activities-by-name-code-findactivity-code"><a class="link" href="#find-activities-by-name-code-findactivity-code">Find activities by name: <code>findactivity</code></a></h4>
+<div class="paragraph">
+<p>You can use this command to find activities by the name.</p>
+</div>
+<div class="paragraph">
+<p><strong>Format:</strong></p>
+</div>
+<div class="paragraph">
+<p><code>findactivity NAME [MORE_NAMES]&#8230;&#8203;</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>KEYWORD</code> is case-insensitive</p>
+</li>
+<li>
+<p>All the activities that contain at least one of the keywords will be shown.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong></p>
+</div>
+<div class="paragraph">
+<p>Let say your list has a bunch of activities and you want to search for a specific one about shopping. You can do so as follows.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Finding activities:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>findactivity shopping</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the Activities Tab.</p>
+</li>
+<li>
+<p>You can see a list of activities with the keyword being displayed.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/activity-management/outcome-findactivity.png" alt="outcome findactivity">
+</div>
+<div class="title">Figure 3. Outcome of a successful <code>findactivity</code> command</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="find-activities-by-tag-code-findactivitytag-code"><a class="link" href="#find-activities-by-tag-code-findactivitytag-code">Find activities by tag: <code>findactivitytag</code></a></h4>
+<div class="paragraph">
+<p>You can use this command to find activities by tags.</p>
+</div>
+<div class="paragraph">
+<p><strong>Format:</strong></p>
+</div>
+<div class="paragraph">
+<p><code>findactivitytag TAG_NAME [MORE_TAG_NAMES]&#8230;&#8203;</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>TAG_NAME</code> is case-insensitive</p>
+</li>
+<li>
+<p>All the activities that contain at least one of the tags will be shown.</p>
+</li>
+<li>
+<p>This command is very similar to the <code>findactivity</code> command. You can refer to <a href="#activity-management-command-parameters">Activity Management Command Parameters</a> for an example.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clear-all-activities-code-clearactivity-code"><a class="link" href="#clear-all-activities-code-clearactivity-code">Clear all activities: <code>clearactivity</code></a></h4>
+<div class="paragraph">
+<p>You can use this command to clear and delete the whole list of activities in <strong>E.T.</strong>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Format:</strong></p>
+</div>
+<div class="paragraph">
+<p><code>clearactivity</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong></p>
+</div>
+<div class="paragraph">
+<p>In the case that you want to restart your activity planning from scratch, you can do the following.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Clearing the activity list:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>clearactivity</code> into the Command Box.</p>
+</li>
+<li>
+<p>Press Enter to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The Result Display will show a success message.</p>
+</li>
+<li>
+<p><strong>E.T.</strong> will switch to the Activities Tab.</p>
+</li>
+<li>
+<p>You can see that the list is now empty.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trip-management"><a class="link" href="#trip-management">Trip Management</a></h3>
+<div class="paragraph">
+<p>This feature allows you to manage your trip. You can record the following information about your trip:
+* Title
+* Budget
+* Exchange rate
+* Start date
+* End date</p>
+</div>
+<div class="sect3">
+<h4 id="trip-management-command-parameters"><a class="link" href="#trip-management-command-parameters">Trip Management Command Parameters</a></h4>
+<div class="paragraph">
+<p>Before you jump right into using this feature, you may want to learn about all the common command parameters used in this feature. The table below shows the list of common command parameters that will be used for this feature.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Parameter Name</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TITLE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The title of your trip.</p>
+<p class="tableblock">It must be alphanumeric words not more than 50 characters long.</p>
+<p class="tableblock">E.g. <code>Graduation Trip</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BUDGET</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The budget of your trip.</p>
+<p class="tableblock">It must be a whole number not more than 1 000 000 000.</p>
+<p class="tableblock">E.g. <code>5000</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>EXCHANGE_RATE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The exchange rate for your country of visit.</p>
+<p class="tableblock">It must be a number greater than 0 and not more than 100.</p>
+<p class="tableblock">E.g. <code>76.3</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>START_DATE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The starting date of your trip.</p>
+<p class="tableblock">It must be in the format of <code>dd-MM-yyyy HH:mm</code>.<br>
+It must not be later than the <code>END_DATE</code>.</p>
+<p class="tableblock">E.g. <code>28-09-2020</code>
+This example means 28 September 2020.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>END_DATE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ending date of your trip.</p>
+<p class="tableblock">It must be in the format of <code>dd-MM-yyyy HH:mm</code>.<br>
+It must not be earlier than the <code>START_DATE</code>.<br>
+It must not be more than 30 days apart from <code>START_DATE</code>.</p>
+<p class="tableblock">E.g. <code>05-10-2020</code>
+This example means <code>05 October 2020</code>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect4">
+<h5 id="settrip"><a class="link" href="#settrip">Set a new trip: <code>settrip</code></a></h5>
+<div class="paragraph">
+<p>You can use this command to set a new trip that you want to plan for.</p>
+</div>
+<div class="paragraph">
+<p><strong>Format:</strong></p>
+</div>
+<div class="paragraph">
+<p><code>settrip title/TITLE budget/BUDGET exchangerate/EXCHANGE_RATE startdate/START_DATE enddate/END_DATE</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Refer to <a href="#trip-management-command-parameters">Trip Management Command Parameters</a> for more detail about each parameter.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Ensure that your date is correct as <strong>E.T.</strong> does not allow editing of dates once set.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong></p>
+</div>
+<div class="paragraph">
+<p>If you are all ready to start planning for your trip and you want to set a trip to get started, follow these steps below. You will learn how to set a graduation trip that starts on <strong>28 September 2020</strong> and ends on <strong>5 October 2020</strong> with a budget of <strong>$5000</strong> and an exchange rate of <strong>76.7</strong>.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Setting a new trip:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>settrip title/Graduation Trip budget/5000 exchangerate/76.6 startdate/28-09-2020 enddate/05-10-2020</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p>You can now see your trip information on the <em>Trip Information Panel</em>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/trip-management/outcome-settrip.png" alt="outcome settrip">
+</div>
+<div class="title">Figure 4. Outcome of a successful <code>settrip</code> command</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="rename-the-trip-code-rename-code"><a class="link" href="#rename-the-trip-code-rename-code">Rename the trip: <code>rename</code></a></h5>
+<div class="paragraph">
+<p>You can use this command to change the title of the trip.</p>
+</div>
+<div class="paragraph">
+<p><strong>Format: </strong></p>
+</div>
+<div class="paragraph">
+<p><code>rename TITLE</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Refer to <a href="#trip-management-command-parameters">Trip Management Command Parameters</a> for more detail about each parameter.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong></p>
+</div>
+<div class="paragraph">
+<p>Assume that you have accidentally titled the trip wrongly to <strong>Craduation Trip</strong> instead of <strong>Graduation Trip</strong>, you can do the following steps.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Renaming the trip:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type rename <code>Graduation Trip</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p>You can now see your updated trip title on the <em>Trip Information Panel</em>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/trip-management/outcome-rename.png" alt="outcome rename">
+</div>
+<div class="title">Figure 5. Outcome of a successful <code>rename</code> command</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="edit-the-trip-s-budget-code-editbudget-code"><a class="link" href="#edit-the-trip-s-budget-code-editbudget-code">Edit the trip’s budget: <code>editbudget</code></a></h5>
+<div class="paragraph">
+<p>You can use this command to change the budget of the trip.</p>
+</div>
+<div class="paragraph">
+<p><strong>Format:</strong></p>
+</div>
+<div class="paragraph">
+<p><code>editbudget AMOUNT</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The new amount set cannot be lower than your total expenses.</p>
+</li>
+<li>
+<p>Refer to <a href="#trip-management-command-parameters">Trip Management Command Parameters</a> for more detail about each parameter.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Example: </strong></p>
+</div>
+<div class="paragraph">
+<p>Let’s say after planning your expenses, you realised that you would want to increase your budget to $6000. Follow the following steps to do that.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Editing the trip budget:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>editbudget 6000</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p>You can now see your updated trip budget on the <em>Trip Information Panel</em>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/trip-management/outcome-editbudget.png" alt="outcome editbudget">
+</div>
+<div class="title">Figure 6. Outcome of a successful <code>editbudget</code> command</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="delete-the-current-trip-code-deletetrip-code"><a class="link" href="#delete-the-current-trip-code-deletetrip-code">Delete the current trip: <code>deletetrip</code></a></h5>
+<div class="paragraph">
+<p>You can use this command to delete the current trip.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Deleting the trip will clear all your data from the app! Think twice before you do so.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Format:</strong></p>
+</div>
+<div class="paragraph">
+<p><code>deletetrip</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong></p>
+</div>
+<div class="paragraph">
+<p>Assuming that you have finished planning for your trip and would like to start planning for a new one, follow these steps.</p>
+</div>
+<div class="paragraph">
+<p>Deleting the current trip:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>deletetrip</code> into the <em>Command Box.</em></p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show a success message.</p>
+</li>
+<li>
+<p>You can now see that no trip is set on the <em>Trip Information Panel</em>.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/trip-management/outcome-deletetrip.png" alt="outcome deletetrip">
+</div>
+<div class="title">Figure 7. Outcome of a successful <code>deletetrip</code> command</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="check-your-progress-code-status-code"><a class="link" href="#check-your-progress-code-status-code">Check your progress: <code>status</code></a></h5>
+<div class="paragraph">
+<p>You can use this command to check the progress of your planning. This command will open a window which shows you the following information:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Schedule - If there are any overlapping programs.</p>
+</li>
+<li>
+<p>Packing list - Number of items packed and left to pack.</p>
+</li>
+<li>
+<p>Expense - Remaining budget.</p>
+</li>
+<li>
+<p>Accommodation - The nights without accommodation bookings.
+<strong>Format:</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>status</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong>
+If you are planning for your trip halfway and feel lost, you can check your progress using the following steps. It can remind you of what you have to do next.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Deleting the current trip:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>status</code> into the <em>Command Box</em>.</p>
+</li>
+<li>
+<p>Press <code>Enter</code> to execute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Outcome:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <em>Result Display</em> will show the message “Progress checker window is opened.”.</p>
+</li>
+<li>
+<p>You will now see the following window.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/user-guide/trip-management/outcome-status.png" alt="outcome status">
+</div>
+<div class="title">Figure 8. Progress checker window</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -151,14 +1181,260 @@
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
-<div class="sectionbody">
-<hr>
+<div class="sect2">
+<h3 id="trip-manager"><a class="link" href="#trip-manager">Trip Manager</a></h3>
 <div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+<p><strong>E.T</strong>  allows the user to plan for an overseas trip. <strong>E.T</strong> is implemented in a way that the user can only plan for one single trip at any time. i.e. Only a single trip’s data can be managed. In this Trip Manager feature, the user can set, edit and delete his/her trip details. The trip details includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>title</code></p>
+</li>
+<li>
+<p><code>budget</code></p>
+</li>
+<li>
+<p><code>exchangeRate</code></p>
+</li>
+<li>
+<p><code>startDate</code></p>
+</li>
+<li>
+<p><code>endDate</code></p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="rationale"><a class="link" href="#rationale">Rationale</a></h4>
+<div class="paragraph">
+<p>The Trip Manager feature is included in <strong>E.T.</strong> because it is the core feature of the application. If the user wants to plan for an overseas trip, he/she has to record details about the trip.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 04:54:48 UTC</div></div></div></body></html>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The <code>TripManager</code> class in the <code>Model</code> component is responsible for all operations on the trip which is represented by the <code>Trip</code> class. The following <em>Class Diagram</em> describes the structure of the <code>TripManager</code> and its relevant classes.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/developer-guide/trip/TripClassDiagram.png" alt="TripClassDiagram">
+</div>
+<div class="title">Figure 9. Structure of the <code>TripManager</code> and its relevant classes</div>
+</div>
+<div class="paragraph">
+<p>As seen from the diagram, the <code>TripManager</code> can only manage one trip at any point in time.
+Next, the following table shows the commands related to managing the trip details.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>settrip</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adds a trip and sets the trip details.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rename</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edits the trip title.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>editbudget</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edits the budget of the trip.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletetrip</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deletes the trip and all the data in the App.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>This ability to change the start and end dates and the exchange rate of the trip is not available.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration"><a class="link" href="#design-consideration">Design Consideration</a></h4>
+<div class="sect4">
+<h5 id="aspect-number-of-trips-allowed-to-be-managed"><a class="link" href="#aspect-number-of-trips-allowed-to-be-managed">Aspect: Number of trips allowed to be managed</a></h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top">Pros</th>
+<th class="tableblock halign-left valign-top">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Option 1 (Current)</strong><br>
+Only one</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy to implement. <code>TripManager</code> just needs to hold one <code>Trip</code> object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Less flexibility for the user.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Option 2</strong><br>
+More than one</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">More flexibility for the user.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">More overhead, especially in terms of space.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Reasons for choosing the option 1:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A typical user would only plan one trip at a time. Thus, the overhead incurred by option 2 is not justified.</p>
+</li>
+<li>
+<p>Limited time for implementing this feature. Thus, option 1 is more ideal.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-ability-to-edit-the-details-of-the-trip"><a class="link" href="#aspect-ability-to-edit-the-details-of-the-trip">Aspect: Ability to edit the details of the trip</a></h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top">Pros</th>
+<th class="tableblock halign-left valign-top">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Option 1 (Current)</strong><br>
+Can only edit the title and budget.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy to implement. Nothing depends on the trip title and budget.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Users who need to change the dates or exchange rate of the trip need to delete and then set the trip which is troublesome.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Option 2</strong><br>
+Can edit every detail.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">More flexibility and convenience for the user.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The schedule feature depends on the trip dates while the expense feature depends on the exchange rate. Thus, allowing these fields to be changed is very difficult to implement and likely to result in bugs.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Reasons for choosing option 1:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The exchange rate of a trip does not tend to fluctuate much, thus the cons of option 2 outweigh the pros for the exchange rate.</p>
+</li>
+<li>
+<p>As for the trip dates, the schedule feature is a big feature of <strong>E.T.</strong> and it depends on the trip dates. Given the limited time for implementation, we decided to opt for a less bug-prone approach that can showcase <strong>E.T.</strong>’s feature.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="activity-manager"><a class="link" href="#activity-manager">Activity Manager</a></h3>
+<div class="paragraph">
+<p><strong>E.T.</strong> allows the user to keep track of their activities for his/her trip. The activity manager is one of the <code>ListManager</code> s  (See <a href="#List-Manager">[List-Manager]</a>). On top of the basic operations provided by a <code>ListManager</code>, it also allows the user to search for their activities using the <code>findacitivty</code> command. The parameters of the <code>findactivity</code> command are keywords in the activity entries that the user wants to search for. E.g. <code>findactivity sightseeing carnival</code> will search and list all activity entries with <code>sightseeing</code> or <code>carnival</code> in their detail. Another similar command, <code>findactivitytag</code> has the same functionality but only searches for the tags of activity entries.</p>
+</div>
+<div class="sect3">
+<h4 id="rationale-2"><a class="link" href="#rationale-2">Rationale</a></h4>
+<div class="paragraph">
+<p>The activity manager is an important feature to have because any oversea trip will be packed with activities for the traveller. Thus, we decided to create an activity manager as one of the <code>ListManager</code>s.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The current implementation of the activity manager only allows the user to keep track of a list of activities for their trip. It does not allow the user to indicate the start and end time of an activity. Instead, the ability to indicate a start time for an activity will be in another feature known as the Schedule Feature (See <a href="#Schedule-Feature">[Schedule-Feature]</a>).</p>
+</div>
+<div class="paragraph">
+<p>In this section, we will outline the <code>findactivity</code> command of the activity manager which is summarised by the <em>Activity Diagram</em> below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/developer-guide/activity/FindActivityDiagram.png" alt="FindActivityDiagram">
+</div>
+<div class="title">Figure 10. Workflow of a <code>findactivity</code> command</div>
+</div>
+<div class="paragraph">
+<p>When the user enters the <code>findactivity</code> command to search for activities, the user input command undergoes the same command parsing as described in <a href="#Design-Logic">[Design-Logic]</a>. During the parsing, a predicate is created. This predicate checks if a given <code>Activity</code> contains the user input keywords. The <code>FindActivityCommand</code> will then receive this predicate when it is created.</p>
+</div>
+<div class="paragraph">
+<p>The following steps will describe the execution of the <code>FindActivityCommand</code> in detail, assuming that no error is encountered.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>When the <code>execute()</code> method of the <code>FindActivityCommand</code> is called, the <code>ModelManager</code>’s <code>updateFilteredActivityList()</code> method is called.</p>
+</li>
+<li>
+<p>The <code>ModelManager</code> then proceeds to call the <code>updateFilteredActivityList()</code> method of the <code>ActivityManager</code>.</p>
+</li>
+<li>
+<p>The <code>ActivityManager</code> will then update its filtered list of `Activity`s to contain only `Activity`s that fulfil the given predicate.</p>
+</li>
+<li>
+<p>The <code>Ui</code> component will detect this change and update the <a href="#gui"><em>GUI</em></a>.</p>
+</li>
+<li>
+<p>If the above steps are all successful, the <code>ScheduleCommand</code> will then create a <code>CommandResult</code> object and return the result.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The <em>Sequence Diagram</em> below summarises the aforementioned steps.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/developer-guide/activity/FindActivitySequenceDiagram.png" alt="FindActivitySequenceDiagram">
+</div>
+<div class="title">Figure 11. Execution of the <code>FindActivityCommand</code></div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The lifelines for the <code>FindActivityCommand</code> should end at the destroy marker (X). However, due to a limitation of PlantUML, the lifeline reaches the end of the diagram.</p>
+</div>
+<div class="paragraph">
+<p>This sequence diagram does not take into consideration the possible exceptions which might occur during the <code>FindActivityCommand</code> execution.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">Design Consideration</a></h4>
+<div class="paragraph">
+<p>We do not have other implementation options for the <code>FindActivityCommand</code> as the current implementation is the only option that we came up with. This option is quite easy to understand and follows good coding principles.</p>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 05:12:09 UTC</div></div></div></body></html>
