@@ -2263,7 +2263,7 @@ Expected: The most recent window size and location is retained.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Prerequisites: Arguments are valid and compulsory parameters are provided. The Activity added must be within the time frame of the trip.</p>
+<p>Prerequisites: Arguments are valid and compulsory parameters are provided. The Activity added must be within the time frame of the trip. No duplicate Activity in the Trip.</p>
 </li>
 <li>
 <p>Test case: <code>addactivity title/Osaka Castle View duration/1 location/Osaka tag/expensive tag/sightseeing</code></p>
@@ -2310,7 +2310,7 @@ Expected: The most recent window size and location is retained.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Prerequisites: Arguments are valid and compulsory parameters are provided.</p>
+<p>Prerequisites: Arguments are valid and compulsory parameters are provided. A Trip must not be set</p>
 </li>
 <li>
 <p>Test case: <code>settrip title/Graduation Trip budget/5000 exchangerate/1.03 startdate/28-09-2020 enddate/05-10-2020</code></p>
@@ -2357,14 +2357,14 @@ Expected: The most recent window size and location is retained.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Prerequisites: Arguments are valid, compulsory parameters are provided. The Accommodation added must be within the time frame of the trip.</p>
+<p>Prerequisites: Arguments are valid, compulsory parameters are provided. The Accommodation added must be within the time frame of the trip. No Duplicate Accommodation in the list</p>
 </li>
 <li>
-<p>Test case: <code>addacc name/JW Marriott Hotel loc/KL startday/2 endday/4 remark/Check-in at 3pm.</code></p>
+<p>Test case: <code>addacc name/JW Marriott Hotel loc/KL startday/3 endday/4 remark/Check-in at 3pm.</code></p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Expected: Adds an accommodation with name of <code>JW Marriott Hotel</code> location of <code>KL</code>,  startday of <code>2</code>, endday of <code>4</code> and remark of <code>Check-in at 3pm</code>.</p>
+<p>Expected: Adds an accommodation with name of <code>JW Marriott Hotel</code> location of <code>KL</code>,  startday of <code>3</code>, endday of <code>4</code> and remark of <code>Check-in at 3pm</code>.</p>
 </li>
 </ol>
 </div>
@@ -2404,14 +2404,14 @@ Expected: The most recent window size and location is retained.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Prerequisites: Arguments are valid, compulsory parameters are provided. The Transportation added must be within the time frame of the trip.</p>
+<p>Prerequisites: Arguments are valid, compulsory parameters are provided. The Transportation added must be within the time frame of the trip. No Duplicate Transportation in the list.</p>
 </li>
 <li>
-<p>Test case: <code>addtransport mode/plane startloc/Singapore endloc/Japan starttime/20-03-2020 17:00 endtime/21-03-2020 00:00</code></p>
+<p>Test case: <code>addtransport mode/plane startloc/Singapore endloc/Japan starttime/04-10-2020 17:00 endtime/06-10-2020 00:00</code></p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Expected: Adds an transportation with mode <code>plane</code>, startloc as <code>Singapore</code>, endloc as <code>Japan</code>, starttime as <code>20-03-2020 17:00</code> and endtime as <code>21-03-2020 00:00</code>.</p>
+<p>Expected: Adds an transportation with mode <code>plane</code>, startloc as <code>Singapore</code>, endloc as <code>Japan</code>, starttime as <code>04-10-2020 17:00</code> and endtime as <code>06-10-2020 00:00</code>.</p>
 </li>
 </ol>
 </div>
@@ -2451,7 +2451,7 @@ Expected: The most recent window size and location is retained.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Prerequisites: Arguments are valid and compulsory parameters are provided.</p>
+<p>Prerequisites: Arguments are valid and compulsory parameters are provided. No Duplicate Items are in the list</p>
 </li>
 <li>
 <p>Test case: <code>additem name/Tshirts quantity/5 category/clothes</code></p>
@@ -2535,7 +2535,7 @@ Expected: The most recent window size and location is retained.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Prerequisites: Arguments are valid and compulsory parameters are provided.</p>
+<p>Prerequisites: Arguments are valid and compulsory parameters are provided. No Duplicate Fixed Expense must exist in the list</p>
 </li>
 <li>
 <p>Test case: <code>addexpense amount/1500 currency/sgd description/Plane Tickets category/transport</code></p>
@@ -2585,7 +2585,7 @@ Expected: The most recent window size and location is retained.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Prerequisites: Arguments are valid, compulsory parameters are provided and activity must exist in the activity list. The Activity edited must be within the time frame of the trip.</p>
+<p>Prerequisites: Arguments are valid, compulsory parameters are provided and activity must exist in the activity list. The Activity edited must be within the time frame of the trip. No duplicate Activity in the list.</p>
 </li>
 <li>
 <p>Test case: <code>editactivity 1 title/Shopping duration/2</code></p>
@@ -2615,7 +2615,7 @@ Expected: The most recent window size and location is retained.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Prerequisites: Arguments are valid,  compulsory parameters are provided and fixed expense must exist in the fixed expense List.</p>
+<p>Prerequisites: Arguments are valid,  compulsory parameters are provided and fixed expense must exist in the fixed expense List. No Duplicate Fixed Expense in the list.</p>
 </li>
 <li>
 <p>Test case: <code>editexpense 1 amount/3000 currency/sgd description/SQ Flight category/transport</code></p>
@@ -2716,4 +2716,4 @@ We decided to prevent the user from editing the start and end dates of the trip.
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 14:35:40 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 14:45:20 UTC</div></div></div></body></html>
