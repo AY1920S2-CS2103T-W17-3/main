@@ -9,35 +9,36 @@
 <div id="toc" class="toc">
 <div id="toctitle"></div>
 <ul class="sectlevel1">
-<li><a href="#setting-up">1. Setting up</a></li>
-<li><a href="#design">2. Design</a>
+<li><a href="#introduction">1. Introduction</a></li>
+<li><a href="#setting-up">2. Setting up</a></li>
+<li><a href="#design">3. Design</a>
 <ul class="sectlevel2">
-<li><a href="#Design-Architecture">2.1. Architecture</a></li>
-<li><a href="#ui-component">2.2. UI Component</a></li>
-<li><a href="#logic-component">2.3. Logic component</a></li>
-<li><a href="#model-component">2.4. Model component</a></li>
-<li><a href="#storage-component">2.5. Storage component</a></li>
-<li><a href="#commons-component">2.6. Common classes</a></li>
+<li><a href="#Design-Architecture">3.1. Architecture</a></li>
+<li><a href="#ui-component">3.2. UI Component</a></li>
+<li><a href="#logic-component">3.3. Logic component</a></li>
+<li><a href="#model-component">3.4. Model component</a></li>
+<li><a href="#storage-component">3.5. Storage component</a></li>
+<li><a href="#commons-component">3.6. Common classes</a></li>
 </ul>
 </li>
-<li><a href="#implementation">3. Implementation</a>
+<li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#trip-manager">3.1. Trip Manager</a></li>
-<li><a href="#list-manager">3.2. List Managers</a></li>
-<li><a href="#activity-manager">3.3. Activity Manager</a></li>
-<li><a href="#schedule-feature">3.4. Schedule Feature</a></li>
-<li><a href="#accommodation-booking-manager">3.5. Accommodation Booking Manager</a></li>
-<li><a href="#transport-booking-manager">3.6. Transport Booking Manager</a></li>
-<li><a href="#packing-list-manager">3.7. Packing List Manager</a></li>
-<li><a href="#fixed-expense-manager">3.8. Fixed Expense Manager</a></li>
-<li><a href="#progress-checker">3.9. Progress Checker</a></li>
-<li><a href="#logging">3.10. Logging</a></li>
-<li><a href="#implementation-configuration">3.11. Configuration</a></li>
+<li><a href="#trip-manager">4.1. Trip Manager</a></li>
+<li><a href="#list-manager">4.2. List Managers</a></li>
+<li><a href="#activity-manager">4.3. Activity Manager</a></li>
+<li><a href="#schedule-feature">4.4. Schedule Feature</a></li>
+<li><a href="#accommodation-booking-manager">4.5. Accommodation Booking Manager</a></li>
+<li><a href="#transport-booking-manager">4.6. Transport Booking Manager</a></li>
+<li><a href="#packing-list-manager">4.7. Packing List Manager</a></li>
+<li><a href="#fixed-expense-manager">4.8. Fixed Expense Manager</a></li>
+<li><a href="#progress-checker">4.9. Progress Checker</a></li>
+<li><a href="#logging">4.10. Logging</a></li>
+<li><a href="#implementation-configuration">4.11. Configuration</a></li>
 </ul>
 </li>
-<li><a href="#documentation">4. Documentation</a></li>
-<li><a href="#testing">5. Testing</a></li>
-<li><a href="#dev-ops">6. Dev Ops</a></li>
+<li><a href="#documentation">5. Documentation</a></li>
+<li><a href="#testing">6. Testing</a></li>
+<li><a href="#dev-ops">7. Dev Ops</a></li>
 <li><a href="#product-scope">Appendix A: Product Scope</a></li>
 <li><a href="#user-stories">Appendix B: User Stories</a></li>
 <li><a href="#use-cases">Appendix C: Use Cases</a></li>
@@ -61,7 +62,49 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="setting-up"><a class="link" href="#setting-up">1. Setting up</a></h2>
+<h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>(Contributed by Teng Le)</p>
+</div>
+<div class="paragraph">
+<p><strong>E.T. (Easy Travel)</strong> is a desktop travel planning application made for travellers who want to plan for their trip. It focuses on the <a href="#cli"><em>Command Line Interface (CLI)</em></a> while providing users with a simple and clean <a href="#gui"><em>Graphical User Interface (GUI)</em></a>. Thus, the main interaction with <strong>E.T.</strong> will be done through commands.</p>
+</div>
+<div class="paragraph">
+<p><strong>E.T.</strong> allows users to keep track of their trip planning in a single, simple-to-use platform. The information that can be managed by <strong>E.T.</strong> includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Trip information</p>
+</li>
+<li>
+<p>Planned activities</p>
+</li>
+<li>
+<p>Transport bookings</p>
+</li>
+<li>
+<p>Accommodation bookings</p>
+</li>
+<li>
+<p>Packing list</p>
+</li>
+<li>
+<p>Fixed expenses</p>
+</li>
+<li>
+<p>Progress of their planning</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The purpose of this Developer Guide is to help you understand the design and implementation of <strong>E.T.</strong> so that you can get started on your contributions to <strong>E.T.</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="setting-up"><a class="link" href="#setting-up">2. Setting up</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="SettingUp.html">here</a>.</p>
@@ -69,13 +112,16 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="design"><a class="link" href="#design">2. Design</a></h2>
+<h2 id="design"><a class="link" href="#design">3. Design</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>In this section, you will learn about the general design and structure of <strong>E.T.</strong>. Subsequently, this section will also describe and explain how each component in <strong>E.T.</strong> works individually. <strong>E.T.</strong> is coded using the <a href="#oop"><em>Object-Oriented Programming</em></a> paradigm and it follows the <a href="#facade-pattern"><em>Facade Pattern</em></a> and <a href="#command-pattern"><em>Command Pattern</em></a> in software design.</p>
 </div>
 <div class="sect2">
-<h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">2.1. Architecture</a></h3>
+<h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">3.1. Architecture</a></h3>
+<div class="paragraph">
+<p>(Contributed by Charlotte)</p>
+</div>
 <div class="paragraph">
 <p>The <em>Architecture Diagram</em> below explains the high-level design of the <strong>E.T.</strong>.</p>
 </div>
@@ -173,12 +219,15 @@ Refer to the <a href="UsingPlantUml.html">Using PlantUML guide</a> to learn how 
 </div>
 </div>
 <div class="sect2">
-<h3 id="ui-component"><a class="link" href="#ui-component">2.2. UI Component</a></h3>
+<h3 id="ui-component"><a class="link" href="#ui-component">3.2. UI Component</a></h3>
+<div class="paragraph">
+<p>(Contributed by Joshua Wee)</p>
+</div>
 <div class="paragraph">
 <p>This segment will explain the structure and responsibilities of the <code>Ui</code> component.</p>
 </div>
 <div class="sect3">
-<h4 id="structure"><a class="link" href="#structure">2.2.1. Structure</a></h4>
+<h4 id="structure"><a class="link" href="#structure">3.2.1. Structure</a></h4>
 <div class="imageblock">
 <div class="content">
 <img src="images/UiClassDiagram.png" alt="UiClassDiagram">
@@ -265,7 +314,7 @@ A generic tab is referred to as an <code>XYZTabPanel</code> while a generic card
 </div>
 </div>
 <div class="sect3">
-<h4 id="responsibilities"><a class="link" href="#responsibilities">2.2.2. Responsibilities</a></h4>
+<h4 id="responsibilities"><a class="link" href="#responsibilities">3.2.2. Responsibilities</a></h4>
 <div class="paragraph">
 <p>The <code>Ui</code> component,</p>
 </div>
@@ -282,12 +331,15 @@ A generic tab is referred to as an <code>XYZTabPanel</code> while a generic card
 </div>
 </div>
 <div class="sect2">
-<h3 id="logic-component"><a class="link" href="#logic-component">2.3. Logic component</a></h3>
+<h3 id="logic-component"><a class="link" href="#logic-component">3.3. Logic component</a></h3>
+<div class="paragraph">
+<p>(Contributed by Joshua Wee)</p>
+</div>
 <div class="paragraph">
 <p>This segment will explain the structure and responsibilities of the <code>Ui</code> component.</p>
 </div>
 <div class="sect3">
-<h4 id="structure-2"><a class="link" href="#structure-2">2.3.1. Structure</a></h4>
+<h4 id="structure-2"><a class="link" href="#structure-2">3.3.1. Structure</a></h4>
 <div id="fig-LogicClassDiagram" class="imageblock">
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
@@ -303,7 +355,7 @@ A generic tab is referred to as an <code>XYZTabPanel</code> while a generic card
 </div>
 </div>
 <div class="sect3">
-<h4 id="responsibilities-2"><a class="link" href="#responsibilities-2">2.3.2. Responsibilities</a></h4>
+<h4 id="responsibilities-2"><a class="link" href="#responsibilities-2">3.3.2. Responsibilities</a></h4>
 <div class="paragraph">
 <p>The <code>Logic</code> component is in charge of command parsing from the commands given by the user through the <code>Ui</code> component. It is also responsible for command execution.</p>
 </div>
@@ -350,12 +402,15 @@ The lifelines for the <code>DeleteItemCommandParser</code> and <code>DeleteItemC
 </div>
 </div>
 <div class="sect2">
-<h3 id="model-component"><a class="link" href="#model-component">2.4. Model component</a></h3>
+<h3 id="model-component"><a class="link" href="#model-component">3.4. Model component</a></h3>
+<div class="paragraph">
+<p>(Contributed by Catherine)</p>
+</div>
 <div class="paragraph">
 <p>This segment will explain the structure and responsibilities of the <code>Model</code> component.</p>
 </div>
 <div class="sect3">
-<h4 id="structure-3"><a class="link" href="#structure-3">2.4.1. Structure</a></h4>
+<h4 id="structure-3"><a class="link" href="#structure-3">3.4.1. Structure</a></h4>
 <div class="imageblock">
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
@@ -399,7 +454,7 @@ The lifelines for the <code>DeleteItemCommandParser</code> and <code>DeleteItemC
 </div>
 </div>
 <div class="sect3">
-<h4 id="responsibilities-3"><a class="link" href="#responsibilities-3">2.4.2. Responsibilities</a></h4>
+<h4 id="responsibilities-3"><a class="link" href="#responsibilities-3">3.4.2. Responsibilities</a></h4>
 <div class="paragraph">
 <p>The <code>Model</code> component,</p>
 </div>
@@ -422,12 +477,15 @@ The lifelines for the <code>DeleteItemCommandParser</code> and <code>DeleteItemC
 </div>
 </div>
 <div class="sect2">
-<h3 id="storage-component"><a class="link" href="#storage-component">2.5. Storage component</a></h3>
+<h3 id="storage-component"><a class="link" href="#storage-component">3.5. Storage component</a></h3>
+<div class="paragraph">
+<p>(Contributed by Teng Le)</p>
+</div>
 <div class="paragraph">
 <p>This segment will explain the structure and responsibilities of the <code>Storage</code> component.</p>
 </div>
 <div class="sect3">
-<h4 id="structure-4"><a class="link" href="#structure-4">2.5.1. Structure</a></h4>
+<h4 id="structure-4"><a class="link" href="#structure-4">3.5.1. Structure</a></h4>
 <div class="imageblock">
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
@@ -452,7 +510,7 @@ The lifelines for the <code>DeleteItemCommandParser</code> and <code>DeleteItemC
 </div>
 </div>
 <div class="sect3">
-<h4 id="responsibilities-4"><a class="link" href="#responsibilities-4">2.5.2. Responsibilities</a></h4>
+<h4 id="responsibilities-4"><a class="link" href="#responsibilities-4">3.5.2. Responsibilities</a></h4>
 <div class="paragraph">
 <p>The <code>Storage</code> component,</p>
 </div>
@@ -475,7 +533,7 @@ The lifelines for the <code>DeleteItemCommandParser</code> and <code>DeleteItemC
 </div>
 </div>
 <div class="sect2">
-<h3 id="commons-component"><a class="link" href="#commons-component">2.6. Common classes</a></h3>
+<h3 id="commons-component"><a class="link" href="#commons-component">3.6. Common classes</a></h3>
 <div class="paragraph">
 <p>The <code>Common</code> component contains classes used by multiple other components in the <code>team.easytravel.commons</code> package.</p>
 </div>
@@ -483,13 +541,16 @@ The lifelines for the <code>DeleteItemCommandParser</code> and <code>DeleteItemC
 </div>
 </div>
 <div class="sect1">
-<h2 id="implementation"><a class="link" href="#implementation">3. Implementation</a></h2>
+<h2 id="implementation"><a class="link" href="#implementation">4. Implementation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="trip-manager"><a class="link" href="#trip-manager">3.1. Trip Manager</a></h3>
+<h3 id="trip-manager"><a class="link" href="#trip-manager">4.1. Trip Manager</a></h3>
+<div class="paragraph">
+<p>(Contributed by Charlotte)</p>
+</div>
 <div class="paragraph">
 <p><strong>E.T</strong>  allows the user to plan for an overseas trip. <strong>E.T</strong> is implemented in a way that the user can only plan for one single trip at any time. i.e. Only a single trip’s data can be managed. In this Trip Manager feature, the user can set, edit and delete his/her trip details. The trip details includes:</p>
 </div>
@@ -513,13 +574,13 @@ The lifelines for the <code>DeleteItemCommandParser</code> and <code>DeleteItemC
 </ul>
 </div>
 <div class="sect3">
-<h4 id="rationale"><a class="link" href="#rationale">3.1.1. Rationale</a></h4>
+<h4 id="rationale"><a class="link" href="#rationale">4.1.1. Rationale</a></h4>
 <div class="paragraph">
 <p>The Trip Manager feature is included in <strong>E.T.</strong> because it is the core feature of the application. If the user wants to plan for an overseas trip, he/she has to record details about the trip.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">3.1.2. Current Implementation</a></h4>
+<h4 id="current-implementation"><a class="link" href="#current-implementation">4.1.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>TripManager</code> class in the <code>Model</code> component is responsible for all operations on the trip which is represented by the <code>Trip</code> class. The following <em>Class Diagram</em> describes the structure of the <code>TripManager</code> and its relevant classes.</p>
 </div>
@@ -568,7 +629,7 @@ Next, the following table shows the commands related to managing the trip detail
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration"><a class="link" href="#design-consideration">3.1.3. Design Consideration</a></h4>
+<h4 id="design-consideration"><a class="link" href="#design-consideration">4.1.3. Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect-number-of-trips-allowed-to-be-managed"><a class="link" href="#aspect-number-of-trips-allowed-to-be-managed">Aspect: Number of trips allowed to be managed</a></h5>
 <table class="tableblock frame-all grid-all spread">
@@ -660,7 +721,10 @@ Can edit every detail.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-manager"><a class="link" href="#list-manager">3.2. List Managers</a></h3>
+<h3 id="list-manager"><a class="link" href="#list-manager">4.2. List Managers</a></h3>
+<div class="paragraph">
+<p>(Contributed by Catherine)</p>
+</div>
 <div class="paragraph">
 <p><strong>E.T.</strong> allows the user to manage different essential lists for their trip.</p>
 </div>
@@ -698,13 +762,13 @@ Can edit every detail.</p></td>
 </ul>
 </div>
 <div class="sect3">
-<h4 id="rationale-2"><a class="link" href="#rationale-2">3.2.1. Rationale</a></h4>
+<h4 id="rationale-2"><a class="link" href="#rationale-2">4.2.1. Rationale</a></h4>
 <div class="paragraph">
 <p>When planning for a trip, there are many things that the user may want to keep track of. This is our reason for creating the 5 lists stated above. The `ListManager`s are thus created to help the user manage the 5 lists so that they can plan their trip conveniently and efficiently.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.2. Current Implementation</a></h4>
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.2.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>In this section, we will first explain the structure of a typical <code>ListManager</code> also known as an <code>XYZListManager</code>. As mentioned earlier in the overview of this section, the term <em>item</em> will be used to refer to the elements stored in a list.</p>
 </div>
@@ -763,7 +827,7 @@ Can edit every detail.</p></td>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">3.2.3. Design Consideration</a></h4>
+<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">4.2.3. Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect-separation-between-scheduling-and-activity-management"><a class="link" href="#aspect-separation-between-scheduling-and-activity-management">Aspect: Separation between scheduling and activity management</a></h5>
 <table class="tableblock frame-all grid-all spread">
@@ -850,18 +914,21 @@ Do not extract any common operations and functionalities</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="activity-manager"><a class="link" href="#activity-manager">3.3. Activity Manager</a></h3>
+<h3 id="activity-manager"><a class="link" href="#activity-manager">4.3. Activity Manager</a></h3>
+<div class="paragraph">
+<p>(Contributed by Charlotte)</p>
+</div>
 <div class="paragraph">
 <p><strong>E.T.</strong> allows the user to keep track of their activities for his/her trip. The activity manager is one of the <code>ListManager</code> s  (See <a href="#List-Manager">[List-Manager]</a>). On top of the basic operations provided by a <code>ListManager</code>, it also allows the user to search for their activities using the <code>findacitivty</code> command. The parameters of the <code>findactivity</code> command are keywords in the activity entries that the user wants to search for. E.g. <code>findactivity sightseeing carnival</code> will search and list all activity entries with <code>sightseeing</code> or <code>carnival</code> in their detail. Another similar command, <code>findactivitytag</code> has the same functionality but only searches for the tags of activity entries.</p>
 </div>
 <div class="sect3">
-<h4 id="rationale-3"><a class="link" href="#rationale-3">3.3.1. Rationale</a></h4>
+<h4 id="rationale-3"><a class="link" href="#rationale-3">4.3.1. Rationale</a></h4>
 <div class="paragraph">
 <p>The activity manager is an important feature to have because any oversea trip will be packed with activities for the traveller. Thus, we decided to create an activity manager as one of the <code>ListManager</code>s.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.3.2. Current Implementation</a></h4>
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.3.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The current implementation of the activity manager only allows the user to keep track of a list of activities for their trip. It does not allow the user to indicate the start and end time of an activity. Instead, the ability to indicate a start time for an activity will be in another feature known as the Schedule Feature (See <a href="#Schedule-Feature">[Schedule-Feature]</a>).</p>
 </div>
@@ -927,25 +994,28 @@ Do not extract any common operations and functionalities</p></td>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-3"><a class="link" href="#design-consideration-3">3.3.3. Design Consideration</a></h4>
+<h4 id="design-consideration-3"><a class="link" href="#design-consideration-3">4.3.3. Design Consideration</a></h4>
 <div class="paragraph">
 <p>We do not have other implementation options for the <code>FindActivityCommand</code> as the current implementation is the only option that we came up with. This option is quite easy to understand and follows good coding principles.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="schedule-feature"><a class="link" href="#schedule-feature">3.4. Schedule Feature</a></h3>
+<h3 id="schedule-feature"><a class="link" href="#schedule-feature">4.4. Schedule Feature</a></h3>
+<div class="paragraph">
+<p>(Contributed by Teng Le)</p>
+</div>
 <div class="paragraph">
 <p><strong>E.T.</strong> allows the user to schedule an activity from the activity list to a specified time of a day. This is done using the <code>schedule</code> command which requires the user to specify the <code>ACTIVITY_INDEX</code> of an activity from the displayed activity list, the <code>DAY_INDEX</code> of the trip and the <code>START_TIME</code> of the activity to be scheduled.</p>
 </div>
 <div class="sect3">
-<h4 id="rationale-4"><a class="link" href="#rationale-4">3.4.1. Rationale</a></h4>
+<h4 id="rationale-4"><a class="link" href="#rationale-4">4.4.1. Rationale</a></h4>
 <div class="paragraph">
 <p>The schedule feature is an important feature that allows the users to manage and plan for their trip schedule or itinerary. This feature is added to <strong>E.T.</strong> to separate from the activity management feature from the schedule. This can increase the ease of planning because users can just focus on the time management aspect when scheduling proposed activities from the activity list. The schedule feature also automatically adds any transport bookings into the schedule.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.4.2. Current Implementation</a></h4>
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.4.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The schedule feature uses a separate system and structure as compared to the <code>ListManager</code>s. Instead, the schedule feature will be more closely related to the trip feature because it heavily relies on information about the <code>Trip</code> such as the <code>startDate</code> and <code>endDate</code>.</p>
 </div>
@@ -1022,7 +1092,7 @@ The following steps describe the execution of the <code>ScheduleCommand</code>, 
 </div>
 </div>
 <div class="sect3">
-<h4 id="schedule-design-consideration"><a class="link" href="#schedule-design-consideration">3.4.3. Design Consideration</a></h4>
+<h4 id="schedule-design-consideration"><a class="link" href="#schedule-design-consideration">4.4.3. Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect-separation-between-scheduling-and-activity-management-2"><a class="link" href="#aspect-separation-between-scheduling-and-activity-management-2">Aspect: Separation between scheduling and activity management</a></h5>
 <table class="tableblock frame-all grid-all spread">
@@ -1072,18 +1142,21 @@ i.e. <code>ActivityManager</code> is in charge of scheduling.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="accommodation-booking-manager"><a class="link" href="#accommodation-booking-manager">3.5. Accommodation Booking Manager</a></h3>
+<h3 id="accommodation-booking-manager"><a class="link" href="#accommodation-booking-manager">4.5. Accommodation Booking Manager</a></h3>
+<div class="paragraph">
+<p>(Contributed by Joshua Wee)</p>
+</div>
 <div class="paragraph">
 <p><strong>E.T.</strong> allows the user to keep track of their accommodation bookings for his/her trip. The accommodation booking manager is one of the <code>ListManager</code>s (See <a href="#List-Manager">[List-Manager]</a>). On top of the basic operations provided by a <code>ListManager</code>, it also prevents the user from having overlapping accommodation bookings.</p>
 </div>
 <div class="sect3">
-<h4 id="rationale-5"><a class="link" href="#rationale-5">3.5.1. Rationale</a></h4>
+<h4 id="rationale-5"><a class="link" href="#rationale-5">4.5.1. Rationale</a></h4>
 <div class="paragraph">
 <p>The transport booking manager is an important feature to have because any oversea trip of more than one day will require some form of accommodation. Thus, we decided to create an accommodation booking manager as one of the <code>ListManager</code>s.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.5.2. Current Implementation</a></h4>
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.5.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>When a user adds an accommodation booking, the <code>Logic</code> Component parses the user input and creates an <code>AddAccommodationBookingCommand</code> object (See <a href="#Design-Logic">[Design-Logic]</a>). When the <code>execute()</code> method of <code>AddAccommodationBookingCommand</code> is called, the execution will check if the new accommodation booking overlaps with any other other current bookings.</p>
 </div>
@@ -1135,7 +1208,7 @@ If there is an overlap, the check will stop and the user will receive a message 
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-4"><a class="link" href="#design-consideration-4">3.5.3. Design Consideration</a></h4>
+<h4 id="design-consideration-4"><a class="link" href="#design-consideration-4">4.5.3. Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect-calculating-overlap-of-the-new-accommodation-booking-with-the-other-accommodation-bookings-in-the-list"><a class="link" href="#aspect-calculating-overlap-of-the-new-accommodation-booking-with-the-other-accommodation-bookings-in-the-list">Aspect: Calculating overlap of the new accommodation booking with the other accommodation bookings in the list</a></h5>
 <table class="tableblock frame-all grid-all spread">
@@ -1182,18 +1255,21 @@ Use a hashtable to store the days that have been accounted for.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="transport-booking-manager"><a class="link" href="#transport-booking-manager">3.6. Transport Booking Manager</a></h3>
+<h3 id="transport-booking-manager"><a class="link" href="#transport-booking-manager">4.6. Transport Booking Manager</a></h3>
+<div class="paragraph">
+<p>(Contributed by Teng Le)</p>
+</div>
 <div class="paragraph">
 <p><strong>E.T.</strong> allows the user to keep track of their transport bookings for his/her trip. The transport booking manager is one of the <code>ListManager</code>s (See <a href="#List-Manager">[List-Manager]</a>). On top of the basic operations provided by a <code>ListManager</code>, it also automatically adds all the transport bookings into the trip schedule.</p>
 </div>
 <div class="sect3">
-<h4 id="rationale-6"><a class="link" href="#rationale-6">3.6.1. Rationale</a></h4>
+<h4 id="rationale-6"><a class="link" href="#rationale-6">4.6.1. Rationale</a></h4>
 <div class="paragraph">
 <p>The transport booking manager is an important feature to have because any oversea trip will require some form of transportation to the destination and back. Thus, we decided to create a transport booking manager as one of the <code>ListManager</code>s.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.6.2. Current Implementation</a></h4>
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.6.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The transport bookings are managed by the <code>TransportBookingManager</code> class. In this section, we will describe how a transport booking is automatically added to the schedule when the user adds a transport booking.</p>
 </div>
@@ -1245,7 +1321,7 @@ Use a hashtable to store the days that have been accounted for.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-5"><a class="link" href="#design-consideration-5">3.6.3. Design Consideration</a></h4>
+<h4 id="design-consideration-5"><a class="link" href="#design-consideration-5">4.6.3. Design Consideration</a></h4>
 <div class="paragraph">
 <p>The design consideration for this feature is similar to that of the Schedule feature. (See <a href="#Schedule-Design-Consideration">[Schedule-Design-Consideration]</a>)
 This is because if we let the <code>ActivityManager</code> manage the schedule and activities, then the schedule can only contain activities. This means that transport bookings will become a basic <code>ListManager</code> (See <a href="#List-Manager">[List-Manager]</a>) with no special functionalities. Thus, we decided to adopt the current implementation for better user experience and potential future extensions.</p>
@@ -1253,7 +1329,10 @@ This is because if we let the <code>ActivityManager</code> manage the schedule a
 </div>
 </div>
 <div class="sect2">
-<h3 id="packing-list-manager"><a class="link" href="#packing-list-manager">3.7. Packing List Manager</a></h3>
+<h3 id="packing-list-manager"><a class="link" href="#packing-list-manager">4.7. Packing List Manager</a></h3>
+<div class="paragraph">
+<p>(Contributed by Catherine)</p>
+</div>
 <div class="paragraph">
 <p><strong>E.T.</strong> allows the user to keep track of their packing list for his/her trip. The packing list manager is one of the <code>ListManager</code> s (See <a href="#List-Manager">[List-Manager]</a>). On top of the basic operations provided by a <code>ListManager</code>, it also allows the user to add built-in lists of items into his/her current packing list through the <code>addpreset</code> command.</p>
 </div>
@@ -1261,13 +1340,13 @@ This is because if we let the <code>ActivityManager</code> manage the schedule a
 <p>E.g. the <code>addpreset swimming</code> will add items related to swimming into the packing list. The term <em>preset</em> will be used to refer to the built-in list of packing list items.</p>
 </div>
 <div class="sect3">
-<h4 id="rationale-7"><a class="link" href="#rationale-7">3.7.1. Rationale</a></h4>
+<h4 id="rationale-7"><a class="link" href="#rationale-7">4.7.1. Rationale</a></h4>
 <div class="paragraph">
 <p>The packing list manager is an important feature to have because there are many things that a traveller wants to bring for his/her oversea trip. The packing list will help the user ensure that he/she did not forget to pack anything for the trip. Thus, we decided to create a packing list manager as one of the `ListManager`s.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">3.7.2. Current Implementation</a></h4>
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">4.7.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>When a user enters the <code>addpreset</code> command, the <code>Logic</code> Component parses the user input and creates an <code>AddPresetCommand</code> object (See <a href="#Design-Logic">[Design-Logic]</a>). When the <code>execute()</code> method of <code>AddPresetCommand</code> is called, the execution of this command will retrieve the target preset specified by the user into the packing list.</p>
 </div>
@@ -1282,7 +1361,7 @@ This is because if we let the <code>ActivityManager</code> manage the schedule a
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-6"><a class="link" href="#design-consideration-6">3.7.3. Design Consideration</a></h4>
+<h4 id="design-consideration-6"><a class="link" href="#design-consideration-6">4.7.3. Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect-customizability-of-the-preset"><a class="link" href="#aspect-customizability-of-the-preset">Aspect: Customizability of the preset</a></h5>
 <table class="tableblock frame-all grid-all spread">
@@ -1339,7 +1418,7 @@ Combine both option 1 and 2</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="fixed-expense-manager"><a class="link" href="#fixed-expense-manager">3.8. Fixed Expense Manager</a></h3>
+<h3 id="fixed-expense-manager"><a class="link" href="#fixed-expense-manager">4.8. Fixed Expense Manager</a></h3>
 <div class="paragraph">
 <p>(Contributed by Joshua Lay)</p>
 </div>
@@ -1347,7 +1426,7 @@ Combine both option 1 and 2</p></td>
 <p><strong>E.T.</strong> allows the user to keep track of their fixed expenses for his/her trip. The fixed expense manager is one of the <code>ListManager</code>s (See <a href="#List-Manager">[List-Manager]</a>). On top of the basic operations provided by a <code>ListManager</code>, it also allows the user to set a budget for the trip and automatically converts any fixed expenses entered in foreign currency into Singapore Dollars (SGD).</p>
 </div>
 <div class="sect3">
-<h4 id="rationale-8"><a class="link" href="#rationale-8">3.8.1. Rationale</a></h4>
+<h4 id="rationale-8"><a class="link" href="#rationale-8">4.8.1. Rationale</a></h4>
 <div class="paragraph">
 <p>The fixed expense manager is an important feature to have because many travellers would want to manage their expense for an overseas trip. We also found out that most accommodations are commonly charged in a foreign currency instead of SGD. This prevented travelers from having a clearer picture of how much they have spent on these big ticket items before their trip. Thus, we decided to create a transport booking manager as one of the <code>ListManager</code>s with an automatic conversion feature.
 ==== Current Implementation</p>
@@ -1432,7 +1511,7 @@ Combine both option 1 and 2</p></td>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-7"><a class="link" href="#design-consideration-7">3.8.2. Design Consideration</a></h4>
+<h4 id="design-consideration-7"><a class="link" href="#design-consideration-7">4.8.2. Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect-which-class-to-store-the-trip-s-budget-and-fixed-expense"><a class="link" href="#aspect-which-class-to-store-the-trip-s-budget-and-fixed-expense">Aspect: Which class to store the trip’s budget and fixed expense</a></h5>
 <table class="tableblock frame-all grid-all spread">
@@ -1481,7 +1560,7 @@ Easy to access and manipulate budget and exchange rate data. Especially when cal
 </div>
 </div>
 <div class="sect2">
-<h3 id="progress-checker"><a class="link" href="#progress-checker">3.9. Progress Checker</a></h3>
+<h3 id="progress-checker"><a class="link" href="#progress-checker">4.9. Progress Checker</a></h3>
 <div class="paragraph">
 <p>(Contributed by Joshua Lay)</p>
 </div>
@@ -1505,13 +1584,13 @@ Easy to access and manipulate budget and exchange rate data. Especially when cal
 </ul>
 </div>
 <div class="sect3">
-<h4 id="rationale-9"><a class="link" href="#rationale-9">3.9.1. Rationale</a></h4>
+<h4 id="rationale-9"><a class="link" href="#rationale-9">4.9.1. Rationale</a></h4>
 <div class="paragraph">
 <p>This feature is added because as a travel planning application, the user would want to know his progress when planning for a trip. Thus, information on what is done and what needs to be done will help the user gauge his planning progress. The user would also want to know if they have forgotten to plan for any aspect of a trip which will be provided by this feature.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">3.9.2. Current Implementation</a></h4>
+<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">4.9.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The following <em>Activity Diagram</em> summarizes what happens when a user enters the <code>status</code> command.</p>
 </div>
@@ -1577,7 +1656,7 @@ Easy to access and manipulate budget and exchange rate data. Especially when cal
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-8"><a class="link" href="#design-consideration-8">3.9.3. Design Consideration</a></h4>
+<h4 id="design-consideration-8"><a class="link" href="#design-consideration-8">4.9.3. Design Consideration</a></h4>
 <div class="paragraph">
 <p>We do not have other implementation options for this feature as the current implementation is the only option that we came up with. It is also a good option because it follows good coding principles such as the Law of Demeter (LoD). In our implementation, each object only calls the methods of other objects that it is directly associated with.</p>
 </div>
@@ -1587,7 +1666,7 @@ Easy to access and manipulate budget and exchange rate data. Especially when cal
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.10. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.10. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
@@ -1625,7 +1704,7 @@ Easy to access and manipulate budget and exchange rate data. Especially when cal
 </div>
 </div>
 <div class="sect2">
-<h3 id="implementation-configuration"><a class="link" href="#implementation-configuration">3.11. Configuration</a></h3>
+<h3 id="implementation-configuration"><a class="link" href="#implementation-configuration">4.11. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1633,7 +1712,7 @@ Easy to access and manipulate budget and exchange rate data. Especially when cal
 </div>
 </div>
 <div class="sect1">
-<h2 id="documentation"><a class="link" href="#documentation">4. Documentation</a></h2>
+<h2 id="documentation"><a class="link" href="#documentation">5. Documentation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="Documentation.html">here</a>.</p>
@@ -1641,7 +1720,7 @@ Easy to access and manipulate budget and exchange rate data. Especially when cal
 </div>
 </div>
 <div class="sect1">
-<h2 id="testing"><a class="link" href="#testing">5. Testing</a></h2>
+<h2 id="testing"><a class="link" href="#testing">6. Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="Testing.html">here</a>.</p>
@@ -1649,7 +1728,7 @@ Easy to access and manipulate budget and exchange rate data. Especially when cal
 </div>
 </div>
 <div class="sect1">
-<h2 id="dev-ops"><a class="link" href="#dev-ops">6. Dev Ops</a></h2>
+<h2 id="dev-ops"><a class="link" href="#dev-ops">7. Dev Ops</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="DevOps.html">here</a>.</p>
@@ -1659,6 +1738,9 @@ Easy to access and manipulate budget and exchange rate data. Especially when cal
 <div class="sect1">
 <h2 id="product-scope"><a class="link" href="#product-scope">Appendix A: Product Scope</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>(Contributed by Teng Le)</p>
+</div>
 <div class="paragraph">
 <p><strong>Target user profile</strong>:</p>
 </div>
@@ -1711,6 +1793,9 @@ Easy to access and manipulate budget and exchange rate data. Especially when cal
 <div class="sect1">
 <h2 id="user-stories"><a class="link" href="#user-stories">Appendix B: User Stories</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>(Contributed by Charlotte)</p>
+</div>
 <div class="paragraph">
 <p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
 </div>
@@ -1836,6 +1921,9 @@ Easy to access and manipulate budget and exchange rate data. Especially when cal
 <div class="sect1">
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>(Contributed by Joshua Wee)</p>
+</div>
 <h3 id="trip-planner" class="discrete">Trip Planner</h3>
 <div class="listingblock">
 <div class="content">
@@ -2007,6 +2095,9 @@ Extensions:
 <div class="sect1">
 <h2 id="non-functional-requirements"><a class="link" href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>(Contributed by Charlotte)</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -2040,6 +2131,9 @@ Extensions:
 <div class="sect1">
 <h2 id="glossary"><a class="link" href="#glossary">Appendix E: Glossary</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>(Contributed by Joshua Lay)</p>
+</div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><a id="e-t"></a> E.T.</dt>
@@ -2577,6 +2671,9 @@ Expected: The most recent window size and location is retained.</p>
 <div class="sect2">
 <h3 id="challenges"><a class="link" href="#challenges">G.2. Challenges</a></h3>
 <div class="paragraph">
+<p>(Contributed by Catherine)</p>
+</div>
+<div class="paragraph">
 <p>Throughout the development of <strong>Easy Travel</strong>, we faced many challenges. The following points will describe these challenges what how did we deal with them.</p>
 </div>
 <div class="paragraph">
@@ -2619,4 +2716,4 @@ We decided to prevent the user from editing the start and end dates of the trip.
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 14:04:06 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 14:12:45 UTC</div></div></div></body></html>
